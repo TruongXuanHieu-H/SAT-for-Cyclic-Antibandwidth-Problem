@@ -34,12 +34,8 @@ public:
     std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
     std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
 
-    // Solver configurations
-    bool force_phase = false;
     bool verbose = true;
-    std::string sat_configuration = "sat";
-
-    bool enable_solution_verification = true;
+    bool enable_solution_verification = false;
     int split_limit = 0;
     std::string symmetry_break_point = "n";
 

@@ -74,22 +74,6 @@ int main(int argc, char **argv)
         {
             cabw_enc->encode_type = EncodeType::Seq;
         }
-        else if (argv[i] == std::string("--conf-sat"))
-        {
-            cabw_enc->sat_configuration = "sat";
-        }
-        else if (argv[i] == std::string("--conf-unsat"))
-        {
-            cabw_enc->sat_configuration = "unsat";
-        }
-        else if (argv[i] == std::string("--conf-def"))
-        {
-            cabw_enc->sat_configuration = "";
-        }
-        else if (argv[i] == std::string("--force-phase"))
-        {
-            cabw_enc->force_phase = true;
-        }
         else if (argv[i] == std::string("--check-solution"))
         {
             cabw_enc->enable_solution_verification = true;
