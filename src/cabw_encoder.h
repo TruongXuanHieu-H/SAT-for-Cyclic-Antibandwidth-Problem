@@ -29,7 +29,6 @@ public:
     std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
 
     void encode_and_solve();
-    void encode_and_print_dimacs(int width);
 
     void create_limit_pid();
     void create_cabp_pid(int width);

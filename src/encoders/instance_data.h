@@ -25,8 +25,6 @@ public:
     static void set_up_encoder();
     static void setup_for_solving();
     static void cleanup_solving();
-    static void setup_for_print();
-    static void cleanup_print();
 };
 
 #endif // INSTANCE_DATA_H

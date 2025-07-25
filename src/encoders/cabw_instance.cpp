@@ -95,16 +95,6 @@ int CABWInstance::encode_and_solve_cabp()
     return SAT_res;
 };
 
-void CABWInstance::encode_and_print_cabp()
-{
-    InstanceData::setup_for_print();
-
-    InstanceData::enc->encode_cyclic_antibandwidth();
-    InstanceData::cc->print_dimacs();
-
-    InstanceData::cleanup_print();
-};
-
 int CABWInstance::verify_solution()
 {
     std::vector<int> node_labels = InstanceData::solver->extract_result();

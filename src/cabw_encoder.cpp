@@ -303,12 +303,6 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
     std::cout << "r\n";
 };
 
-void CyclicAntiBandwidthEncoder::encode_and_print_dimacs(int width)
-{
-    std::cout << "c Encoding and printing DIMACS for width: " << width << std::endl;
-    std::cerr << "e Encode and print ABP have not yet implemented.\n";
-};
-
 void CyclicAntiBandwidthEncoder::setup_bounds(int &w_from, int &w_to)
 {
     lookup_bounds(w_from, w_to);

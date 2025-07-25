@@ -41,17 +41,6 @@ void ClauseContainer::add_clause(const Clause &c)
         do_add_clause(long_clause);
     }
 };
-
-void ClauseContainer::print_clauses()
-{
-    do_print_clauses();
-};
-
-void ClauseContainer::print_dimacs()
-{
-    do_print_dimacs();
-};
-
 int ClauseContainer::size()
 {
     return do_size();
@@ -68,31 +57,6 @@ void ClauseContainer::do_add_clause(const Clause &c)
 
     if (InstanceData::solver)
         InstanceData::solver->add_clause(c);
-};
-
-void ClauseContainer::do_print_dimacs()
-{
-    std::cout << "p cnf " << InstanceData::vh->size() << " " << size() << std::endl;
-    for (auto const &c : clause_list)
-    {
-        for (auto const &l : c)
-        {
-            std::cout << l << " ";
-        }
-        std::cout << "0" << std::endl;
-    }
-};
-
-void ClauseContainer::do_print_clauses()
-{
-    for (auto const &c : clause_list)
-    {
-        for (auto const &l : c)
-        {
-            std::cout << l << " ";
-        }
-        std::cout << "0" << std::endl;
-    }
 };
 
 int ClauseContainer::do_size()

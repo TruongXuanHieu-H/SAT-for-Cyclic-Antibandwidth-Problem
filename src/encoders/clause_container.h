@@ -16,8 +16,6 @@ public:
     Clauses clause_list;
 
     void add_clause(const Clause &c);
-    void print_dimacs();
-    void print_clauses();
     int size();
 
 protected:
@@ -25,8 +23,6 @@ protected:
 
 private:
     void do_add_clause(const Clause &c);
-    void do_print_dimacs();
-    void do_print_clauses();
     int do_size();
     void do_clear();
 };

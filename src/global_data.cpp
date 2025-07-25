@@ -2,7 +2,8 @@
 
 GlobalData::GlobalData() {}
 
-GlobalData::~GlobalData() {
+GlobalData::~GlobalData()
+{
     if (g)
         delete g; // Clean up the global graph instance
 }
@@ -13,9 +14,6 @@ int GlobalData::worker_count = 1;
 
 EncodeType GlobalData::encode_type = EncodeType::Ladder;
 SearchStrategy GlobalData::search_strategy = SearchStrategy::from_lb;
-
-bool GlobalData::just_print_dimacs = false;
-int GlobalData::dimacs_width = 2; // Default width for DIMACS printing
 
 bool GlobalData::enable_solution_verification = true;
 int GlobalData::split_limit = 0;

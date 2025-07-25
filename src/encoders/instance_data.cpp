@@ -51,21 +51,6 @@ void InstanceData::setup_for_solving()
     set_up_encoder();
 }
 
-void InstanceData::setup_for_print()
-{
-    cc = new ClauseContainer();
-    vh = new VarHandler(1, GlobalData::g->n);
-
-    set_up_encoder();
-}
-
-void InstanceData::cleanup_print()
-{
-    delete enc;
-    delete cc;
-    delete vh;
-}
-
 void InstanceData::cleanup_solving()
 {
     delete enc;

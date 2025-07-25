@@ -16,7 +16,6 @@ public:
     virtual ~CABWInstance();
 
     int encode_and_solve_cabp();
-    void encode_and_print_cabp();
 
 private:
     int SAT_res = 0;

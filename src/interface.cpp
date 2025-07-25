@@ -78,18 +78,6 @@ int main(int argc, char **argv)
         {
             GlobalData::search_strategy = SearchStrategy::from_lb;
         }
-        else if (argv[i] == std::string("-print-w"))
-        {
-            GlobalData::dimacs_width = get_number_arg(argv[++i]);
-            if (GlobalData::dimacs_width < 2)
-            {
-                std::cout << "Error, width has to be at least 2." << std::endl;
-                delete cabw_enc;
-                return 1;
-            }
-            std::cout << "c DIMACS Printing mode for w = " << GlobalData::dimacs_width << "." << std::endl;
-            GlobalData::just_print_dimacs = true;
-        }
         else if (argv[i] == std::string("-set-lb"))
         {
             GlobalData::forced_lb = get_number_arg(argv[++i]);
@@ -199,14 +187,7 @@ int main(int argc, char **argv)
         }
     }
 
-    if (GlobalData::just_print_dimacs)
-    {
-        cabw_enc->encode_and_print_dimacs(GlobalData::dimacs_width);
-    }
-    else
-    {
-        cabw_enc->encode_and_solve();
-    }
+    cabw_enc->encode_and_solve();
 
     delete cabw_enc;
     return 0;

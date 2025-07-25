@@ -20,9 +20,6 @@ public:
     static EncodeType encode_type;
     static SearchStrategy search_strategy;
 
-    static bool just_print_dimacs;
-    static int dimacs_width; // Width for DIMACS printing
-
     static bool enable_solution_verification;
     static int split_limit;
 
