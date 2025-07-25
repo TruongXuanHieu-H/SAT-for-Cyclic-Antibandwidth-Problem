@@ -21,9 +21,6 @@ public:
     int size();
 
 protected:
-    VarHandler *vh;
-
-    ClauseContainer(VarHandler *, int split_size = 0);
     bool do_split = false;
 
 private:

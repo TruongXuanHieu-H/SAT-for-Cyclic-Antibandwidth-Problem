@@ -15,8 +15,6 @@ public:
     CABWInstance(int width);
     virtual ~CABWInstance();
 
-    EncodeType encode_type = EncodeType::Ladder; // Default encoding type
-
     int encode_and_solve_cabp();
     void encode_and_print_cabp();
 

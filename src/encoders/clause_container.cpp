@@ -28,7 +28,7 @@ void ClauseContainer::add_clause(const Clause &c)
         Clause long_clause = c;
         while ((int)long_clause.size() > GlobalData::split_limit)
         {
-            int split_var = vh->get_new_var();
+            int split_var = InstanceData::vh->get_new_var();
 
             Clause chunk(long_clause.begin(), long_clause.begin() + GlobalData::split_limit);
             chunk.push_back(split_var);
@@ -72,7 +72,7 @@ void ClauseContainer::do_add_clause(const Clause &c)
 
 void ClauseContainer::do_print_dimacs()
 {
-    std::cout << "p cnf " << vh->size() << " " << size() << std::endl;
+    std::cout << "p cnf " << InstanceData::vh->size() << " " << size() << std::endl;
     for (auto const &c : clause_list)
     {
         for (auto const &l : c)
