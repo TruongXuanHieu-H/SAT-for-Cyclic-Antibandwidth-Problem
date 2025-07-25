@@ -6,7 +6,7 @@ OBJS = $(patsubst %.o,$(OBJDIR)/%.o,$(OBJECTS))
 
 FLAGS= -Wall -Werror -Wextra -O3 -DNDEBUG
 IGNORE_ASSERTVARS= -Wno-unused-but-set-variable
-STANDARD= -std=c++11
+STANDARD= -std=c++23
 
 CADICAL_INC=./solver/cadical/
 CADICAL_LIB_DIR=./solver/cadical/
