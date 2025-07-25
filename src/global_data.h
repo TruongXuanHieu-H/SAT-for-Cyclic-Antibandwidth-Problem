@@ -4,6 +4,7 @@
 #include "graph/graph.h"
 #include "enum/encode_type.h"
 #include "enum/search_strategy.h"
+#include <unordered_map>
 #include <limits>
 
 class GlobalData
@@ -38,6 +39,9 @@ public:
     static float elapsed_time_limit; // bound of total time consumed by all the process, in seconds
 
     static void read_graph(std::string graph_file_name);
+
+    static std::unordered_map<std::string, int> cabw_LBs;
+    static std::unordered_map<std::string, int> cabw_UBs;
 };
 
 #endif // GLOBAL_DATA_H

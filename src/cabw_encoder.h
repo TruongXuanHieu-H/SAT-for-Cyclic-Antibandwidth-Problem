@@ -55,9 +55,6 @@ private:
     void setup_bounds(int &w_from, int &w_to);
 
     int is_limit_satisfied();
-
-    static std::unordered_map<std::string, int> cabw_LBs;
-    static std::unordered_map<std::string, int> cabw_UBs;
 };
 
 #endif // CABW_ENCODER_H

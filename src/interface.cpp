@@ -66,7 +66,7 @@ int main(int argc, char **argv)
             delete cabw_enc;
             return 1;
         }
-        else if (argv[i] == std::string("--seq"))
+        else if (argv[i] == std::string("--ladder"))
         {
             GlobalData::encode_type = EncodeType::Ladder;
         }

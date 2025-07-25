@@ -336,8 +336,8 @@ void CyclicAntiBandwidthEncoder::setup_bounds(int &w_from, int &w_to)
 
 void CyclicAntiBandwidthEncoder::lookup_bounds(int &lb, int &ub)
 {
-    auto pos = cabw_LBs.find(GlobalData::g->graph_name);
-    if (pos != cabw_LBs.end())
+    auto pos = GlobalData::cabw_LBs.find(GlobalData::g->graph_name);
+    if (pos != GlobalData::cabw_LBs.end())
     {
         lb = pos->second;
         // if (verbose)
@@ -350,8 +350,8 @@ void CyclicAntiBandwidthEncoder::lookup_bounds(int &lb, int &ub)
         std::cout << "c LB-w = 2 (default value).\n";
     }
 
-    pos = cabw_UBs.find(GlobalData::g->graph_name);
-    if (pos != cabw_UBs.end())
+    pos = GlobalData::cabw_UBs.find(GlobalData::g->graph_name);
+    if (pos != GlobalData::cabw_UBs.end())
     {
         ub = pos->second;
         // if (verbose)
@@ -364,7 +364,3 @@ void CyclicAntiBandwidthEncoder::lookup_bounds(int &lb, int &ub)
         std::cout << "c UB-w = " << ub << " (default value calculated as n/2+1).\n";
     }
 };
-
-std::unordered_map<std::string, int> CyclicAntiBandwidthEncoder::cabw_LBs = {};
-
-std::unordered_map<std::string, int> CyclicAntiBandwidthEncoder::cabw_UBs = {};

@@ -60,11 +60,11 @@ int ClauseContainer::size()
 void ClauseContainer::do_add_clause(const Clause &c)
 {
     clause_list.push_back(c);
-    for (auto cl : c)
-    {
-        std::cout << cl << " ";
-    }
-    std::cout << std::endl;
+    // for (auto cl : c)
+    // {
+    //     std::cout << cl << " ";
+    // }
+    // std::cout << std::endl;
 
     if (InstanceData::solver)
         InstanceData::solver->add_clause(c);
