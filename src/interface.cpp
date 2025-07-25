@@ -7,10 +7,11 @@
 #include <stdexcept>
 #include <map>
 
+#include "global_data.h"
+#include "cabw_encoder.h"
 #include "utils/signal_handler.h"
 #include "utils/usage.h"
 #include "utils/version.h"
-#include "cabw_encoder.h"
 #include "enum/encode_type.h"
 #include "enum/search_strategy.h"
 
@@ -42,11 +43,6 @@ int main(int argc, char **argv)
 {
     SignalHandler::init_signals();
 
-    std::string graph_file;
-    int cabw_value = 2;
-    bool just_print_dimacs = false;
-    int split_size = 0;
-
     Version::print_version();
 
     if (argc < 2)
@@ -62,7 +58,7 @@ int main(int argc, char **argv)
     {
         if (argv[i][0] != '-')
         {
-            cabw_enc->read_graph(argv[i]);
+            GlobalData::read_graph(argv[i]);
         }
         else if (argv[i] == std::string("--help"))
         {
@@ -72,51 +68,51 @@ int main(int argc, char **argv)
         }
         else if (argv[i] == std::string("--seq"))
         {
-            cabw_enc->encode_type = EncodeType::Seq;
+            GlobalData::encode_type = EncodeType::Ladder;
         }
         else if (argv[i] == std::string("--check-solution"))
         {
-            cabw_enc->enable_solution_verification = true;
+            GlobalData::enable_solution_verification = true;
         }
         else if (argv[i] == std::string("--from-lb"))
         {
-            cabw_enc->search_strategy = SearchStrategy::from_lb;
+            GlobalData::search_strategy = SearchStrategy::from_lb;
         }
         else if (argv[i] == std::string("-print-w"))
         {
-            cabw_value = get_number_arg(argv[++i]);
-            if (cabw_value < 2)
+            GlobalData::dimacs_width = get_number_arg(argv[++i]);
+            if (GlobalData::dimacs_width < 2)
             {
                 std::cout << "Error, width has to be at least 2." << std::endl;
                 delete cabw_enc;
                 return 1;
             }
-            std::cout << "c DIMACS Printing mode for w = " << cabw_value << "." << std::endl;
-            just_print_dimacs = true;
+            std::cout << "c DIMACS Printing mode for w = " << GlobalData::dimacs_width << "." << std::endl;
+            GlobalData::just_print_dimacs = true;
         }
         else if (argv[i] == std::string("-set-lb"))
         {
-            cabw_enc->forced_lb = get_number_arg(argv[++i]);
-            if (cabw_enc->forced_lb < 2)
+            GlobalData::forced_lb = get_number_arg(argv[++i]);
+            if (GlobalData::forced_lb < 2)
             {
                 std::cout << "Error, width has to be at least 2." << std::endl;
                 delete cabw_enc;
                 return 1;
             }
-            cabw_enc->overwrite_lb = true;
-            std::cout << "c LB is predefined as " << cabw_enc->forced_lb << "." << std::endl;
+            GlobalData::overwrite_lb = true;
+            std::cout << "c LB is predefined as " << GlobalData::forced_lb << "." << std::endl;
         }
         else if (argv[i] == std::string("-set-ub"))
         {
-            cabw_enc->forced_ub = get_number_arg(argv[++i]);
-            if (cabw_enc->forced_ub < 0)
+            GlobalData::forced_ub = get_number_arg(argv[++i]);
+            if (GlobalData::forced_ub < 0)
             {
                 std::cout << "Error, width has to be positive." << std::endl;
                 delete cabw_enc;
                 return 1;
             }
-            cabw_enc->overwrite_ub = true;
-            std::cout << "c UB is predefined as " << cabw_enc->forced_ub << "." << std::endl;
+            GlobalData::overwrite_ub = true;
+            std::cout << "c UB is predefined as " << GlobalData::forced_ub << "." << std::endl;
         }
         else if (argv[i] == std::string("-limit-memory"))
         {
@@ -128,7 +124,7 @@ int main(int argc, char **argv)
                 return 1;
             }
             std::cout << "c Memory limit is set to " << lim_mem << "." << std::endl;
-            cabw_enc->memory_limit = lim_mem;
+            GlobalData::memory_limit = lim_mem;
         }
         else if (argv[i] == std::string("-limit-real-time"))
         {
@@ -140,7 +136,7 @@ int main(int argc, char **argv)
                 return 1;
             }
             std::cout << "c Real time limit is set to " << limit_real_time << "." << std::endl;
-            cabw_enc->real_time_limit = limit_real_time;
+            GlobalData::real_time_limit = limit_real_time;
         }
         else if (argv[i] == std::string("-limit-elapsed-time"))
         {
@@ -152,7 +148,7 @@ int main(int argc, char **argv)
                 return 1;
             }
             std::cout << "c Elapsed time limit is set to " << limit_elapsed_time << "." << std::endl;
-            cabw_enc->elapsed_time_limit = limit_elapsed_time;
+            GlobalData::elapsed_time_limit = limit_elapsed_time;
         }
         else if (argv[i] == std::string("-sample-rate"))
         {
@@ -164,7 +160,7 @@ int main(int argc, char **argv)
                 return 1;
             }
             std::cout << "c Sample rate is set to " << sample_rate << "." << std::endl;
-            cabw_enc->sample_rate = sample_rate;
+            GlobalData::sample_rate = sample_rate;
         }
         else if (argv[i] == std::string("-report-rate"))
         {
@@ -176,11 +172,11 @@ int main(int argc, char **argv)
                 return 1;
             }
             std::cout << "c Sample rate is set to " << report_rate << "." << std::endl;
-            cabw_enc->report_rate = report_rate;
+            GlobalData::report_rate = report_rate;
         }
         else if (argv[i] == std::string("-split-size"))
         {
-            split_size = get_number_arg(argv[++i]);
+            int split_size = get_number_arg(argv[++i]);
             if (split_size < 0)
             {
                 std::cout << "Error, split size has to be positive." << std::endl;
@@ -188,29 +184,26 @@ int main(int argc, char **argv)
                 return 1;
             }
             std::cout << "c Splitting clauses at length " << split_size << "." << std::endl;
-            cabw_enc->split_limit = split_size;
+            GlobalData::split_limit = split_size;
         }
         else if (argv[i] == std::string("-symmetry-break"))
         {
             std::string break_point = argv[++i];
+            GlobalData::symmetry_break_point = break_point;
             if (break_point == std::string("f"))
             {
-                cabw_enc->symmetry_break_point = break_point;
                 std::cout << "c Symetry breaking in the first node." << std::endl;
             }
             else if (break_point == std::string("h"))
             {
-                cabw_enc->symmetry_break_point = break_point;
                 std::cout << "c Symetry breaking in the highest degree node." << std::endl;
             }
             else if (break_point == std::string("l"))
             {
-                cabw_enc->symmetry_break_point = break_point;
                 std::cout << "c Symetry breaking in the lowest degree node." << std::endl;
             }
             else if (break_point == std::string("n"))
             {
-                cabw_enc->symmetry_break_point = break_point;
                 std::cout << "c Symetry breaking is not applied." << std::endl;
             }
             else
@@ -230,9 +223,9 @@ int main(int argc, char **argv)
         }
     }
 
-    if (just_print_dimacs)
+    if (GlobalData::just_print_dimacs)
     {
-        cabw_enc->encode_and_print_dimacs(cabw_value);
+        cabw_enc->encode_and_print_dimacs(GlobalData::dimacs_width);
     }
     else
     {

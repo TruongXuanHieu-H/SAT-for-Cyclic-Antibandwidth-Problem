@@ -128,7 +128,7 @@ int Graph::calculate_cyclic_antibandwidth(const std::vector<int> &node_labels) c
     return min_dist;
 };
 
-unsigned Graph::find_greatest_outdegree_node() const
+int Graph::find_greatest_outdegree_node() const
 {
     assert(n > 0);
     std::vector<int> out_degrees = std::vector<int>(n, 0);
@@ -140,7 +140,7 @@ unsigned Graph::find_greatest_outdegree_node() const
 
     int max_node = 1;
     int max_odegree = out_degrees[0];
-    for (unsigned i = 1; i < out_degrees.size(); ++i)
+    for (int i = 1; i < (int)out_degrees.size(); ++i)
     {
         if (out_degrees[i] > max_odegree)
         {
@@ -151,7 +151,7 @@ unsigned Graph::find_greatest_outdegree_node() const
     return max_node;
 };
 
-unsigned Graph::find_smallest_outdegree_node() const
+int Graph::find_smallest_outdegree_node() const
 {
     assert(n > 0);
     std::vector<int> out_degrees = std::vector<int>(n, 0);
@@ -163,7 +163,7 @@ unsigned Graph::find_smallest_outdegree_node() const
 
     int min_node = 1;
     int min_odegree = out_degrees[0];
-    for (unsigned i = 1; i < out_degrees.size(); ++i)
+    for (int i = 1; i < (int)out_degrees.size(); ++i)
     {
         if (out_degrees[i] < min_odegree)
         {

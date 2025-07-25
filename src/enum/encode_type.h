@@ -3,7 +3,7 @@
 
 enum class EncodeType
 {
-    Seq, // Sequential Counter encoding
+    Ladder, // Ladder encoding
 };
 
 #endif // ENCODE_TYPE_H

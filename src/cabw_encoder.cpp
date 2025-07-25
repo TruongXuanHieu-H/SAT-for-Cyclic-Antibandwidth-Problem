@@ -1,4 +1,6 @@
+#include "global_data.h"
 #include "cabw_encoder.h"
+#include "encoders/cabw_instance.h"
 #include "utils/pid_manager.h"
 
 #include <iostream>
@@ -14,32 +16,14 @@ CyclicAntiBandwidthEncoder::CyclicAntiBandwidthEncoder()
     max_consumed_memory = (float *)mmap(nullptr, sizeof(float), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
 };
 
-CyclicAntiBandwidthEncoder::~CyclicAntiBandwidthEncoder()
-{
-    end_time = std::chrono::high_resolution_clock::now();
-    auto encode_duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
-
-    std::cout << "r\n";
-    std::cout << "r Final results: \n";
-    std::cout << "r Max width SAT:  \t" << (max_width_SAT == std::numeric_limits<int>::min() ? "-" : std::to_string(max_width_SAT)) << "\n";
-    std::cout << "r Min width UNSAT:\t" << (min_width_UNSAT == std::numeric_limits<int>::max() ? "-" : std::to_string(min_width_UNSAT)) << "\n";
-    std::cout << "r Total real time: " << encode_duration << " ms\n";
-    std::cout << "r Total memory consumed " << *max_consumed_memory << " MB\n";
-    std::cout << "r\n";
-    std::cout << "r\n";
-    delete g;
-};
-
-void CyclicAntiBandwidthEncoder::read_graph(std::string graph_file_name)
-{
-    g = new Graph(graph_file_name);
+CyclicAntiBandwidthEncoder::~CyclicAntiBandwidthEncoder() {
 };
 
 void CyclicAntiBandwidthEncoder::encode_and_solve()
 {
-    std::cout << "c Encoding and solving for graph: " << g->graph_name << std::endl;
+    std::cout << "c Encoding and solving for graph: " << GlobalData::g->graph_name << std::endl;
 
-    switch (search_strategy)
+    switch (GlobalData::search_strategy)
     {
     case SearchStrategy::from_lb:
         std::cout << "c Search strategy: from lower bound." << std::endl;
@@ -47,7 +31,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve()
         break;
 
     default:
-        std::cerr << "c Unrecognized search strategy " << static_cast<int>(search_strategy) << "." << std::endl;
+        std::cerr << "c Unrecognized search strategy " << static_cast<int>(GlobalData::search_strategy) << "." << std::endl;
         break;
     }
 };
@@ -71,13 +55,13 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_from_lb()
  */
 int CyclicAntiBandwidthEncoder::is_limit_satisfied()
 {
-    if (consumed_memory > memory_limit)
+    if (consumed_memory > GlobalData::memory_limit)
         return -1;
 
-    if (consumed_real_time > real_time_limit)
+    if (consumed_real_time > GlobalData::real_time_limit)
         return -2;
 
-    if (consumed_elapsed_time > elapsed_time_limit)
+    if (consumed_elapsed_time > GlobalData::elapsed_time_limit)
         return -3;
 
     return 0;
@@ -98,8 +82,8 @@ void CyclicAntiBandwidthEncoder::create_limit_pid()
         while (limit_state == 0)
         {
             consumed_memory = std::round(PIDManager::get_total_memory_usage(main_pid) * 10 / 1024.0) / 10;
-            consumed_real_time += std::round((float)sample_rate * 10 / 1000000.0) / 10;
-            consumed_elapsed_time += (float)(sample_rate * (PIDManager::get_descendant_pids(main_pid).size() - 1)) / 1000000.0;
+            consumed_real_time += std::round((float)GlobalData::sample_rate * 10 / 1000000.0) / 10;
+            consumed_elapsed_time += (float)(GlobalData::sample_rate * (PIDManager::get_descendant_pids(main_pid).size() - 1)) / 1000000.0;
 
             if (consumed_memory > *max_consumed_memory)
             {
@@ -108,13 +92,13 @@ void CyclicAntiBandwidthEncoder::create_limit_pid()
             }
 
             sampler_count++;
-            if (sampler_count >= report_rate)
+            if (sampler_count >= GlobalData::report_rate)
             {
                 std::cout << "c [Lim] Sampler:\t" << "Memory: " << consumed_memory << " MB\tReal time: "
                           << consumed_real_time << "s\tElapsed time: " << consumed_elapsed_time << "s\n";
                 sampler_count = 0;
             }
-            usleep(sample_rate);
+            usleep(GlobalData::sample_rate);
 
             limit_state = is_limit_satisfied();
         }
@@ -158,13 +142,14 @@ void CyclicAntiBandwidthEncoder::create_cabp_pid(int width)
 int CyclicAntiBandwidthEncoder::do_cabp_pid_task(int width)
 {
     // Dynamically allocate and use ABPEncoder in child process
-    ABPEncoder *abp_enc = new ABPEncoder(symmetry_break_strategy, graph, width);
-    int result = abp_enc->encode_and_solve_abp();
+    CABWInstance *cabp_ins = new CABWInstance(width);
+
+    int result = cabp_ins->encode_and_solve_cabp();
 
     std::cout << "c [w = " << width << "] Result: " << result << "\n";
 
     // Clean up dynamically allocated memory
-    delete abp_enc;
+    delete cabp_ins;
 
     // std::cout << "c [w = " << width << "] Child " << width << " completed task." << std::endl;
     return result;
@@ -178,7 +163,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
     int current_width = start_w;
     int number_width = stop_w - start_w;
 
-    for (int i = 0; i < worker_count && i < number_width; i += step)
+    for (int i = 0; i < GlobalData::worker_count && i < number_width; i += step)
     {
         create_cabp_pid(current_width);
         current_width += step;
@@ -195,7 +180,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
         if (finished_pid == lim_pid)
         {
             limit_violated = true;
-            std::cout << "c [Lim] End with result: " << status << "\n";
+            std::cout << "c [Lim] End with result: " << WEXITSTATUS(status) << "\n";
             while (!abp_pids.empty())
             {
                 kill(abp_pids.begin()->second, SIGTERM);
@@ -252,7 +237,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
                     }
 
                     abp_pids.erase(it);
-                    if (abp_pids.empty() && kill(lim_pid, 0) == 0)
+                    if (abp_pids.empty() && (current_width >= min_width_UNSAT || current_width == stop_w) && kill(lim_pid, 0) == 0)
                     {
                         kill(lim_pid, SIGTERM);
                     }
@@ -296,7 +281,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
 
         if (!limit_violated)
         {
-            while (int(abp_pids.size()) < worker_count && current_width < stop_w && current_width < min_width_UNSAT)
+            while (int(abp_pids.size()) < GlobalData::worker_count && current_width < stop_w && current_width < min_width_UNSAT)
             {
                 create_cabp_pid(current_width);
                 current_width += step;
@@ -304,6 +289,18 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
         }
     }
     std::cout << "c All children have completed." << std::endl;
+
+    end_time = std::chrono::high_resolution_clock::now();
+    auto encode_duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+
+    std::cout << "r\n";
+    std::cout << "r Final results: \n";
+    std::cout << "r Max width SAT:  \t" << (max_width_SAT == std::numeric_limits<int>::min() ? "-" : std::to_string(max_width_SAT)) << "\n";
+    std::cout << "r Min width UNSAT:\t" << (min_width_UNSAT == std::numeric_limits<int>::max() ? "-" : std::to_string(min_width_UNSAT)) << "\n";
+    std::cout << "r Total real time: " << encode_duration << " ms\n";
+    std::cout << "r Total memory consumed " << *max_consumed_memory << " MB\n";
+    std::cout << "r\n";
+    std::cout << "r\n";
 };
 
 void CyclicAntiBandwidthEncoder::encode_and_print_dimacs(int width)
@@ -316,15 +313,15 @@ void CyclicAntiBandwidthEncoder::setup_bounds(int &w_from, int &w_to)
 {
     lookup_bounds(w_from, w_to);
 
-    if (overwrite_lb)
+    if (GlobalData::overwrite_lb)
     {
-        std::cout << "c LB " << w_from << " is overwritten with " << forced_lb << ".\n";
-        w_from = forced_lb;
+        std::cout << "c LB " << w_from << " is overwritten with " << GlobalData::forced_lb << ".\n";
+        w_from = GlobalData::forced_lb;
     }
-    if (overwrite_ub)
+    if (GlobalData::overwrite_ub)
     {
-        std::cout << "c UB " << w_to << " is overwritten with " << forced_ub << ".\n";
-        w_to = forced_ub;
+        std::cout << "c UB " << w_to << " is overwritten with " << GlobalData::forced_ub << ".\n";
+        w_to = GlobalData::forced_ub;
     }
     if (w_from > w_to)
     {
@@ -339,7 +336,7 @@ void CyclicAntiBandwidthEncoder::setup_bounds(int &w_from, int &w_to)
 
 void CyclicAntiBandwidthEncoder::lookup_bounds(int &lb, int &ub)
 {
-    auto pos = cabw_LBs.find(g->graph_name);
+    auto pos = cabw_LBs.find(GlobalData::g->graph_name);
     if (pos != cabw_LBs.end())
     {
         lb = pos->second;
@@ -348,12 +345,12 @@ void CyclicAntiBandwidthEncoder::lookup_bounds(int &lb, int &ub)
     }
     else
     {
-        lb = 1;
-        std::cout << "c No predefined lower bound is found for " << g->graph_name << ".\n";
-        std::cout << "c LB-w = 1 (default value).\n";
+        lb = 2;
+        std::cout << "c No predefined lower bound is found for " << GlobalData::g->graph_name << ".\n";
+        std::cout << "c LB-w = 2 (default value).\n";
     }
 
-    pos = cabw_UBs.find(g->graph_name);
+    pos = cabw_UBs.find(GlobalData::g->graph_name);
     if (pos != cabw_UBs.end())
     {
         ub = pos->second;
@@ -362,8 +359,8 @@ void CyclicAntiBandwidthEncoder::lookup_bounds(int &lb, int &ub)
     }
     else
     {
-        ub = g->n / 2 + 1;
-        std::cout << "c No predefined upper bound is found for " << g->graph_name << ".\n";
+        ub = GlobalData::g->n / 2 + 1;
+        std::cout << "c No predefined upper bound is found for " << GlobalData::g->graph_name << ".\n";
         std::cout << "c UB-w = " << ub << " (default value calculated as n/2+1).\n";
     }
 };

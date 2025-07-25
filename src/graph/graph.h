@@ -7,8 +7,8 @@
 class Graph
 {
 public:
-    unsigned n;
-    unsigned number_of_edges;
+    int n;
+    int number_of_edges;
     std::string graph_name;
     std::vector<std::pair<int, int>> edges;
 
@@ -20,8 +20,8 @@ public:
     int calculate_bandwidth(const std::vector<int> &node_labels) const;
     int calculate_cyclic_antibandwidth(const std::vector<int> &node_labels) const;
 
-    unsigned find_greatest_outdegree_node() const;
-    unsigned find_smallest_outdegree_node() const;
+    int find_greatest_outdegree_node() const;
+    int find_smallest_outdegree_node() const;
 };
 
 #endif // GRAPH_H

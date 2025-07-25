@@ -22,29 +22,12 @@ public:
     CyclicAntiBandwidthEncoder();
     virtual ~CyclicAntiBandwidthEncoder();
 
-    Graph *g = nullptr;
-    int worker_count = 1;
-
     int max_width_SAT = std::numeric_limits<int>::min();
     int min_width_UNSAT = std::numeric_limits<int>::max();
-
-    EncodeType encode_type = EncodeType::Seq;
-    SearchStrategy search_strategy = SearchStrategy::from_lb;
 
     std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
     std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
 
-    bool verbose = true;
-    bool enable_solution_verification = false;
-    int split_limit = 0;
-    std::string symmetry_break_point = "n";
-
-    bool overwrite_lb = false;
-    bool overwrite_ub = false;
-    int forced_lb = 0;
-    int forced_ub = 0;
-
-    void read_graph(std::string graph_file_name);
     void encode_and_solve();
     void encode_and_print_dimacs(int width);
 
@@ -52,13 +35,7 @@ public:
     void create_cabp_pid(int width);
     int do_cabp_pid_task(int width);
 
-    int sample_rate = 100000; // Interval of sampler, in microseconds
-    int report_rate = 100;    // Interval of report, in number of sampler
     int sampler_count = 0;
-
-    float memory_limit = std::numeric_limits<float>::max();       // bound of total memory consumed by all the processes, in megabyte
-    float real_time_limit = std::numeric_limits<float>::max();    // bound of time consumed by main process, in seconds
-    float elapsed_time_limit = std::numeric_limits<float>::max(); // bound of total time consumed by all the process, in seconds
 
     float *max_consumed_memory;
     float consumed_memory = 0;       // total memory consumed by all the processes, in megabyte
