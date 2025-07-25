@@ -10,8 +10,8 @@
 class GlobalData
 {
 public:
-    GlobalData() = default;
-    ~GlobalData() = default;
+    GlobalData();
+    ~GlobalData();
 
     static Graph *g; // Pointer to the global graph instance
 

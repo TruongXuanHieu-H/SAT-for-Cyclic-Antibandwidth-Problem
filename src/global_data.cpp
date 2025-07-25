@@ -1,5 +1,12 @@
 #include "global_data.h"
 
+GlobalData::GlobalData() {}
+
+GlobalData::~GlobalData() {
+    if (g)
+        delete g; // Clean up the global graph instance
+}
+
 Graph *GlobalData::g = nullptr;
 
 int GlobalData::worker_count = 1;
