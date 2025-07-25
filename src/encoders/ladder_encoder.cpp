@@ -13,7 +13,7 @@ void LadderEncoder::encode_cyclic_antibandwidth()
 {
     if (InstanceData::width < 1 || InstanceData::width > GlobalData::g->n)
     {
-        std::cout << "c Non-valid value of w, nothing to encode." << std::endl;
+        std::cout << "c Non-valid value of w, nothing to encode.\n";
         return;
     }
     do_encode_antibandwidth();

@@ -17,10 +17,10 @@ SATSolverCadical::~SATSolverCadical()
 void SATSolverCadical::set_up_solver()
 {
     solver = new CaDiCaL::Solver();
-    std::cout << "c " << InstanceData::get_signature() << " Initializing CaDiCaL (version " << solver->version() << ")." << std::endl;
+    std::cout << "c " << InstanceData::get_signature() << " Initializing CaDiCaL (version " << solver->version() << ").\n";
     std::string sat_configuration = "sat";
     int res = solver->configure(sat_configuration.data());
-    std::cout << "c " << InstanceData::get_signature() << " Configuring CaDiCaL as --" << sat_configuration << " (" << res << ")." << std::endl;
+    std::cout << "c " << InstanceData::get_signature() << " Configuring CaDiCaL as --" << sat_configuration << " (" << res << ").\n";
 }
 
 void SATSolverCadical::clear_solver()
@@ -59,7 +59,7 @@ std::vector<int> SATSolverCadical::extract_result()
     }
     if ((int)result.size() > GlobalData::g->n)
     {
-        std::cerr << "e" << InstanceData::get_signature() << " Error, the solution is not a labelling: more than one label assigned for one of the nodes." << std::endl;
+        std::cerr << "e" << InstanceData::get_signature() << " Error, the solution is not a labelling: more than one label assigned for one of the nodes.\n";
         raise(SIGABRT);
     }
     return result;

@@ -26,19 +26,19 @@ void CyclicAntiBandwidthEncoder::encode_and_solve()
     switch (GlobalData::search_strategy)
     {
     case SearchStrategy::from_lb:
-        std::cout << "c Search strategy: from lower bound." << std::endl;
+        std::cout << "c Search strategy: from lower bound.\n";
         encode_and_solve_from_lb();
         break;
 
     default:
-        std::cerr << "c Unrecognized search strategy " << static_cast<int>(GlobalData::search_strategy) << "." << std::endl;
+        std::cerr << "c Unrecognized search strategy " << static_cast<int>(GlobalData::search_strategy) << ".\n";
         break;
     }
 };
 
 void CyclicAntiBandwidthEncoder::encode_and_solve_from_lb()
 {
-    std::cout << "c Encoding and solving from lower bound." << std::endl;
+    std::cout << "c Encoding and solving from lower bound.\n";
 
     int start_width, end_width;
     setup_bounds(start_width, end_width);
@@ -151,7 +151,7 @@ int CyclicAntiBandwidthEncoder::do_cabp_pid_task(int width)
     // Clean up dynamically allocated memory
     delete cabp_ins;
 
-    // std::cout << "c [w = " << width << "] Child " << width << " completed task." << std::endl;
+    // std::cout << "c [w = " << width << "] Child " << width << " completed task.\n";
     return result;
 }
 
@@ -202,7 +202,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
                         if (it->first > max_width_SAT)
                         {
                             max_width_SAT = it->first;
-                            std::cout << "c Max width SAT is set to " << it->first << "\n";
+                            // std::cout << "c Max width SAT is set to " << it->first << "\n";
                         }
 
                         for (auto ita = abp_pids.begin(); ita != abp_pids.end(); ita++)
@@ -288,7 +288,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
             }
         }
     }
-    std::cout << "c All children have completed." << std::endl;
+    std::cout << "c All children have completed.\n";
 
     end_time = std::chrono::high_resolution_clock::now();
     auto encode_duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();

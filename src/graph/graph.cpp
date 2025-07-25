@@ -12,7 +12,7 @@ Graph::Graph(std::string file_name) : edges(std::vector<std::pair<int, int>>())
 
     if (!input_file_stream.is_open())
     {
-        std::cout << "c Error, could not open file '" << file_name << "'. " << std::endl;
+        std::cout << "c Error, could not open file '" << file_name << "'.\n";
         n = 0;
         graph_name = file_name;
         return;
@@ -64,8 +64,8 @@ void Graph::filename(std::string &path)
 
 void Graph::print_stat() const
 {
-    std::cout << "Graph constructed with " << n << " nodes." << std::endl;
-    std::cout << "Graph has " << number_of_edges << " edges." << std::endl;
+    std::cout << "Graph constructed with " << n << " nodes.\n";
+    std::cout << "Graph has " << number_of_edges << " edges.\n";
     for (std::pair<int, int> edge : edges)
     {
         std::cout << edge.first << " - " << edge.second << std::endl;

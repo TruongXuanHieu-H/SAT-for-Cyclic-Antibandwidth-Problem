@@ -23,45 +23,45 @@ CABWInstance::~CABWInstance() {}
    */
 int CABWInstance::encode_and_solve_cabp()
 {
-    std::cout << "c " + InstanceData::get_signature() + " Antibandwidth problem with w = " << InstanceData::width << " (" << GlobalData::g->graph_name << "):" << std::endl;
+    std::cout << "c " + InstanceData::get_signature() + " Antibandwidth problem with w = " << InstanceData::width << " (" << GlobalData::g->graph_name << "):\n";
     if (GlobalData::g->n < 1)
     {
-        std::cout << "c " + InstanceData::get_signature() + " The input graph is too small, there is nothing to encode here." << std::endl;
+        std::cout << "c " + InstanceData::get_signature() + " The input graph is too small, there is nothing to encode here.\n";
         SAT_res = 0; // should break loop
         return 0;
     }
     if (InstanceData::width < 2)
     {
-        std::cout << "c " + InstanceData::get_signature() + " There is always at least 1 distance in any labelling. There is nothing to encode here." << std::endl;
+        std::cout << "c " + InstanceData::get_signature() + " There is always at least 1 distance in any labelling. There is nothing to encode here.\n";
         SAT_res = 10; // check solution can not be invoked
         return 10;
     }
 
     InstanceData::setup_for_solving();
-    std::cout << "c " + InstanceData::get_signature() + " Encoding starts with w = " << InstanceData::width << ":" << std::endl;
+    std::cout << "c " + InstanceData::get_signature() + " Encoding starts with w = " << InstanceData::width << ":\n";
 
     auto t1 = std::chrono::high_resolution_clock::now();
     InstanceData::enc->encode_cyclic_antibandwidth();
     auto t2 = std::chrono::high_resolution_clock::now();
     auto encode_duration = std::chrono::duration_cast<std::chrono::seconds>(t2 - t1).count();
 
-    std::cout << "c " + InstanceData::get_signature() + " Encoding duration: " << encode_duration << "s" << std::endl;
+    std::cout << "c " + InstanceData::get_signature() + " Encoding duration: " << encode_duration << "s\n";
     std::cout << "c " + InstanceData::get_signature() + " Number of clauses: " << InstanceData::cc->size() << std::endl;
     std::cout << "c " + InstanceData::get_signature() + " Number of variables: " << InstanceData::vh->size() << std::endl;
-    std::cout << "c " + InstanceData::get_signature() + " SAT Solving starts:" << std::endl;
+    std::cout << "c " + InstanceData::get_signature() + " SAT Solving starts:\n";
 
     t1 = std::chrono::high_resolution_clock::now();
     SAT_res = InstanceData::solver->solve();
     t2 = std::chrono::high_resolution_clock::now();
     auto solving_duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
-    std::cout << "c " + InstanceData::get_signature() + " Solving duration: " << solving_duration << " ms" << std::endl;
-    std::cout << "c " + InstanceData::get_signature() + " Answer: " << std::endl;
+    std::cout << "c " + InstanceData::get_signature() + " Solving duration: " << solving_duration << " ms\n";
+    std::cout << "c " + InstanceData::get_signature() + " Answer: \n";
     if (SAT_res == 10)
     {
-        std::cout << "s " + InstanceData::get_signature() + " SAT (w = " << InstanceData::width << ")" << std::endl;
+        std::cout << "s " + InstanceData::get_signature() + " SAT (w = " << InstanceData::width << ")\n";
     }
     else if (SAT_res == 20)
-        std::cout << "s " + InstanceData::get_signature() + " UNSAT (w = " << InstanceData::width << ")" << std::endl;
+        std::cout << "s " + InstanceData::get_signature() + " UNSAT (w = " << InstanceData::width << ")\n";
     else
     {
         std::cout << "s " + InstanceData::get_signature() + " Error at w = " << InstanceData::width << ", SAT result: " << SAT_res << std::endl;
@@ -91,7 +91,7 @@ int CABWInstance::encode_and_solve_cabp()
 
     InstanceData::cleanup_solving();
 
-    // std::cout << "c " + get_signature() + " Closed." << std::endl;
+    // std::cout << "c " + get_signature() + " Closed.\n";
     return SAT_res;
 };
 
@@ -104,7 +104,7 @@ int CABWInstance::verify_solution()
     }
     int min_dist = GlobalData::g->calculate_cyclic_antibandwidth(node_labels);
 
-    std::cout << "c " + InstanceData::get_signature() + " Solution check = " << min_dist << "." << std::endl;
+    std::cout << "c " + InstanceData::get_signature() + " Solution check = " << min_dist << ".\n";
 
     return min_dist;
 }
