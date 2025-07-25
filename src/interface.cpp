@@ -186,33 +186,9 @@ int main(int argc, char **argv)
             std::cout << "c Splitting clauses at length " << split_size << "." << std::endl;
             GlobalData::split_limit = split_size;
         }
-        else if (argv[i] == std::string("-symmetry-break"))
+        else if (argv[i] == std::string("-worker-count"))
         {
-            std::string break_point = argv[++i];
-            GlobalData::symmetry_break_point = break_point;
-            if (break_point == std::string("f"))
-            {
-                std::cout << "c Symetry breaking in the first node." << std::endl;
-            }
-            else if (break_point == std::string("h"))
-            {
-                std::cout << "c Symetry breaking in the highest degree node." << std::endl;
-            }
-            else if (break_point == std::string("l"))
-            {
-                std::cout << "c Symetry breaking in the lowest degree node." << std::endl;
-            }
-            else if (break_point == std::string("n"))
-            {
-                std::cout << "c Symetry breaking is not applied." << std::endl;
-            }
-            else
-            {
-                std::cout << "c Invalid symetry breaking point." << std::endl;
-
-                delete cabw_enc;
-                return 1;
-            }
+            GlobalData::worker_count = get_number_arg(argv[++i]);
         }
         else
         {

@@ -17,6 +17,10 @@ SATSolverCadical::~SATSolverCadical()
 void SATSolverCadical::set_up_solver()
 {
     solver = new CaDiCaL::Solver();
+    std::cout << "c " + InstanceData::get_signature() + " Initializing CaDiCaL (version " << solver->version() << ")." << std::endl;
+    std::string sat_configuration = "sat";
+    int res = solver->configure(sat_configuration.data());
+    std::cout << "c " + InstanceData::get_signature() + " Configuring CaDiCaL as --" << sat_configuration << " (" << res << ")." << std::endl;
 }
 
 void SATSolverCadical::clear_solver()

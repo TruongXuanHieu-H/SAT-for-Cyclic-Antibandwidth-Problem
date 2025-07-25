@@ -74,10 +74,18 @@ int CABWInstance::encode_and_solve_cabp()
         int solution_abp = verify_solution();
         if (solution_abp < InstanceData::width)
         {
-            std::cerr << "c " + InstanceData::get_signature() + " Error, the solution is not correct, antibandwidth should be at least " << InstanceData::width << ", but it is " << solution_abp << "." << std::endl;
+            std::cerr << "c " + InstanceData::get_signature() + " Error, the solution is not correct, antibandwidth should be at least " << InstanceData::width << ", but it is " << solution_abp << ".\n";
 
             InstanceData::cleanup_solving();
             return -10;
+        }
+        else if (solution_abp == InstanceData::width)
+        {
+            std::cout << "c " + InstanceData::get_signature() + " The solution is correct.\n";
+        }
+        else
+        {
+            std::cout << "c " + InstanceData::get_signature() + " Found an optimal solution " << solution_abp << ".\n ";
         }
     }
 
@@ -99,6 +107,14 @@ void CABWInstance::encode_and_print_cabp()
 
 int CABWInstance::verify_solution()
 {
-    std::cout << "Solution verification not implemented yet." << std::endl;
-    return 0;
+    std::vector<int> node_labels = InstanceData::solver->extract_result();
+    if ((int)node_labels.size() == 0)
+    {
+        return 0;
+    }
+    int min_dist = GlobalData::g->calculate_cyclic_antibandwidth(node_labels);
+
+    std::cout << "c " + InstanceData::get_signature() + " Solution check = " << min_dist << "." << std::endl;
+
+    return min_dist;
 }

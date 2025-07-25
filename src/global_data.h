@@ -24,7 +24,6 @@ public:
 
     static bool enable_solution_verification;
     static int split_limit;
-    static std::string symmetry_break_point;
 
     static bool overwrite_lb;
     static bool overwrite_ub;
