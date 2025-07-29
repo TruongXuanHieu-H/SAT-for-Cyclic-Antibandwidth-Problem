@@ -178,9 +178,27 @@ int main(int argc, char **argv)
         {
             GlobalData::worker_count = get_number_arg(argv[++i]);
         }
+        else if (argv[i] == std::string("-symmetry-break"))
+        {
+            std::string sb_type = argv[++i];
+            if (sb_type == "none")
+                GlobalData::symmetry_break_strategy = SymmetryBreakingType::NONE;
+            else if (sb_type == "first")
+                GlobalData::symmetry_break_strategy = SymmetryBreakingType::FIRST;
+            else if (sb_type == "highest-degree")
+                GlobalData::symmetry_break_strategy = SymmetryBreakingType::HIGHEST_DEGREE;
+            else if (sb_type == "lowest-degree")
+                GlobalData::symmetry_break_strategy = SymmetryBreakingType::LOWEST_DEGREE;
+            else
+            {
+                std::cerr << "e Unrecognized symmetry breaking type: " << sb_type << std::endl;
+                delete cabw_enc;
+                return 1;
+            }
+        }
         else
         {
-            std::cerr << "Unrecognized option: " << argv[i] << std::endl;
+            std::cerr << "e Unrecognized option: " << argv[i] << std::endl;
 
             delete cabw_enc;
             return 1;

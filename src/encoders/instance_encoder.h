@@ -8,6 +8,10 @@ public:
     virtual ~InstanceEncoder();
 
     virtual void encode_cyclic_antibandwidth();
+
+    void encode_symmetry_break_first_node();
+    void encode_symmetry_break_highest_degree_node();
+    void encode_symmetry_break_lowest_degree_node();
 };
 
 #endif // INSTANCE_ENCODER_H

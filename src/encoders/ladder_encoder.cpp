@@ -24,6 +24,19 @@ void LadderEncoder::do_encode_antibandwidth()
     aux_vars.clear();
     obj_k_aux_vars.clear();
 
+    if (GlobalData::symmetry_break_strategy == SymmetryBreakingType::FIRST)
+    {
+        encode_symmetry_break_first_node();
+    }
+    else if (GlobalData::symmetry_break_strategy == SymmetryBreakingType::HIGHEST_DEGREE)
+    {
+        encode_symmetry_break_highest_degree_node();
+    }
+    else if (GlobalData::symmetry_break_strategy == SymmetryBreakingType::LOWEST_DEGREE)
+    {
+        encode_symmetry_break_lowest_degree_node();
+    }
+
     encode_vertices();
 
     // We embed labels into encode_stair to achieve better encoding

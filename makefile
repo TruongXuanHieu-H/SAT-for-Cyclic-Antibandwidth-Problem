@@ -15,10 +15,10 @@ CADICAL_LIB=-lcadical
 all : $(OBJDIR)/interface.o
 	g++ $(FLAGS) $(OBJDIR)/interface.o $(OBJS) -L$(CADICAL_LIB_DIR) $(CADICAL_LIB) -o build/cabw_enc
 
-$(OBJDIR)/interface.o : $(SRCDIR)/interface.cpp $(OBJS) $(SRCDIR)/global_data.h $(SRCDIR)/cabw_encoder.h $(SRCDIR)/utils/signal_handler.h $(SRCDIR)/utils/usage.h $(SRCDIR)/utils/version.h $(SRCDIR)/enum/encode_type.h $(SRCDIR)/enum/search_strategy.h
+$(OBJDIR)/interface.o : $(SRCDIR)/interface.cpp $(OBJS) $(SRCDIR)/global_data.h $(SRCDIR)/cabw_encoder.h $(SRCDIR)/utils/signal_handler.h $(SRCDIR)/utils/usage.h $(SRCDIR)/utils/version.h $(SRCDIR)/enum/encode_type.h $(SRCDIR)/enum/symmetry_breaking_type.h $(SRCDIR)/enum/search_strategy.h
 	g++ $(FLAGS) $(STANDARD) -I$(CADICAL_INC) -c $< -o $@
 
-$(OBJDIR)/global_data.o : $(SRCDIR)/global_data.cpp $(SRCDIR)/global_data.h $(SRCDIR)/graph/graph.h $(SRCDIR)/enum/encode_type.h $(SRCDIR)/enum/search_strategy.h
+$(OBJDIR)/global_data.o : $(SRCDIR)/global_data.cpp $(SRCDIR)/global_data.h $(SRCDIR)/graph/graph.h $(SRCDIR)/enum/encode_type.h $(SRCDIR)/enum/symmetry_breaking_type.h $(SRCDIR)/enum/search_strategy.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/cabw_encoder.o : $(SRCDIR)/cabw_encoder.cpp $(SRCDIR)/cabw_encoder.h $(SRCDIR)/enum/encode_type.h $(SRCDIR)/enum/search_strategy.h $(SRCDIR)/graph/graph.h $(SRCDIR)/global_data.h $(SRCDIR)/encoders/cabw_instance.h $(SRCDIR)/utils/pid_manager.h
@@ -45,7 +45,7 @@ $(OBJDIR)/var_handler.o : $(SRCDIR)/encoders/var_handler.cpp $(SRCDIR)/encoders/
 $(OBJDIR)/sat_solver_cadical.o : $(SRCDIR)/encoders/sat_solver_cadical.cpp $(SRCDIR)/encoders/sat_solver_cadical.h $(SRCDIR)/encoders/instance_data.h $(SRCDIR)/global_data.h
 	g++ $(FLAGS) $(STANDARD) -I$(CADICAL_INC) -c $< -o $@
 
-$(OBJDIR)/instance_encoder.o : $(SRCDIR)/encoders/instance_encoder.cpp $(SRCDIR)/encoders/instance_encoder.h
+$(OBJDIR)/instance_encoder.o : $(SRCDIR)/encoders/instance_encoder.cpp $(SRCDIR)/encoders/instance_encoder.h $(SRCDIR)/global_data.h $(SRCDIR)/encoders/instance_data.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/ladder_encoder.o : $(SRCDIR)/encoders/ladder_encoder.cpp $(SRCDIR)/encoders/ladder_encoder.h
