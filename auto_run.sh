@@ -25,7 +25,7 @@ mkdir -p logs/harwell_boeing
 # ./build/cabw_enc datasets/harwell_boeing/Q-494_bus.mtx.rnd   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT 2>&1 | tee logs/harwell_boeing/Q-494_bus.log
 # ./build/cabw_enc datasets/harwell_boeing/R-dwt__503.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT 2>&1 | tee logs/harwell_boeing/R-dwt__503.log
 # ./build/cabw_enc datasets/harwell_boeing/S-sherman4.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT 2>&1 | tee logs/harwell_boeing/S-sherman4.log
-./build/cabw_enc datasets/harwell_boeing/T-dwt__592.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT 2>&1 | tee logs/harwell_boeing/T-dwt__592.log
+# ./build/cabw_enc datasets/harwell_boeing/T-dwt__592.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT 2>&1 | tee logs/harwell_boeing/T-dwt__592.log
 ./build/cabw_enc datasets/harwell_boeing/U-662_bus.mtx.rnd   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT 2>&1 | tee logs/harwell_boeing/U-662_bus.log
 ./build/cabw_enc datasets/harwell_boeing/V-nos6.mtx.rnd      --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT 2>&1 | tee logs/harwell_boeing/V-nos6.log
 ./build/cabw_enc datasets/harwell_boeing/W-685_bus.mtx.rnd   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT 2>&1 | tee logs/harwell_boeing/W-685_bus.log
