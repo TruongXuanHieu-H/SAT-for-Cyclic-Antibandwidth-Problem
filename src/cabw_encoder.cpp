@@ -157,6 +157,7 @@ int CyclicAntiBandwidthEncoder::do_cabp_pid_task(int width)
 
 void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int step, int stop_w)
 {
+    fflush(stdout);
     start_time = std::chrono::high_resolution_clock::now();
     create_limit_pid();
 
@@ -281,6 +282,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
 
         if (!limit_violated)
         {
+            fflush(stdout);
             while (int(abp_pids.size()) < GlobalData::worker_count && current_width < stop_w && current_width < min_width_UNSAT)
             {
                 create_cabp_pid(current_width);
