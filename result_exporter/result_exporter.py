@@ -31,7 +31,7 @@ def parse_file(filepath):
     return pd.DataFrame(rows)
 
 
-folder_path = '../logs/harwell_boeing'
+folder_path = '../logs/harwell_boeing_no_symmetry_breaking'
 
 excel_writer = pd.ExcelWriter("results.xlsx", engine="xlsxwriter")
 
