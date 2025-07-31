@@ -10,6 +10,7 @@
 #include <sstream>
 #include <cmath>
 #include <sys/mman.h>
+#include <chrono>
 
 CyclicAntiBandwidthEncoder::CyclicAntiBandwidthEncoder()
 {
@@ -158,7 +159,7 @@ int CyclicAntiBandwidthEncoder::do_cabp_pid_task(int width)
 void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int step, int stop_w)
 {
     fflush(stdout);
-    start_time = std::chrono::high_resolution_clock::now();
+    std::chrono::time_point<std::chrono::high_resolution_clock> start_time = std::chrono::high_resolution_clock::now();
     create_limit_pid();
 
     int current_width = start_w;
@@ -292,7 +293,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
     }
     std::cout << "c [Main] All children have completed.\n";
 
-    end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::time_point<std::chrono::high_resolution_clock> end_time = std::chrono::high_resolution_clock::now();
     auto encode_duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
 
     std::cout << "r [Main] \n";

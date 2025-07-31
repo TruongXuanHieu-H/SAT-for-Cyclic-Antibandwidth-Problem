@@ -13,7 +13,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <signal.h>
-#include <chrono>
 #include <fstream>
 
 class CyclicAntiBandwidthEncoder
@@ -24,9 +23,6 @@ public:
 
     int max_width_SAT = std::numeric_limits<int>::min();
     int min_width_UNSAT = std::numeric_limits<int>::max();
-
-    std::chrono::time_point<std::chrono::high_resolution_clock> start_time;
-    std::chrono::time_point<std::chrono::high_resolution_clock> end_time;
 
     void encode_and_solve();
 
