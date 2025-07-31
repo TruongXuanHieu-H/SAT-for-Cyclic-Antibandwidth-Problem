@@ -21,24 +21,24 @@ CyclicAntiBandwidthEncoder::~CyclicAntiBandwidthEncoder() {
 
 void CyclicAntiBandwidthEncoder::encode_and_solve()
 {
-    std::cout << "c Encoding and solving for graph: " << GlobalData::g->graph_name << std::endl;
+    std::cout << "c [Main] Encoding and solving for graph: " << GlobalData::g->graph_name << std::endl;
 
     switch (GlobalData::search_strategy)
     {
     case SearchStrategy::from_lb:
-        std::cout << "c Search strategy: from lower bound.\n";
+        std::cout << "c [Main] Search strategy: from lower bound.\n";
         encode_and_solve_from_lb();
         break;
 
     default:
-        std::cerr << "c Unrecognized search strategy " << static_cast<int>(GlobalData::search_strategy) << ".\n";
+        std::cerr << "c [Main] Unrecognized search strategy " << static_cast<int>(GlobalData::search_strategy) << ".\n";
         break;
     }
 };
 
 void CyclicAntiBandwidthEncoder::encode_and_solve_from_lb()
 {
-    std::cout << "c Encoding and solving from lower bound.\n";
+    std::cout << "c [Main] Encoding and solving from lower bound.\n";
 
     int start_width, end_width;
     setup_bounds(start_width, end_width);
@@ -203,7 +203,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
                         if (it->first > max_width_SAT)
                         {
                             max_width_SAT = it->first;
-                            // std::cout << "c Max width SAT is set to " << it->first << "\n";
+                            std::cout << "c [Main] Max width SAT is set to " << it->first << "\n";
                         }
 
                         for (auto ita = abp_pids.begin(); ita != abp_pids.end(); ita++)
@@ -211,7 +211,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
                             // Pid with lower width than SAT pid is also SAT.
                             if (ita->first < it->first)
                             {
-                                std::cout << "c Kill lower pid " << ita->first << ".\n";
+                                std::cout << "c [Main] Kill lower pid " << ita->first << ".\n";
                                 kill(ita->second, SIGTERM);
                             }
                         }
@@ -220,7 +220,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
                         if (it->first < min_width_UNSAT)
                         {
                             min_width_UNSAT = it->first;
-                            std::cout << "c Min width UNSAT is set to " << it->first << "\n";
+                            std::cout << "c [Main] Min width UNSAT is set to " << it->first << "\n";
                         }
 
                         for (auto ita = abp_pids.begin(); ita != abp_pids.end(); ita++)
@@ -228,7 +228,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
                             // Pid with higher width than UNSAT pid is also UNSAT.
                             if (ita->first > it->first)
                             {
-                                std::cout << "c Kill higher pid " << ita->first << ".\n";
+                                std::cout << "c [Main] Kill higher pid " << ita->first << ".\n";
                                 kill(ita->second, SIGTERM);
                             }
                         }
@@ -253,7 +253,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
             {
                 if (it->second == finished_pid)
                 {
-                    std::cout << "c Child pid " << it->first << " - " << it->second << " terminated by signal " << WTERMSIG(status) << "\n";
+                    std::cout << "c [Main] Child pid " << it->first << " - " << it->second << " terminated by signal " << WTERMSIG(status) << "\n";
                     abp_pids.erase(it);
                     if (abp_pids.empty() && kill(lim_pid, 0) == 0)
                     {
@@ -269,7 +269,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
             {
                 if (it->second == finished_pid)
                 {
-                    std::cerr << "e Child pid " << it->first << " - " << it->second << " stopped or otherwise terminated.\n";
+                    std::cerr << "e [Main] Child pid " << it->first << " - " << it->second << " stopped or otherwise terminated.\n";
                     abp_pids.erase(it);
                     if (abp_pids.empty() && kill(lim_pid, 0) == 0)
                     {
@@ -290,19 +290,18 @@ void CyclicAntiBandwidthEncoder::encode_and_solve_with_widths(int start_w, int s
             }
         }
     }
-    std::cout << "c All children have completed.\n";
+    std::cout << "c [Main] All children have completed.\n";
 
     end_time = std::chrono::high_resolution_clock::now();
     auto encode_duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
 
-    std::cout << "r\n";
-    std::cout << "r Final results: \n";
-    std::cout << "r Max width SAT:  \t" << (max_width_SAT == std::numeric_limits<int>::min() ? "-" : std::to_string(max_width_SAT)) << "\n";
-    std::cout << "r Min width UNSAT:\t" << (min_width_UNSAT == std::numeric_limits<int>::max() ? "-" : std::to_string(min_width_UNSAT)) << "\n";
-    std::cout << "r Total real time: " << encode_duration << " ms\n";
-    std::cout << "r Total memory consumed " << *max_consumed_memory << " MB\n";
-    std::cout << "r\n";
-    std::cout << "r\n";
+    std::cout << "r [Main] \n";
+    std::cout << "r [Main] Final results: \n";
+    std::cout << "r [Main] Max width SAT:  \t" << (max_width_SAT == std::numeric_limits<int>::min() ? "-" : std::to_string(max_width_SAT)) << "\n";
+    std::cout << "r [Main] Min width UNSAT:\t" << (min_width_UNSAT == std::numeric_limits<int>::max() ? "-" : std::to_string(min_width_UNSAT)) << "\n";
+    std::cout << "r [Main] Total real time: " << encode_duration << " ms\n";
+    std::cout << "r [Main] Total memory consumed " << *max_consumed_memory << " MB\n";
+    std::cout << "r [Main] \n";
 };
 
 void CyclicAntiBandwidthEncoder::setup_bounds(int &w_from, int &w_to)
@@ -311,12 +310,12 @@ void CyclicAntiBandwidthEncoder::setup_bounds(int &w_from, int &w_to)
 
     if (GlobalData::overwrite_lb)
     {
-        std::cout << "c LB " << w_from << " is overwritten with " << GlobalData::forced_lb << ".\n";
+        std::cout << "c [Main] LB " << w_from << " is overwritten with " << GlobalData::forced_lb << ".\n";
         w_from = GlobalData::forced_lb;
     }
     if (GlobalData::overwrite_ub)
     {
-        std::cout << "c UB " << w_to << " is overwritten with " << GlobalData::forced_ub << ".\n";
+        std::cout << "c [Main] UB " << w_to << " is overwritten with " << GlobalData::forced_ub << ".\n";
         w_to = GlobalData::forced_ub;
     }
     if (w_from > w_to)
@@ -324,7 +323,7 @@ void CyclicAntiBandwidthEncoder::setup_bounds(int &w_from, int &w_to)
         int tmp = w_from;
         w_from = w_to;
         w_to = tmp;
-        std::cout << "c Flipped LB and UB to avoid LB > UB: (LB = " << w_from << ", UB = " << w_to << ").\n";
+        std::cout << "c [Main] Flipped LB and UB to avoid LB > UB: (LB = " << w_from << ", UB = " << w_to << ").\n";
     }
 
     assert((w_from <= w_to) && (w_from >= 1));
@@ -342,8 +341,8 @@ void CyclicAntiBandwidthEncoder::lookup_bounds(int &lb, int &ub)
     else
     {
         lb = 2;
-        std::cout << "c No predefined lower bound is found for " << GlobalData::g->graph_name << ".\n";
-        std::cout << "c LB-w = 2 (default value).\n";
+        std::cout << "c [Main] No predefined lower bound is found for " << GlobalData::g->graph_name << ".\n";
+        std::cout << "c [Main] LB-w = 2 (default value).\n";
     }
 
     pos = GlobalData::cabw_UBs.find(GlobalData::g->graph_name);
@@ -356,7 +355,7 @@ void CyclicAntiBandwidthEncoder::lookup_bounds(int &lb, int &ub)
     else
     {
         ub = GlobalData::g->n / 2 + 1;
-        std::cout << "c No predefined upper bound is found for " << GlobalData::g->graph_name << ".\n";
-        std::cout << "c UB-w = " << ub << " (default value calculated as n/2+1).\n";
+        std::cout << "c [Main] No predefined upper bound is found for " << GlobalData::g->graph_name << ".\n";
+        std::cout << "c [Main] UB-w = " << ub << " (default value calculated as n/2+1).\n";
     }
 };

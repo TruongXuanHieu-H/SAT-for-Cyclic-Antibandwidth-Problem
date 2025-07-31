@@ -10,5 +10,5 @@ const std::string &Version::get_version()
 
 void Version::print_version()
 {
-    std::cout << "c Cyclic Bandwidth Encoder version " << version << ".\n";
+    std::cout << "c [Version] Cyclic Bandwidth Encoder version " << version << ".\n";
 }

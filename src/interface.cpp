@@ -23,18 +23,18 @@ int get_number_arg(std::string const &arg)
         int x = std::stoi(arg, &pos);
         if (pos < arg.size())
         {
-            std::cerr << "Trailing characters after number: " << arg << '\n';
+            std::cerr << "e [Param] Trailing characters after number: " << arg << '\n';
         }
         return x;
     }
     catch (std::invalid_argument const &ex)
     {
-        std::cerr << "Invalid number: " << arg << '\n';
+        std::cerr << "e [Param] Invalid number: " << arg << '\n';
         return 0;
     }
     catch (std::out_of_range const &ex)
     {
-        std::cerr << "Number out of range: " << arg << '\n';
+        std::cerr << "e [Param] Number out of range: " << arg << '\n';
         return 0;
     }
 }
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 
     if (argc < 2)
     {
-        std::cerr << "c Error, no graph file was specified.\n";
+        std::cerr << "e [Param] Error, no graph file was specified.\n";
         Helper::print_usage();
         return 1;
     }
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
         {
             Helper::print_usage();
             delete cabw_enc;
-            return 1;
+            return 0;
         }
         else if (argv[i] == std::string("--ladder"))
         {
@@ -83,35 +83,35 @@ int main(int argc, char **argv)
             GlobalData::forced_lb = get_number_arg(argv[++i]);
             if (GlobalData::forced_lb < 2)
             {
-                std::cout << "Error, width has to be at least 2.\n";
+                std::cerr << "e [Param] Error, width has to be at least 2.\n";
                 delete cabw_enc;
                 return 1;
             }
             GlobalData::overwrite_lb = true;
-            std::cout << "c LB is predefined as " << GlobalData::forced_lb << ".\n";
+            std::cout << "c [Param] LB is predefined as " << GlobalData::forced_lb << ".\n";
         }
         else if (argv[i] == std::string("-set-ub"))
         {
             GlobalData::forced_ub = get_number_arg(argv[++i]);
-            if (GlobalData::forced_ub < 0)
+            if (GlobalData::forced_ub <= 0)
             {
-                std::cout << "Error, width has to be positive.\n";
+                std::cerr << "e [Param] Error, width has to be positive.\n";
                 delete cabw_enc;
                 return 1;
             }
             GlobalData::overwrite_ub = true;
-            std::cout << "c UB is predefined as " << GlobalData::forced_ub << ".\n";
+            std::cout << "c [Param] UB is predefined as " << GlobalData::forced_ub << ".\n";
         }
         else if (argv[i] == std::string("-limit-memory"))
         {
             int lim_mem = get_number_arg(argv[++i]);
             if (lim_mem <= 0)
             {
-                std::cout << "e Error, memory limit has to be positive.\n";
+                std::cerr << "e [Param] Error, memory limit has to be positive.\n";
                 delete cabw_enc;
                 return 1;
             }
-            std::cout << "c Memory limit is set to " << lim_mem << ".\n";
+            std::cout << "c [Param] Memory limit is set to " << lim_mem << ".\n";
             GlobalData::memory_limit = lim_mem;
         }
         else if (argv[i] == std::string("-limit-real-time"))
@@ -119,11 +119,11 @@ int main(int argc, char **argv)
             int limit_real_time = get_number_arg(argv[++i]);
             if (limit_real_time <= 0)
             {
-                std::cout << "e Error, real time limit has to be positive.\n";
+                std::cerr << "e [Param] Error, real time limit has to be positive.\n";
                 delete cabw_enc;
                 return 1;
             }
-            std::cout << "c Real time limit is set to " << limit_real_time << ".\n";
+            std::cout << "c [Param] Real time limit is set to " << limit_real_time << ".\n";
             GlobalData::real_time_limit = limit_real_time;
         }
         else if (argv[i] == std::string("-limit-elapsed-time"))
@@ -131,11 +131,11 @@ int main(int argc, char **argv)
             int limit_elapsed_time = get_number_arg(argv[++i]);
             if (limit_elapsed_time <= 0)
             {
-                std::cout << "e Error, elapsed time limit has to be positive.\n";
+                std::cerr << "e [Param] Error, elapsed time limit has to be positive.\n";
                 delete cabw_enc;
                 return 1;
             }
-            std::cout << "c Elapsed time limit is set to " << limit_elapsed_time << ".\n";
+            std::cout << "c [Param] Elapsed time limit is set to " << limit_elapsed_time << ".\n";
             GlobalData::elapsed_time_limit = limit_elapsed_time;
         }
         else if (argv[i] == std::string("-sample-rate"))
@@ -143,11 +143,11 @@ int main(int argc, char **argv)
             int sample_rate = get_number_arg(argv[++i]);
             if (sample_rate <= 0)
             {
-                std::cout << "e Error, sample rate has to be positive.\n";
+                std::cerr << "e [Param] Error, sample rate has to be positive.\n";
                 delete cabw_enc;
                 return 1;
             }
-            std::cout << "c Sample rate is set to " << sample_rate << ".\n";
+            std::cout << "c [Param] Sample rate is set to " << sample_rate << ".\n";
             GlobalData::sample_rate = sample_rate;
         }
         else if (argv[i] == std::string("-report-rate"))
@@ -155,28 +155,36 @@ int main(int argc, char **argv)
             int report_rate = get_number_arg(argv[++i]);
             if (report_rate <= 0)
             {
-                std::cout << "e Error, sample rate has to be positive.\n";
+                std::cerr << "e [Param] Error, sample rate has to be positive.\n";
                 delete cabw_enc;
                 return 1;
             }
-            std::cout << "c Sample rate is set to " << report_rate << ".\n";
+            std::cout << "c [Param] Sample rate is set to " << report_rate << ".\n";
             GlobalData::report_rate = report_rate;
         }
         else if (argv[i] == std::string("-split-size"))
         {
             int split_size = get_number_arg(argv[++i]);
-            if (split_size < 0)
+            if (split_size <= 0)
             {
-                std::cout << "Error, split size has to be positive.\n";
+                std::cerr << "e [Param] Error, split size has to be positive.\n";
                 delete cabw_enc;
                 return 1;
             }
-            std::cout << "c Splitting clauses at length " << split_size << ".\n";
+            std::cout << "c [Param] Splitting clauses at length " << split_size << ".\n";
             GlobalData::split_limit = split_size;
         }
         else if (argv[i] == std::string("-worker-count"))
         {
-            GlobalData::worker_count = get_number_arg(argv[++i]);
+            int worker_count = get_number_arg(argv[++i]);
+            if (worker_count <= 0)
+            {
+                std::cerr << "e [Param] Error, worker count has to be positive.\n";
+                delete cabw_enc;
+                return 1;
+            }
+            std::cout << "c [Param] Worker count is set to " << worker_count << ".\n";
+            GlobalData::worker_count = worker_count;
         }
         else if (argv[i] == std::string("-symmetry-break"))
         {
@@ -191,14 +199,14 @@ int main(int argc, char **argv)
                 GlobalData::symmetry_break_strategy = SymmetryBreakingType::LOWEST_DEGREE;
             else
             {
-                std::cerr << "e Unrecognized symmetry breaking type: " << sb_type << std::endl;
+                std::cerr << "e [Param] Unrecognized symmetry breaking type: " << sb_type << std::endl;
                 delete cabw_enc;
                 return 1;
             }
         }
         else
         {
-            std::cerr << "e Unrecognized option: " << argv[i] << std::endl;
+            std::cerr << "e [Param] Unrecognized option: " << argv[i] << std::endl;
 
             delete cabw_enc;
             return 1;

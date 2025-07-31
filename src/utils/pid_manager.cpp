@@ -10,7 +10,7 @@ std::vector<int> PIDManager::get_child_pids(int ppid)
 
     if (!file.is_open())
     {
-        std::cerr << "Unable to open /proc/" << ppid << "/task/" << ppid << "/children\n";
+        std::cerr << "e [Pid] Unable to open /proc/" << ppid << "/task/" << ppid << "/children\n";
         return childPIDs;
     }
 
@@ -64,7 +64,7 @@ size_t PIDManager::get_memory_usage(int pid)
     std::ifstream file("/proc/" + std::to_string(pid) + "/status");
     if (!file.is_open())
     {
-        std::cerr << "Unable to open /proc/" << pid << "/status\n";
+        std::cerr << "e [Pid] Unable to open /proc/" << pid << "/status\n";
         return 0;
     }
 
