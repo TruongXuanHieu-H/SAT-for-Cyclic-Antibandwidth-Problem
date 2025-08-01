@@ -43,9 +43,9 @@ int CABWInstance::encode_and_solve_cabp()
     auto t1 = std::chrono::high_resolution_clock::now();
     InstanceData::enc->encode_cyclic_antibandwidth();
     auto t2 = std::chrono::high_resolution_clock::now();
-    auto encode_duration = std::chrono::duration_cast<std::chrono::seconds>(t2 - t1).count();
+    auto encode_duration = std::chrono::duration_cast<std::chrono::milliseconds>(t2 - t1).count();
 
-    std::cout << "c " + InstanceData::get_signature() + " Encoding duration: " << encode_duration << "s\n";
+    std::cout << "c " + InstanceData::get_signature() + " Encoding duration: " << encode_duration << "ms\n";
     std::cout << "c " + InstanceData::get_signature() + " Number of clauses: " << InstanceData::cc->size() << std::endl;
     std::cout << "c " + InstanceData::get_signature() + " Number of variables: " << InstanceData::vh->size() << std::endl;
     std::cout << "c " + InstanceData::get_signature() + " SAT Solving starts:\n";
