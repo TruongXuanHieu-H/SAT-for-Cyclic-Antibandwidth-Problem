@@ -186,8 +186,7 @@ void CabwSearcherIterateFromLB::create_limit_pid()
             sampler_count++;
             if (sampler_count >= GlobalData::report_rate)
             {
-                std::cout << "c [Lim] Sampler:\t" << "Memory: " << consumed_memory << " MB\tReal time: "
-                          << consumed_real_time << "s\tElapsed time: " << consumed_elapsed_time << "s\n";
+                // std::cout << "c [Lim] Sampler:\t" << "Memory: " << consumed_memory << " MB\tReal time: " << consumed_real_time << "s\tElapsed time: " << consumed_elapsed_time << "s\n";
                 sampler_count = 0;
             }
             usleep(GlobalData::sample_rate);
