@@ -34,5 +34,9 @@ protected:
 
     void lookup_bounds(int &lb, int &ub);
     void setup_bounds(int &w_from, int &w_to);
+
+    void create_limit_pid();
+    void create_cabp_pid(int width);
+    int do_cabp_pid_task(int width);
 };
 #endif // CABW_SEARCHER_H

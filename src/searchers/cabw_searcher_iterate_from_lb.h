@@ -13,10 +13,6 @@ public:
 
 protected:
     int step = 1;
-
-    void create_limit_pid();
-    void create_cabp_pid(int width);
-    int do_cabp_pid_task(int width);
 };
 
 #endif // CABW_SEARCHER_ITERATE_FROM_LB_H

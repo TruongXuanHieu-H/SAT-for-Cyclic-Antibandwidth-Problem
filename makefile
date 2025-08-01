@@ -72,16 +72,16 @@ $(OBJDIR)/cabw_encoder.o : \
 $(OBJDIR)/cabw_searcher.o : \
 	$(SRCDIR)/searchers/cabw_searcher.cpp \
 	$(SRCDIR)/searchers/cabw_searcher.h \
-	$(SRCDIR)/global_data.h
+	$(SRCDIR)/global_data.h \
+	$(SRCDIR)/encoders/cabw_instance.h \
+	$(SRCDIR)/utils/pid_manager.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/cabw_searcher_iterate_from_lb.o : \
 	$(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.cpp \
 	$(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.h \
 	$(SRCDIR)/searchers/cabw_searcher.h \
-	$(SRCDIR)/global_data.h \
-	$(SRCDIR)/utils/pid_manager.h \
-	$(SRCDIR)/encoders/cabw_instance.h
+	$(SRCDIR)/global_data.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/version.o : \
