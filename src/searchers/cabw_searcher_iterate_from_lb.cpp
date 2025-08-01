@@ -12,13 +12,12 @@ void CabwSearcherIterateFromLB::encode_and_solve()
     std::chrono::time_point<std::chrono::high_resolution_clock> start_time = std::chrono::high_resolution_clock::now();
     create_limit_pid();
 
-    int current_width = start_w;
-    int number_width = stop_w - start_w;
+    int next_width_to_seach = start_w;
 
-    for (int i = 0; i < GlobalData::worker_count && i < number_width; i += step)
+    for (int i = 0; i < GlobalData::worker_count && i < (stop_w - start_w); i += step)
     {
-        create_cabp_pid(current_width);
-        current_width += step;
+        create_cabp_pid(next_width_to_seach);
+        next_width_to_seach += step;
     }
 
     bool limit_violated = false;
@@ -89,7 +88,7 @@ void CabwSearcherIterateFromLB::encode_and_solve()
                     }
 
                     abp_pids.erase(it);
-                    if (abp_pids.empty() && (current_width >= min_width_UNSAT || current_width == stop_w) && kill(lim_pid, 0) == 0)
+                    if (abp_pids.empty() && (next_width_to_seach >= min_width_UNSAT || next_width_to_seach == stop_w) && kill(lim_pid, 0) == 0)
                     {
                         kill(lim_pid, SIGTERM);
                     }
@@ -134,10 +133,10 @@ void CabwSearcherIterateFromLB::encode_and_solve()
         if (!limit_violated)
         {
             fflush(stdout);
-            while (int(abp_pids.size()) < GlobalData::worker_count && current_width < stop_w && current_width < min_width_UNSAT)
+            while (int(abp_pids.size()) < GlobalData::worker_count && next_width_to_seach < stop_w && next_width_to_seach < min_width_UNSAT)
             {
-                create_cabp_pid(current_width);
-                current_width += step;
+                create_cabp_pid(next_width_to_seach);
+                next_width_to_seach += step;
             }
         }
     }
