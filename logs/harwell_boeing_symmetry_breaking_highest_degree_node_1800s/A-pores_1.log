@@ -1,0 +1,107 @@
+c Cyclic Bandwidth Encoder version 1.0.0.
+c Real time limit is set to 1800.
+c Memory limit is set to 30000.
+c Encoding and solving for graph: A-pores_1.mtx.rnd
+c Search strategy: from lower bound.
+c Encoding and solving from lower bound.
+c [w = 3] Start task in PID: 551456.
+c [w = 3] Antibandwidth problem with w = 3 (A-pores_1.mtx.rnd):
+c [w = 3] Initializing CaDiCaL (version 2.1.3).
+c [w = 3] Configuring CaDiCaL as --sat (1).
+c [w = 3] Encoding starts with w = 3:
+c [w = 3] Symmetry breaking highest degree node is applied.
+c [w = 3] Encoding duration: 7ms
+c [w = 3] Number of clauses: 17925
+c [w = 3] Number of variables: 2340
+c [w = 3] SAT Solving starts:
+c [w = 3] Solving duration: 0 ms
+c [w = 3] Answer: 
+s [w = 3] SAT (w = 3)
+c [w = 3] Solution check = 3.
+c [w = 3] The solution is correct.
+c [w = 3] Result: 10
+c Search strategy: from lower bound.
+c Encoding and solving from lower bound.
+c [w = 4] Start task in PID: 551457.
+c [w = 4] Antibandwidth problem with w = 4 (A-pores_1.mtx.rnd):
+c [w = 4] Initializing CaDiCaL (version 2.1.3).
+c [w = 4] Configuring CaDiCaL as --sat (1).
+c [w = 4] Encoding starts with w = 4:
+c [w = 4] Symmetry breaking highest degree node is applied.
+c [w = 4] Encoding duration: 7ms
+c [w = 4] Number of clauses: 18723
+c [w = 4] Number of variables: 2580
+c [w = 4] SAT Solving starts:
+c [w = 4] Solving duration: 1 ms
+c [w = 4] Answer: 
+s [w = 4] SAT (w = 4)
+c [w = 4] Solution check = 4.
+c [w = 4] The solution is correct.
+c [w = 4] Result: 10
+c Search strategy: from lower bound.
+c Encoding and solving from lower bound.
+c [w = 5] Start task in PID: 551458.
+c [w = 5] Antibandwidth problem with w = 5 (A-pores_1.mtx.rnd):
+c [w = 5] Initializing CaDiCaL (version 2.1.3).
+c [w = 5] Configuring CaDiCaL as --sat (1).
+c [w = 5] Encoding starts with w = 5:
+c [w = 5] Symmetry breaking highest degree node is applied.
+c [w = 5] Encoding duration: 7ms
+c [w = 5] Number of clauses: 19281
+c [w = 5] Number of variables: 2700
+c [w = 5] SAT Solving starts:
+c [w = 5] Solving duration: 29 ms
+c [w = 5] Answer: 
+s [w = 5] SAT (w = 5)
+c [w = 5] Solution check = 5.
+c [w = 5] The solution is correct.
+c [w = 5] Result: 10
+c Search strategy: from lower bound.
+c Encoding and solving from lower bound.
+c [w = 6] Start task in PID: 551459.
+c [w = 6] Antibandwidth problem with w = 6 (A-pores_1.mtx.rnd):
+c [w = 6] Initializing CaDiCaL (version 2.1.3).
+c [w = 6] Configuring CaDiCaL as --sat (1).
+c [w = 6] Encoding starts with w = 6:
+c [w = 6] Symmetry breaking highest degree node is applied.
+c [w = 6] Encoding duration: 8ms
+c [w = 6] Number of clauses: 19710
+c [w = 6] Number of variables: 2790
+c [w = 6] SAT Solving starts:
+c [w = 6] Solving duration: 3 ms
+c [w = 6] Answer: 
+s [w = 6] SAT (w = 6)
+c [w = 6] Solution check = 6.
+c [w = 6] The solution is correct.
+c [w = 6] Result: 10
+c Search strategy: from lower bound.
+c Encoding and solving from lower bound.
+c [w = 7] Start task in PID: 551460.
+c [w = 7] Antibandwidth problem with w = 7 (A-pores_1.mtx.rnd):
+c [w = 7] Initializing CaDiCaL (version 2.1.3).
+c [w = 7] Configuring CaDiCaL as --sat (1).
+c [w = 7] Encoding starts with w = 7:
+c [w = 7] Symmetry breaking highest degree node is applied.
+c [w = 7] Encoding duration: 9ms
+c [w = 7] Number of clauses: 20190
+c [w = 7] Number of variables: 2940
+c [w = 7] SAT Solving starts:
+c [w = 7] Solving duration: 292 ms
+c [w = 7] Answer: 
+s [w = 7] UNSAT (w = 7)
+c [w = 7] Result: 20
+c Search strategy: from lower bound.
+c Encoding and solving from lower bound.
+c Min width UNSAT is set to 7
+c All children have completed.
+r
+r Final results: 
+r Max width SAT:  	6
+r Min width UNSAT:	7
+r Total real time: 383 ms
+r Total memory consumed 12.7 MB
+r
+r
+c Search strategy: from lower bound.
+c Encoding and solving from lower bound.
+c Signal interruption. Caught signal: SIGTERM (15)
