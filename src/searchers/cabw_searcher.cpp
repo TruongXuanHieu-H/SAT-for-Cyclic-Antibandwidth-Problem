@@ -14,10 +14,7 @@ CabwSearcher::CabwSearcher()
 {
     max_consumed_memory = (float *)mmap(nullptr, sizeof(float), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
 
-    int lb, ub;
-    lookup_bounds(lb, ub);
-    start_w = lb;
-    stop_w = ub + 1;
+    lookup_bounds(lower_bound, upper_bound);
 }
 
 CabwSearcher::~CabwSearcher()

@@ -17,8 +17,8 @@ protected:
     int max_width_SAT = std::numeric_limits<int>::min();
     int min_width_UNSAT = std::numeric_limits<int>::max();
 
-    int start_w;
-    int stop_w;
+    int lower_bound;
+    int upper_bound;
 
     std::unordered_map<int, pid_t> abp_pids;
     pid_t lim_pid;
