@@ -14,7 +14,7 @@ CabwSearcher::CabwSearcher()
 {
     max_consumed_memory = (float *)mmap(nullptr, sizeof(float), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
 
-    lookup_bounds(lower_bound, upper_bound);
+    setup_bounds(lower_bound, upper_bound);
 }
 
 CabwSearcher::~CabwSearcher()
@@ -75,6 +75,7 @@ void CabwSearcher::lookup_bounds(int &lb, int &ub)
     if (pos != GlobalData::cabw_LBs.end())
     {
         lb = pos->second;
+        std::cout << "c [Main] Lower bound is set to " << lb << ".\n";
     }
     else
     {
@@ -87,6 +88,7 @@ void CabwSearcher::lookup_bounds(int &lb, int &ub)
     if (pos != GlobalData::cabw_UBs.end())
     {
         ub = pos->second;
+        std::cout << "c [Main] Upper bound is set to " << ub << ".\n";
     }
     else
     {
