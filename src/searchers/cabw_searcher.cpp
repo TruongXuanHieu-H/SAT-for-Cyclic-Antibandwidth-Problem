@@ -15,6 +15,8 @@ CabwSearcher::CabwSearcher()
     max_consumed_memory = (float *)mmap(nullptr, sizeof(float), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
 
     setup_bounds(lower_bound, upper_bound);
+    max_width_SAT = lower_bound - 1;
+    min_width_UNSAT = upper_bound + 1;
 }
 
 CabwSearcher::~CabwSearcher()

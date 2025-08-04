@@ -1,7 +1,6 @@
 #ifndef CABW_SEARCHER_H
 #define CABW_SEARCHER_H
 
-#include <limits>
 #include <unordered_map>
 #include <unistd.h>
 
@@ -14,8 +13,8 @@ public:
     virtual void encode_and_solve() = 0;
 
 protected:
-    int max_width_SAT = std::numeric_limits<int>::min();
-    int min_width_UNSAT = std::numeric_limits<int>::max();
+    int max_width_SAT;
+    int min_width_UNSAT;
 
     int lower_bound;
     int upper_bound;
