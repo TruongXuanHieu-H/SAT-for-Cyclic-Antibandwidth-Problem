@@ -18,6 +18,7 @@ OBJECTS = \
     cabw_encoder.o \
     cabw_searcher.o \
     cabw_searcher_iterate_from_lb.o \
+    cabw_searcher_step_from_lb.o \
     version.o \
     usage.o \
     signal_handler.o \
@@ -66,7 +67,8 @@ $(OBJDIR)/cabw_encoder.o : \
     $(SRCDIR)/cabw_encoder.h \
     $(SRCDIR)/global_data.h \
     $(SRCDIR)/searchers/cabw_searcher.h \
-    $(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.h
+    $(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.h \
+	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/cabw_searcher.o : \
@@ -80,6 +82,13 @@ $(OBJDIR)/cabw_searcher.o : \
 $(OBJDIR)/cabw_searcher_iterate_from_lb.o : \
 	$(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.cpp \
 	$(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.h \
+	$(SRCDIR)/searchers/cabw_searcher.h \
+	$(SRCDIR)/global_data.h
+	g++ $(FLAGS) $(STANDARD) -c $< -o $@
+
+$(OBJDIR)/cabw_searcher_step_from_lb.o : \
+	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.cpp \
+	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.h \
 	$(SRCDIR)/searchers/cabw_searcher.h \
 	$(SRCDIR)/global_data.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@

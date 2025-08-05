@@ -74,9 +74,13 @@ int main(int argc, char **argv)
         {
             GlobalData::enable_solution_verification = true;
         }
-        else if (argv[i] == std::string("--from-lb"))
+        else if (argv[i] == std::string("--iterate-from-lb"))
         {
-            GlobalData::search_strategy = SearchStrategy::from_lb;
+            GlobalData::search_strategy = SearchStrategy::iterate_from_lb;
+        }
+        else if (argv[i] == std::string("--step-from-lb"))
+        {
+            GlobalData::search_strategy = SearchStrategy::step_from_lb;
         }
         else if (argv[i] == std::string("-set-lb"))
         {

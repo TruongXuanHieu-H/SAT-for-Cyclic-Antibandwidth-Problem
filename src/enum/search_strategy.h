@@ -3,7 +3,8 @@
 
 enum class SearchStrategy
 {
-    from_lb, // Search from lower bound
+    iterate_from_lb, // Search from lower bound iteratively
+    step_from_lb,    // Search from lower bound with steps
 };
 
 #endif // SEARCH_STRATEGY_H

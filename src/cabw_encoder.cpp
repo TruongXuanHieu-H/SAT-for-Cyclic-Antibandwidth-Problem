@@ -1,6 +1,7 @@
 #include "global_data.h"
 #include "cabw_encoder.h"
 #include "searchers/cabw_searcher_iterate_from_lb.h"
+#include "searchers/cabw_searcher_step_from_lb.h"
 
 #include <iostream>
 
@@ -22,9 +23,14 @@ void CyclicAntiBandwidthEncoder::encode_and_solve()
 
     switch (GlobalData::search_strategy)
     {
-    case SearchStrategy::from_lb:
+    case SearchStrategy::iterate_from_lb:
         std::cout << "c [Main] Search strategy: Iterating from lower bound.\n";
         cabw_searcher = new CabwSearcherIterateFromLB();
+        break;
+
+    case SearchStrategy::step_from_lb:
+        std::cout << "c [Main] Search strategy: Stepping from lower bound.\n";
+        cabw_searcher = new CabwSearcherStepFromLB();
         break;
 
     default:

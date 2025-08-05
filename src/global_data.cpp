@@ -13,7 +13,7 @@ Graph *GlobalData::g = nullptr;
 int GlobalData::worker_count = 1;
 
 EncodeType GlobalData::encode_type = EncodeType::Ladder;
-SearchStrategy GlobalData::search_strategy = SearchStrategy::from_lb;
+SearchStrategy GlobalData::search_strategy = SearchStrategy::iterate_from_lb;
 SymmetryBreakingType GlobalData::symmetry_break_strategy = SymmetryBreakingType::NONE;
 
 bool GlobalData::enable_solution_verification = true;
