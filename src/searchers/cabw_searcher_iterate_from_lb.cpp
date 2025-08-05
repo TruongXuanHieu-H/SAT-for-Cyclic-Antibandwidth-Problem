@@ -147,8 +147,8 @@ void CabwSearcherIterateFromLB::encode_and_solve()
 
     std::cout << "r [Main] \n";
     std::cout << "r [Main] Final results: \n";
-    std::cout << "r [Main] Max width SAT:  \t" << (max_width_SAT == std::numeric_limits<int>::min() ? "-" : std::to_string(max_width_SAT)) << "\n";
-    std::cout << "r [Main] Min width UNSAT:\t" << (min_width_UNSAT == std::numeric_limits<int>::max() ? "-" : std::to_string(min_width_UNSAT)) << "\n";
+    std::cout << "r [Main] Max width SAT:  \t" << ((max_width_SAT == lower_bound - 1) ? "-" : std::to_string(max_width_SAT)) << "\n";
+    std::cout << "r [Main] Min width UNSAT:\t" << ((min_width_UNSAT == upper_bound + 1) ? "-" : std::to_string(min_width_UNSAT)) << "\n";
     std::cout << "r [Main] Total real time: " << encode_duration << " ms\n";
     std::cout << "r [Main] Total memory consumed: " << *max_consumed_memory << " MB\n";
     std::cout << "r [Main] \n";
