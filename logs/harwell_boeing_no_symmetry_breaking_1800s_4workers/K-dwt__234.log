@@ -1,0 +1,382 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 4.
+c [Main] Encoding and solving for graph: K-dwt__234.mtx.rnd
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 23.
+c [Main] Upper bound is set to 58.
+c [w = 26] Start task in PID: 35777.
+c [w = 26] Antibandwidth problem with w = 26 (K-dwt__234.mtx.rnd):
+c [w = 26] Initializing CaDiCaL (version 2.1.3).
+c [w = 26] Configuring CaDiCaL as --sat (1).
+c [w = 26] Encoding starts with w = 26:
+c [w = 26] Encoding duration: 89 ms
+c [w = 26] Number of clauses: 220572
+c [w = 26] Number of variables: 45513
+c [w = 24] Start task in PID: 35775.
+c [w = 24] Antibandwidth problem with w = 24 (K-dwt__234.mtx.rnd):
+c [w = 24] Initializing CaDiCaL (version 2.1.3).
+c [w = 24] Configuring CaDiCaL as --sat (1).
+c [w = 24] Encoding starts with w = 24:
+c [w = 24] Encoding duration: 90 ms
+c [w = 24] Number of clauses: 216828
+c [w = 24] Number of variables: 44343
+c [w = 25] Start task in PID: 35776.
+c [w = 25] Antibandwidth problem with w = 25 (K-dwt__234.mtx.rnd):
+c [w = 25] Initializing CaDiCaL (version 2.1.3).
+c [w = 25] Configuring CaDiCaL as --sat (1).
+c [w = 25] Encoding starts with w = 25:
+c [w = 25] Encoding duration: 90 ms
+c [w = 25] Number of clauses: 218700
+c [w = 25] Number of variables: 44928
+c [w = 23] Start task in PID: 35774.
+c [w = 23] Antibandwidth problem with w = 23 (K-dwt__234.mtx.rnd):
+c [w = 23] Initializing CaDiCaL (version 2.1.3).
+c [w = 23] Configuring CaDiCaL as --sat (1).
+c [w = 23] Encoding starts with w = 23:
+c [w = 23] Encoding duration: 94 ms
+c [w = 23] Number of clauses: 222192
+c [w = 23] Number of variables: 46098
+c [w = 25] SAT Solving starts:
+c [w = 25] Solving duration: 36 ms
+c [w = 25] Answer: 
+s [w = 25] SAT (w = 25)
+c [w = 25] Solution check = 25.
+c [w = 25] The solution is correct.
+c [w = 25] Result: 10
+c [Main] Max width SAT is set to 25
+c [Main] Kill lower pid 24.
+c [Main] Kill lower pid 23.
+c [w = 24] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 23] SAT Solving starts:
+c [w = 23] Solving duration: 38 ms
+c [w = 23] Answer: 
+s [w = 23] SAT (w = 23)
+c [w = 23] Solution check = 23.
+c [w = 23] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 23 - 35774 terminated by signal 15
+c [Main] Child pid 24 - 35775 terminated by signal 15
+c [w = 26] SAT Solving starts:
+c [w = 26] Solving duration: 66 ms
+c [w = 26] Answer: 
+s [w = 26] SAT (w = 26)
+c [w = 26] Solution check = 26.
+c [w = 26] The solution is correct.
+c [w = 26] Result: 10
+c [Main] Max width SAT is set to 26
+c [w = 27] Start task in PID: 35778.
+c [w = 27] Antibandwidth problem with w = 27 (K-dwt__234.mtx.rnd):
+c [w = 27] Initializing CaDiCaL (version 2.1.3).
+c [w = 27] Configuring CaDiCaL as --sat (1).
+c [w = 27] Encoding starts with w = 27:
+c [w = 27] Encoding duration: 95 ms
+c [w = 27] Number of clauses: 222444
+c [w = 27] Number of variables: 46098
+c [w = 29] Start task in PID: 35780.
+c [w = 29] Antibandwidth problem with w = 29 (K-dwt__234.mtx.rnd):
+c [w = 29] Initializing CaDiCaL (version 2.1.3).
+c [w = 29] Configuring CaDiCaL as --sat (1).
+c [w = 29] Encoding starts with w = 29:
+c [w = 29] Encoding duration: 91 ms
+c [w = 29] Number of clauses: 216828
+c [w = 29] Number of variables: 44226
+c [w = 28] Start task in PID: 35779.
+c [w = 28] Antibandwidth problem with w = 28 (K-dwt__234.mtx.rnd):
+c [w = 28] Initializing CaDiCaL (version 2.1.3).
+c [w = 28] Configuring CaDiCaL as --sat (1).
+c [w = 28] Encoding starts with w = 28:
+c [w = 28] Encoding duration: 97 ms
+c [w = 28] Number of clauses: 224316
+c [w = 28] Number of variables: 46683
+c [w = 30] Start task in PID: 35781.
+c [w = 30] Antibandwidth problem with w = 30 (K-dwt__234.mtx.rnd):
+c [w = 30] Initializing CaDiCaL (version 2.1.3).
+c [w = 30] Configuring CaDiCaL as --sat (1).
+c [w = 30] Encoding starts with w = 30:
+c [w = 30] Encoding duration: 91 ms
+c [w = 30] Number of clauses: 218484
+c [w = 30] Number of variables: 44694
+c [w = 29] SAT Solving starts:
+c [w = 29] Solving duration: 176 ms
+c [w = 29] Answer: 
+s [w = 29] SAT (w = 29)
+c [w = 29] Solution check = 29.
+c [w = 29] The solution is correct.
+c [w = 29] Result: 10
+c [Main] Max width SAT is set to 29
+c [Main] Kill lower pid 28.
+c [Main] Kill lower pid 27.
+c [w = 28] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 27] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 28 - 35779 terminated by signal 15
+c [Main] Child pid 27 - 35778 terminated by signal 15
+c [w = 32] Start task in PID: 35783.
+c [w = 32] Antibandwidth problem with w = 32 (K-dwt__234.mtx.rnd):
+c [w = 32] Initializing CaDiCaL (version 2.1.3).
+c [w = 32] Configuring CaDiCaL as --sat (1).
+c [w = 32] Encoding starts with w = 32:
+c [w = 32] Encoding duration: 91 ms
+c [w = 32] Number of clauses: 221526
+c [w = 32] Number of variables: 45630
+c [w = 33] Start task in PID: 35784.
+c [w = 33] Antibandwidth problem with w = 33 (K-dwt__234.mtx.rnd):
+c [w = 33] Initializing CaDiCaL (version 2.1.3).
+c [w = 33] Configuring CaDiCaL as --sat (1).
+c [w = 33] Encoding starts with w = 33:
+c [w = 33] Encoding duration: 94 ms
+c [w = 33] Number of clauses: 223047
+c [w = 33] Number of variables: 46098
+c [w = 31] Start task in PID: 35782.
+c [w = 31] Antibandwidth problem with w = 31 (K-dwt__234.mtx.rnd):
+c [w = 31] Initializing CaDiCaL (version 2.1.3).
+c [w = 31] Configuring CaDiCaL as --sat (1).
+c [w = 31] Encoding starts with w = 31:
+c [w = 31] Encoding duration: 124 ms
+c [w = 31] Number of clauses: 220005
+c [w = 31] Number of variables: 45162
+c [w = 32] SAT Solving starts:
+c [w = 32] Solving duration: 379 ms
+c [w = 32] Answer: 
+s [w = 32] SAT (w = 32)
+c [w = 32] Solution check = 32.
+c [w = 32] The solution is correct.
+c [w = 32] Result: 10
+c [Main] Max width SAT is set to 32
+c [Main] Kill lower pid 31.
+c [Main] Kill lower pid 30.
+c [w = 31] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 30] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 31 - 35782 terminated by signal 15
+c [Main] Child pid 30 - 35781 terminated by signal 15
+c [w = 34] Start task in PID: 35785.
+c [w = 34] Antibandwidth problem with w = 34 (K-dwt__234.mtx.rnd):
+c [w = 34] Initializing CaDiCaL (version 2.1.3).
+c [w = 34] Configuring CaDiCaL as --sat (1).
+c [w = 34] Encoding starts with w = 34:
+c [w = 34] Encoding duration: 98 ms
+c [w = 34] Number of clauses: 224568
+c [w = 34] Number of variables: 46566
+c [w = 35] Start task in PID: 35786.
+c [w = 35] Antibandwidth problem with w = 35 (K-dwt__234.mtx.rnd):
+c [w = 35] Initializing CaDiCaL (version 2.1.3).
+c [w = 35] Configuring CaDiCaL as --sat (1).
+c [w = 35] Encoding starts with w = 35:
+c [w = 35] Encoding duration: 94 ms
+c [w = 35] Number of clauses: 226089
+c [w = 35] Number of variables: 47034
+c [w = 36] Start task in PID: 35787.
+c [w = 36] Antibandwidth problem with w = 36 (K-dwt__234.mtx.rnd):
+c [w = 36] Initializing CaDiCaL (version 2.1.3).
+c [w = 36] Configuring CaDiCaL as --sat (1).
+c [w = 36] Encoding starts with w = 36:
+c [w = 36] Encoding duration: 95 ms
+c [w = 36] Number of clauses: 227610
+c [w = 36] Number of variables: 47502
+c [w = 35] SAT Solving starts:
+c [w = 35] Solving duration: 417 ms
+c [w = 35] Answer: 
+s [w = 35] SAT (w = 35)
+c [w = 35] Solution check = 35.
+c [w = 35] The solution is correct.
+c [w = 35] Result: 10
+c [Main] Max width SAT is set to 35
+c [Main] Kill lower pid 34.
+c [Main] Kill lower pid 33.
+c [w = 34] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 33] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 33 - 35784 terminated by signal 15
+c [Main] Child pid 34 - 35785 terminated by signal 15
+c [w = 37] Start task in PID: 35788.
+c [w = 37] Antibandwidth problem with w = 37 (K-dwt__234.mtx.rnd):
+c [w = 37] Initializing CaDiCaL (version 2.1.3).
+c [w = 37] Configuring CaDiCaL as --sat (1).
+c [w = 37] Encoding starts with w = 37:
+c [w = 37] Encoding duration: 97 ms
+c [w = 37] Number of clauses: 229131
+c [w = 37] Number of variables: 47970
+c [w = 39] Start task in PID: 35790.
+c [w = 39] Antibandwidth problem with w = 39 (K-dwt__234.mtx.rnd):
+c [w = 39] Initializing CaDiCaL (version 2.1.3).
+c [w = 39] Configuring CaDiCaL as --sat (1).
+c [w = 39] Encoding starts with w = 39:
+c [w = 39] Encoding duration: 94 ms
+c [w = 39] Number of clauses: 219555
+c [w = 39] Number of variables: 44694
+c [w = 38] Start task in PID: 35789.
+c [w = 38] Antibandwidth problem with w = 38 (K-dwt__234.mtx.rnd):
+c [w = 38] Initializing CaDiCaL (version 2.1.3).
+c [w = 38] Configuring CaDiCaL as --sat (1).
+c [w = 38] Encoding starts with w = 38:
+c [w = 38] Encoding duration: 99 ms
+c [w = 38] Number of clauses: 230652
+c [w = 38] Number of variables: 48438
+c [w = 38] SAT Solving starts:
+c [w = 38] Solving duration: 212 ms
+c [w = 38] Answer: 
+s [w = 38] SAT (w = 38)
+c [w = 38] Solution check = 38.
+c [w = 38] The solution is correct.
+c [w = 38] Result: 10
+c [Main] Max width SAT is set to 38
+c [Main] Kill lower pid 37.
+c [Main] Kill lower pid 36.
+c [w = 37] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 36] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 36 - 35787 terminated by signal 15
+c [Main] Child pid 37 - 35788 terminated by signal 15
+c [w = 40] Start task in PID: 35791.
+c [w = 40] Antibandwidth problem with w = 40 (K-dwt__234.mtx.rnd):
+c [w = 40] Initializing CaDiCaL (version 2.1.3).
+c [w = 40] Configuring CaDiCaL as --sat (1).
+c [w = 40] Encoding starts with w = 40:
+c [w = 40] Encoding duration: 96 ms
+c [w = 40] Number of clauses: 220725
+c [w = 40] Number of variables: 45045
+c [w = 41] Start task in PID: 35792.
+c [w = 41] Antibandwidth problem with w = 41 (K-dwt__234.mtx.rnd):
+c [w = 41] Initializing CaDiCaL (version 2.1.3).
+c [w = 41] Configuring CaDiCaL as --sat (1).
+c [w = 41] Encoding starts with w = 41:
+c [w = 41] Encoding duration: 95 ms
+c [w = 41] Number of clauses: 221895
+c [w = 41] Number of variables: 45396
+c [w = 42] Start task in PID: 35793.
+c [w = 42] Antibandwidth problem with w = 42 (K-dwt__234.mtx.rnd):
+c [w = 42] Initializing CaDiCaL (version 2.1.3).
+c [w = 42] Configuring CaDiCaL as --sat (1).
+c [w = 42] Encoding starts with w = 42:
+c [w = 42] Encoding duration: 122 ms
+c [w = 42] Number of clauses: 223065
+c [w = 42] Number of variables: 45747
+c [w = 41] SAT Solving starts:
+c [w = 41] Solving duration: 3058 ms
+c [w = 41] Answer: 
+s [w = 41] SAT (w = 41)
+c [w = 41] Solution check = 41.
+c [w = 41] The solution is correct.
+c [w = 41] Result: 10
+c [Main] Max width SAT is set to 41
+c [Main] Kill lower pid 40.
+c [Main] Kill lower pid 39.
+c [w = 40] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 39] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 39 - 35790 terminated by signal 15
+c [Main] Child pid 40 - 35791 terminated by signal 15
+c [w = 44] Start task in PID: 35835.
+c [w = 44] Antibandwidth problem with w = 44 (K-dwt__234.mtx.rnd):
+c [w = 44] Initializing CaDiCaL (version 2.1.3).
+c [w = 44] Configuring CaDiCaL as --sat (1).
+c [w = 44] Encoding starts with w = 44:
+c [w = 44] Encoding duration: 91 ms
+c [w = 44] Number of clauses: 225405
+c [w = 44] Number of variables: 46449
+c [w = 43] Start task in PID: 35834.
+c [w = 43] Antibandwidth problem with w = 43 (K-dwt__234.mtx.rnd):
+c [w = 43] Initializing CaDiCaL (version 2.1.3).
+c [w = 43] Configuring CaDiCaL as --sat (1).
+c [w = 43] Encoding starts with w = 43:
+c [w = 43] Encoding duration: 106 ms
+c [w = 43] Number of clauses: 224235
+c [w = 43] Number of variables: 46098
+c [w = 45] Start task in PID: 35836.
+c [w = 45] Antibandwidth problem with w = 45 (K-dwt__234.mtx.rnd):
+c [w = 45] Initializing CaDiCaL (version 2.1.3).
+c [w = 45] Configuring CaDiCaL as --sat (1).
+c [w = 45] Encoding starts with w = 45:
+c [w = 45] Encoding duration: 108 ms
+c [w = 45] Number of clauses: 226575
+c [w = 45] Number of variables: 46800
+c [w = 42] SAT Solving starts:
+c [w = 42] Solving duration: 7310 ms
+c [w = 42] Answer: 
+s [w = 42] SAT (w = 42)
+c [w = 42] Solution check = 42.
+c [w = 42] The solution is correct.
+c [w = 42] Result: 10
+c [Main] Max width SAT is set to 42
+c [w = 46] Start task in PID: 35872.
+c [w = 46] Antibandwidth problem with w = 46 (K-dwt__234.mtx.rnd):
+c [w = 46] Initializing CaDiCaL (version 2.1.3).
+c [w = 46] Configuring CaDiCaL as --sat (1).
+c [w = 46] Encoding starts with w = 46:
+c [w = 46] Encoding duration: 103 ms
+c [w = 46] Number of clauses: 227745
+c [w = 46] Number of variables: 47151
+c [w = 45] SAT Solving starts:
+c [w = 45] Solving duration: 396874 ms
+c [w = 45] Answer: 
+s [w = 45] SAT (w = 45)
+c [w = 45] Solution check = 45.
+c [w = 45] The solution is correct.
+c [w = 45] Result: 10
+c [Main] Max width SAT is set to 45
+c [Main] Kill lower pid 44.
+c [Main] Kill lower pid 43.
+c [w = 44] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 43] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 44 - 35835 terminated by signal 15
+c [Main] Child pid 43 - 35834 terminated by signal 15
+c [w = 48] Start task in PID: 36755.
+c [w = 48] Antibandwidth problem with w = 48 (K-dwt__234.mtx.rnd):
+c [w = 48] Initializing CaDiCaL (version 2.1.3).
+c [w = 48] Configuring CaDiCaL as --sat (1).
+c [w = 48] Encoding starts with w = 48:
+c [w = 48] Encoding duration: 94 ms
+c [w = 48] Number of clauses: 230085
+c [w = 48] Number of variables: 47853
+c [w = 47] Start task in PID: 36754.
+c [w = 47] Antibandwidth problem with w = 47 (K-dwt__234.mtx.rnd):
+c [w = 47] Initializing CaDiCaL (version 2.1.3).
+c [w = 47] Configuring CaDiCaL as --sat (1).
+c [w = 47] Encoding starts with w = 47:
+c [w = 47] Encoding duration: 121 ms
+c [w = 47] Number of clauses: 228915
+c [w = 47] Number of variables: 47502
+c [w = 49] Start task in PID: 36756.
+c [w = 49] Antibandwidth problem with w = 49 (K-dwt__234.mtx.rnd):
+c [w = 49] Initializing CaDiCaL (version 2.1.3).
+c [w = 49] Configuring CaDiCaL as --sat (1).
+c [w = 49] Encoding starts with w = 49:
+c [w = 49] Encoding duration: 120 ms
+c [w = 49] Number of clauses: 231255
+c [w = 49] Number of variables: 48204
+c [w = 49] SAT Solving starts:
+c [w = 49] Solving duration: 204 ms
+c [w = 49] Answer: 
+s [w = 49] UNSAT (w = 49)
+c [w = 49] Result: 20
+c [Main] Min width UNSAT is set to 49
+c [w = 48] SAT Solving starts:
+c [w = 48] Solving duration: 66811 ms
+c [w = 48] Answer: 
+s [w = 48] UNSAT (w = 48)
+c [w = 48] Result: 20
+c [Main] Min width UNSAT is set to 48
+c [w = 47] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 46] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Lim pid ends with result: 254
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	45
+r [Main] Min width UNSAT:	48
+r [Main] Total real time: 1806413 ms
+r [Main] Total memory consumed: 848.7 MB
+r [Main] 
