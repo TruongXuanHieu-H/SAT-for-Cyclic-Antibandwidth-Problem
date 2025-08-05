@@ -82,6 +82,10 @@ int main(int argc, char **argv)
         {
             GlobalData::search_strategy = SearchStrategy::step_from_lb;
         }
+        else if (argv[i] == std::string("--binary-search"))
+        {
+            GlobalData::search_strategy = SearchStrategy::binary_search;
+        }
         else if (argv[i] == std::string("-set-lb"))
         {
             GlobalData::forced_lb = get_number_arg(argv[++i]);

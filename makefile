@@ -19,6 +19,7 @@ OBJECTS = \
     cabw_searcher.o \
     cabw_searcher_iterate_from_lb.o \
     cabw_searcher_step_from_lb.o \
+	cabw_searcher_binary.o \
     version.o \
     usage.o \
     signal_handler.o \
@@ -68,7 +69,8 @@ $(OBJDIR)/cabw_encoder.o : \
     $(SRCDIR)/global_data.h \
     $(SRCDIR)/searchers/cabw_searcher.h \
     $(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.h \
-	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.h
+	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.h \
+	$(SRCDIR)/searchers/cabw_searcher_binary.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/cabw_searcher.o : \
@@ -91,6 +93,14 @@ $(OBJDIR)/cabw_searcher_step_from_lb.o : \
 	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.h \
 	$(SRCDIR)/searchers/cabw_searcher.h \
 	$(SRCDIR)/global_data.h
+	g++ $(FLAGS) $(STANDARD) -c $< -o $@
+
+$(OBJDIR)/cabw_searcher_binary.o : \
+	$(SRCDIR)/searchers/cabw_searcher_binary.cpp \
+	$(SRCDIR)/searchers/cabw_searcher_binary.h \
+	$(SRCDIR)/searchers/cabw_searcher.h \
+	$(SRCDIR)/global_data.h \
+	$(SRCDIR)/utils/pid_manager.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/version.o : \

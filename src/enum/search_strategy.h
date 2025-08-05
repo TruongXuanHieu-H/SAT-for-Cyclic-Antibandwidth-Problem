@@ -5,6 +5,7 @@ enum class SearchStrategy
 {
     iterate_from_lb, // Search from lower bound iteratively
     step_from_lb,    // Search from lower bound with steps
+    binary_search,   // Binary search strategy
 };
 
 #endif // SEARCH_STRATEGY_H
