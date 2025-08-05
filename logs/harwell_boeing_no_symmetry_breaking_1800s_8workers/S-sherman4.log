@@ -1,0 +1,646 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 8.
+c [Main] Encoding and solving for graph: S-sherman4.mtx.rnd
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 128.
+c [Main] Upper bound is set to 272.
+c [w = 134] Start task in PID: 142231.
+c [w = 134] Antibandwidth problem with w = 134 (S-sherman4.mtx.rnd):
+c [w = 134] Initializing CaDiCaL (version 2.1.3).
+c [w = 134] Configuring CaDiCaL as --sat (1).
+c [w = 134] Encoding starts with w = 134:
+c [w = 134] Encoding duration: 8352 ms
+c [w = 134] Number of clauses: 6219573
+c [w = 134] Number of variables: 1003002
+c [w = 131] Start task in PID: 142228.
+c [w = 131] Antibandwidth problem with w = 131 (S-sherman4.mtx.rnd):
+c [w = 131] Initializing CaDiCaL (version 2.1.3).
+c [w = 131] Configuring CaDiCaL as --sat (1).
+c [w = 131] Encoding starts with w = 131:
+c [w = 131] Encoding duration: 8392 ms
+c [w = 131] Number of clauses: 6193365
+c [w = 131] Number of variables: 994812
+c [w = 130] Start task in PID: 142227.
+c [w = 130] Antibandwidth problem with w = 130 (S-sherman4.mtx.rnd):
+c [w = 130] Initializing CaDiCaL (version 2.1.3).
+c [w = 130] Configuring CaDiCaL as --sat (1).
+c [w = 130] Encoding starts with w = 130:
+c [w = 130] Encoding duration: 8470 ms
+c [w = 130] Number of clauses: 6184629
+c [w = 130] Number of variables: 992082
+c [w = 129] Start task in PID: 142226.
+c [w = 129] Antibandwidth problem with w = 129 (S-sherman4.mtx.rnd):
+c [w = 129] Initializing CaDiCaL (version 2.1.3).
+c [w = 129] Configuring CaDiCaL as --sat (1).
+c [w = 129] Encoding starts with w = 129:
+c [w = 129] Encoding duration: 8775 ms
+c [w = 129] Number of clauses: 6175893
+c [w = 129] Number of variables: 989352
+c [w = 128] Start task in PID: 142225.
+c [w = 128] Antibandwidth problem with w = 128 (S-sherman4.mtx.rnd):
+c [w = 128] Initializing CaDiCaL (version 2.1.3).
+c [w = 128] Configuring CaDiCaL as --sat (1).
+c [w = 128] Encoding starts with w = 128:
+c [w = 128] Encoding duration: 9127 ms
+c [w = 128] Number of clauses: 6167157
+c [w = 128] Number of variables: 986622
+c [w = 135] Start task in PID: 142232.
+c [w = 135] Antibandwidth problem with w = 135 (S-sherman4.mtx.rnd):
+c [w = 135] Initializing CaDiCaL (version 2.1.3).
+c [w = 135] Configuring CaDiCaL as --sat (1).
+c [w = 135] Encoding starts with w = 135:
+c [w = 135] Encoding duration: 9424 ms
+c [w = 135] Number of clauses: 6228309
+c [w = 135] Number of variables: 1005732
+c [w = 132] Start task in PID: 142229.
+c [w = 132] Antibandwidth problem with w = 132 (S-sherman4.mtx.rnd):
+c [w = 132] Initializing CaDiCaL (version 2.1.3).
+c [w = 132] Configuring CaDiCaL as --sat (1).
+c [w = 132] Encoding starts with w = 132:
+c [w = 132] Encoding duration: 9448 ms
+c [w = 132] Number of clauses: 6202101
+c [w = 132] Number of variables: 997542
+c [w = 133] Start task in PID: 142230.
+c [w = 133] Antibandwidth problem with w = 133 (S-sherman4.mtx.rnd):
+c [w = 133] Initializing CaDiCaL (version 2.1.3).
+c [w = 133] Configuring CaDiCaL as --sat (1).
+c [w = 133] Encoding starts with w = 133:
+c [w = 133] Encoding duration: 9700 ms
+c [w = 133] Number of clauses: 6210837
+c [w = 133] Number of variables: 1000272
+c [w = 135] SAT Solving starts:
+c [w = 135] Solving duration: 278595 ms
+c [w = 135] Answer: 
+s [w = 135] SAT (w = 135)
+c [w = 135] Solution check = 135.
+c [w = 135] The solution is correct.
+c [w = 135] Result: 10
+c [w = 134] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Max width SAT is set to 135
+c [Main] Kill lower pid 134.
+c [Main] Kill lower pid 133.
+c [Main] Kill lower pid 132.
+c [Main] Kill lower pid 131.
+c [Main] Kill lower pid 130.
+c [Main] Kill lower pid 129.
+c [Main] Kill lower pid 128.
+c [w = 132] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 133] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 130] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 129] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 131] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 128] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 130 - 142227 terminated by signal 15
+c [Main] Child pid 132 - 142229 terminated by signal 15
+c [Main] Child pid 128 - 142225 terminated by signal 15
+c [Main] Child pid 133 - 142230 terminated by signal 15
+c [Main] Child pid 134 - 142231 terminated by signal 15
+c [Main] Child pid 129 - 142226 terminated by signal 15
+c [Main] Child pid 131 - 142228 terminated by signal 15
+c [w = 137] Start task in PID: 142322.
+c [w = 137] Antibandwidth problem with w = 137 (S-sherman4.mtx.rnd):
+c [w = 137] Initializing CaDiCaL (version 2.1.3).
+c [w = 137] Configuring CaDiCaL as --sat (1).
+c [w = 137] Encoding starts with w = 137:
+c [w = 137] Encoding duration: 7523 ms
+c [w = 137] Number of clauses: 6027582
+c [w = 137] Number of variables: 938028
+c [w = 142] Start task in PID: 142327.
+c [w = 142] Antibandwidth problem with w = 142 (S-sherman4.mtx.rnd):
+c [w = 142] Initializing CaDiCaL (version 2.1.3).
+c [w = 142] Configuring CaDiCaL as --sat (1).
+c [w = 142] Encoding starts with w = 142:
+c [w = 142] Encoding duration: 7517 ms
+c [w = 142] Number of clauses: 6063072
+c [w = 142] Number of variables: 948948
+c [w = 140] Start task in PID: 142325.
+c [w = 140] Antibandwidth problem with w = 140 (S-sherman4.mtx.rnd):
+c [w = 140] Initializing CaDiCaL (version 2.1.3).
+c [w = 140] Configuring CaDiCaL as --sat (1).
+c [w = 140] Encoding starts with w = 140:
+c [w = 140] Encoding duration: 7662 ms
+c [w = 140] Number of clauses: 6048876
+c [w = 140] Number of variables: 944580
+c [w = 143] Start task in PID: 142328.
+c [w = 143] Antibandwidth problem with w = 143 (S-sherman4.mtx.rnd):
+c [w = 143] Initializing CaDiCaL (version 2.1.3).
+c [w = 143] Configuring CaDiCaL as --sat (1).
+c [w = 143] Encoding starts with w = 143:
+c [w = 143] Encoding duration: 7726 ms
+c [w = 143] Number of clauses: 6070170
+c [w = 143] Number of variables: 951132
+c [w = 138] Start task in PID: 142323.
+c [w = 138] Antibandwidth problem with w = 138 (S-sherman4.mtx.rnd):
+c [w = 138] Initializing CaDiCaL (version 2.1.3).
+c [w = 138] Configuring CaDiCaL as --sat (1).
+c [w = 138] Encoding starts with w = 138:
+c [w = 138] Encoding duration: 8019 ms
+c [w = 138] Number of clauses: 6034680
+c [w = 138] Number of variables: 940212
+c [w = 139] Start task in PID: 142324.
+c [w = 139] Antibandwidth problem with w = 139 (S-sherman4.mtx.rnd):
+c [w = 139] Initializing CaDiCaL (version 2.1.3).
+c [w = 139] Configuring CaDiCaL as --sat (1).
+c [w = 139] Encoding starts with w = 139:
+c [w = 139] Encoding duration: 7942 ms
+c [w = 139] Number of clauses: 6041778
+c [w = 139] Number of variables: 942396
+c [w = 136] Start task in PID: 142321.
+c [w = 136] Antibandwidth problem with w = 136 (S-sherman4.mtx.rnd):
+c [w = 136] Initializing CaDiCaL (version 2.1.3).
+c [w = 136] Configuring CaDiCaL as --sat (1).
+c [w = 136] Encoding starts with w = 136:
+c [w = 136] Encoding duration: 8209 ms
+c [w = 136] Number of clauses: 6237045
+c [w = 136] Number of variables: 1008462
+c [w = 141] Start task in PID: 142326.
+c [w = 141] Antibandwidth problem with w = 141 (S-sherman4.mtx.rnd):
+c [w = 141] Initializing CaDiCaL (version 2.1.3).
+c [w = 141] Configuring CaDiCaL as --sat (1).
+c [w = 141] Encoding starts with w = 141:
+c [w = 141] Encoding duration: 8001 ms
+c [w = 141] Number of clauses: 6055974
+c [w = 141] Number of variables: 946764
+c [w = 136] SAT Solving starts:
+c [w = 136] Solving duration: 243204 ms
+c [w = 136] Answer: 
+s [w = 136] SAT (w = 136)
+c [w = 136] Solution check = 136.
+c [w = 136] The solution is correct.
+c [w = 136] Result: 10
+c [Main] Max width SAT is set to 136
+c [w = 144] Start task in PID: 143026.
+c [w = 144] Antibandwidth problem with w = 144 (S-sherman4.mtx.rnd):
+c [w = 144] Initializing CaDiCaL (version 2.1.3).
+c [w = 144] Configuring CaDiCaL as --sat (1).
+c [w = 144] Encoding starts with w = 144:
+c [w = 144] Encoding duration: 7556 ms
+c [w = 144] Number of clauses: 6077268
+c [w = 144] Number of variables: 953316
+c [w = 137] SAT Solving starts:
+c [w = 137] Solving duration: 372636 ms
+c [w = 137] Answer: 
+s [w = 137] SAT (w = 137)
+c [w = 137] Solution check = 137.
+c [w = 137] The solution is correct.
+c [w = 137] Result: 10
+c [Main] Max width SAT is set to 137
+c [w = 145] Start task in PID: 143039.
+c [w = 145] Antibandwidth problem with w = 145 (S-sherman4.mtx.rnd):
+c [w = 145] Initializing CaDiCaL (version 2.1.3).
+c [w = 145] Configuring CaDiCaL as --sat (1).
+c [w = 145] Encoding starts with w = 145:
+c [w = 145] Encoding duration: 7683 ms
+c [w = 145] Number of clauses: 6084366
+c [w = 145] Number of variables: 955500
+c [w = 142] SAT Solving starts:
+c [w = 142] Solving duration: 402760 ms
+c [w = 142] Answer: 
+s [w = 142] SAT (w = 142)
+c [w = 142] Solution check = 142.
+c [w = 142] The solution is correct.
+c [w = 142] Result: 10
+c [Main] Max width SAT is set to 142
+c [Main] Kill lower pid 141.
+c [Main] Kill lower pid 140.
+c [Main] Kill lower pid 139.
+c [Main] Kill lower pid 138.
+c [w = 141] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 140] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 138] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 139] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 139 - 142324 terminated by signal 15
+c [Main] Child pid 141 - 142326 terminated by signal 15
+c [Main] Child pid 138 - 142323 terminated by signal 15
+c [Main] Child pid 140 - 142325 terminated by signal 15
+c [w = 146] Start task in PID: 143046.
+c [w = 146] Antibandwidth problem with w = 146 (S-sherman4.mtx.rnd):
+c [w = 146] Initializing CaDiCaL (version 2.1.3).
+c [w = 146] Configuring CaDiCaL as --sat (1).
+c [w = 146] Encoding starts with w = 146:
+c [w = 146] Encoding duration: 7606 ms
+c [w = 146] Number of clauses: 6091464
+c [w = 146] Number of variables: 957684
+c [w = 148] Start task in PID: 143048.
+c [w = 148] Antibandwidth problem with w = 148 (S-sherman4.mtx.rnd):
+c [w = 148] Initializing CaDiCaL (version 2.1.3).
+c [w = 148] Configuring CaDiCaL as --sat (1).
+c [w = 148] Encoding starts with w = 148:
+c [w = 148] Encoding duration: 7610 ms
+c [w = 148] Number of clauses: 6105660
+c [w = 148] Number of variables: 962052
+c [w = 147] Start task in PID: 143047.
+c [w = 147] Antibandwidth problem with w = 147 (S-sherman4.mtx.rnd):
+c [w = 147] Initializing CaDiCaL (version 2.1.3).
+c [w = 147] Configuring CaDiCaL as --sat (1).
+c [w = 147] Encoding starts with w = 147:
+c [w = 147] Encoding duration: 7660 ms
+c [w = 147] Number of clauses: 6098562
+c [w = 147] Number of variables: 959868
+c [w = 149] Start task in PID: 143049.
+c [w = 149] Antibandwidth problem with w = 149 (S-sherman4.mtx.rnd):
+c [w = 149] Initializing CaDiCaL (version 2.1.3).
+c [w = 149] Configuring CaDiCaL as --sat (1).
+c [w = 149] Encoding starts with w = 149:
+c [w = 149] Encoding duration: 7650 ms
+c [w = 149] Number of clauses: 6112758
+c [w = 149] Number of variables: 964236
+c [w = 150] Start task in PID: 143050.
+c [w = 150] Antibandwidth problem with w = 150 (S-sherman4.mtx.rnd):
+c [w = 150] Initializing CaDiCaL (version 2.1.3).
+c [w = 150] Configuring CaDiCaL as --sat (1).
+c [w = 150] Encoding starts with w = 150:
+c [w = 150] Encoding duration: 8050 ms
+c [w = 150] Number of clauses: 6119856
+c [w = 150] Number of variables: 966420
+c [w = 144] SAT Solving starts:
+c [w = 144] Solving duration: 327836 ms
+c [w = 144] Answer: 
+s [w = 144] SAT (w = 144)
+c [w = 144] Solution check = 144.
+c [w = 144] The solution is correct.
+c [w = 144] Result: 10
+c [Main] Max width SAT is set to 144
+c [Main] Kill lower pid 143.
+c [w = 143] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 143 - 142328 terminated by signal 15
+c [w = 152] Start task in PID: 143075.
+c [w = 152] Antibandwidth problem with w = 152 (S-sherman4.mtx.rnd):
+c [w = 152] Initializing CaDiCaL (version 2.1.3).
+c [w = 152] Configuring CaDiCaL as --sat (1).
+c [w = 152] Encoding starts with w = 152:
+c [w = 152] Encoding duration: 7951 ms
+c [w = 152] Number of clauses: 6134052
+c [w = 152] Number of variables: 970788
+c [w = 151] Start task in PID: 143074.
+c [w = 151] Antibandwidth problem with w = 151 (S-sherman4.mtx.rnd):
+c [w = 151] Initializing CaDiCaL (version 2.1.3).
+c [w = 151] Configuring CaDiCaL as --sat (1).
+c [w = 151] Encoding starts with w = 151:
+c [w = 151] Encoding duration: 8193 ms
+c [w = 151] Number of clauses: 6126954
+c [w = 151] Number of variables: 968604
+c [w = 150] SAT Solving starts:
+c [w = 150] Solving duration: 322577 ms
+c [w = 150] Answer: 
+s [w = 150] SAT (w = 150)
+c [w = 150] Solution check = 150.
+c [w = 150] The solution is correct.
+c [w = 150] Result: 10
+c [Main] Max width SAT is set to 150
+c [Main] Kill lower pid 149.
+c [Main] Kill lower pid 148.
+c [Main] Kill lower pid 147.
+c [Main] Kill lower pid 146.
+c [Main] Kill lower pid 145.
+c [w = 149] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 148] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 146] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 145] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 147] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 145 - 143039 terminated by signal 15
+c [Main] Child pid 146 - 143046 terminated by signal 15
+c [Main] Child pid 148 - 143048 terminated by signal 15
+c [Main] Child pid 147 - 143047 terminated by signal 15
+c [Main] Child pid 149 - 143049 terminated by signal 15
+c [w = 155] Start task in PID: 143092.
+c [w = 155] Antibandwidth problem with w = 155 (S-sherman4.mtx.rnd):
+c [w = 155] Initializing CaDiCaL (version 2.1.3).
+c [w = 155] Configuring CaDiCaL as --sat (1).
+c [w = 155] Encoding starts with w = 155:
+c [w = 155] Encoding duration: 7752 ms
+c [w = 155] Number of clauses: 6155346
+c [w = 153] Start task in PID: 143090.
+c [w = 153] Antibandwidth problem with w = 153 (S-sherman4.mtx.rnd):
+c [w = 153] Initializing CaDiCaL (version 2.1.3).
+c [w = 153] Configuring CaDiCaL as --sat (1).
+c [w = 153] Encoding starts with w = 153:
+c [w = 153] Encoding duration: 7987 ms
+c [w = 153] Number of clauses: 6141150
+c [w = 153] Number of variables: 972972
+c [w = 158] Start task in PID: 143095.
+c [w = 158] Antibandwidth problem with w = 158 (S-sherman4.mtx.rnd):
+c [w = 158] Initializing CaDiCaL (version 2.1.3).
+c [w = 158] Configuring CaDiCaL as --sat (1).
+c [w = 158] Encoding starts with w = 158:
+c [w = 158] Encoding duration: 7743 ms
+c [w = 158] Number of clauses: 6176640
+c [w = 155] Number of variables: 977340
+c [w = 158] Number of variables: 983892
+c [w = 156] Start task in PID: 143093.
+c [w = 156] Antibandwidth problem with w = 156 (S-sherman4.mtx.rnd):
+c [w = 156] Initializing CaDiCaL (version 2.1.3).
+c [w = 156] Configuring CaDiCaL as --sat (1).
+c [w = 156] Encoding starts with w = 156:
+c [w = 156] Encoding duration: 7907 ms
+c [w = 156] Number of clauses: 6162444
+c [w = 156] Number of variables: 979524
+c [w = 154] Start task in PID: 143091.
+c [w = 154] Antibandwidth problem with w = 154 (S-sherman4.mtx.rnd):
+c [w = 154] Initializing CaDiCaL (version 2.1.3).
+c [w = 154] Configuring CaDiCaL as --sat (1).
+c [w = 154] Encoding starts with w = 154:
+c [w = 154] Encoding duration: 8096 ms
+c [w = 154] Number of clauses: 6148248
+c [w = 154] Number of variables: 975156
+c [w = 157] Start task in PID: 143094.
+c [w = 157] Antibandwidth problem with w = 157 (S-sherman4.mtx.rnd):
+c [w = 157] Initializing CaDiCaL (version 2.1.3).
+c [w = 157] Configuring CaDiCaL as --sat (1).
+c [w = 157] Encoding starts with w = 157:
+c [w = 157] Encoding duration: 8225 ms
+c [w = 157] Number of clauses: 6169542
+c [w = 157] Number of variables: 981708
+c [w = 158] SAT Solving starts:
+c [w = 158] Solving duration: 387261 ms
+c [w = 158] Answer: 
+s [w = 158] SAT (w = 158)
+c [w = 158] Solution check = 158.
+c [w = 158] The solution is correct.
+c [w = 158] Result: 10
+c [w = 157] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Max width SAT is set to 158
+c [Main] Kill lower pid 157.
+c [Main] Kill lower pid 156.
+c [Main] Kill lower pid 155.
+c [Main] Kill lower pid 154.
+c [Main] Kill lower pid 153.
+c [Main] Kill lower pid 152.
+c [Main] Kill lower pid 151.
+c [w = 153] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 154] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 151] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 155] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 152] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 156] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 151 - 143074 terminated by signal 15
+c [Main] Child pid 156 - 143093 terminated by signal 15
+c [Main] Child pid 152 - 143075 terminated by signal 15
+c [Main] Child pid 155 - 143092 terminated by signal 15
+c [Main] Child pid 157 - 143094 terminated by signal 15
+c [Main] Child pid 153 - 143090 terminated by signal 15
+c [Main] Child pid 154 - 143091 terminated by signal 15
+c [w = 160] Start task in PID: 143840.
+c [w = 160] Antibandwidth problem with w = 160 (S-sherman4.mtx.rnd):
+c [w = 160] Initializing CaDiCaL (version 2.1.3).
+c [w = 160] Configuring CaDiCaL as --sat (1).
+c [w = 160] Encoding starts with w = 160:
+c [w = 160] Encoding duration: 7640 ms
+c [w = 160] Number of clauses: 6190836
+c [w = 160] Number of variables: 988260
+c [w = 161] Start task in PID: 143841.
+c [w = 161] Antibandwidth problem with w = 161 (S-sherman4.mtx.rnd):
+c [w = 161] Initializing CaDiCaL (version 2.1.3).
+c [w = 161] Configuring CaDiCaL as --sat (1).
+c [w = 161] Encoding starts with w = 161:
+c [w = 161] Encoding duration: 7607 ms
+c [w = 161] Number of clauses: 6197934
+c [w = 161] Number of variables: 990444
+c [w = 159] Start task in PID: 143839.
+c [w = 159] Antibandwidth problem with w = 159 (S-sherman4.mtx.rnd):
+c [w = 159] Initializing CaDiCaL (version 2.1.3).
+c [w = 159] Configuring CaDiCaL as --sat (1).
+c [w = 159] Encoding starts with w = 159:
+c [w = 159] Encoding duration: 7963 ms
+c [w = 159] Number of clauses: 6183738
+c [w = 159] Number of variables: 986076
+c [w = 163] Start task in PID: 143843.
+c [w = 163] Antibandwidth problem with w = 163 (S-sherman4.mtx.rnd):
+c [w = 163] Initializing CaDiCaL (version 2.1.3).
+c [w = 163] Configuring CaDiCaL as --sat (1).
+c [w = 163] Encoding starts with w = 163:
+c [w = 163] Encoding duration: 7882 ms
+c [w = 163] Number of clauses: 6212130
+c [w = 163] Number of variables: 994812
+c [w = 162] Start task in PID: 143842.
+c [w = 162] Antibandwidth problem with w = 162 (S-sherman4.mtx.rnd):
+c [w = 162] Initializing CaDiCaL (version 2.1.3).
+c [w = 162] Configuring CaDiCaL as --sat (1).
+c [w = 162] Encoding starts with w = 162:
+c [w = 162] Encoding duration: 7958 ms
+c [w = 162] Number of clauses: 6205032
+c [w = 162] Number of variables: 992628
+c [w = 165] Start task in PID: 143845.
+c [w = 165] Antibandwidth problem with w = 165 (S-sherman4.mtx.rnd):
+c [w = 165] Initializing CaDiCaL (version 2.1.3).
+c [w = 165] Configuring CaDiCaL as --sat (1).
+c [w = 165] Encoding starts with w = 165:
+c [w = 165] Encoding duration: 8073 ms
+c [w = 165] Number of clauses: 6226326
+c [w = 165] Number of variables: 999180
+c [w = 166] Start task in PID: 143846.
+c [w = 166] Antibandwidth problem with w = 166 (S-sherman4.mtx.rnd):
+c [w = 166] Initializing CaDiCaL (version 2.1.3).
+c [w = 166] Configuring CaDiCaL as --sat (1).
+c [w = 166] Encoding starts with w = 166:
+c [w = 166] Encoding duration: 8236 ms
+c [w = 166] Number of clauses: 6233424
+c [w = 166] Number of variables: 1001364
+c [w = 164] Start task in PID: 143844.
+c [w = 164] Antibandwidth problem with w = 164 (S-sherman4.mtx.rnd):
+c [w = 164] Initializing CaDiCaL (version 2.1.3).
+c [w = 164] Configuring CaDiCaL as --sat (1).
+c [w = 164] Encoding starts with w = 164:
+c [w = 164] Encoding duration: 8305 ms
+c [w = 164] Number of clauses: 6219228
+c [w = 164] Number of variables: 996996
+c [w = 165] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 160] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 164] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 159] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Lim pid ends with result: 254
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	158
+r [Main] Min width UNSAT:	-
+r [Main] Total real time: 1811787 ms
+r [Main] Total memory consumed: 12426 MB
+r [Main] 
+c [w = 161] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 163] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 166] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 162] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+8] Encoding starts with w = 168:
+c [w = 168] Encoding duration: 7806 ms
+c [w = 168] Number of clauses: 6247620
+c [w = 168] Number of variables: 1005732
+c [w = 167] Start task in PID: 143022.
+c [w = 167] Antibandwidth problem with w = 167 (S-sherman4.mtx.rnd):
+c [w = 167] Initializing CaDiCaL (version 2.1.3).
+c [w = 167] Configuring CaDiCaL as --sat (1).
+c [w = 167] Encoding starts with w = 167:
+c [w = 167] Encoding duration: 7982 ms
+c [w = 167] Number of clauses: 6240522
+c [w = 167] Number of variables: 1003548
+c [w = 169] Start task in PID: 143024.
+c [w = 169] Antibandwidth problem with w = 169 (S-sherman4.mtx.rnd):
+c [w = 169] Initializing CaDiCaL (version 2.1.3).
+c [w = 169] Configuring CaDiCaL as --sat (1).
+c [w = 169] Encoding starts with w = 169:
+c [w = 169] Encoding duration: 8053 ms
+c [w = 169] Number of clauses: 6254718
+c [w = 169] Number of variables: 1007916
+c [w = 170] Start task in PID: 143025.
+c [w = 170] Antibandwidth problem with w = 170 (S-sherman4.mtx.rnd):
+c [w = 170] Initializing CaDiCaL (version 2.1.3).
+c [w = 170] Configuring CaDiCaL as --sat (1).
+c [w = 170] Encoding starts with w = 170:
+c [w = 170] Encoding duration: 8054 ms
+c [w = 170] Number of clauses: 6261816
+c [w = 170] Number of variables: 1010100
+c [w = 165] SAT Solving starts:
+c [w = 165] Solving duration: 794933 ms
+c [w = 165] Answer: 
+s [w = 165] SAT (w = 165)
+c [w = 165] Solution check = 165.
+c [w = 165] The solution is correct.
+c [w = 165] Result: 10
+c [Main] Max width SAT is set to 165
+c [Main] Kill lower pid 164.
+c [Main] Kill lower pid 163.
+c [w = 163] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 164] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 163 - 142281 terminated by signal 15
+c [Main] Child pid 164 - 142282 terminated by signal 15
+c [w = 171] Start task in PID: 143064.
+c [w = 171] Antibandwidth problem with w = 171 (S-sherman4.mtx.rnd):
+c [w = 171] Initializing CaDiCaL (version 2.1.3).
+c [w = 171] Configuring CaDiCaL as --sat (1).
+c [w = 171] Encoding starts with w = 171:
+c [w = 171] Encoding duration: 8060 ms
+c [w = 171] Number of clauses: 6268914
+c [w = 171] Number of variables: 1012284
+c [w = 172] Start task in PID: 143065.
+c [w = 172] Antibandwidth problem with w = 172 (S-sherman4.mtx.rnd):
+c [w = 172] Initializing CaDiCaL (version 2.1.3).
+c [w = 172] Configuring CaDiCaL as --sat (1).
+c [w = 172] Encoding starts with w = 172:
+c [w = 172] Encoding duration: 8336 ms
+c [w = 172] Number of clauses: 6276012
+c [w = 172] Number of variables: 1014468
+c [w = 173] Start task in PID: 143066.
+c [w = 173] Antibandwidth problem with w = 173 (S-sherman4.mtx.rnd):
+c [w = 173] Initializing CaDiCaL (version 2.1.3).
+c [w = 173] Configuring CaDiCaL as --sat (1).
+c [w = 173] Encoding starts with w = 173:
+c [w = 173] Encoding duration: 8417 ms
+c [w = 173] Number of clauses: 6283110
+c [w = 173] Number of variables: 1016652
+c [w = 166] SAT Solving starts:
+c [w = 166] Solving duration: 916813 ms
+c [w = 166] Answer: 
+s [w = 166] SAT (w = 166)
+c [w = 166] Solution check = 166.
+c [w = 166] The solution is correct.
+c [w = 166] Result: 10
+c [Main] Max width SAT is set to 166
+c [w = 174] Start task in PID: 143082.
+c [w = 174] Antibandwidth problem with w = 174 (S-sherman4.mtx.rnd):
+c [w = 174] Initializing CaDiCaL (version 2.1.3).
+c [w = 174] Configuring CaDiCaL as --sat (1).
+c [w = 174] Encoding starts with w = 174:
+c [w = 174] Encoding duration: 8516 ms
+c [w = 174] Number of clauses: 6290208
+c [w = 174] Number of variables: 1018836
+c [w = 169] SAT Solving starts:
+c [w = 169] Solving duration: 486118 ms
+c [w = 169] Answer: 
+s [w = 169] SAT (w = 169)
+c [w = 169] Solution check = 169.
+c [w = 169] The solution is correct.
+c [w = 169] Result: 10
+c [Main] Max width SAT is set to 169
+c [Main] Kill lower pid 168.
+c [Main] Kill lower pid 167.
+c [w = 167] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 168] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 167 - 143022 terminated by signal 15
+c [Main] Child pid 168 - 143023 terminated by signal 15
+c [w = 175] Start task in PID: 143087.
+c [w = 175] Antibandwidth problem with w = 175 (S-sherman4.mtx.rnd):
+c [w = 175] Initializing CaDiCaL (version 2.1.3).
+c [w = 175] Configuring CaDiCaL as --sat (1).
+c [w = 175] Encoding starts with w = 175:
+c [w = 175] Encoding duration: 8052 ms
+c [w = 175] Number of clauses: 6297306
+c [w = 175] Number of variables: 1021020
+c [w = 177] Start task in PID: 143089.
+c [w = 177] Antibandwidth problem with w = 177 (S-sherman4.mtx.rnd):
+c [w = 177] Initializing CaDiCaL (version 2.1.3).
+c [w = 177] Configuring CaDiCaL as --sat (1).
+c [w = 177] Encoding starts with w = 177:
+c [w = 177] Encoding duration: 7911 ms
+c [w = 177] Number of clauses: 6311502
+c [w = 177] Number of variables: 1025388
+c [w = 176] Start task in PID: 143088.
+c [w = 176] Antibandwidth problem with w = 176 (S-sherman4.mtx.rnd):
+c [w = 176] Initializing CaDiCaL (version 2.1.3).
+c [w = 176] Configuring CaDiCaL as --sat (1).
+c [w = 176] Encoding starts with w = 176:
+c [w = 176] Encoding duration: 8246 ms
+c [w = 176] Number of clauses: 6304404
+c [w = 176] Number of variables: 1023204
+c [w = 171] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 172] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Lim pid ends with result: 254
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	169
+r [Main] Min width UNSAT:	-
+r [Main] Total real time: 1811627 ms
+r [Main] Total memory consumed: 12497.4 MB
+r [Main] 
+c [w = 174] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 176] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 175] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 170] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 177] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 173] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)

@@ -1,0 +1,736 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 8.
+c [Main] Encoding and solving for graph: W-685_bus.mtx.rnd
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 68.
+c [Main] Upper bound is set to 136.
+c [w = 70] Start task in PID: 158277.
+c [w = 70] Antibandwidth problem with w = 70 (W-685_bus.mtx.rnd):
+c [w = 70] Initializing CaDiCaL (version 2.1.3).
+c [w = 70] Configuring CaDiCaL as --sat (1).
+c [w = 70] Encoding starts with w = 70:
+c [w = 70] Encoding duration: 10714 ms
+c [w = 70] Number of clauses: 8321280
+c [w = 70] Number of variables: 1467270
+c [w = 69] Start task in PID: 158276.
+c [w = 69] Antibandwidth problem with w = 69 (W-685_bus.mtx.rnd):
+c [w = 69] Initializing CaDiCaL (version 2.1.3).
+c [w = 69] Configuring CaDiCaL as --sat (1).
+c [w = 69] Encoding starts with w = 69:
+c [w = 69] Encoding duration: 11114 ms
+c [w = 69] Number of clauses: 8300045
+c [w = 69] Number of variables: 1460420
+c [w = 74] Start task in PID: 158281.
+c [w = 74] Antibandwidth problem with w = 74 (W-685_bus.mtx.rnd):
+c [w = 74] Initializing CaDiCaL (version 2.1.3).
+c [w = 74] Configuring CaDiCaL as --sat (1).
+c [w = 74] Encoding starts with w = 74:
+c [w = 74] Encoding duration: 11225 ms
+c [w = 74] Number of clauses: 8406220
+c [w = 74] Number of variables: 1494670
+c [w = 71] Start task in PID: 158278.
+c [w = 71] Antibandwidth problem with w = 71 (W-685_bus.mtx.rnd):
+c [w = 71] Initializing CaDiCaL (version 2.1.3).
+c [w = 71] Configuring CaDiCaL as --sat (1).
+c [w = 71] Encoding starts with w = 71:
+c [w = 71] Encoding duration: 11279 ms
+c [w = 71] Number of clauses: 8342515
+c [w = 71] Number of variables: 1474120
+c [w = 73] Start task in PID: 158280.
+c [w = 73] Antibandwidth problem with w = 73 (W-685_bus.mtx.rnd):
+c [w = 73] Initializing CaDiCaL (version 2.1.3).
+c [w = 73] Configuring CaDiCaL as --sat (1).
+c [w = 73] Encoding starts with w = 73:
+c [w = 73] Encoding duration: 11380 ms
+c [w = 73] Number of clauses: 8384985
+c [w = 73] Number of variables: 1487820
+c [w = 72] Start task in PID: 158279.
+c [w = 72] Antibandwidth problem with w = 72 (W-685_bus.mtx.rnd):
+c [w = 72] Initializing CaDiCaL (version 2.1.3).
+c [w = 72] Configuring CaDiCaL as --sat (1).
+c [w = 72] Encoding starts with w = 72:
+c [w = 72] Encoding duration: 11482 ms
+c [w = 72] Number of clauses: 8363750
+c [w = 72] Number of variables: 1480970
+c [w = 68] Start task in PID: 158275.
+c [w = 68] Antibandwidth problem with w = 68 (W-685_bus.mtx.rnd):
+c [w = 68] Initializing CaDiCaL (version 2.1.3).
+c [w = 68] Configuring CaDiCaL as --sat (1).
+c [w = 68] Encoding starts with w = 68:
+c [w = 68] Encoding duration: 11547 ms
+c [w = 68] Number of clauses: 8416074
+c [w = 68] Number of variables: 1498095
+c [w = 75] Start task in PID: 158282.
+c [w = 75] Antibandwidth problem with w = 75 (W-685_bus.mtx.rnd):
+c [w = 75] Initializing CaDiCaL (version 2.1.3).
+c [w = 75] Configuring CaDiCaL as --sat (1).
+c [w = 75] Encoding starts with w = 75:
+c [w = 75] Encoding duration: 11595 ms
+c [w = 75] Number of clauses: 8427455
+c [w = 75] Number of variables: 1501520
+c [w = 70] SAT Solving starts:
+c [w = 70] Solving duration: 3897 ms
+c [w = 70] Answer: 
+s [w = 70] SAT (w = 70)
+c [w = 70] Solution check = 70.
+c [w = 70] The solution is correct.
+c [w = 70] Result: 10
+c [Main] Max width SAT is set to 70
+c [Main] Kill lower pid 69.
+c [Main] Kill lower pid 68.
+c [w = 69] SAT Solving starts:
+c [w = 69] Solving duration: 4462 ms
+c [w = 69] Answer: 
+s [w = 69] SAT (w = 69)
+c [w = 69] Solution check = 69.
+c [w = 69] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 68] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 68 - 158275 terminated by signal 15
+c [Main] Child pid 69 - 158276 terminated by signal 15
+c [w = 72] SAT Solving starts:
+c [w = 72] Solving duration: 4350 ms
+c [w = 72] Answer: 
+s [w = 72] SAT (w = 72)
+c [w = 72] Solution check = 72.
+c [w = 72] The solution is correct.
+c [w = 72] Result: 10
+c [Main] Max width SAT is set to 72
+c [Main] Kill lower pid 71.
+c [w = 71] SAT Solving starts:
+c [w = 71] Solving duration: 7815 ms
+c [w = 71] Answer: 
+s [w = 71] SAT (w = 71)
+c [w = 71] Solution check = 71.
+c [w = 71] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 73] SAT Solving starts:
+c [w = 73] Solving duration: 5195 ms
+c [w = 73] Answer: 
+s [w = 73] SAT (w = 73)
+c [w = 73] Solution check = 73.
+c [w = 73] The solution is correct.
+c [w = 73] Result: 10
+c [w = 74] SAT Solving starts:
+c [w = 74] Solving duration: 5092 ms
+c [w = 74] Answer: 
+s [w = 74] SAT (w = 74)
+c [w = 74] Solution check = 74.
+c [w = 74] The solution is correct.
+c [w = 74] Result: 10
+c [Main] Child pid 71 - 158278 terminated by signal 15
+c [Main] Max width SAT is set to 73
+c [Main] Max width SAT is set to 74
+c [w = 77] Start task in PID: 158449.
+c [w = 77] Antibandwidth problem with w = 77 (W-685_bus.mtx.rnd):
+c [w = 77] Initializing CaDiCaL (version 2.1.3).
+c [w = 77] Configuring CaDiCaL as --sat (1).
+c [w = 77] Encoding starts with w = 77:
+c [w = 77] Encoding duration: 10449 ms
+c [w = 77] Number of clauses: 8314851
+c [w = 77] Number of variables: 1464530
+c [w = 76] Start task in PID: 158448.
+c [w = 76] Antibandwidth problem with w = 76 (W-685_bus.mtx.rnd):
+c [w = 76] Initializing CaDiCaL (version 2.1.3).
+c [w = 76] Configuring CaDiCaL as --sat (1).
+c [w = 76] Encoding starts with w = 76:
+c [w = 76] Encoding duration: 10772 ms
+c [w = 76] Number of clauses: 8297305
+c [w = 76] Number of variables: 1458365
+c [w = 78] Start task in PID: 158450.
+c [w = 78] Antibandwidth problem with w = 78 (W-685_bus.mtx.rnd):
+c [w = 78] Initializing CaDiCaL (version 2.1.3).
+c [w = 78] Configuring CaDiCaL as --sat (1).
+c [w = 78] Encoding starts with w = 78:
+c [w = 78] Encoding duration: 11272 ms
+c [w = 78] Number of clauses: 8334031
+c [w = 78] Number of variables: 1470695
+c [w = 79] Start task in PID: 158475.
+c [w = 79] Antibandwidth problem with w = 79 (W-685_bus.mtx.rnd):
+c [w = 79] Initializing CaDiCaL (version 2.1.3).
+c [w = 79] Configuring CaDiCaL as --sat (1).
+c [w = 79] Encoding starts with w = 79:
+c [w = 79] Encoding duration: 10904 ms
+c [w = 79] Number of clauses: 8353211
+c [w = 79] Number of variables: 1476860
+c [w = 82] Start task in PID: 158478.
+c [w = 82] Antibandwidth problem with w = 82 (W-685_bus.mtx.rnd):
+c [w = 82] Initializing CaDiCaL (version 2.1.3).
+c [w = 82] Configuring CaDiCaL as --sat (1).
+c [w = 82] Encoding starts with w = 82:
+c [w = 82] Encoding duration: 11049 ms
+c [w = 82] Number of clauses: 8410751
+c [w = 82] Number of variables: 1495355
+c [w = 80] Start task in PID: 158476.
+c [w = 80] Antibandwidth problem with w = 80 (W-685_bus.mtx.rnd):
+c [w = 80] Initializing CaDiCaL (version 2.1.3).
+c [w = 80] Configuring CaDiCaL as --sat (1).
+c [w = 80] Encoding starts with w = 80:
+c [w = 80] Encoding duration: 11310 ms
+c [w = 80] Number of clauses: 8372391
+c [w = 80] Number of variables: 1483025
+c [w = 81] Start task in PID: 158477.
+c [w = 81] Antibandwidth problem with w = 81 (W-685_bus.mtx.rnd):
+c [w = 81] Initializing CaDiCaL (version 2.1.3).
+c [w = 81] Configuring CaDiCaL as --sat (1).
+c [w = 81] Encoding starts with w = 81:
+c [w = 81] Encoding duration: 11464 ms
+c [w = 81] Number of clauses: 8391571
+c [w = 81] Number of variables: 1489190
+c [w = 77] SAT Solving starts:
+c [w = 77] Solving duration: 4669 ms
+c [w = 77] Answer: 
+s [w = 77] SAT (w = 77)
+c [w = 77] Solution check = 77.
+c [w = 77] The solution is correct.
+c [w = 77] Result: 10
+c [Main] Max width SAT is set to 77
+c [Main] Kill lower pid 76.
+c [Main] Kill lower pid 75.
+c [w = 75] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 76] SAT Solving starts:
+c [w = 76] Solving duration: 4962 ms
+c [w = 76] Answer: 
+s [w = 76] SAT (w = 76)
+c [w = 76] Solution check = 76.
+c [w = 76] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 76 - 158448 terminated by signal 15
+c [Main] Child pid 75 - 158282 terminated by signal 15
+c [w = 78] SAT Solving starts:
+c [w = 78] Solving duration: 7836 ms
+c [w = 78] Answer: 
+s [w = 78] SAT (w = 78)
+c [w = 78] Solution check = 78.
+c [w = 78] The solution is correct.
+c [w = 78] Result: 10
+c [Main] Max width SAT is set to 78
+c [w = 79] SAT Solving starts:
+c [w = 79] Solving duration: 7994 ms
+c [w = 79] Answer: 
+s [w = 79] SAT (w = 79)
+c [w = 79] Solution check = 79.
+c [w = 79] The solution is correct.
+c [w = 79] Result: 10
+c [Main] Max width SAT is set to 79
+c [w = 84] Start task in PID: 158623.
+c [w = 84] Antibandwidth problem with w = 84 (W-685_bus.mtx.rnd):
+c [w = 84] Initializing CaDiCaL (version 2.1.3).
+c [w = 84] Configuring CaDiCaL as --sat (1).
+c [w = 84] Encoding starts with w = 84:
+c [w = 84] Encoding duration: 10994 ms
+c [w = 84] Number of clauses: 8449111
+c [w = 84] Number of variables: 1507685
+c [w = 83] Start task in PID: 158602.
+c [w = 83] Antibandwidth problem with w = 83 (W-685_bus.mtx.rnd):
+c [w = 83] Initializing CaDiCaL (version 2.1.3).
+c [w = 83] Configuring CaDiCaL as --sat (1).
+c [w = 83] Encoding starts with w = 83:
+c [w = 83] Encoding duration: 11426 ms
+c [w = 83] Number of clauses: 8429931
+c [w = 83] Number of variables: 1501520
+c [w = 85] Start task in PID: 158624.
+c [w = 85] Antibandwidth problem with w = 85 (W-685_bus.mtx.rnd):
+c [w = 85] Initializing CaDiCaL (version 2.1.3).
+c [w = 85] Configuring CaDiCaL as --sat (1).
+c [w = 85] Encoding starts with w = 85:
+c [w = 85] Encoding duration: 11223 ms
+c [w = 85] Number of clauses: 8468291
+c [w = 85] Number of variables: 1513850
+c [w = 86] Start task in PID: 158646.
+c [w = 86] Antibandwidth problem with w = 86 (W-685_bus.mtx.rnd):
+c [w = 86] Initializing CaDiCaL (version 2.1.3).
+c [w = 86] Configuring CaDiCaL as --sat (1).
+c [w = 86] Encoding starts with w = 86:
+c [w = 86] Encoding duration: 10616 ms
+c [w = 86] Number of clauses: 8314587
+c [w = 86] Number of variables: 1463160
+c [w = 80] SAT Solving starts:
+c [w = 80] Solving duration: 19144 ms
+c [w = 80] Answer: 
+s [w = 80] SAT (w = 80)
+c [w = 80] Solution check = 80.
+c [w = 80] The solution is correct.
+c [w = 80] Result: 10
+c [Main] Max width SAT is set to 80
+c [w = 87] Start task in PID: 158660.
+c [w = 87] Antibandwidth problem with w = 87 (W-685_bus.mtx.rnd):
+c [w = 87] Initializing CaDiCaL (version 2.1.3).
+c [w = 87] Configuring CaDiCaL as --sat (1).
+c [w = 87] Encoding starts with w = 87:
+c [w = 87] Encoding duration: 11461 ms
+c [w = 87] Number of clauses: 8331712
+c [w = 87] Number of variables: 1468640
+c [w = 81] SAT Solving starts:
+c [w = 81] Solving duration: 22814 ms
+c [w = 81] Answer: 
+s [w = 81] SAT (w = 81)
+c [w = 81] Solution check = 81.
+c [w = 81] The solution is correct.
+c [w = 81] Result: 10
+c [Main] Max width SAT is set to 81
+c [w = 85] SAT Solving starts:
+c [w = 85] Solving duration: 7959 ms
+c [w = 85] Answer: 
+s [w = 85] SAT (w = 85)
+c [w = 85] Solution check = 85.
+c [w = 85] The solution is correct.
+c [w = 85] Result: 10
+c [Main] Max width SAT is set to 85
+c [Main] Kill lower pid 84.
+c [Main] Kill lower pid 83.
+c [Main] Kill lower pid 82.
+c [w = 84] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 82] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 83] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 83 - 158602 terminated by signal 15
+c [Main] Child pid 82 - 158478 terminated by signal 15
+c [Main] Child pid 84 - 158623 terminated by signal 15
+c [w = 88] Start task in PID: 158770.
+c [w = 88] Antibandwidth problem with w = 88 (W-685_bus.mtx.rnd):
+c [w = 88] Initializing CaDiCaL (version 2.1.3).
+c [w = 88] Configuring CaDiCaL as --sat (1).
+c [w = 88] Encoding starts with w = 88:
+c [w = 88] Encoding duration: 10978 ms
+c [w = 88] Number of clauses: 8348837
+c [w = 88] Number of variables: 1474120
+c [w = 87] SAT Solving starts:
+c [w = 87] Solving duration: 8485 ms
+c [w = 87] Answer: 
+s [w = 87] SAT (w = 87)
+c [w = 87] Solution check = 87.
+c [w = 87] The solution is correct.
+c [w = 87] Result: 10
+c [Main] Max width SAT is set to 87
+c [Main] Kill lower pid 86.
+c [w = 86] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 86 - 158646 terminated by signal 15
+c [w = 89] Start task in PID: 158806.
+c [w = 89] Antibandwidth problem with w = 89 (W-685_bus.mtx.rnd):
+c [w = 89] Initializing CaDiCaL (version 2.1.3).
+c [w = 89] Configuring CaDiCaL as --sat (1).
+c [w = 89] Encoding starts with w = 89:
+c [w = 89] Encoding duration: 10917 ms
+c [w = 89] Number of clauses: 8365962
+c [w = 89] Number of variables: 1479600
+c [w = 90] Start task in PID: 158820.
+c [w = 90] Antibandwidth problem with w = 90 (W-685_bus.mtx.rnd):
+c [w = 90] Initializing CaDiCaL (version 2.1.3).
+c [w = 90] Configuring CaDiCaL as --sat (1).
+c [w = 90] Encoding starts with w = 90:
+c [w = 90] Encoding duration: 10224 ms
+c [w = 90] Number of clauses: 8383087
+c [w = 90] Number of variables: 1485080
+c [w = 92] Start task in PID: 158822.
+c [w = 92] Antibandwidth problem with w = 92 (W-685_bus.mtx.rnd):
+c [w = 92] Initializing CaDiCaL (version 2.1.3).
+c [w = 92] Configuring CaDiCaL as --sat (1).
+c [w = 92] Encoding starts with w = 92:
+c [w = 92] Encoding duration: 10757 ms
+c [w = 92] Number of clauses: 8417337
+c [w = 92] Number of variables: 1496040
+c [w = 91] Start task in PID: 158821.
+c [w = 91] Antibandwidth problem with w = 91 (W-685_bus.mtx.rnd):
+c [w = 91] Initializing CaDiCaL (version 2.1.3).
+c [w = 91] Configuring CaDiCaL as --sat (1).
+c [w = 91] Encoding starts with w = 91:
+c [w = 91] Encoding duration: 11265 ms
+c [w = 91] Number of clauses: 8400212
+c [w = 91] Number of variables: 1490560
+c [w = 93] Start task in PID: 158825.
+c [w = 93] Antibandwidth problem with w = 93 (W-685_bus.mtx.rnd):
+c [w = 93] Initializing CaDiCaL (version 2.1.3).
+c [w = 93] Configuring CaDiCaL as --sat (1).
+c [w = 93] Encoding starts with w = 93:
+c [w = 93] Encoding duration: 11400 ms
+c [w = 93] Number of clauses: 8434462
+c [w = 93] Number of variables: 1501520
+c [w = 88] SAT Solving starts:
+c [w = 88] Solving duration: 7925 ms
+c [w = 88] Answer: 
+s [w = 88] SAT (w = 88)
+c [w = 88] Solution check = 88.
+c [w = 88] The solution is correct.
+c [w = 88] Result: 10
+c [Main] Max width SAT is set to 88
+c [w = 94] Start task in PID: 158872.
+c [w = 94] Antibandwidth problem with w = 94 (W-685_bus.mtx.rnd):
+c [w = 94] Initializing CaDiCaL (version 2.1.3).
+c [w = 94] Configuring CaDiCaL as --sat (1).
+c [w = 94] Encoding starts with w = 94:
+c [w = 94] Encoding duration: 10975 ms
+c [w = 94] Number of clauses: 8451587
+c [w = 94] Number of variables: 1507000
+c [w = 95] Start task in PID: 158880.
+c [w = 95] Antibandwidth problem with w = 95 (W-685_bus.mtx.rnd):
+c [w = 95] Initializing CaDiCaL (version 2.1.3).
+c [w = 95] Configuring CaDiCaL as --sat (1).
+c [w = 95] Encoding starts with w = 95:
+c [w = 95] Encoding duration: 10927 ms
+c [w = 95] Number of clauses: 8468712
+c [w = 95] Number of variables: 1512480
+c [w = 89] SAT Solving starts:
+c [w = 89] Solving duration: 7788 ms
+c [w = 89] Answer: 
+s [w = 89] SAT (w = 89)
+c [w = 89] Solution check = 89.
+c [w = 89] The solution is correct.
+c [w = 89] Result: 10
+c [Main] Max width SAT is set to 89
+c [w = 91] SAT Solving starts:
+c [w = 91] Solving duration: 8285 ms
+c [w = 91] Answer: 
+s [w = 91] SAT (w = 91)
+c [w = 91] Solution check = 91.
+c [w = 91] The solution is correct.
+c [w = 91] Result: 10
+c [Main] Max width SAT is set to 91
+c [Main] Kill lower pid 90.
+c [w = 90] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 90 - 158820 terminated by signal 15
+c [w = 94] SAT Solving starts:
+c [w = 94] Solving duration: 4840 ms
+c [w = 94] Answer: 
+s [w = 94] SAT (w = 94)
+c [w = 94] Solution check = 94.
+c [w = 94] The solution is correct.
+c [w = 94] Result: 10
+c [Main] Max width SAT is set to 94
+c [Main] Kill lower pid 93.
+c [Main] Kill lower pid 92.
+c [w = 92] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 93] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 92 - 158822 terminated by signal 15
+c [Main] Child pid 93 - 158825 terminated by signal 15
+c [w = 96] Start task in PID: 158970.
+c [w = 96] Antibandwidth problem with w = 96 (W-685_bus.mtx.rnd):
+c [w = 96] Initializing CaDiCaL (version 2.1.3).
+c [w = 96] Configuring CaDiCaL as --sat (1).
+c [w = 96] Encoding starts with w = 96:
+c [w = 96] Encoding duration: 11314 ms
+c [w = 96] Number of clauses: 8485837
+c [w = 96] Number of variables: 1517960
+c [w = 97] Start task in PID: 159021.
+c [w = 97] Antibandwidth problem with w = 97 (W-685_bus.mtx.rnd):
+c [w = 97] Initializing CaDiCaL (version 2.1.3).
+c [w = 97] Configuring CaDiCaL as --sat (1).
+c [w = 97] Encoding starts with w = 97:
+c [w = 97] Encoding duration: 11427 ms
+c [w = 97] Number of clauses: 8502962
+c [w = 97] Number of variables: 1523440
+c [w = 98] Start task in PID: 159070.
+c [w = 98] Antibandwidth problem with w = 98 (W-685_bus.mtx.rnd):
+c [w = 98] Initializing CaDiCaL (version 2.1.3).
+c [w = 98] Configuring CaDiCaL as --sat (1).
+c [w = 98] Encoding starts with w = 98:
+c [w = 98] Encoding duration: 11263 ms
+c [w = 98] Number of clauses: 8323228
+c [w = 98] Number of variables: 1463845
+c [w = 99] Start task in PID: 159071.
+c [w = 99] Antibandwidth problem with w = 99 (W-685_bus.mtx.rnd):
+c [w = 99] Initializing CaDiCaL (version 2.1.3).
+c [w = 99] Configuring CaDiCaL as --sat (1).
+c [w = 99] Encoding starts with w = 99:
+c [w = 99] Encoding duration: 11213 ms
+c [w = 99] Number of clauses: 8338298
+c [w = 99] Number of variables: 1468640
+c [w = 100] Start task in PID: 159072.
+c [w = 100] Antibandwidth problem with w = 100 (W-685_bus.mtx.rnd):
+c [w = 100] Initializing CaDiCaL (version 2.1.3).
+c [w = 100] Configuring CaDiCaL as --sat (1).
+c [w = 100] Encoding starts with w = 100:
+c [w = 100] Encoding duration: 10621 ms
+c [w = 100] Number of clauses: 8353368
+c [w = 100] Number of variables: 1473435
+c [w = 101] Start task in PID: 159073.
+c [w = 101] Antibandwidth problem with w = 101 (W-685_bus.mtx.rnd):
+c [w = 101] Initializing CaDiCaL (version 2.1.3).
+c [w = 101] Configuring CaDiCaL as --sat (1).
+c [w = 101] Encoding starts with w = 101:
+c [w = 101] Encoding duration: 10718 ms
+c [w = 101] Number of clauses: 8368438
+c [w = 101] Number of variables: 1478230
+c [w = 102] Start task in PID: 159074.
+c [w = 102] Antibandwidth problem with w = 102 (W-685_bus.mtx.rnd):
+c [w = 102] Initializing CaDiCaL (version 2.1.3).
+c [w = 102] Configuring CaDiCaL as --sat (1).
+c [w = 102] Encoding starts with w = 102:
+c [w = 102] Encoding duration: 10868 ms
+c [w = 102] Number of clauses: 8383508
+c [w = 102] Number of variables: 1483025
+c [w = 98] SAT Solving starts:
+c [w = 98] Solving duration: 4333 ms
+c [w = 98] Answer: 
+s [w = 98] SAT (w = 98)
+c [w = 98] Solution check = 98.
+c [w = 98] The solution is correct.
+c [w = 98] Result: 10
+c [Main] Max width SAT is set to 98
+c [Main] Kill lower pid 97.
+c [Main] Kill lower pid 96.
+c [Main] Kill lower pid 95.
+c [w = 96] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 95] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 97] SAT Solving starts:
+c [w = 97] Solving duration: 8428 ms
+c [w = 97] Answer: 
+s [w = 97] SAT (w = 97)
+c [w = 97] Solution check = 97.
+c [w = 97] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 95 - 158880 terminated by signal 15
+c [Main] Child pid 97 - 159021 terminated by signal 15
+c [Main] Child pid 96 - 158970 terminated by signal 15
+c [w = 99] SAT Solving starts:
+c [w = 99] Solving duration: 4773 ms
+c [w = 99] Answer: 
+s [w = 99] SAT (w = 99)
+c [w = 99] Solution check = 99.
+c [w = 99] The solution is correct.
+c [w = 99] Result: 10
+c [Main] Max width SAT is set to 99
+c [w = 104] Start task in PID: 159244.
+c [w = 104] Antibandwidth problem with w = 104 (W-685_bus.mtx.rnd):
+c [w = 104] Initializing CaDiCaL (version 2.1.3).
+c [w = 104] Configuring CaDiCaL as --sat (1).
+c [w = 104] Encoding starts with w = 104:
+c [w = 104] Encoding duration: 10443 ms
+c [w = 104] Number of clauses: 8413648
+c [w = 104] Number of variables: 1492615
+c [w = 103] Start task in PID: 159243.
+c [w = 103] Antibandwidth problem with w = 103 (W-685_bus.mtx.rnd):
+c [w = 103] Initializing CaDiCaL (version 2.1.3).
+c [w = 103] Configuring CaDiCaL as --sat (1).
+c [w = 103] Encoding starts with w = 103:
+c [w = 103] Encoding duration: 11074 ms
+c [w = 103] Number of clauses: 8398578
+c [w = 103] Number of variables: 1487820
+c [w = 105] Start task in PID: 159245.
+c [w = 105] Antibandwidth problem with w = 105 (W-685_bus.mtx.rnd):
+c [w = 105] Initializing CaDiCaL (version 2.1.3).
+c [w = 105] Configuring CaDiCaL as --sat (1).
+c [w = 105] Encoding starts with w = 105:
+c [w = 105] Encoding duration: 10936 ms
+c [w = 105] Number of clauses: 8428718
+c [w = 105] Number of variables: 1497410
+c [w = 107] Start task in PID: 159270.
+c [w = 107] Antibandwidth problem with w = 107 (W-685_bus.mtx.rnd):
+c [w = 107] Initializing CaDiCaL (version 2.1.3).
+c [w = 107] Configuring CaDiCaL as --sat (1).
+c [w = 107] Encoding starts with w = 107:
+c [w = 107] Encoding duration: 10680 ms
+c [w = 107] Number of clauses: 8458858
+c [w = 107] Number of variables: 1507000
+c [w = 106] Start task in PID: 159247.
+c [w = 106] Antibandwidth problem with w = 106 (W-685_bus.mtx.rnd):
+c [w = 106] Initializing CaDiCaL (version 2.1.3).
+c [w = 106] Configuring CaDiCaL as --sat (1).
+c [w = 106] Encoding starts with w = 106:
+c [w = 106] Encoding duration: 11296 ms
+c [w = 106] Number of clauses: 8443788
+c [w = 106] Number of variables: 1502205
+c [w = 100] SAT Solving starts:
+c [w = 100] Solving duration: 26229 ms
+c [w = 100] Answer: 
+s [w = 100] SAT (w = 100)
+c [w = 100] Solution check = 100.
+c [w = 100] The solution is correct.
+c [w = 100] Result: 10
+c [Main] Max width SAT is set to 100
+c [w = 108] Start task in PID: 159415.
+c [w = 108] Antibandwidth problem with w = 108 (W-685_bus.mtx.rnd):
+c [w = 108] Initializing CaDiCaL (version 2.1.3).
+c [w = 108] Configuring CaDiCaL as --sat (1).
+c [w = 108] Encoding starts with w = 108:
+c [w = 108] Encoding duration: 11278 ms
+c [w = 108] Number of clauses: 8473928
+c [w = 108] Number of variables: 1511795
+c [w = 107] SAT Solving starts:
+c [w = 107] Solving duration: 23746 ms
+c [w = 107] Answer: 
+s [w = 107] SAT (w = 107)
+c [w = 107] Solution check = 107.
+c [w = 107] The solution is correct.
+c [w = 107] Result: 10
+c [Main] Max width SAT is set to 107
+c [Main] Kill lower pid 106.
+c [Main] Kill lower pid 105.
+c [Main] Kill lower pid 104.
+c [Main] Kill lower pid 103.
+c [Main] Kill lower pid 102.
+c [Main] Kill lower pid 101.
+c [w = 105] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 103] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 106] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 102] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 104] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 101] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 103 - 159243 terminated by signal 15
+c [Main] Child pid 104 - 159244 terminated by signal 15
+c [Main] Child pid 105 - 159245 terminated by signal 15
+c [Main] Child pid 106 - 159247 terminated by signal 15
+c [Main] Child pid 101 - 159073 terminated by signal 15
+c [Main] Child pid 102 - 159074 terminated by signal 15
+c [w = 109] Start task in PID: 159561.
+c [w = 109] Antibandwidth problem with w = 109 (W-685_bus.mtx.rnd):
+c [w = 109] Initializing CaDiCaL (version 2.1.3).
+c [w = 109] Configuring CaDiCaL as --sat (1).
+c [w = 109] Encoding starts with w = 109:
+c [w = 109] Encoding duration: 11143 ms
+c [w = 109] Number of clauses: 8488998
+c [w = 109] Number of variables: 1516590
+c [w = 114] Start task in PID: 159566.
+c [w = 114] Antibandwidth problem with w = 114 (W-685_bus.mtx.rnd):
+c [w = 114] Initializing CaDiCaL (version 2.1.3).
+c [w = 114] Configuring CaDiCaL as --sat (1).
+c [w = 114] Encoding starts with w = 114:
+c [w = 114] Encoding duration: 10968 ms
+c [w = 114] Number of clauses: 8334873
+c [w = 114] Number of variables: 1464530
+c [w = 115] Start task in PID: 159567.
+c [w = 115] Antibandwidth problem with w = 115 (W-685_bus.mtx.rnd):
+c [w = 115] Initializing CaDiCaL (version 2.1.3).
+c [w = 115] Configuring CaDiCaL as --sat (1).
+c [w = 115] Encoding starts with w = 115:
+c [w = 115] Encoding duration: 11021 ms
+c [w = 115] Number of clauses: 8348309
+c [w = 115] Number of variables: 1468640
+c [w = 112] Start task in PID: 159564.
+c [w = 112] Antibandwidth problem with w = 112 (W-685_bus.mtx.rnd):
+c [w = 112] Initializing CaDiCaL (version 2.1.3).
+c [w = 112] Configuring CaDiCaL as --sat (1).
+c [w = 112] Encoding starts with w = 112:
+c [w = 112] Encoding duration: 11175 ms
+c [w = 112] Number of clauses: 8534208
+c [w = 112] Number of variables: 1530975
+c [w = 110] Start task in PID: 159562.
+c [w = 110] Antibandwidth problem with w = 110 (W-685_bus.mtx.rnd):
+c [w = 110] Initializing CaDiCaL (version 2.1.3).
+c [w = 110] Configuring CaDiCaL as --sat (1).
+c [w = 110] Encoding starts with w = 110:
+c [w = 110] Encoding duration: 11563 ms
+c [w = 110] Number of clauses: 8504068
+c [w = 110] Number of variables: 1521385
+c [w = 111] Start task in PID: 159563.
+c [w = 111] Antibandwidth problem with w = 111 (W-685_bus.mtx.rnd):
+c [w = 111] Initializing CaDiCaL (version 2.1.3).
+c [w = 111] Configuring CaDiCaL as --sat (1).
+c [w = 111] Encoding starts with w = 111:
+c [w = 111] Encoding duration: 11569 ms
+c [w = 111] Number of clauses: 8519138
+c [w = 111] Number of variables: 1526180
+c [w = 113] Start task in PID: 159565.
+c [w = 113] Antibandwidth problem with w = 113 (W-685_bus.mtx.rnd):
+c [w = 113] Initializing CaDiCaL (version 2.1.3).
+c [w = 113] Configuring CaDiCaL as --sat (1).
+c [w = 113] Encoding starts with w = 113:
+c [w = 113] Encoding duration: 11684 ms
+c [w = 113] Number of clauses: 8549278
+c [w = 113] Number of variables: 1535770
+c [w = 111] SAT Solving starts:
+c [w = 111] Solving duration: 8134 ms
+c [w = 111] Answer: 
+s [w = 111] SAT (w = 111)
+c [w = 111] Solution check = 111.
+c [w = 111] The solution is correct.
+c [w = 111] Result: 10
+c [Main] Max width SAT is set to 111
+c [Main] Kill lower pid 110.
+c [Main] Kill lower pid 109.
+c [Main] Kill lower pid 108.
+c [w = 110] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 108] SAT Solving starts:
+c [w = 108] Solving duration: 25955 ms
+c [w = 108] Answer: 
+s [w = 108] SAT (w = 108)
+c [w = 108] Solution check = 108.
+c [w = 108] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 109] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 110 - 159562 terminated by signal 15
+c [Main] Child pid 109 - 159561 terminated by signal 15
+c [Main] Child pid 108 - 159415 terminated by signal 15
+c [w = 115] SAT Solving starts:
+c [w = 115] Solving duration: 15861 ms
+c [w = 115] Answer: 
+s [w = 115] UNSAT (w = 115)
+c [w = 115] Result: 20
+c [Main] Min width UNSAT is set to 115
+c [Main] Kill higher pid 119.
+c [Main] Kill higher pid 118.
+c [Main] Kill higher pid 117.
+c [Main] Kill higher pid 116.
+c [w = 119] Start task in PID: 159763.
+c [w = 119] Antibandwidth problem with w = 119 (W-685_bus.mtx.rnd):
+c [w = 119] Initializing CaDiCaL (version 2.1.3).
+c [w = 119] Configuring CaDiCaL as --sat (1).
+c [w = 119] Encoding starts with w = 119:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 118] Start task in PID: 159762.
+c [w = 118] Antibandwidth problem with w = 118 (W-685_bus.mtx.rnd):
+c [w = 118] Initializing CaDiCaL (version 2.1.3).
+c [w = 118] Configuring CaDiCaL as --sat (1).
+c [w = 118] Encoding starts with w = 118:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 116] Start task in PID: 159760.
+c [w = 116] Antibandwidth problem with w = 116 (W-685_bus.mtx.rnd):
+c [w = 116] Initializing CaDiCaL (version 2.1.3).
+c [w = 116] Configuring CaDiCaL as --sat (1).
+c [w = 116] Encoding starts with w = 116:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 117] Start task in PID: 159761.
+c [w = 117] Antibandwidth problem with w = 117 (W-685_bus.mtx.rnd):
+c [w = 117] Initializing CaDiCaL (version 2.1.3).
+c [w = 117] Configuring CaDiCaL as --sat (1).
+c [w = 117] Encoding starts with w = 117:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 116 - 159760 terminated by signal 15
+c [Main] Child pid 119 - 159763 terminated by signal 15
+c [Main] Child pid 117 - 159761 terminated by signal 15
+c [Main] Child pid 118 - 159762 terminated by signal 15
+c [w = 114] SAT Solving starts:
+c [w = 114] Solving duration: 70793 ms
+c [w = 114] Answer: 
+s [w = 114] SAT (w = 114)
+c [w = 114] Solution check = 114.
+c [w = 114] The solution is correct.
+c [w = 114] Result: 10
+c [Main] Max width SAT is set to 114
+c [Main] Kill lower pid 113.
+c [Main] Kill lower pid 112.
+c [w = 113] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 112] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Child pid 112 - 159564 terminated by signal 15
+c [Main] Child pid 113 - 159565 terminated by signal 15
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	114
+r [Main] Min width UNSAT:	115
+r [Main] Total real time: 222546 ms
+r [Main] Total memory consumed: 15949.2 MB
+r [Main] 
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
