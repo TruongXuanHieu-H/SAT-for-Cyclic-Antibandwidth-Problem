@@ -17,6 +17,7 @@ protected:
 
     int get_next_width_to_search();
 
+    std::deque<int> create_search_order();
     void binary_partition(int first, int last, std::deque<int> &result);
 };
 #endif // CABW_SEARCHER_BINARY_H
