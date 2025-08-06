@@ -4,11 +4,11 @@
 #include "cabw_searcher.h"
 #include <deque>
 
-class CabwSearcherBinary : public CabwSearcher
+class CabwSearcherBinaryFromLB : public CabwSearcher
 {
 public:
-    CabwSearcherBinary();
-    ~CabwSearcherBinary() = default;
+    CabwSearcherBinaryFromLB();
+    ~CabwSearcherBinaryFromLB() = default;
 
 protected:
     std::deque<int> create_search_order() override;

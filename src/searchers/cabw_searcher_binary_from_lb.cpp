@@ -1,9 +1,9 @@
-#include "cabw_searcher_binary.h"
+#include "cabw_searcher_binary_from_lb.h"
 #include "../global_data.h"
 
 #include <iostream>
 
-CabwSearcherBinary::CabwSearcherBinary()
+CabwSearcherBinaryFromLB::CabwSearcherBinaryFromLB()
 {
     search_order = create_search_order();
     std::cout << "c [Main] Search order: ";
@@ -14,14 +14,14 @@ CabwSearcherBinary::CabwSearcherBinary()
     std::cout << "\n";
 }
 
-std::deque<int> CabwSearcherBinary::create_search_order()
+std::deque<int> CabwSearcherBinaryFromLB::create_search_order()
 {
     std::deque<int> order_result;
     binary_partition(lower_bound, upper_bound, order_result);
     return order_result;
 }
 
-void CabwSearcherBinary::binary_partition(int first, int last, std::deque<int> &result)
+void CabwSearcherBinaryFromLB::binary_partition(int first, int last, std::deque<int> &result)
 {
     if (first > last)
         return;

@@ -2,7 +2,7 @@
 #include "cabw_encoder.h"
 #include "searchers/cabw_searcher_iterate_from_lb.h"
 #include "searchers/cabw_searcher_step_from_lb.h"
-#include "searchers/cabw_searcher_binary.h"
+#include "searchers/cabw_searcher_binary_from_lb.h"
 
 #include <iostream>
 
@@ -35,7 +35,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve()
         break;
     case SearchStrategy::binary_search:
         std::cout << "c [Main] Search strategy: Binary search.\n";
-        cabw_searcher = new CabwSearcherBinary();
+        cabw_searcher = new CabwSearcherBinaryFromLB();
         break;
 
     default:
