@@ -6,13 +6,11 @@
 class CabwSearcherIterateFromLB : public CabwSearcher
 {
 public:
-    CabwSearcherIterateFromLB() = default;
+    CabwSearcherIterateFromLB();
     ~CabwSearcherIterateFromLB() = default;
 
-    void encode_and_solve() override;
-
 protected:
-    int step = 1;
+    std::deque<int> create_search_order() override;
 };
 
 #endif // CABW_SEARCHER_ITERATE_FROM_LB_H

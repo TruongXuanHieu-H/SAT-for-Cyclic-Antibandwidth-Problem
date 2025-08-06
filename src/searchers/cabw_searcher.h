@@ -3,6 +3,7 @@
 
 #include <unordered_map>
 #include <unistd.h>
+#include <deque>
 
 class CabwSearcher
 {
@@ -10,7 +11,7 @@ public:
     CabwSearcher();
     virtual ~CabwSearcher();
 
-    virtual void encode_and_solve() = 0;
+    void encode_and_solve();
 
 protected:
     int max_width_SAT;
@@ -37,5 +38,9 @@ protected:
     void create_limit_pid();
     void create_cabp_pid(int width);
     int do_cabp_pid_task(int width);
+
+    std::deque<int> search_order; // Stores the order of widths to search
+    int get_next_width_to_search();
+    virtual std::deque<int> create_search_order() = 0;
 };
 #endif // CABW_SEARCHER_H
