@@ -33,7 +33,7 @@ void CyclicAntiBandwidthEncoder::encode_and_solve()
         std::cout << "c [Main] Search strategy: Stepping from lower bound.\n";
         cabw_searcher = new CabwSearcherStepFromLB();
         break;
-    case SearchStrategy::binary_search:
+    case SearchStrategy::binary_search_from_lb:
         std::cout << "c [Main] Search strategy: Binary search.\n";
         cabw_searcher = new CabwSearcherBinaryFromLB();
         break;

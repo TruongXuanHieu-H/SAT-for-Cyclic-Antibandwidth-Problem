@@ -84,7 +84,7 @@ int main(int argc, char **argv)
         }
         else if (argv[i] == std::string("--binary-search"))
         {
-            GlobalData::search_strategy = SearchStrategy::binary_search;
+            GlobalData::search_strategy = SearchStrategy::binary_search_from_lb;
         }
         else if (argv[i] == std::string("-set-lb"))
         {
