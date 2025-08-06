@@ -3,6 +3,7 @@
 #include "searchers/cabw_searcher_iterate_from_lb.h"
 #include "searchers/cabw_searcher_step_from_lb.h"
 #include "searchers/cabw_searcher_binary_from_lb.h"
+#include "searchers/cabw_searcher_binary_from_ub.h"
 
 #include <iostream>
 
@@ -34,8 +35,12 @@ void CyclicAntiBandwidthEncoder::encode_and_solve()
         cabw_searcher = new CabwSearcherStepFromLB();
         break;
     case SearchStrategy::binary_search_from_lb:
-        std::cout << "c [Main] Search strategy: Binary search.\n";
+        std::cout << "c [Main] Search strategy: Binary search from lower bound.\n";
         cabw_searcher = new CabwSearcherBinaryFromLB();
+        break;
+    case SearchStrategy::binary_search_from_ub:
+        std::cout << "c [Main] Search strategy: Binary search from upper bound.\n";
+        cabw_searcher = new CabwSearcherBinaryFromUB();
         break;
 
     default:
