@@ -21,6 +21,7 @@ OBJECTS = \
     cabw_searcher_step_from_lb.o \
 	cabw_searcher_binary_from_lb.o \
 	cabw_searcher_binary_from_ub.o \
+	cabw_searcher_binary_bfs.o \
     version.o \
     usage.o \
     signal_handler.o \
@@ -72,7 +73,8 @@ $(OBJDIR)/cabw_encoder.o : \
     $(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.h \
 	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.h \
 	$(SRCDIR)/searchers/cabw_searcher_binary_from_lb.h \
-	$(SRCDIR)/searchers/cabw_searcher_binary_from_ub.h
+	$(SRCDIR)/searchers/cabw_searcher_binary_from_ub.h \
+	$(SRCDIR)/searchers/cabw_searcher_binary_bfs.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@
 
 $(OBJDIR)/cabw_searcher.o : \
@@ -107,6 +109,13 @@ $(OBJDIR)/cabw_searcher_binary_from_lb.o : \
 $(OBJDIR)/cabw_searcher_binary_from_ub.o : \
 	$(SRCDIR)/searchers/cabw_searcher_binary_from_ub.cpp \
 	$(SRCDIR)/searchers/cabw_searcher_binary_from_ub.h \
+	$(SRCDIR)/searchers/cabw_searcher.h \
+	$(SRCDIR)/global_data.h
+	g++ $(FLAGS) $(STANDARD) -c $< -o $@
+
+$(OBJDIR)/cabw_searcher_binary_bfs.o : \
+	$(SRCDIR)/searchers/cabw_searcher_binary_bfs.cpp \
+	$(SRCDIR)/searchers/cabw_searcher_binary_bfs.h \
 	$(SRCDIR)/searchers/cabw_searcher.h \
 	$(SRCDIR)/global_data.h
 	g++ $(FLAGS) $(STANDARD) -c $< -o $@

@@ -7,6 +7,7 @@ enum class SearchStrategy
     step_from_lb,          // Search from lower bound with steps
     binary_search_from_lb, // Binary search strategy from lower bound
     binary_search_from_ub, // Binary search strategy from upper bound
+    binary_search_bfs,     // Binary search strategy using BFS
 };
 
 #endif // SEARCH_STRATEGY_H

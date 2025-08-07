@@ -4,6 +4,7 @@
 #include "searchers/cabw_searcher_step_from_lb.h"
 #include "searchers/cabw_searcher_binary_from_lb.h"
 #include "searchers/cabw_searcher_binary_from_ub.h"
+#include "searchers/cabw_searcher_binary_bfs.h"
 
 #include <iostream>
 
@@ -41,6 +42,10 @@ void CyclicAntiBandwidthEncoder::encode_and_solve()
     case SearchStrategy::binary_search_from_ub:
         std::cout << "c [Main] Search strategy: Binary search from upper bound.\n";
         cabw_searcher = new CabwSearcherBinaryFromUB();
+        break;
+    case SearchStrategy::binary_search_bfs:
+        std::cout << "c [Main] Search strategy: Binary search using BFS.\n";
+        cabw_searcher = new CabwSearcherBinaryBFS();
         break;
 
     default:

@@ -90,6 +90,10 @@ int main(int argc, char **argv)
         {
             GlobalData::search_strategy = SearchStrategy::binary_search_from_ub;
         }
+        else if (argv[i] == std::string("--binary-search-bfs"))
+        {
+            GlobalData::search_strategy = SearchStrategy::binary_search_bfs;
+        }
         else if (argv[i] == std::string("-set-lb"))
         {
             GlobalData::forced_lb = get_number_arg(argv[++i]);
