@@ -22,7 +22,7 @@ CyclicAntiBandwidthEncoder::~CyclicAntiBandwidthEncoder()
 
 void CyclicAntiBandwidthEncoder::encode_and_solve()
 {
-    std::cout << "c [Main] Encoding and solving for graph: " << GlobalData::g->graph_name << std::endl;
+    std::cout << "c [Main] Encoding and solving for graph: " << GlobalData::g->graph_name << ".\n";
 
     switch (GlobalData::search_strategy)
     {

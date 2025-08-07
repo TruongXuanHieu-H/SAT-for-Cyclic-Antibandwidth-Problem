@@ -68,7 +68,7 @@ void Graph::print_stat() const
     std::cout << "Graph has " << number_of_edges << " edges.\n";
     for (std::pair<int, int> edge : edges)
     {
-        std::cout << edge.first << " - " << edge.second << std::endl;
+        std::cout << edge.first << " - " << edge.second << ".\n";
     }
 };
 

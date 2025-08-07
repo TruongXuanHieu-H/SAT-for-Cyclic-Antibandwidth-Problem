@@ -172,19 +172,19 @@ void LadderEncoder::encode_obj_k()
 void LadderEncoder::encode_stair(int stair)
 {
     if (is_debug_mode)
-        std::cout << "Encode stair " << stair << " with width " << InstanceData::width << std::endl;
+        std::cout << "Encode stair " << stair << " with width " << InstanceData::width << ".\n";
 
     for (int gw = 0; gw < ceil((float)(GlobalData::g->n + InstanceData::width - 1) / InstanceData::width); gw++)
     {
         if (is_debug_mode)
-            std::cout << "Encode window " << gw << std::endl;
+            std::cout << "Encode window " << gw << ".\n";
         encode_window(gw, stair);
     }
 
     for (int gw = 0; gw < ceil((float)(GlobalData::g->n + InstanceData::width - 1) / InstanceData::width) - 1; gw++)
     {
         if (is_debug_mode)
-            std::cout << "Glue window " << gw << " with window " << gw + 1 << std::endl;
+            std::cout << "Glue window " << gw << " with window " << gw + 1 << ".\n";
         glue_window(gw, stair);
     }
 
@@ -477,7 +477,7 @@ void LadderEncoder::glue_window(int window, int stair)
 void LadderEncoder::glue_stair(int stair1, int stair2)
 {
     if (is_debug_mode)
-        std::cout << "Glue stair " << stair1 << " with stair " << stair2 << std::endl;
+        std::cout << "Glue stair " << stair1 << " with stair " << stair2 << ".\n";
     int number_step = GlobalData::g->n;
     for (int i = 0; i < number_step; i++)
     {

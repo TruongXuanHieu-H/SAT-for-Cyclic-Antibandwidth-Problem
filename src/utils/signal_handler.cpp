@@ -36,7 +36,7 @@ void SignalHandler::SIGINT_exit(int signum)
     signal(SIGABRT, signal_SIGABRT);
 
     std::cout << "c [Signal] Signal interruption. Caught signal: "
-              << signal_name(signum) << " (" << signum << ")\n";
+              << signal_name(signum) << " (" << signum << ").\n";
 
     fflush(stdout);
     fflush(stderr);

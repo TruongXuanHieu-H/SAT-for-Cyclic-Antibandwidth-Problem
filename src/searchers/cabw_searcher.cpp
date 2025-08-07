@@ -143,13 +143,13 @@ void CabwSearcher::create_limit_pid()
             if (consumed_memory > *max_consumed_memory)
             {
                 *max_consumed_memory = consumed_memory;
-                // std::cout << "[Lim] Memory consumed: " << max_consumed_memory << " MB\n";
+                // std::cout << "[Lim] Memory consumed: " << max_consumed_memory << " MB.\n";
             }
 
             sampler_count++;
             if (sampler_count >= GlobalData::report_rate)
             {
-                // std::cout << "c [Lim] Sampler:\t" << "Memory: " << consumed_memory << " MB\tReal time: " << consumed_real_time << "s\tElapsed time: " << consumed_elapsed_time << "s\n";
+                // std::cout << "c [Lim] Sampler:\t" << "Memory: " << consumed_memory << " MB\tReal time: " << consumed_real_time << "s\tElapsed time: " << consumed_elapsed_time << "s.\n";
                 sampler_count = 0;
             }
             usleep(GlobalData::sample_rate);
@@ -161,15 +161,15 @@ void CabwSearcher::create_limit_pid()
     }
     else
     {
-        // std::cout << "c Lim pid is forked at " << lim_pid << "\n";
+        // std::cout << "c Lim pid is forked at " << lim_pid << ".\n";
     }
 }
 
 void CabwSearcher::create_cabp_pid(int width)
 {
-    // std::cout << "p PID: " << getpid() << ", PPID: " << getppid() << "\n";
+    // std::cout << "p PID: " << getpid() << ", PPID: " << getppid() << ".\n";
     pid_t pid = fork();
-    // std::cout << "q PID: " << getpid() << ", PPID: " << getppid() << "\n";
+    // std::cout << "q PID: " << getpid() << ", PPID: " << getppid() << ".\n";
 
     if (pid < 0)
     {
@@ -201,7 +201,7 @@ int CabwSearcher::do_cabp_pid_task(int width)
 
     int result = cabp_ins->encode_and_solve_cabp();
 
-    std::cout << "c [w = " << width << "] Result: " << result << "\n";
+    std::cout << "c [w = " << width << "] Result: " << result << ".\n";
 
     // Clean up dynamically allocated memory
     delete cabp_ins;
@@ -240,7 +240,7 @@ void CabwSearcher::encode_and_solve()
         if (finished_pid == lim_pid)
         {
             limit_violated = true;
-            std::cout << "c [Main] Lim pid ends with result: " << WEXITSTATUS(status) << "\n";
+            std::cout << "c [Main] Lim pid ends with result: " << WEXITSTATUS(status) << ".\n";
             while (!abp_pids.empty())
             {
                 kill(abp_pids.begin()->second, SIGTERM);
@@ -254,7 +254,7 @@ void CabwSearcher::encode_and_solve()
             {
                 if (it->second == finished_pid)
                 {
-                    // std::cout << "c Child pid " << it->first << " - " << it->second << " exited with status " << WEXITSTATUS(status) << "\n";
+                    // std::cout << "c Child pid " << it->first << " - " << it->second << " exited with status " << WEXITSTATUS(status) << ".\n";
 
                     switch (WEXITSTATUS(status))
                     {
@@ -262,7 +262,7 @@ void CabwSearcher::encode_and_solve()
                         if (it->first > max_width_SAT)
                         {
                             max_width_SAT = it->first;
-                            std::cout << "c [Main] Max width SAT is set to " << it->first << "\n";
+                            std::cout << "c [Main] Max width SAT is set to " << it->first << ".\n";
                         }
 
                         for (auto ita = abp_pids.begin(); ita != abp_pids.end(); ita++)
@@ -312,7 +312,7 @@ void CabwSearcher::encode_and_solve()
             {
                 if (it->second == finished_pid)
                 {
-                    std::cout << "c [Main] Child pid " << it->first << " - " << it->second << " terminated by signal " << WTERMSIG(status) << "\n";
+                    std::cout << "c [Main] Child pid " << it->first << " - " << it->second << " terminated by signal " << WTERMSIG(status) << ".\n";
                     abp_pids.erase(it);
                     if (abp_pids.empty() && kill(lim_pid, 0) == 0)
                     {
@@ -368,9 +368,9 @@ void CabwSearcher::encode_and_solve()
 
     std::cout << "r [Main] \n";
     std::cout << "r [Main] Final results: \n";
-    std::cout << "r [Main] Max width SAT:  \t" << ((max_width_SAT == lower_bound - 1) ? "-" : std::to_string(max_width_SAT)) << "\n";
-    std::cout << "r [Main] Min width UNSAT:\t" << ((min_width_UNSAT == upper_bound + 1) ? "-" : std::to_string(min_width_UNSAT)) << "\n";
-    std::cout << "r [Main] Total real time: " << encode_duration << " ms\n";
-    std::cout << "r [Main] Total memory consumed: " << *max_consumed_memory << " MB\n";
+    std::cout << "r [Main] Max width SAT:  \t" << ((max_width_SAT == lower_bound - 1) ? "-" : std::to_string(max_width_SAT)) << ".\n";
+    std::cout << "r [Main] Min width UNSAT:\t" << ((min_width_UNSAT == upper_bound + 1) ? "-" : std::to_string(min_width_UNSAT)) << ".\n";
+    std::cout << "r [Main] Total real time: " << encode_duration << " ms.\n";
+    std::cout << "r [Main] Total memory consumed: " << *max_consumed_memory << " MB.\n";
     std::cout << "r [Main] \n";
 }

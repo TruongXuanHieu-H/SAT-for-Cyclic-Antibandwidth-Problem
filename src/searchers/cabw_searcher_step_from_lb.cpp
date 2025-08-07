@@ -6,12 +6,12 @@
 CabwSearcherStepFromLB::CabwSearcherStepFromLB()
 {
     search_order = create_search_order();
-    std::cout << "c [Main] Search order: ";
+    std::cout << "c [Main] Search order:";
     for (const auto &width : search_order)
     {
-        std::cout << width << " ";
+        std::cout << " " << width;
     }
-    std::cout << "\n";
+    std::cout << ".\n";
 }
 
 std::deque<int> CabwSearcherStepFromLB::create_search_order()
