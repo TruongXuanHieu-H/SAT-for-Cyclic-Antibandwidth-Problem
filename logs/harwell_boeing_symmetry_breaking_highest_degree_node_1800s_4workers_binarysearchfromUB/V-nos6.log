@@ -1,0 +1,79 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 4.
+c [Main] Encoding and solving for graph: V-nos6.mtx.rnd
+c [Main] Search strategy: Binary search from upper bound.
+c [Main] Lower bound is set to 163.
+c [Main] Upper bound is set to 337.
+c [Main] Search order: 250 294 316 327 332 335 336 337 333 334 329 330 331 328 321 324 325 326 322 323 318 319 320 317 305 310 313 314 315 311 312 307 308 309 306 299 302 303 304 300 301 296 297 298 295 272 283 288 291 292 293 289 290 285 286 287 284 277 280 281 282 278 279 274 275 276 273 261 266 269 270 271 267 268 263 264 265 262 255 258 259 260 256 257 252 253 254 251 206 228 239 244 247 248 249 245 246 241 242 243 240 233 236 237 238 234 235 230 231 232 229 217 222 225 226 227 223 224 219 220 221 218 211 214 215 216 212 213 208 209 210 207 184 195 200 203 204 205 201 202 197 198 199 196 189 192 193 194 190 191 186 187 188 185 173 178 181 182 183 179 180 175 176 177 174 167 170 171 172 168 169 164 165 166 163 
+c [w = 250] Start task in PID: 359015.
+c [w = 250] Antibandwidth problem with w = 250 (V-nos6.mtx.rnd):
+c [w = 250] Initializing CaDiCaL (version 2.1.3).
+c [w = 250] Configuring CaDiCaL as --sat (1).
+c [w = 250] Encoding starts with w = 250:
+c [w = 250] Symmetry breaking highest degree node is applied.
+c [w = 250] Encoding duration: 3890 ms
+c [w = 250] Number of clauses: 8430952
+c [w = 250] Number of variables: 1478925
+c [w = 294] Start task in PID: 359016.
+c [w = 294] Antibandwidth problem with w = 294 (V-nos6.mtx.rnd):
+c [w = 294] Initializing CaDiCaL (version 2.1.3).
+c [w = 294] Configuring CaDiCaL as --sat (1).
+c [w = 294] Encoding starts with w = 294:
+c [w = 294] Symmetry breaking highest degree node is applied.
+c [w = 294] Encoding duration: 4040 ms
+c [w = 294] Number of clauses: 8727952
+c [w = 294] Number of variables: 1568025
+c [w = 327] Start task in PID: 359018.
+c [w = 327] Antibandwidth problem with w = 327 (V-nos6.mtx.rnd):
+c [w = 327] Initializing CaDiCaL (version 2.1.3).
+c [w = 327] Configuring CaDiCaL as --sat (1).
+c [w = 327] Encoding starts with w = 327:
+c [w = 327] Symmetry breaking highest degree node is applied.
+c [w = 327] Encoding duration: 4049 ms
+c [w = 327] Number of clauses: 8950702
+c [w = 327] Number of variables: 1634850
+c [w = 316] Start task in PID: 359017.
+c [w = 316] Antibandwidth problem with w = 316 (V-nos6.mtx.rnd):
+c [w = 316] Initializing CaDiCaL (version 2.1.3).
+c [w = 316] Configuring CaDiCaL as --sat (1).
+c [w = 316] Encoding starts with w = 316:
+c [w = 316] Symmetry breaking highest degree node is applied.
+c [w = 316] Encoding duration: 4133 ms
+c [w = 316] Number of clauses: 8876452
+c [w = 316] Number of variables: 1612575
+c [w = 250] SAT Solving starts:
+c [w = 250] Solving duration: 712723 ms
+c [w = 250] Answer: 
+s [w = 250] SAT (w = 250)
+c [w = 250] Solution check = 250.
+c [w = 250] The solution is correct.
+c [w = 250] Result: 10
+c [Main] Max width SAT is set to 250
+c [w = 332] Start task in PID: 359772.
+c [w = 332] Antibandwidth problem with w = 332 (V-nos6.mtx.rnd):
+c [w = 332] Initializing CaDiCaL (version 2.1.3).
+c [w = 332] Configuring CaDiCaL as --sat (1).
+c [w = 332] Encoding starts with w = 332:
+c [w = 332] Symmetry breaking highest degree node is applied.
+c [w = 332] Encoding duration: 4169 ms
+c [w = 332] Number of clauses: 8984452
+c [w = 332] Number of variables: 1644975
+c [w = 332] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 316] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 294] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [w = 327] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15)
+c [Main] Lim pid ends with result: 254
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	250
+r [Main] Min width UNSAT:	-
+r [Main] Total real time: 1808802 ms
+r [Main] Total memory consumed: 10028.3 MB
+r [Main] 
