@@ -1,0 +1,299 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 8.
+c [Main] Encoding and solving for graph: S-sherman4.mtx.rnd.
+c [Main] Search strategy: Binary search using BFS.
+c [Main] Lower bound is set to 128.
+c [Main] Upper bound is set to 272.
+c [Main] Search order: 200 163 236 145 181 218 254 136 154 172 190 209 227 245 263 131 140 149 158 167 176 185 195 204 213 222 231 240 249 258 268 129 133 138 142 147 151 156 160 165 169 174 178 183 187 192 197 202 206 211 215 220 224 229 233 238 242 247 251 256 260 265 270 128 130 132 134 137 139 141 143 146 148 150 152 155 157 159 161 164 166 168 170 173 175 177 179 182 184 186 188 191 193 196 198 201 203 205 207 210 212 214 216 219 221 223 225 228 230 232 234 237 239 241 243 246 248 250 252 255 257 259 261 264 266 269 271 135 144 153 162 171 180 189 194 199 208 217 226 235 244 253 262 267 272.
+c [w = 136] Start task in PID: 422255.
+c [w = 136] Antibandwidth problem with w = 136 (S-sherman4.mtx.rnd):
+c [w = 136] Initializing CaDiCaL (version 2.1.3).
+c [w = 136] Configuring CaDiCaL as --sat (1).
+c [w = 136] Encoding starts with w = 136:
+c [w = 136] Symmetry breaking highest degree node is applied.
+c [w = 136] Encoding duration: 4269 ms.
+c [w = 136] Number of clauses: 6237318.
+c [w = 136] Number of variables: 1008462.
+c [w = 136] SAT Solving starts:
+c [w = 136] Solving duration: 196581 ms.
+c [w = 136] Answer:
+s [w = 136] SAT (w = 136).
+c [w = 136] Solution check = 136.
+c [w = 136] The solution is correct.
+c [w = 136] Result: 10.
+c [Main] Max width SAT is set to 136.
+c [w = 163] Start task in PID: 422249.
+c [w = 163] Antibandwidth problem with w = 163 (S-sherman4.mtx.rnd):
+c [w = 163] Initializing CaDiCaL (version 2.1.3).
+c [w = 163] Configuring CaDiCaL as --sat (1).
+c [w = 163] Encoding starts with w = 163:
+c [w = 163] Symmetry breaking highest degree node is applied.
+c [w = 163] Encoding duration: 4206 ms.
+c [w = 163] Number of clauses: 6212403.
+c [w = 163] Number of variables: 994812.
+c [w = 163] SAT Solving starts:
+c [w = 163] Solving duration: 325784 ms.
+c [w = 163] Answer:
+s [w = 163] SAT (w = 163).
+c [w = 163] Solution check = 163.
+c [w = 163] The solution is correct.
+c [w = 163] Result: 10.
+c [Main] Max width SAT is set to 163.
+c [Main] Kill lower pid 154.
+c [Main] Kill lower pid 145.
+c [w = 154] Start task in PID: 422954.
+c [w = 154] Antibandwidth problem with w = 154 (S-sherman4.mtx.rnd):
+c [w = 154] Initializing CaDiCaL (version 2.1.3).
+c [w = 154] Configuring CaDiCaL as --sat (1).
+c [w = 154] Encoding starts with w = 154:
+c [w = 154] Symmetry breaking highest degree node is applied.
+c [w = 154] Encoding duration: 3806 ms.
+c [w = 154] Number of clauses: 6148521.
+c [w = 154] Number of variables: 975156.
+c [w = 154] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 145] Start task in PID: 422251.
+c [w = 145] Antibandwidth problem with w = 145 (S-sherman4.mtx.rnd):
+c [w = 145] Initializing CaDiCaL (version 2.1.3).
+c [w = 145] Configuring CaDiCaL as --sat (1).
+c [w = 145] Encoding starts with w = 145:
+c [w = 145] Symmetry breaking highest degree node is applied.
+c [w = 145] Encoding duration: 4129 ms.
+c [w = 145] Number of clauses: 6084639.
+c [w = 145] Number of variables: 955500.
+c [w = 145] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 145 - 422251 terminated by signal 15.
+c [Main] Child pid 154 - 422954 terminated by signal 15.
+c [w = 181] Start task in PID: 422252.
+c [w = 181] Antibandwidth problem with w = 181 (S-sherman4.mtx.rnd):
+c [w = 181] Initializing CaDiCaL (version 2.1.3).
+c [w = 181] Configuring CaDiCaL as --sat (1).
+c [w = 181] Encoding starts with w = 181:
+c [w = 181] Symmetry breaking highest degree node is applied.
+c [w = 181] Encoding duration: 4351 ms.
+c [w = 181] Number of clauses: 6340167.
+c [w = 181] Number of variables: 1034124.
+c [w = 181] SAT Solving starts:
+c [w = 181] Solving duration: 342729 ms.
+c [w = 181] Answer:
+s [w = 181] SAT (w = 181).
+c [w = 181] Solution check = 181.
+c [w = 181] The solution is correct.
+c [w = 181] Result: 10.
+c [Main] Max width SAT is set to 181.
+c [Main] Kill lower pid 172.
+c [w = 172] Start task in PID: 422961.
+c [w = 172] Antibandwidth problem with w = 172 (S-sherman4.mtx.rnd):
+c [w = 172] Initializing CaDiCaL (version 2.1.3).
+c [w = 172] Configuring CaDiCaL as --sat (1).
+c [w = 172] Encoding starts with w = 172:
+c [w = 172] Symmetry breaking highest degree node is applied.
+c [w = 172] Encoding duration: 4155 ms.
+c [w = 172] Number of clauses: 6276285.
+c [w = 172] Number of variables: 1014468.
+c [w = 172] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 172 - 422961 terminated by signal 15.
+c [w = 200] Start task in PID: 422248.
+c [w = 200] Antibandwidth problem with w = 200 (S-sherman4.mtx.rnd):
+c [w = 200] Initializing CaDiCaL (version 2.1.3).
+c [w = 200] Configuring CaDiCaL as --sat (1).
+c [w = 200] Encoding starts with w = 200:
+c [w = 200] Symmetry breaking highest degree node is applied.
+c [w = 200] Encoding duration: 4186 ms.
+c [w = 200] Number of clauses: 6154182.
+c [w = 200] Number of variables: 968058.
+c [w = 200] SAT Solving starts:
+c [w = 200] Solving duration: 506778 ms.
+c [w = 200] Answer:
+s [w = 200] SAT (w = 200).
+c [w = 200] Solution check = 200.
+c [w = 200] The solution is correct.
+c [w = 200] Result: 10.
+c [Main] Max width SAT is set to 200.
+c [Main] Kill lower pid 190.
+c [w = 190] Start task in PID: 422962.
+c [w = 190] Antibandwidth problem with w = 190 (S-sherman4.mtx.rnd):
+c [w = 190] Initializing CaDiCaL (version 2.1.3).
+c [w = 190] Configuring CaDiCaL as --sat (1).
+c [w = 190] Encoding starts with w = 190:
+c [w = 190] Symmetry breaking highest degree node is applied.
+c [w = 190] Encoding duration: 3925 ms.
+c [w = 190] Number of clauses: 6099582.
+c [w = 190] Number of variables: 951678.
+c [w = 190] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 190 - 422962 terminated by signal 15.
+c [w = 218] Start task in PID: 422253.
+c [w = 218] Antibandwidth problem with w = 218 (S-sherman4.mtx.rnd):
+c [w = 218] Initializing CaDiCaL (version 2.1.3).
+c [w = 218] Configuring CaDiCaL as --sat (1).
+c [w = 218] Encoding starts with w = 218:
+c [w = 218] Symmetry breaking highest degree node is applied.
+c [w = 218] Encoding duration: 4279 ms.
+c [w = 218] Number of clauses: 6252462.
+c [w = 218] Number of variables: 997542.
+c [w = 218] SAT Solving starts:
+c [w = 218] Solving duration: 1083331 ms.
+c [w = 218] Answer:
+s [w = 218] SAT (w = 218).
+c [w = 218] Solution check = 218.
+c [w = 218] The solution is correct.
+c [w = 218] Result: 10.
+c [Main] Max width SAT is set to 218.
+c [Main] Kill lower pid 204.
+c [Main] Kill lower pid 209.
+c [w = 204] Start task in PID: 422984.
+c [w = 204] Antibandwidth problem with w = 204 (S-sherman4.mtx.rnd):
+c [w = 204] Initializing CaDiCaL (version 2.1.3).
+c [w = 204] Configuring CaDiCaL as --sat (1).
+c [w = 204] Encoding starts with w = 204:
+c [w = 204] Symmetry breaking highest degree node is applied.
+c [w = 204] Encoding duration: 4193 ms.
+c [w = 204] Number of clauses: 6176022.
+c [w = 204] Number of variables: 974610.
+c [w = 204] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 209] Start task in PID: 422963.
+c [w = 209] Antibandwidth problem with w = 209 (S-sherman4.mtx.rnd):
+c [w = 209] Initializing CaDiCaL (version 2.1.3).
+c [w = 209] Configuring CaDiCaL as --sat (1).
+c [w = 209] Encoding starts with w = 209:
+c [w = 209] Symmetry breaking highest degree node is applied.
+c [w = 209] Encoding duration: 4146 ms.
+c [w = 209] Number of clauses: 6203322.
+c [w = 209] Number of variables: 982800.
+c [w = 209] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 204 - 422984 terminated by signal 15.
+c [Main] Child pid 209 - 422963 terminated by signal 15.
+c [w = 227] Start task in PID: 422964.
+c [w = 227] Antibandwidth problem with w = 227 (S-sherman4.mtx.rnd):
+c [w = 227] Initializing CaDiCaL (version 2.1.3).
+c [w = 227] Configuring CaDiCaL as --sat (1).
+c [w = 227] Encoding starts with w = 227:
+c [w = 227] Symmetry breaking highest degree node is applied.
+c [w = 227] Encoding duration: 4274 ms.
+c [w = 227] Number of clauses: 6301602.
+c [w = 227] Number of variables: 1012284.
+c [w = 227] SAT Solving starts:
+c [w = 227] Solving duration: 1104564 ms.
+c [w = 227] Answer:
+s [w = 227] SAT (w = 227).
+c [w = 227] Solution check = 227.
+c [w = 227] The solution is correct.
+c [w = 227] Result: 10.
+c [Main] Max width SAT is set to 227.
+c [Main] Kill lower pid 222.
+c [w = 222] Start task in PID: 423708.
+c [w = 222] Antibandwidth problem with w = 222 (S-sherman4.mtx.rnd):
+c [w = 222] Initializing CaDiCaL (version 2.1.3).
+c [w = 222] Configuring CaDiCaL as --sat (1).
+c [w = 222] Encoding starts with w = 222:
+c [w = 222] Symmetry breaking highest degree node is applied.
+c [w = 222] Encoding duration: 3973 ms.
+c [w = 222] Number of clauses: 6274302.
+c [w = 222] Number of variables: 1004094.
+c [w = 222] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 222 - 423708 terminated by signal 15.
+c [w = 231] Start task in PID: 423709.
+c [w = 231] Antibandwidth problem with w = 231 (S-sherman4.mtx.rnd):
+c [w = 231] Initializing CaDiCaL (version 2.1.3).
+c [w = 231] Configuring CaDiCaL as --sat (1).
+c [w = 231] Encoding starts with w = 231:
+c [w = 231] Symmetry breaking highest degree node is applied.
+c [w = 231] Encoding duration: 3992 ms.
+c [w = 231] Number of clauses: 6323442.
+c [w = 231] Number of variables: 1018836.
+c [w = 231] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 258] Start task in PID: 424420.
+c [w = 258] Antibandwidth problem with w = 258 (S-sherman4.mtx.rnd):
+c [w = 258] Initializing CaDiCaL (version 2.1.3).
+c [w = 258] Configuring CaDiCaL as --sat (1).
+c [w = 258] Encoding starts with w = 258:
+c [w = 258] Symmetry breaking highest degree node is applied.
+c [w = 258] Encoding duration: 4248 ms.
+c [w = 258] Number of clauses: 6470862.
+c [w = 258] Number of variables: 1063062.
+c [w = 258] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 263] Start task in PID: 422983.
+c [w = 263] Antibandwidth problem with w = 263 (S-sherman4.mtx.rnd):
+c [w = 263] Initializing CaDiCaL (version 2.1.3).
+c [w = 263] Configuring CaDiCaL as --sat (1).
+c [w = 263] Encoding starts with w = 263:
+c [w = 263] Symmetry breaking highest degree node is applied.
+c [w = 263] Encoding duration: 4396 ms.
+c [w = 263] Number of clauses: 6498162.
+c [w = 263] Number of variables: 1071252.
+c [w = 263] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 236] Start task in PID: 422250.
+c [w = 236] Antibandwidth problem with w = 236 (S-sherman4.mtx.rnd):
+c [w = 236] Initializing CaDiCaL (version 2.1.3).
+c [w = 236] Configuring CaDiCaL as --sat (1).
+c [w = 236] Encoding starts with w = 236:
+c [w = 236] Symmetry breaking highest degree node is applied.
+c [w = 236] Encoding duration: 4417 ms.
+c [w = 236] Number of clauses: 6350742.
+c [w = 236] Number of variables: 1027026.
+c [w = 236] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 254] Start task in PID: 422254.
+c [w = 254] Antibandwidth problem with w = 254 (S-sherman4.mtx.rnd):
+c [w = 254] Initializing CaDiCaL (version 2.1.3).
+c [w = 254] Configuring CaDiCaL as --sat (1).
+c [w = 254] Encoding starts with w = 254:
+c [w = 254] Symmetry breaking highest degree node is applied.
+c [w = 254] Encoding duration: 4395 ms.
+c [w = 254] Number of clauses: 6449022.
+c [w = 254] Number of variables: 1056510.
+c [w = 254] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 245] Start task in PID: 422965.
+c [w = 245] Antibandwidth problem with w = 245 (S-sherman4.mtx.rnd):
+c [w = 245] Initializing CaDiCaL (version 2.1.3).
+c [w = 245] Configuring CaDiCaL as --sat (1).
+c [w = 245] Encoding starts with w = 245:
+c [w = 245] Symmetry breaking highest degree node is applied.
+c [w = 245] Encoding duration: 4310 ms.
+c [w = 245] Number of clauses: 6399882.
+c [w = 245] Number of variables: 1041768.
+c [w = 245] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 240] Start task in PID: 423710.
+c [w = 240] Antibandwidth problem with w = 240 (S-sherman4.mtx.rnd):
+c [w = 240] Initializing CaDiCaL (version 2.1.3).
+c [w = 240] Configuring CaDiCaL as --sat (1).
+c [w = 240] Encoding starts with w = 240:
+c [w = 240] Symmetry breaking highest degree node is applied.
+c [w = 240] Encoding duration: 4250 ms.
+c [w = 240] Number of clauses: 6372582.
+c [w = 240] Number of variables: 1033578.
+c [w = 240] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	227.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 1811688 ms.
+r [Main] Total memory consumed: 13591.4 MB.
+r [Main] 
+c [w = 249] Start task in PID: 424419.
+c [w = 249] Antibandwidth problem with w = 249 (S-sherman4.mtx.rnd):
+c [w = 249] Initializing CaDiCaL (version 2.1.3).
+c [w = 249] Configuring CaDiCaL as --sat (1).
+c [w = 249] Encoding starts with w = 249:
+c [w = 249] Symmetry breaking highest degree node is applied.
+c [w = 249] Encoding duration: 4180 ms.
+c [w = 249] Number of clauses: 6421722.
+c [w = 249] Number of variables: 1048320.
+c [w = 249] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
