@@ -12,6 +12,5 @@ public:
 
 protected:
     std::deque<int> create_search_order() override;
-    std::deque<int> binary_partition(int first, int last);
 };
 #endif // CABW_SEARCHER_BINARY_BFS_H
