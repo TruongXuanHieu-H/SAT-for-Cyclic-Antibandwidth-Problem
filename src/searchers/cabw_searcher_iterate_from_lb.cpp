@@ -17,7 +17,7 @@ CabwSearcherIterateFromLB::CabwSearcherIterateFromLB()
 std::deque<int> CabwSearcherIterateFromLB::create_search_order()
 {
     std::deque<int> order_result;
-    for (int i = lower_bound; i < upper_bound; i++)
+    for (int i = lower_bound; i <= upper_bound; i++)
     {
         order_result.push_back(i);
     }
