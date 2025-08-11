@@ -202,18 +202,26 @@ void LadderEncoder::encode_stair(int stair)
             windows.push_back({stair_anchor + window_anchor + 1, stair_anchor + window_anchor + InstanceData::width});
     }
 
-    std::vector<int> alo_clause = {};
-    for (int i = 0; i < number_windows; i++)
+    std::vector<int> windows_vars = {};
+    for (auto &window : windows)
     {
-        int first_window_aux_var = get_obj_k_aux_var(windows[i].first, windows[i].second);
-        alo_clause.push_back(first_window_aux_var);
-        for (int j = i + 1; j < number_windows; j++)
-        {
-            int second_window_aux_var = get_obj_k_aux_var(windows[j].first, windows[j].second);
-            InstanceData::cc->add_clause({-first_window_aux_var, -second_window_aux_var});
-        }
+        int window_var = get_obj_k_aux_var(window.first, window.second);
+        windows_vars.push_back(window_var);
     }
-    InstanceData::cc->add_clause(alo_clause);
+    encode_exactly_one_product(windows_vars);
+
+    // std::vector<int> alo_clause = {};
+    // for (int i = 0; i < number_windows; i++)
+    // {
+    //     int first_window_aux_var = get_obj_k_aux_var(windows[i].first, windows[i].second);
+    //     alo_clause.push_back(first_window_aux_var);
+    //     for (int j = i + 1; j < number_windows; j++)
+    //     {
+    //         int second_window_aux_var = get_obj_k_aux_var(windows[j].first, windows[j].second);
+    //         InstanceData::cc->add_clause({-first_window_aux_var, -second_window_aux_var});
+    //     }
+    // }
+    // InstanceData::cc->add_clause(alo_clause);
 }
 
 /*
