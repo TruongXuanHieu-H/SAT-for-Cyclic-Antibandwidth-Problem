@@ -1,0 +1,31 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 1.
+c [Param] LB is predefined as 258.
+c [Main] Encoding and solving for graph: S-sherman4.mtx.rnd.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 128.
+c [Main] Upper bound is set to 272.
+c [Main] LB 128 is overwritten with 258.
+c [Main] Search order: 258 259 260 261 262 263 264 265 266 267 268 269 270 271.
+c [w = 258] Start task in PID: 506942.
+c [w = 258] Antibandwidth problem with w = 258 (S-sherman4.mtx.rnd):
+c [w = 258] Initializing CaDiCaL (version 2.1.3).
+c [w = 258] Configuring CaDiCaL as --sat (1).
+c [w = 258] Encoding starts with w = 258:
+c [w = 258] Symmetry breaking highest degree node is applied.
+c [w = 258] Encoding duration: 2866 ms.
+c [w = 258] Number of clauses: 6470862.
+c [w = 258] Number of variables: 1063062.
+c [w = 258] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	-.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 1805768 ms.
+r [Main] Total memory consumed: 1912.6 MB.
+r [Main] 
