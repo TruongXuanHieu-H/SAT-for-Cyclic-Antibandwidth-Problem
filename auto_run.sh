@@ -3,9 +3,9 @@
 TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
-WORKER_COUNT=8
-LOG_DIR="logs/test_step"
-ADD_CONFIGS="--binary-search"
+WORKER_COUNT=4
+LOG_DIR="logs/test_hypercube"
+ADD_CONFIGS="--iterate-from-lb"
 
 mkdir -p "$LOG_DIR"
 
@@ -19,7 +19,7 @@ mkdir -p "$LOG_DIR"
 # ./build/cabw_enc datasets/harwell_boeing/H-impcol_b.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/H-impcol_b.log
 # ./build/cabw_enc datasets/harwell_boeing/I-ash85.mtx.rnd     --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/I-ash85.log
 # ./build/cabw_enc datasets/harwell_boeing/J-nos4.mtx.rnd      --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/J-nos4.log
-./build/cabw_enc datasets/harwell_boeing/K-dwt__234.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/K-dwt__234.log
+# ./build/cabw_enc datasets/harwell_boeing/K-dwt__234.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/K-dwt__234.log
 # ./build/cabw_enc datasets/harwell_boeing/L-bcspwr03.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/L-bcspwr03.log
 # ./build/cabw_enc datasets/harwell_boeing/M-bcsstk06.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/M-bcsstk06.log
 # ./build/cabw_enc datasets/harwell_boeing/N-bcsstk07.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/N-bcsstk07.log
@@ -33,3 +33,12 @@ mkdir -p "$LOG_DIR"
 # ./build/cabw_enc datasets/harwell_boeing/V-nos6.mtx.rnd      --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/V-nos6.log
 # ./build/cabw_enc datasets/harwell_boeing/W-685_bus.mtx.rnd   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/W-685_bus.log
 # ./build/cabw_enc datasets/harwell_boeing/X-can__715.mtx.rnd  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/X-can__715.log
+
+
+# ./build/cabw_enc datasets/hypercube/hypercube_4_16.txt   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/hypercube_4_16.log
+# ./build/cabw_enc datasets/hypercube/hypercube_5_32.txt   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/hypercube_5_32.log
+./build/cabw_enc datasets/hypercube/hypercube_6_64.txt   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/hypercube_6_64.log
+./build/cabw_enc datasets/hypercube/hypercube_7_128.txt   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/hypercube_7_128.log
+./build/cabw_enc datasets/hypercube/hypercube_8_256.txt   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/hypercube_8_256.log
+./build/cabw_enc datasets/hypercube/hypercube_9_512.txt   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/hypercube_9_512.log
+./build/cabw_enc datasets/hypercube/hypercube_10_1024.txt   --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/hypercube_10_1024.log

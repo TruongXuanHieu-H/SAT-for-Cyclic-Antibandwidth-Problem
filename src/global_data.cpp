@@ -61,6 +61,13 @@ std::unordered_map<std::string, int> GlobalData::cabw_LBs = {
     {"V-nos6.mtx.rnd", 163},
     {"W-685_bus.mtx.rnd", 68},
     {"X-can__715.mtx.rnd", 56},
+    {"hypercube_4_16.txt", 4},
+    {"hypercube_5_32.txt", 9},
+    {"hypercube_6_64.txt", 19},
+    {"hypercube_7_128.txt", 41},
+    {"hypercube_8_256.txt", 85},
+    {"hypercube_9_512.txt", 178},
+    {"hypercube_10_1024.txt", 364},
 };
 
 std::unordered_map<std::string, int> GlobalData::cabw_UBs = {
