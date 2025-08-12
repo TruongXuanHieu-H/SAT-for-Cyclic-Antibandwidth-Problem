@@ -208,7 +208,10 @@ void LadderEncoder::encode_stair(int stair)
         int window_var = get_obj_k_aux_var(window.first, window.second);
         windows_vars.push_back(window_var);
     }
-    encode_exactly_one_product(windows_vars);
+    // encode_exactly_one_product(windows_vars);
+    
+    encode_amo_seq(windows_vars);
+    InstanceData::cc->add_clause(windows_vars);
 
     // std::vector<int> alo_clause = {};
     // for (int i = 0; i < number_windows; i++)
