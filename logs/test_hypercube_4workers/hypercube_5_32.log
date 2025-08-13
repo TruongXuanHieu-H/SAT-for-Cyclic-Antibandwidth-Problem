@@ -1,0 +1,96 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 4.
+c [Main] Encoding and solving for graph: hypercube_5_32.txt.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 9.
+c [Main] No predefined upper bound is found for hypercube_5_32.txt.
+c [Main] UB-w = 17 (default value calculated as n/2+1).
+c [Main] Search order: 9 10 11 12 13 14 15 16 17.
+c [w = 9] Start task in PID: 134510.
+c [w = 9] Antibandwidth problem with w = 9 (hypercube_5_32.txt):
+c [w = 9] Initializing CaDiCaL (version 2.1.3).
+c [w = 9] Configuring CaDiCaL as --sat (1).
+c [w = 9] Encoding starts with w = 9:
+c [w = 9] Symmetry breaking highest degree node is applied.
+c [w = 9] Encoding duration: 13 ms.
+c [w = 9] Number of clauses: 20112.
+c [w = 9] Number of variables: 3456.
+c [w = 9] SAT Solving starts:
+c [w = 9] Solving duration: 57 ms.
+c [w = 9] Answer:
+s [w = 9] SAT (w = 9).
+c [w = 9] Solution check = 9.
+c [w = 9] The solution is correct.
+c [w = 9] Result: 10.
+c [Main] Max width SAT is set to 9.
+c [w = 13] Start task in PID: 134514.
+c [w = 13] Antibandwidth problem with w = 13 (hypercube_5_32.txt):
+c [w = 13] Initializing CaDiCaL (version 2.1.3).
+c [w = 13] Configuring CaDiCaL as --sat (1).
+c [w = 13] Encoding starts with w = 13:
+c [w = 13] Symmetry breaking highest degree node is applied.
+c [w = 13] Encoding duration: 13 ms.
+c [w = 13] Number of clauses: 20928.
+c [w = 13] Number of variables: 3648.
+c [w = 13] SAT Solving starts:
+c [w = 13] Solving duration: 30 ms.
+c [w = 13] Answer:
+s [w = 13] UNSAT (w = 13).
+c [w = 13] Result: 20.
+c [Main] Min width UNSAT is set to 13
+c [w = 12] Start task in PID: 134513.
+c [w = 12] Antibandwidth problem with w = 12 (hypercube_5_32.txt):
+c [w = 12] Initializing CaDiCaL (version 2.1.3).
+c [w = 12] Configuring CaDiCaL as --sat (1).
+c [w = 12] Encoding starts with w = 12:
+c [w = 12] Symmetry breaking highest degree node is applied.
+c [w = 12] Encoding duration: 13 ms.
+c [w = 12] Number of clauses: 20608.
+c [w = 12] Number of variables: 3552.
+c [w = 12] SAT Solving starts:
+c [w = 12] Solving duration: 197 ms.
+c [w = 12] Answer:
+s [w = 12] UNSAT (w = 12).
+c [w = 12] Result: 20.
+c [Main] Min width UNSAT is set to 12
+c [w = 11] Start task in PID: 134512.
+c [w = 11] Antibandwidth problem with w = 11 (hypercube_5_32.txt):
+c [w = 11] Initializing CaDiCaL (version 2.1.3).
+c [w = 11] Configuring CaDiCaL as --sat (1).
+c [w = 11] Encoding starts with w = 11:
+c [w = 11] Symmetry breaking highest degree node is applied.
+c [w = 11] Encoding duration: 8 ms.
+c [w = 11] Number of clauses: 20288.
+c [w = 11] Number of variables: 3456.
+c [w = 11] SAT Solving starts:
+c [w = 11] Solving duration: 1069 ms.
+c [w = 11] Answer:
+s [w = 11] UNSAT (w = 11).
+c [w = 11] Result: 20.
+c [Main] Min width UNSAT is set to 11
+c [w = 10] Start task in PID: 134511.
+c [w = 10] Antibandwidth problem with w = 10 (hypercube_5_32.txt):
+c [w = 10] Initializing CaDiCaL (version 2.1.3).
+c [w = 10] Configuring CaDiCaL as --sat (1).
+c [w = 10] Encoding starts with w = 10:
+c [w = 10] Symmetry breaking highest degree node is applied.
+c [w = 10] Encoding duration: 9 ms.
+c [w = 10] Number of clauses: 20528.
+c [w = 10] Number of variables: 3584.
+c [w = 10] SAT Solving starts:
+c [w = 10] Solving duration: 43088 ms.
+c [w = 10] Answer:
+s [w = 10] UNSAT (w = 10).
+c [w = 10] Result: 20.
+c [Main] Min width UNSAT is set to 10
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	9.
+r [Main] Min width UNSAT:	10.
+r [Main] Total real time: 43102 ms.
+r [Main] Total memory consumed: 38.8 MB.
+r [Main] 
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
