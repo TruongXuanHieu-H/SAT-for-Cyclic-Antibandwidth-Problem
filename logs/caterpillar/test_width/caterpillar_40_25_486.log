@@ -1,0 +1,32 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 1.
+c [Param] LB is predefined as 486.
+c [Main] Encoding and solving for graph: caterpillar_40_25.txt.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] No predefined lower bound is found for caterpillar_40_25.txt.
+c [Main] LB-w = 2 (default value).
+c [Main] Upper bound is set to 500.
+c [Main] LB 2 is overwritten with 486.
+c [Main] Search order: 486 487 488 489 490 491 492 493 494 495 496 497 498 499 500.
+c [w = 486] Start task in PID: 11749.
+c [w = 486] Antibandwidth problem with w = 486 (caterpillar_40_25.txt):
+c [w = 486] Initializing CaDiCaL (version 2.1.3).
+c [w = 486] Configuring CaDiCaL as --sat (1).
+c [w = 486] Encoding starts with w = 486:
+c [w = 486] Symmetry breaking highest degree node is applied.
+c [w = 486] Encoding duration: 7242 ms.
+c [w = 486] Number of clauses: 16005509.
+c [w = 486] Number of variables: 3573000.
+c [w = 486] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	-.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 1806393 ms.
+r [Main] Total memory consumed: 4678.2 MB.
+r [Main] 
