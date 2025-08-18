@@ -1,0 +1,36 @@
+#!/bin/bash
+
+TIME_LIMIT=1800
+MEMORY_LIMIT=30000
+SYMMETRY_BREAK="highest-degree"
+WORKER_COUNT=4
+LOG_DIR="logs/complete_binary_tree/binarysearchfromLB_highestnode_4workers"
+ADD_CONFIGS="--binary-search-from-lb"
+
+mkdir -p "$LOG_DIR"
+
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_30.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_30.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_31.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_31.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_32.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_32.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_33.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_33.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_34.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_34.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_35.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_35.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_45.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_45.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_46.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_46.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_47.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_47.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_48.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_48.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_49.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_49.log
+# ./build/cabw_enc datasets/complete_binary_trees/cbt_50.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_50.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_500.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 212 2>&1 | tee $LOG_DIR/cbt_500.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_510.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 217 2>&1 | tee $LOG_DIR/cbt_510.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_550.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 225 2>&1 | tee $LOG_DIR/cbt_550.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_600.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 264 2>&1 | tee $LOG_DIR/cbt_600.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_620.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 273 2>&1 | tee $LOG_DIR/cbt_620.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_630.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 277 2>&1 | tee $LOG_DIR/cbt_630.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_640.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 272 2>&1 | tee $LOG_DIR/cbt_640.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_730.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 286 2>&1 | tee $LOG_DIR/cbt_730.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_790.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 304 2>&1 | tee $LOG_DIR/cbt_790.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_880.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 338 2>&1 | tee $LOG_DIR/cbt_880.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_910.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 371 2>&1 | tee $LOG_DIR/cbt_910.log
+./build/cabw_enc datasets/complete_binary_trees/cbt_950.txt --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS -set-lb 358 2>&1 | tee $LOG_DIR/cbt_950.log
+
