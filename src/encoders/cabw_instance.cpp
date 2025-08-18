@@ -23,7 +23,7 @@ CABWInstance::~CABWInstance() {}
    */
 int CABWInstance::encode_and_solve_cabp()
 {
-    std::cout << "c " + InstanceData::get_signature() + " Antibandwidth problem with w = " << InstanceData::width << " (" << GlobalData::g->graph_name << "):\n";
+    std::cout << "c " + InstanceData::get_signature() + " Cyclic Antibandwidth problem with w = " << InstanceData::width << " (" << GlobalData::g->graph_name << "):\n";
     if (GlobalData::g->n < 1)
     {
         std::cout << "c " + InstanceData::get_signature() + " The input graph is too small, there is nothing to encode here.\n";
