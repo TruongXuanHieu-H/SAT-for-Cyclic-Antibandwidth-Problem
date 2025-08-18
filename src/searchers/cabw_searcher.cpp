@@ -115,9 +115,9 @@ void CabwSearcher::lookup_bounds(int &lb, int &ub)
     }
     else
     {
-        ub = GlobalData::g->n / 2 + 1;
+        ub = GlobalData::g->n / 2;
         std::cout << "c [Main] No predefined upper bound is found for " << GlobalData::g->graph_name << ".\n";
-        std::cout << "c [Main] UB-w = " << ub << " (default value calculated as n/2+1).\n";
+        std::cout << "c [Main] UB-w = " << ub << " (default value calculated as n/2).\n";
     }
 };
 
