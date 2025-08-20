@@ -117,6 +117,4 @@ std::unordered_map<std::string, int> GlobalData::cabw_UBs = {
     {"V-nos6.mtx.rnd", 337},
     {"W-685_bus.mtx.rnd", 136},
     {"X-can__715.mtx.rnd", 142},
-
-    {"caterpillar_40_25.txt", 500},
 };
