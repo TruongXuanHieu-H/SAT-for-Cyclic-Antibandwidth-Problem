@@ -4,8 +4,8 @@ TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=4
-LOG_DIR="logs/caterpillar"
-ADD_CONFIGS="--iterate-from-lb"
+LOG_DIR="logs/caterpillar/binarysearchfromLB-highestdegree_4workers"
+ADD_CONFIGS="--binary-search-from-lb"
 
 mkdir -p "$LOG_DIR"
 
