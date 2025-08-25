@@ -62,13 +62,13 @@ std::unordered_map<std::string, int> GlobalData::cabw_LBs = {
     {"W-685_bus.mtx.rnd", 68},
     {"X-can__715.mtx.rnd", 56},
 
-    {"hypercube_4_16.txt", 4},
-    {"hypercube_5_32.txt", 9},
-    {"hypercube_6_64.txt", 19},
-    {"hypercube_7_128.txt", 41},
-    {"hypercube_8_256.txt", 85},
-    {"hypercube_9_512.txt", 178},
-    {"hypercube_10_1024.txt", 364},
+    {"hypercube_4_16.txt", 2},
+    {"hypercube_5_32.txt", 5},
+    {"hypercube_6_64.txt", 10},
+    {"hypercube_7_128.txt", 21},
+    {"hypercube_8_256.txt", 43},
+    {"hypercube_9_512.txt", 89},
+    {"hypercube_10_1024.txt", 182},
 };
 
 std::unordered_map<std::string, int> GlobalData::cabw_UBs = {
@@ -96,4 +96,12 @@ std::unordered_map<std::string, int> GlobalData::cabw_UBs = {
     {"V-nos6.mtx.rnd", 337},
     {"W-685_bus.mtx.rnd", 136},
     {"X-can__715.mtx.rnd", 142},
+
+    {"hypercube_4_16.txt", 4},
+    {"hypercube_5_32.txt", 9},
+    {"hypercube_6_64.txt", 19},
+    {"hypercube_7_128.txt", 41},
+    {"hypercube_8_256.txt", 85},
+    {"hypercube_9_512.txt", 178},
+    {"hypercube_10_1024.txt", 364},
 };
