@@ -5,7 +5,7 @@ MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=4
 INPUT_DIR="datasets/conjecture_optimal/double_star"
-LOG_DIR="logs/conjecture_optimal/double_star/binarysearchfromUB_highestdegree_4workers"
+LOG_DIR="logs_test/conjecture_optimal/double_star/1worker_UNSATconfig"
 ADD_CONFIGS="--binary-search-from-ub"
 
 mkdir -p "$LOG_DIR"
