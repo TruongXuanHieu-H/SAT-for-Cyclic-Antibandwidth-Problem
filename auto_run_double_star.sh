@@ -3,10 +3,10 @@
 TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
-WORKER_COUNT=4
+WORKER_COUNT=1
 INPUT_DIR="datasets/conjecture_optimal/double_star"
 LOG_DIR="logs_test/conjecture_optimal/double_star/1worker_UNSATconfig"
-ADD_CONFIGS="--binary-search-from-ub"
+ADD_CONFIGS="--iterate-from-lb"
 
 mkdir -p "$LOG_DIR"
 
