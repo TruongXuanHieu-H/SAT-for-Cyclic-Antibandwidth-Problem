@@ -5,8 +5,8 @@ MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=8
 INPUT_DIR="datasets/unknow_optimal/caterpillar"
-LOG_DIR="logs/unknow_optimal/caterpillar/binarysearchfromUB-highestdegree_8workers"
-ADD_CONFIGS="--binary-search-from-ub"
+LOG_DIR="logs/unknow_optimal/caterpillar/binarysearchfromLB-highestdegree_8workers"
+ADD_CONFIGS="--binary-search-from-lb"
 
 mkdir -p "$LOG_DIR"
 
