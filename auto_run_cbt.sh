@@ -5,8 +5,8 @@ MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=8
 INPUT_DIR="datasets/unknow_optimal/complete_binary_trees"
-LOG_DIR="logs/unknow_optimal/complete_binary_tree/binarysearchfromLB_highestnode_8workers"
-ADD_CONFIGS="--binary-search-from-lb"
+LOG_DIR="logs/unknow_optimal/complete_binary_tree/binarysearchfromUB_highestnode_8workers"
+ADD_CONFIGS="--binary-search-from-ub"
 
 mkdir -p "$LOG_DIR" 
 
