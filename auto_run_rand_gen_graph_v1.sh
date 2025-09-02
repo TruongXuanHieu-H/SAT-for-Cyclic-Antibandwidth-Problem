@@ -3,10 +3,10 @@
 TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
-WORKER_COUNT=4
+WORKER_COUNT=8
 DATASET_DIR="datasets/unknow_optimal/random_generated_graph_v1"
-LOG_DIR="logs/unknow_optimal/random_generated_graph_v1/binarysearchbfs_highestdegree_4workers"
-ADD_CONFIGS="--binary-search-bfs"
+LOG_DIR="logs/unknow_optimal/random_generated_graph_v1/binarysearchfromUB_highestdegree_8workers"
+ADD_CONFIGS="--binary-search-from-ub"
 
 mkdir -p "$LOG_DIR"
 
