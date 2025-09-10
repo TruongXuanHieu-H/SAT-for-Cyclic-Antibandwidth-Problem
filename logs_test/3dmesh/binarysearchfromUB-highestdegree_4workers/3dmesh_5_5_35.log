@@ -1,0 +1,80 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 4.
+c [Main] Encoding and solving for graph: 3dmesh_5_5_35.txt.
+c [Main] Search strategy: Binary search from upper bound.
+c [Main] No predefined lower bound is found for 3dmesh_5_5_35.txt.
+c [Main] LB-w = 2 (default value).
+c [Main] Upper bound is set to 434.
+c [Main] Search order: 218 326 380 407 421 428 431 433 434 432 429 430 424 426 427 425 422 423 414 417 419 420 418 415 416 410 412 413 411 408 409 393 400 403 405 406 404 401 402 396 398 399 397 394 395 386 389 391 392 390 387 388 383 384 385 381 382 353 366 373 376 378 379 377 374 375 369 371 372 370 367 368 359 362 364 365 363 360 361 356 357 358 354 355 339 346 349 351 352 350 347 348 342 344 345 343 340 341 332 335 337 338 336 333 334 329 330 331 327 328 272 299 312 319 322 324 325 323 320 321 315 317 318 316 313 314 305 308 310 311 309 306 307 302 303 304 300 301 285 292 295 297 298 296 293 294 288 290 291 289 286 287 278 281 283 284 282 279 280 275 276 277 273 274 245 258 265 268 270 271 269 266 267 261 263 264 262 259 260 251 254 256 257 255 252 253 248 249 250 246 247 231 238 241 243 244 242 239 240 234 236 237 235 232 233 224 227 229 230 228 225 226 221 222 223 219 220 109 163 190 204 211 214 216 217 215 212 213 207 209 210 208 205 206 197 200 202 203 201 198 199 193 195 196 194 191 192 176 183 186 188 189 187 184 185 179 181 182 180 177 178 169 172 174 175 173 170 171 166 167 168 164 165 136 149 156 159 161 162 160 157 158 152 154 155 153 150 151 142 145 147 148 146 143 144 139 140 141 137 138 122 129 132 134 135 133 130 131 125 127 128 126 123 124 115 118 120 121 119 116 117 112 113 114 110 111 55 82 95 102 105 107 108 106 103 104 98 100 101 99 96 97 88 91 93 94 92 89 90 85 86 87 83 84 68 75 78 80 81 79 76 77 71 73 74 72 69 70 61 64 66 67 65 62 63 58 59 60 56 57 28 41 48 51 53 54 52 49 50 44 46 47 45 42 43 34 37 39 40 38 35 36 31 32 33 29 30 14 21 24 26 27 25 22 23 17 19 20 18 15 16 7 10 12 13 11 8 9 4 5 6 2 3.
+c [w = 218] Start task in PID: 2561.
+c [w = 218] Cyclic Antibandwidth problem with w = 218 (3dmesh_5_5_35.txt):
+c [w = 218] Initializing CaDiCaL (version 2.1.3).
+c [w = 218] Configuring CaDiCaL as --sat (1).
+c [w = 218] Encoding starts with w = 218:
+c [w = 218] Symmetry breaking highest degree node is applied.
+c [w = 218] Encoding duration: 12779 ms.
+c [w = 218] Number of clauses: 16372937.
+c [w = 218] Number of variables: 2573375.
+c [w = 218] SAT Solving starts:
+c [w = 218] Solving duration: 1159953 ms.
+c [w = 218] Answer:
+s [w = 218] SAT (w = 218).
+c [w = 218] Solution check = 218.
+c [w = 218] The solution is correct.
+c [w = 218] Result: 10.
+c [Main] Max width SAT is set to 218.
+c [w = 421] Start task in PID: 2830.
+c [w = 421] Cyclic Antibandwidth problem with w = 421 (3dmesh_5_5_35.txt):
+c [w = 421] Initializing CaDiCaL (version 2.1.3).
+c [w = 421] Configuring CaDiCaL as --sat (1).
+c [w = 421] Encoding starts with w = 421:
+c [w = 421] Symmetry breaking highest degree node is applied.
+c [w = 421] Encoding duration: 10356 ms.
+c [w = 421] Number of clauses: 17026062.
+c [w = 421] Number of variables: 2730000.
+c [w = 421] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 380] Start task in PID: 2563.
+c [w = 380] Cyclic Antibandwidth problem with w = 380 (3dmesh_5_5_35.txt):
+c [w = 380] Initializing CaDiCaL (version 2.1.3).
+c [w = 380] Configuring CaDiCaL as --sat (1).
+c [w = 380] Encoding starts with w = 380:
+c [w = 380] Symmetry breaking highest degree node is applied.
+c [w = 380] Encoding duration: 13007 ms.
+c [w = 380] Number of clauses: 16667312.
+c [w = 380] Number of variables: 2622375.
+c [w = 380] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 326] Start task in PID: 2562.
+c [w = 326] Cyclic Antibandwidth problem with w = 326 (3dmesh_5_5_35.txt):
+c [w = 326] Initializing CaDiCaL (version 2.1.3).
+c [w = 326] Configuring CaDiCaL as --sat (1).
+c [w = 326] Encoding starts with w = 326:
+c [w = 326] Symmetry breaking highest degree node is applied.
+c [w = 326] Encoding duration: 12576 ms.
+c [w = 326] Number of clauses: 16194812.
+c [w = 326] Number of variables: 2480625.
+c [w = 326] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 407] Start task in PID: 2564.
+c [w = 407] Cyclic Antibandwidth problem with w = 407 (3dmesh_5_5_35.txt):
+c [w = 407] Initializing CaDiCaL (version 2.1.3).
+c [w = 407] Configuring CaDiCaL as --sat (1).
+c [w = 407] Encoding starts with w = 407:
+c [w = 407] Symmetry breaking highest degree node is applied.
+c [w = 407] Encoding duration: 13830 ms.
+c [w = 407] Number of clauses: 16903562.
+c [w = 407] Number of variables: 2693250.
+c [w = 407] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	218.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 1808496 ms.
+r [Main] Total memory consumed: 17173.6 MB.
+r [Main] 
