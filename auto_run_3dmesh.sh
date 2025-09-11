@@ -3,10 +3,10 @@
 TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
-WORKER_COUNT=4
+WORKER_COUNT=8
 INPUT_DIR="datasets/3dmesh"
-LOG_DIR="logs_test/3dmesh/binarysearchfromLB-highestdegree_4workers"
-ADD_CONFIGS="--binary-search-from-lb"
+LOG_DIR="logs_test/3dmesh/binarysearchbfs-highestdegree_8workers"
+ADD_CONFIGS="--binary-search-bfs"
 
 mkdir -p "$LOG_DIR"
 
