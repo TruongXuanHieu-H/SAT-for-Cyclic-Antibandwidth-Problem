@@ -1,0 +1,1228 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 1800.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 8.
+c [Main] Encoding and solving for graph: cbt_620.txt.
+c [Main] Search strategy: Binary search from lower bound.
+c [Main] No predefined lower bound is found for cbt_620.txt.
+c [Main] LB-w = 2 (default value).
+c [Main] No predefined upper bound is found for cbt_620.txt.
+c [Main] UB-w = 310 (default value calculated as n/2).
+c [Main] Search order: 156 78 39 20 10 5 3 2 4 7 6 8 9 15 12 11 13 14 17 16 18 19 29 24 22 21 23 26 25 27 28 34 31 30 32 33 36 35 37 38 58 48 43 41 40 42 45 44 46 47 53 50 49 51 52 55 54 56 57 68 63 60 59 61 62 65 64 66 67 73 70 69 71 72 75 74 76 77 117 97 87 82 80 79 81 84 83 85 86 92 89 88 90 91 94 93 95 96 107 102 99 98 100 101 104 103 105 106 112 109 108 110 111 114 113 115 116 136 126 121 119 118 120 123 122 124 125 131 128 127 129 130 133 132 134 135 146 141 138 137 139 140 143 142 144 145 151 148 147 149 150 153 152 154 155 233 194 175 165 160 158 157 159 162 161 163 164 170 167 166 168 169 172 171 173 174 184 179 177 176 178 181 180 182 183 189 186 185 187 188 191 190 192 193 213 203 198 196 195 197 200 199 201 202 208 205 204 206 207 210 209 211 212 223 218 215 214 216 217 220 219 221 222 228 225 224 226 227 230 229 231 232 272 252 242 237 235 234 236 239 238 240 241 247 244 243 245 246 249 248 250 251 262 257 254 253 255 256 259 258 260 261 267 264 263 265 266 269 268 270 271 291 281 276 274 273 275 278 277 279 280 286 283 282 284 285 288 287 289 290 301 296 293 292 294 295 298 297 299 300 306 303 302 304 305 308 307 309 310.
+c [w = 39] Start task in PID: 32043.
+c [w = 39] Cyclic Antibandwidth problem with w = 39 (cbt_620.txt):
+c [w = 39] Initializing CaDiCaL (version 2.1.3).
+c [w = 39] Configuring CaDiCaL as --sat (1).
+c [w = 39] Encoding starts with w = 39:
+c [w = 39] Symmetry breaking highest degree node is applied.
+c [w = 39] Encoding duration: 6187 ms.
+c [w = 39] Number of clauses: 5461318.
+c [w = 39] Number of variables: 1185440.
+c [w = 39] SAT Solving starts:
+c [w = 39] Solving duration: 627 ms.
+c [w = 39] Answer:
+s [w = 39] SAT (w = 39).
+c [w = 39] Solution check = 39.
+c [w = 39] The solution is correct.
+c [w = 39] Result: 10.
+c [w = 3] Start task in PID: 32047.
+c [w = 3] Cyclic Antibandwidth problem with w = 3 (cbt_620.txt):
+c [w = 3] Initializing CaDiCaL (version 2.1.3).
+c [w = 3] Configuring CaDiCaL as --sat (1).
+c [w = 3] Encoding starts with w = 3:
+c [w = 3] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 2] Start task in PID: 32048.
+c [w = 2] Cyclic Antibandwidth problem with w = 2 (cbt_620.txt):
+c [w = 2] Initializing CaDiCaL (version 2.1.3).
+c [w = 2] Configuring CaDiCaL as --sat (1).
+c [w = 2] Encoding starts with w = 2:
+c [w = 2] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Max width SAT is set to 39.
+c [Main] Kill lower pid 2.
+c [Main] Kill lower pid 3.
+c [Main] Kill lower pid 5.
+c [Main] Kill lower pid 10.
+c [Main] Kill lower pid 20.
+c [w = 5] Start task in PID: 32046.
+c [w = 5] Cyclic Antibandwidth problem with w = 5 (cbt_620.txt):
+c [w = 5] Initializing CaDiCaL (version 2.1.3).
+c [w = 5] Configuring CaDiCaL as --sat (1).
+c [w = 5] Encoding starts with w = 5:
+c [w = 5] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 10] Start task in PID: 32045.
+c [w = 10] Cyclic Antibandwidth problem with w = 10 (cbt_620.txt):
+c [w = 10] Initializing CaDiCaL (version 2.1.3).
+c [w = 10] Configuring CaDiCaL as --sat (1).
+c [w = 10] Encoding starts with w = 10:
+c [w = 10] Symmetry breaking highest degree node is applied.
+c [w = 10] Encoding duration: 6758 ms.
+c [w = 10] Number of clauses: 6220336.
+c [w = 10] Number of variables: 1097400.
+c [w = 10] SAT Solving starts:
+c [w = 10] Solving duration: 580 ms.
+c [w = 10] Answer:
+s [w = 10] SAT (w = 10).
+c [w = 10] Solution check = 10.
+c [w = 10] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 20] Start task in PID: 32044.
+c [w = 20] Cyclic Antibandwidth problem with w = 20 (cbt_620.txt):
+c [w = 20] Initializing CaDiCaL (version 2.1.3).
+c [w = 20] Configuring CaDiCaL as --sat (1).
+c [w = 20] Encoding starts with w = 20:
+c [w = 20] Symmetry breaking highest degree node is applied.
+c [w = 20] Encoding duration: 6343 ms.
+c [w = 20] Number of clauses: 5553743.
+c [w = 20] Number of variables: 1155060.
+c [w = 20] SAT Solving starts:
+c [w = 20] Solving duration: 582 ms.
+c [w = 20] Answer:
+s [w = 20] SAT (w = 20).
+c [w = 20] Solution check = 20.
+c [w = 20] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 20 - 32044 terminated by signal 15.
+c [Main] Child pid 10 - 32045 terminated by signal 15.
+c [Main] Child pid 5 - 32046 terminated by signal 15.
+c [Main] Child pid 3 - 32047 terminated by signal 15.
+c [Main] Child pid 2 - 32048 terminated by signal 15.
+c [w = 78] Start task in PID: 32042.
+c [w = 78] Cyclic Antibandwidth problem with w = 78 (cbt_620.txt):
+c [w = 78] Initializing CaDiCaL (version 2.1.3).
+c [w = 78] Configuring CaDiCaL as --sat (1).
+c [w = 78] Encoding starts with w = 78:
+c [w = 78] Symmetry breaking highest degree node is applied.
+c [w = 78] Encoding duration: 6260 ms.
+c [w = 78] Number of clauses: 5482994.
+c [w = 78] Number of variables: 1200320.
+c [w = 78] SAT Solving starts:
+c [w = 78] Solving duration: 1086 ms.
+c [w = 78] Answer:
+s [w = 78] SAT (w = 78).
+c [w = 78] Solution check = 78.
+c [w = 78] The solution is correct.
+c [w = 78] Result: 10.
+c [w = 40] Start task in PID: 32053.
+c [w = 40] Cyclic Antibandwidth problem with w = 40 (cbt_620.txt):
+c [w = 40] Initializing CaDiCaL (version 2.1.3).
+c [w = 40] Configuring CaDiCaL as --sat (1).
+c [w = 40] Encoding starts with w = 40:
+c [w = 40] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 48] Start task in PID: 32050.
+c [w = 48] Cyclic Antibandwidth problem with w = 48 (cbt_620.txt):
+c [w = 48] Initializing CaDiCaL (version 2.1.3).
+c [w = 48] Configuring CaDiCaL as --sat (1).
+c [w = 48] Encoding starts with w = 48:
+c [w = 48] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 43] Start task in PID: 32051.
+c [w = 43] Cyclic Antibandwidth problem with w = 43 (cbt_620.txt):
+c [w = 43] Initializing CaDiCaL (version 2.1.3).
+c [w = 43] Configuring CaDiCaL as --sat (1).
+c [w = 43] Encoding starts with w = 43:
+c [w = 43] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Max width SAT is set to 78.
+c [Main] Kill lower pid 42.
+c [Main] Kill lower pid 40.
+c [Main] Kill lower pid 43.
+c [Main] Kill lower pid 48.
+c [Main] Kill lower pid 58.
+c [Main] Kill lower pid 41.
+c [w = 58] Start task in PID: 32049.
+c [w = 58] Cyclic Antibandwidth problem with w = 58 (cbt_620.txt):
+c [w = 58] Initializing CaDiCaL (version 2.1.3).
+c [w = 58] Configuring CaDiCaL as --sat (1).
+c [w = 58] Encoding starts with w = 58:
+c [w = 58] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 41] Start task in PID: 32052.
+c [w = 41] Cyclic Antibandwidth problem with w = 41 (cbt_620.txt):
+c [w = 41] Initializing CaDiCaL (version 2.1.3).
+c [w = 41] Configuring CaDiCaL as --sat (1).
+c [w = 41] Encoding starts with w = 41:
+c [w = 41] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 42] Start task in PID: 32054.
+c [w = 42] Cyclic Antibandwidth problem with w = 42 (cbt_620.txt):
+c [w = 42] Initializing CaDiCaL (version 2.1.3).
+c [w = 42] Configuring CaDiCaL as --sat (1).
+c [w = 42] Encoding starts with w = 42:
+c [w = 42] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 43 - 32051 terminated by signal 15.
+c [Main] Child pid 48 - 32050 terminated by signal 15.
+c [Main] Child pid 58 - 32049 terminated by signal 15.
+c [Main] Child pid 41 - 32052 terminated by signal 15.
+c [Main] Child pid 40 - 32053 terminated by signal 15.
+c [Main] Child pid 42 - 32054 terminated by signal 15.
+c [w = 81] Start task in PID: 32061.
+c [w = 81] Cyclic Antibandwidth problem with w = 81 (cbt_620.txt):
+c [w = 81] Initializing CaDiCaL (version 2.1.3).
+c [w = 81] Configuring CaDiCaL as --sat (1).
+c [w = 81] Encoding starts with w = 81:
+c [w = 81] Symmetry breaking highest degree node is applied.
+c [w = 81] Encoding duration: 6288 ms.
+c [w = 81] Number of clauses: 5529494.
+c [w = 81] Number of variables: 1215200.
+c [w = 81] SAT Solving starts:
+c [w = 81] Solving duration: 1087 ms.
+c [w = 81] Answer:
+s [w = 81] SAT (w = 81).
+c [w = 81] Solution check = 81.
+c [w = 81] The solution is correct.
+c [w = 81] Result: 10.
+c [w = 79] Start task in PID: 32060.
+c [w = 79] Cyclic Antibandwidth problem with w = 79 (cbt_620.txt):
+c [w = 79] Initializing CaDiCaL (version 2.1.3).
+c [w = 79] Configuring CaDiCaL as --sat (1).
+c [w = 79] Encoding starts with w = 79:
+c [w = 79] Symmetry breaking highest degree node is applied.
+c [w = 79] Encoding duration: 6290 ms.
+c [w = 79] Number of clauses: 5498494.
+c [w = 79] Number of variables: 1205280.
+c [w = 79] SAT Solving starts:
+c [w = 79] Solving duration: 1077 ms.
+c [w = 79] Answer:
+s [w = 79] SAT (w = 79).
+c [w = 79] Solution check = 79.
+c [w = 79] The solution is correct.
+c [w = 79] Result: 10.
+c [w = 80] Start task in PID: 32059.
+c [w = 80] Cyclic Antibandwidth problem with w = 80 (cbt_620.txt):
+c [w = 80] Initializing CaDiCaL (version 2.1.3).
+c [w = 80] Configuring CaDiCaL as --sat (1).
+c [w = 80] Encoding starts with w = 80:
+c [w = 80] Symmetry breaking highest degree node is applied.
+c [w = 80] Encoding duration: 6303 ms.
+c [w = 80] Number of clauses: 5513994.
+c [w = 80] Number of variables: 1210240.
+c [w = 80] SAT Solving starts:
+c [w = 80] Solving duration: 1085 ms.
+c [w = 80] Answer:
+s [w = 80] SAT (w = 80).
+c [w = 80] Solution check = 80.
+c [w = 80] The solution is correct.
+c [w = 80] Result: 10.
+c [Main] Max width SAT is set to 81.
+c [Main] Kill lower pid 79.
+c [Main] Kill lower pid 80.
+c [w = 82] Start task in PID: 32058.
+c [w = 82] Cyclic Antibandwidth problem with w = 82 (cbt_620.txt):
+c [w = 82] Initializing CaDiCaL (version 2.1.3).
+c [w = 82] Configuring CaDiCaL as --sat (1).
+c [w = 82] Encoding starts with w = 82:
+c [w = 82] Symmetry breaking highest degree node is applied.
+c [w = 82] Encoding duration: 6363 ms.
+c [w = 82] Number of clauses: 5544994.
+c [w = 82] Number of variables: 1220160.
+c [w = 82] SAT Solving starts:
+c [w = 82] Solving duration: 1123 ms.
+c [w = 82] Answer:
+s [w = 82] SAT (w = 82).
+c [w = 82] Solution check = 82.
+c [w = 82] The solution is correct.
+c [w = 82] Result: 10.
+c [w = 87] Start task in PID: 32057.
+c [w = 87] Cyclic Antibandwidth problem with w = 87 (cbt_620.txt):
+c [w = 87] Initializing CaDiCaL (version 2.1.3).
+c [w = 87] Configuring CaDiCaL as --sat (1).
+c [w = 87] Encoding starts with w = 87:
+c [w = 87] Symmetry breaking highest degree node is applied.
+c [w = 87] Encoding duration: 6384 ms.
+c [w = 87] Number of clauses: 5622494.
+c [w = 87] Number of variables: 1244960.
+c [w = 87] SAT Solving starts:
+c [w = 87] Solving duration: 1118 ms.
+c [w = 87] Answer:
+s [w = 87] SAT (w = 87).
+c [w = 87] Solution check = 87.
+c [w = 87] The solution is correct.
+c [w = 87] Result: 10.
+c [Main] Max width SAT is set to 82.
+c [Main] Max width SAT is set to 87.
+c [Main] Kill lower pid 86.
+c [Main] Kill lower pid 85.
+c [Main] Kill lower pid 83.
+c [Main] Kill lower pid 84.
+c [w = 83] Start task in PID: 32063.
+c [w = 83] Cyclic Antibandwidth problem with w = 83 (cbt_620.txt):
+c [w = 83] Initializing CaDiCaL (version 2.1.3).
+c [w = 83] Configuring CaDiCaL as --sat (1).
+c [w = 83] Encoding starts with w = 83:
+c [w = 83] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 85] Start task in PID: 32064.
+c [w = 85] Cyclic Antibandwidth problem with w = 85 (cbt_620.txt):
+c [w = 85] Initializing CaDiCaL (version 2.1.3).
+c [w = 85] Configuring CaDiCaL as --sat (1).
+c [w = 85] Encoding starts with w = 85:
+c [w = 85] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 84] Start task in PID: 32062.
+c [w = 84] Cyclic Antibandwidth problem with w = 84 (cbt_620.txt):
+c [w = 84] Initializing CaDiCaL (version 2.1.3).
+c [w = 84] Configuring CaDiCaL as --sat (1).
+c [w = 84] Encoding starts with w = 84:
+c [w = 84] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 86] Start task in PID: 32065.
+c [w = 86] Cyclic Antibandwidth problem with w = 86 (cbt_620.txt):
+c [w = 86] Initializing CaDiCaL (version 2.1.3).
+c [w = 86] Configuring CaDiCaL as --sat (1).
+c [w = 86] Encoding starts with w = 86:
+c [w = 86] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 86 - 32065 terminated by signal 15.
+c [Main] Child pid 85 - 32064 terminated by signal 15.
+c [Main] Child pid 83 - 32063 terminated by signal 15.
+c [w = 97] Start task in PID: 32056.
+c [w = 97] Cyclic Antibandwidth problem with w = 97 (cbt_620.txt):
+c [w = 97] Initializing CaDiCaL (version 2.1.3).
+c [w = 97] Configuring CaDiCaL as --sat (1).
+c [w = 97] Encoding starts with w = 97:
+c [w = 97] Symmetry breaking highest degree node is applied.
+c [w = 97] Encoding duration: 6492 ms.
+c [w = 97] Number of clauses: 5599551.
+c [w = 97] Number of variables: 1236280.
+c [w = 97] SAT Solving starts:
+c [w = 97] Solving duration: 1115 ms.
+c [w = 97] Answer:
+s [w = 97] SAT (w = 97).
+c [w = 97] Solution check = 97.
+c [w = 97] The solution is correct.
+c [w = 97] Result: 10.
+c [Main] Child pid 84 - 32062 terminated by signal 15.
+c [w = 88] Start task in PID: 32068.
+c [w = 88] Cyclic Antibandwidth problem with w = 88 (cbt_620.txt):
+c [w = 88] Initializing CaDiCaL (version 2.1.3).
+c [w = 88] Configuring CaDiCaL as --sat (1).
+c [w = 88] Encoding starts with w = 88:
+c [w = 88] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Max width SAT is set to 97.
+c [Main] Kill lower pid 90.
+c [Main] Kill lower pid 88.
+c [Main] Kill lower pid 89.
+c [Main] Kill lower pid 92.
+c [Main] Kill lower pid 91.
+c [w = 89] Start task in PID: 32067.
+c [w = 89] Cyclic Antibandwidth problem with w = 89 (cbt_620.txt):
+c [w = 89] Initializing CaDiCaL (version 2.1.3).
+c [w = 89] Configuring CaDiCaL as --sat (1).
+c [w = 89] Encoding starts with w = 89:
+c [w = 89] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 91] Start task in PID: 32070.
+c [w = 91] Cyclic Antibandwidth problem with w = 91 (cbt_620.txt):
+c [w = 91] Initializing CaDiCaL (version 2.1.3).
+c [w = 91] Configuring CaDiCaL as --sat (1).
+c [w = 91] Encoding starts with w = 91:
+c [w = 91] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 92] Start task in PID: 32066.
+c [w = 92] Cyclic Antibandwidth problem with w = 92 (cbt_620.txt):
+c [w = 92] Initializing CaDiCaL (version 2.1.3).
+c [w = 92] Configuring CaDiCaL as --sat (1).
+c [w = 92] Encoding starts with w = 92:
+c [w = 92] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 90] Start task in PID: 32069.
+c [w = 90] Cyclic Antibandwidth problem with w = 90 (cbt_620.txt):
+c [w = 90] Initializing CaDiCaL (version 2.1.3).
+c [w = 90] Configuring CaDiCaL as --sat (1).
+c [w = 90] Encoding starts with w = 90:
+c [w = 90] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 92 - 32066 terminated by signal 15.
+c [Main] Child pid 88 - 32068 terminated by signal 15.
+c [Main] Child pid 90 - 32069 terminated by signal 15.
+c [Main] Child pid 91 - 32070 terminated by signal 15.
+c [Main] Child pid 89 - 32067 terminated by signal 15.
+c [w = 117] Start task in PID: 32055.
+c [w = 117] Cyclic Antibandwidth problem with w = 117 (cbt_620.txt):
+c [w = 117] Initializing CaDiCaL (version 2.1.3).
+c [w = 117] Configuring CaDiCaL as --sat (1).
+c [w = 117] Encoding starts with w = 117:
+c [w = 117] Symmetry breaking highest degree node is applied.
+c [w = 117] Encoding duration: 5946 ms.
+c [w = 117] Number of clauses: 5657828.
+c [w = 117] Number of variables: 1252400.
+c [w = 117] SAT Solving starts:
+c [w = 117] Solving duration: 1921 ms.
+c [w = 117] Answer:
+s [w = 117] SAT (w = 117).
+c [w = 117] Solution check = 117.
+c [w = 117] The solution is correct.
+c [w = 117] Result: 10.
+c [w = 100] Start task in PID: 32075.
+c [w = 100] Cyclic Antibandwidth problem with w = 100 (cbt_620.txt):
+c [w = 100] Initializing CaDiCaL (version 2.1.3).
+c [w = 100] Configuring CaDiCaL as --sat (1).
+c [w = 100] Encoding starts with w = 100:
+c [w = 100] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 98] Start task in PID: 32074.
+c [w = 98] Cyclic Antibandwidth problem with w = 98 (cbt_620.txt):
+c [w = 98] Initializing CaDiCaL (version 2.1.3).
+c [w = 98] Configuring CaDiCaL as --sat (1).
+c [w = 98] Encoding starts with w = 98:
+c [w = 98] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 99] Start task in PID: 32073.
+c [w = 99] Cyclic Antibandwidth problem with w = 99 (cbt_620.txt):
+c [w = 99] Initializing CaDiCaL (version 2.1.3).
+c [w = 99] Configuring CaDiCaL as --sat (1).
+c [w = 99] Encoding starts with w = 99:
+c [w = 99] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Max width SAT is set to 117.
+c [Main] Kill lower pid 101.
+c [Main] Kill lower pid 100.
+c [Main] Kill lower pid 98.
+c [Main] Kill lower pid 99.
+c [Main] Kill lower pid 107.
+c [Main] Kill lower pid 102.
+c [w = 107] Start task in PID: 32071.
+c [w = 107] Cyclic Antibandwidth problem with w = 107 (cbt_620.txt):
+c [w = 107] Initializing CaDiCaL (version 2.1.3).
+c [w = 107] Configuring CaDiCaL as --sat (1).
+c [w = 107] Encoding starts with w = 107:
+c [w = 107] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 102] Start task in PID: 32072.
+c [w = 102] Cyclic Antibandwidth problem with w = 102 (cbt_620.txt):
+c [w = 102] Initializing CaDiCaL (version 2.1.3).
+c [w = 102] Configuring CaDiCaL as --sat (1).
+c [w = 102] Encoding starts with w = 102:
+c [w = 102] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 101] Start task in PID: 32076.
+c [w = 101] Cyclic Antibandwidth problem with w = 101 (cbt_620.txt):
+c [w = 101] Initializing CaDiCaL (version 2.1.3).
+c [w = 101] Configuring CaDiCaL as --sat (1).
+c [w = 101] Encoding starts with w = 101:
+c [w = 101] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 99 - 32073 terminated by signal 15.
+c [Main] Child pid 100 - 32075 terminated by signal 15.
+c [Main] Child pid 107 - 32071 terminated by signal 15.
+c [Main] Child pid 102 - 32072 terminated by signal 15.
+c [Main] Child pid 98 - 32074 terminated by signal 15.
+c [Main] Child pid 101 - 32076 terminated by signal 15.
+c [w = 136] Start task in PID: 32077.
+c [w = 136] Cyclic Antibandwidth problem with w = 136 (cbt_620.txt):
+c [w = 136] Initializing CaDiCaL (version 2.1.3).
+c [w = 136] Configuring CaDiCaL as --sat (1).
+c [w = 136] Encoding starts with w = 136:
+c [w = 136] Symmetry breaking highest degree node is applied.
+c [w = 136] Encoding duration: 5886 ms.
+c [w = 136] Number of clauses: 5632405.
+c [w = 136] Number of variables: 1240620.
+c [w = 136] SAT Solving starts:
+c [w = 136] Solving duration: 1765 ms.
+c [w = 136] Answer:
+s [w = 136] SAT (w = 136).
+c [w = 136] Solution check = 136.
+c [w = 136] The solution is correct.
+c [w = 136] Result: 10.
+c [w = 118] Start task in PID: 32081.
+c [w = 118] Cyclic Antibandwidth problem with w = 118 (cbt_620.txt):
+c [w = 118] Initializing CaDiCaL (version 2.1.3).
+c [w = 118] Configuring CaDiCaL as --sat (1).
+c [w = 118] Encoding starts with w = 118:
+c [w = 118] Symmetry breaking highest degree node is applied.
+c [w = 118] Encoding duration: 6465 ms.
+c [w = 118] Number of clauses: 5669608.
+c [w = 118] Number of variables: 1256120.
+c [w = 118] SAT Solving starts:
+c [w = 118] Solving duration: 1937 ms.
+c [w = 118] Answer:
+s [w = 118] SAT (w = 118).
+c [w = 118] Solution check = 118.
+c [w = 118] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 120] Start task in PID: 32082.
+c [w = 120] Cyclic Antibandwidth problem with w = 120 (cbt_620.txt):
+c [w = 120] Initializing CaDiCaL (version 2.1.3).
+c [w = 120] Configuring CaDiCaL as --sat (1).
+c [w = 120] Encoding starts with w = 120:
+c [w = 120] Symmetry breaking highest degree node is applied.
+c [w = 120] Encoding duration: 6591 ms.
+c [w = 120] Number of clauses: 5693168.
+c [w = 120] Number of variables: 1263560.
+c [w = 120] SAT Solving starts:
+c [w = 120] Solving duration: 1984 ms.
+c [w = 120] Answer:
+s [w = 120] SAT (w = 120).
+c [w = 120] Solution check = 120.
+c [w = 120] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 119] Start task in PID: 32080.
+c [w = 119] Cyclic Antibandwidth problem with w = 119 (cbt_620.txt):
+c [w = 119] Initializing CaDiCaL (version 2.1.3).
+c [w = 119] Configuring CaDiCaL as --sat (1).
+c [w = 119] Encoding starts with w = 119:
+c [w = 119] Symmetry breaking highest degree node is applied.
+c [w = 119] Encoding duration: 6501 ms.
+c [w = 119] Number of clauses: 5681388.
+c [w = 119] Number of variables: 1259840.
+c [w = 119] SAT Solving starts:
+c [w = 119] Solving duration: 1939 ms.
+c [w = 119] Answer:
+s [w = 119] SAT (w = 119).
+c [w = 119] Solution check = 119.
+c [w = 119] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Max width SAT is set to 136.
+c [Main] Kill lower pid 120.
+c [Main] Kill lower pid 118.
+c [Main] Kill lower pid 119.
+c [Main] Kill lower pid 121.
+c [Main] Kill lower pid 123.
+c [Main] Kill lower pid 126.
+c [w = 121] Start task in PID: 32079.
+c [w = 121] Cyclic Antibandwidth problem with w = 121 (cbt_620.txt):
+c [w = 121] Initializing CaDiCaL (version 2.1.3).
+c [w = 121] Configuring CaDiCaL as --sat (1).
+c [w = 121] Encoding starts with w = 121:
+c [w = 121] Symmetry breaking highest degree node is applied.
+c [w = 121] Encoding duration: 6537 ms.
+c [w = 121] Number of clauses: 5704948.
+c [w = 121] Number of variables: 1267280.
+c [w = 121] SAT Solving starts:
+c [w = 121] Solving duration: 1940 ms.
+c [w = 121] Answer:
+s [w = 121] SAT (w = 121).
+c [w = 121] Solution check = 121.
+c [w = 121] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 126] Start task in PID: 32078.
+c [w = 126] Cyclic Antibandwidth problem with w = 126 (cbt_620.txt):
+c [w = 126] Initializing CaDiCaL (version 2.1.3).
+c [w = 126] Configuring CaDiCaL as --sat (1).
+c [w = 126] Encoding starts with w = 126:
+c [w = 126] Symmetry breaking highest degree node is applied.
+c [w = 126] Encoding duration: 6314 ms.
+c [w = 126] Number of clauses: 5533205.
+c [w = 126] Number of variables: 1209620.
+c [w = 126] SAT Solving starts:
+c [w = 126] Solving duration: 1759 ms.
+c [w = 126] Answer:
+s [w = 126] SAT (w = 126).
+c [w = 126] Solution check = 126.
+c [w = 126] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 123] Start task in PID: 32083.
+c [w = 123] Cyclic Antibandwidth problem with w = 123 (cbt_620.txt):
+c [w = 123] Initializing CaDiCaL (version 2.1.3).
+c [w = 123] Configuring CaDiCaL as --sat (1).
+c [w = 123] Encoding starts with w = 123:
+c [w = 123] Symmetry breaking highest degree node is applied.
+c [w = 123] Encoding duration: 6749 ms.
+c [w = 123] Number of clauses: 5728508.
+c [w = 123] Number of variables: 1274720.
+c [w = 123] SAT Solving starts:
+c [w = 123] Solving duration: 2008 ms.
+c [w = 123] Answer:
+s [w = 123] SAT (w = 123).
+c [w = 123] Solution check = 123.
+c [w = 123] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 126 - 32078 terminated by signal 15.
+c [Main] Child pid 120 - 32082 terminated by signal 15.
+c [Main] Child pid 121 - 32079 terminated by signal 15.
+c [Main] Child pid 118 - 32081 terminated by signal 15.
+c [Main] Child pid 119 - 32080 terminated by signal 15.
+c [Main] Child pid 123 - 32083 terminated by signal 15.
+c [w = 139] Start task in PID: 32088.
+c [w = 139] Cyclic Antibandwidth problem with w = 139 (cbt_620.txt):
+c [w = 139] Initializing CaDiCaL (version 2.1.3).
+c [w = 139] Configuring CaDiCaL as --sat (1).
+c [w = 139] Encoding starts with w = 139:
+c [w = 139] Symmetry breaking highest degree node is applied.
+c [w = 139] Encoding duration: 6430 ms.
+c [w = 139] Number of clauses: 5662165.
+c [w = 139] Number of variables: 1249920.
+c [w = 139] SAT Solving starts:
+c [w = 139] Solving duration: 1859 ms.
+c [w = 139] Answer:
+s [w = 139] SAT (w = 139).
+c [w = 139] Solution check = 139.
+c [w = 139] The solution is correct.
+c [w = 139] Result: 10.
+c [w = 138] Start task in PID: 32086.
+c [w = 138] Cyclic Antibandwidth problem with w = 138 (cbt_620.txt):
+c [w = 138] Initializing CaDiCaL (version 2.1.3).
+c [w = 138] Configuring CaDiCaL as --sat (1).
+c [w = 138] Encoding starts with w = 138:
+c [w = 138] Symmetry breaking highest degree node is applied.
+c [w = 138] Encoding duration: 6439 ms.
+c [w = 138] Number of clauses: 5652245.
+c [w = 138] Number of variables: 1246820.
+c [w = 138] SAT Solving starts:
+c [w = 138] Solving duration: 1867 ms.
+c [w = 138] Answer:
+s [w = 138] SAT (w = 138).
+c [w = 138] Solution check = 138.
+c [w = 138] The solution is correct.
+c [w = 138] Result: 10.
+c [w = 137] Start task in PID: 32087.
+c [w = 137] Cyclic Antibandwidth problem with w = 137 (cbt_620.txt):
+c [w = 137] Initializing CaDiCaL (version 2.1.3).
+c [w = 137] Configuring CaDiCaL as --sat (1).
+c [w = 137] Encoding starts with w = 137:
+c [w = 137] Symmetry breaking highest degree node is applied.
+c [w = 137] Encoding duration: 6492 ms.
+c [w = 137] Number of clauses: 5642325.
+c [w = 137] Number of variables: 1243720.
+c [w = 137] SAT Solving starts:
+c [w = 137] Solving duration: 1853 ms.
+c [w = 137] Answer:
+s [w = 137] SAT (w = 137).
+c [w = 137] Solution check = 137.
+c [w = 137] The solution is correct.
+c [w = 137] Result: 10.
+c [Main] Max width SAT is set to 139.
+c [Main] Kill lower pid 137.
+c [Main] Kill lower pid 138.
+c [Main] Kill lower pid 137.
+c [w = 140] Start task in PID: 32089.
+c [w = 140] Cyclic Antibandwidth problem with w = 140 (cbt_620.txt):
+c [w = 140] Initializing CaDiCaL (version 2.1.3).
+c [w = 140] Configuring CaDiCaL as --sat (1).
+c [w = 140] Encoding starts with w = 140:
+c [w = 140] Symmetry breaking highest degree node is applied.
+c [w = 140] Encoding duration: 6489 ms.
+c [w = 140] Number of clauses: 5672085.
+c [w = 140] Number of variables: 1253020.
+c [w = 140] SAT Solving starts:
+c [w = 140] Solving duration: 1904 ms.
+c [w = 140] Answer:
+s [w = 140] SAT (w = 140).
+c [w = 140] Solution check = 140.
+c [w = 140] The solution is correct.
+c [w = 140] Result: 10.
+c [Main] Max width SAT is set to 140.
+c [w = 141] Start task in PID: 32085.
+c [w = 141] Cyclic Antibandwidth problem with w = 141 (cbt_620.txt):
+c [w = 141] Initializing CaDiCaL (version 2.1.3).
+c [w = 141] Configuring CaDiCaL as --sat (1).
+c [w = 141] Encoding starts with w = 141:
+c [w = 141] Symmetry breaking highest degree node is applied.
+c [w = 141] Encoding duration: 6584 ms.
+c [w = 141] Number of clauses: 5682005.
+c [w = 141] Number of variables: 1256120.
+c [w = 141] SAT Solving starts:
+c [w = 141] Solving duration: 1918 ms.
+c [w = 141] Answer:
+s [w = 141] SAT (w = 141).
+c [w = 141] Solution check = 141.
+c [w = 141] The solution is correct.
+c [w = 141] Result: 10.
+c [Main] Max width SAT is set to 141.
+c [w = 142] Start task in PID: 32091.
+c [w = 142] Cyclic Antibandwidth problem with w = 142 (cbt_620.txt):
+c [w = 142] Initializing CaDiCaL (version 2.1.3).
+c [w = 142] Configuring CaDiCaL as --sat (1).
+c [w = 142] Encoding starts with w = 142:
+c [w = 142] Symmetry breaking highest degree node is applied.
+c [w = 142] Encoding duration: 6015 ms.
+c [w = 142] Number of clauses: 5691925.
+c [w = 142] Number of variables: 1259220.
+c [w = 142] SAT Solving starts:
+c [w = 142] Solving duration: 124113 ms.
+c [w = 142] Answer:
+s [w = 142] SAT (w = 142).
+c [w = 142] Solution check = 142.
+c [w = 142] The solution is correct.
+c [w = 142] Result: 10.
+c [Main] Max width SAT is set to 142.
+c [w = 156] Start task in PID: 32041.
+c [w = 156] Cyclic Antibandwidth problem with w = 156 (cbt_620.txt):
+c [w = 156] Initializing CaDiCaL (version 2.1.3).
+c [w = 156] Configuring CaDiCaL as --sat (1).
+c [w = 156] Encoding starts with w = 156:
+c [w = 156] Symmetry breaking highest degree node is applied.
+c [w = 156] Encoding duration: 6327 ms.
+c [w = 156] Number of clauses: 5544982.
+c [w = 156] Number of variables: 1207760.
+c [w = 156] SAT Solving starts:
+c [w = 156] Solving duration: 312100 ms.
+c [w = 156] Answer:
+s [w = 156] SAT (w = 156).
+c [w = 156] Solution check = 156.
+c [w = 156] The solution is correct.
+c [w = 156] Result: 10.
+c [w = 147] Start task in PID: 32096.
+c [w = 147] Cyclic Antibandwidth problem with w = 147 (cbt_620.txt):
+c [w = 147] Initializing CaDiCaL (version 2.1.3).
+c [w = 147] Configuring CaDiCaL as --sat (1).
+c [w = 147] Encoding starts with w = 147:
+c [w = 147] Symmetry breaking highest degree node is applied.
+c [w = 147] Encoding duration: 5917 ms.
+c [w = 147] Number of clauses: 5741525.
+c [w = 147] Number of variables: 1274720.
+c [w = 147] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 151] Start task in PID: 32094.
+c [w = 151] Cyclic Antibandwidth problem with w = 151 (cbt_620.txt):
+c [w = 151] Initializing CaDiCaL (version 2.1.3).
+c [w = 151] Configuring CaDiCaL as --sat (1).
+c [w = 151] Encoding starts with w = 151:
+c [w = 151] Symmetry breaking highest degree node is applied.
+c [w = 151] Encoding duration: 6812 ms.
+c [w = 151] Number of clauses: 5781205.
+c [w = 151] Number of variables: 1287120.
+c [w = 151] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 148] Start task in PID: 32095.
+c [w = 148] Cyclic Antibandwidth problem with w = 148 (cbt_620.txt):
+c [w = 148] Initializing CaDiCaL (version 2.1.3).
+c [w = 148] Configuring CaDiCaL as --sat (1).
+c [w = 148] Encoding starts with w = 148:
+c [w = 148] Symmetry breaking highest degree node is applied.
+c [w = 148] Encoding duration: 6762 ms.
+c [w = 148] Number of clauses: 5751445.
+c [w = 148] Number of variables: 1277820.
+c [w = 148] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 145] Start task in PID: 32093.
+c [w = 145] Cyclic Antibandwidth problem with w = 145 (cbt_620.txt):
+c [w = 145] Initializing CaDiCaL (version 2.1.3).
+c [w = 145] Configuring CaDiCaL as --sat (1).
+c [w = 145] Encoding starts with w = 145:
+c [w = 145] Symmetry breaking highest degree node is applied.
+c [w = 145] Encoding duration: 6580 ms.
+c [w = 145] Number of clauses: 5721685.
+c [w = 145] Number of variables: 1268520.
+c [w = 145] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Max width SAT is set to 156.
+c [Main] Kill lower pid 147.
+c [Main] Kill lower pid 148.
+c [Main] Kill lower pid 151.
+c [Main] Kill lower pid 145.
+c [Main] Kill lower pid 144.
+c [Main] Kill lower pid 146.
+c [Main] Kill lower pid 143.
+c [w = 144] Start task in PID: 32092.
+c [w = 144] Cyclic Antibandwidth problem with w = 144 (cbt_620.txt):
+c [w = 144] Initializing CaDiCaL (version 2.1.3).
+c [w = 144] Configuring CaDiCaL as --sat (1).
+c [w = 144] Encoding starts with w = 144:
+c [w = 144] Symmetry breaking highest degree node is applied.
+c [w = 144] Encoding duration: 6545 ms.
+c [w = 144] Number of clauses: 5711765.
+c [w = 144] Number of variables: 1265420.
+c [w = 144] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 146] Start task in PID: 32084.
+c [w = 146] Cyclic Antibandwidth problem with w = 146 (cbt_620.txt):
+c [w = 146] Initializing CaDiCaL (version 2.1.3).
+c [w = 146] Configuring CaDiCaL as --sat (1).
+c [w = 146] Encoding starts with w = 146:
+c [w = 146] Symmetry breaking highest degree node is applied.
+c [w = 146] Encoding duration: 6251 ms.
+c [w = 146] Number of clauses: 5731605.
+c [w = 146] Number of variables: 1271620.
+c [w = 146] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 143] Start task in PID: 32090.
+c [w = 143] Cyclic Antibandwidth problem with w = 143 (cbt_620.txt):
+c [w = 143] Initializing CaDiCaL (version 2.1.3).
+c [w = 143] Configuring CaDiCaL as --sat (1).
+c [w = 143] Encoding starts with w = 143:
+c [w = 143] Symmetry breaking highest degree node is applied.
+c [w = 143] Encoding duration: 6599 ms.
+c [w = 143] Number of clauses: 5701845.
+c [w = 143] Number of variables: 1262320.
+c [w = 143] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 148 - 32095 terminated by signal 15.
+c [Main] Child pid 146 - 32084 terminated by signal 15.
+c [Main] Child pid 144 - 32092 terminated by signal 15.
+c [Main] Child pid 145 - 32093 terminated by signal 15.
+c [Main] Child pid 151 - 32094 terminated by signal 15.
+c [Main] Child pid 147 - 32096 terminated by signal 15.
+c [Main] Child pid 143 - 32090 terminated by signal 15.
+c [w = 157] Start task in PID: 32114.
+c [w = 157] Cyclic Antibandwidth problem with w = 157 (cbt_620.txt):
+c [w = 157] Initializing CaDiCaL (version 2.1.3).
+c [w = 157] Configuring CaDiCaL as --sat (1).
+c [w = 157] Encoding starts with w = 157:
+c [w = 157] Symmetry breaking highest degree node is applied.
+c [w = 157] Encoding duration: 6359 ms.
+c [w = 157] Number of clauses: 5553042.
+c [w = 157] Number of variables: 1210240.
+c [w = 157] SAT Solving starts:
+c [w = 157] Solving duration: 110506 ms.
+c [w = 157] Answer:
+s [w = 157] SAT (w = 157).
+c [w = 157] Solution check = 157.
+c [w = 157] The solution is correct.
+c [w = 157] Result: 10.
+c [Main] Max width SAT is set to 157.
+c [w = 159] Start task in PID: 32115.
+c [w = 159] Cyclic Antibandwidth problem with w = 159 (cbt_620.txt):
+c [w = 159] Initializing CaDiCaL (version 2.1.3).
+c [w = 159] Configuring CaDiCaL as --sat (1).
+c [w = 159] Encoding starts with w = 159:
+c [w = 159] Symmetry breaking highest degree node is applied.
+c [w = 159] Encoding duration: 6297 ms.
+c [w = 159] Number of clauses: 5569162.
+c [w = 159] Number of variables: 1215200.
+c [w = 159] SAT Solving starts:
+c [w = 159] Solving duration: 186430 ms.
+c [w = 159] Answer:
+s [w = 159] SAT (w = 159).
+c [w = 159] Solution check = 159.
+c [w = 159] The solution is correct.
+c [w = 159] Result: 10.
+c [Main] Max width SAT is set to 159.
+c [Main] Kill lower pid 158.
+c [w = 158] Start task in PID: 32113.
+c [w = 158] Cyclic Antibandwidth problem with w = 158 (cbt_620.txt):
+c [w = 158] Initializing CaDiCaL (version 2.1.3).
+c [w = 158] Configuring CaDiCaL as --sat (1).
+c [w = 158] Encoding starts with w = 158:
+c [w = 158] Symmetry breaking highest degree node is applied.
+c [w = 158] Encoding duration: 6456 ms.
+c [w = 158] Number of clauses: 5561102.
+c [w = 158] Number of variables: 1212720.
+c [w = 158] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 158 - 32113 terminated by signal 15.
+c [w = 161] Start task in PID: 32120.
+c [w = 161] Cyclic Antibandwidth problem with w = 161 (cbt_620.txt):
+c [w = 161] Initializing CaDiCaL (version 2.1.3).
+c [w = 161] Configuring CaDiCaL as --sat (1).
+c [w = 161] Encoding starts with w = 161:
+c [w = 161] Symmetry breaking highest degree node is applied.
+c [w = 161] Encoding duration: 5831 ms.
+c [w = 161] Number of clauses: 5585282.
+c [w = 161] Number of variables: 1220160.
+c [w = 161] SAT Solving starts:
+c [w = 161] Solving duration: 15431 ms.
+c [w = 161] Answer:
+s [w = 161] SAT (w = 161).
+c [w = 161] Solution check = 161.
+c [w = 161] The solution is correct.
+c [w = 161] Result: 10.
+c [Main] Max width SAT is set to 161.
+c [Main] Kill lower pid 160.
+c [w = 160] Start task in PID: 32112.
+c [w = 160] Cyclic Antibandwidth problem with w = 160 (cbt_620.txt):
+c [w = 160] Initializing CaDiCaL (version 2.1.3).
+c [w = 160] Configuring CaDiCaL as --sat (1).
+c [w = 160] Encoding starts with w = 160:
+c [w = 160] Symmetry breaking highest degree node is applied.
+c [w = 160] Encoding duration: 6379 ms.
+c [w = 160] Number of clauses: 5577222.
+c [w = 160] Number of variables: 1217680.
+c [w = 160] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 160 - 32112 terminated by signal 15.
+c [w = 233] Start task in PID: 32108.
+c [w = 233] Cyclic Antibandwidth problem with w = 233 (cbt_620.txt):
+c [w = 233] Initializing CaDiCaL (version 2.1.3).
+c [w = 233] Configuring CaDiCaL as --sat (1).
+c [w = 233] Encoding starts with w = 233:
+c [w = 233] Symmetry breaking highest degree node is applied.
+c [w = 233] Encoding duration: 6641 ms.
+c [w = 233] Number of clauses: 5737179.
+c [w = 233] Number of variables: 1256120.
+c [w = 233] SAT Solving starts:
+c [w = 233] Solving duration: 356541 ms.
+c [w = 233] Answer:
+s [w = 233] SAT (w = 233).
+c [w = 233] Solution check = 233.
+c [w = 233] The solution is correct.
+c [w = 233] Result: 10.
+c [w = 170] Start task in PID: 32125.
+c [w = 170] Cyclic Antibandwidth problem with w = 170 (cbt_620.txt):
+c [w = 170] Initializing CaDiCaL (version 2.1.3).
+c [w = 170] Configuring CaDiCaL as --sat (1).
+c [w = 170] Encoding starts with w = 170:
+c [w = 170] Symmetry breaking highest degree node is applied.
+c [w = 170] Encoding duration: 5984 ms.
+c [w = 170] Number of clauses: 5657822.
+c [w = 170] Number of variables: 1242480.
+c [w = 170] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 164] Start task in PID: 32124.
+c [w = 164] Cyclic Antibandwidth problem with w = 164 (cbt_620.txt):
+c [w = 164] Initializing CaDiCaL (version 2.1.3).
+c [w = 164] Configuring CaDiCaL as --sat (1).
+c [w = 164] Encoding starts with w = 164:
+c [w = 164] Symmetry breaking highest degree node is applied.
+c [w = 164] Encoding duration: 6074 ms.
+c [w = 164] Number of clauses: 5609462.
+c [w = 164] Number of variables: 1227600.
+c [w = 164] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 163] Start task in PID: 32122.
+c [w = 163] Cyclic Antibandwidth problem with w = 163 (cbt_620.txt):
+c [w = 163] Initializing CaDiCaL (version 2.1.3).
+c [w = 163] Configuring CaDiCaL as --sat (1).
+c [w = 163] Encoding starts with w = 163:
+c [w = 163] Symmetry breaking highest degree node is applied.
+c [w = 163] Encoding duration: 6092 ms.
+c [w = 163] Number of clauses: 5601402.
+c [w = 163] Number of variables: 1225120.
+c [w = 163] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 165] Start task in PID: 32111.
+c [w = 165] Cyclic Antibandwidth problem with w = 165 (cbt_620.txt):
+c [w = 165] Initializing CaDiCaL (version 2.1.3).
+c [w = 165] Configuring CaDiCaL as --sat (1).
+c [w = 165] Encoding starts with w = 165:
+c [w = 165] Symmetry breaking highest degree node is applied.
+c [w = 165] Encoding duration: 6400 ms.
+c [w = 165] Number of clauses: 5617522.
+c [w = 165] Number of variables: 1230080.
+c [w = 165] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 162] Start task in PID: 32119.
+c [w = 162] Cyclic Antibandwidth problem with w = 162 (cbt_620.txt):
+c [w = 162] Initializing CaDiCaL (version 2.1.3).
+c [w = 162] Configuring CaDiCaL as --sat (1).
+c [w = 162] Encoding starts with w = 162:
+c [w = 162] Symmetry breaking highest degree node is applied.
+c [w = 162] Encoding duration: 5935 ms.
+c [w = 162] Number of clauses: 5593342.
+c [w = 162] Number of variables: 1222640.
+c [w = 162] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Max width SAT is set to 233.
+c [Main] Kill lower pid 170.
+c [Main] Kill lower pid 164.
+c [Main] Kill lower pid 163.
+c [Main] Kill lower pid 165.
+c [Main] Kill lower pid 162.
+c [Main] Kill lower pid 175.
+c [Main] Kill lower pid 194.
+c [w = 175] Start task in PID: 32110.
+c [w = 175] Cyclic Antibandwidth problem with w = 175 (cbt_620.txt):
+c [w = 175] Initializing CaDiCaL (version 2.1.3).
+c [w = 175] Configuring CaDiCaL as --sat (1).
+c [w = 175] Encoding starts with w = 175:
+c [w = 175] Symmetry breaking highest degree node is applied.
+c [w = 175] Encoding duration: 6479 ms.
+c [w = 175] Number of clauses: 5698122.
+c [w = 175] Number of variables: 1254880.
+c [w = 175] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 194] Start task in PID: 32109.
+c [w = 194] Cyclic Antibandwidth problem with w = 194 (cbt_620.txt):
+c [w = 194] Initializing CaDiCaL (version 2.1.3).
+c [w = 194] Configuring CaDiCaL as --sat (1).
+c [w = 194] Encoding starts with w = 194:
+c [w = 194] Symmetry breaking highest degree node is applied.
+c [w = 194] Encoding duration: 6865 ms.
+c [w = 194] Number of clauses: 5851262.
+c [w = 194] Number of variables: 1302000.
+c [w = 194] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 162 - 32119 terminated by signal 15.
+c [Main] Child pid 164 - 32124 terminated by signal 15.
+c [Main] Child pid 165 - 32111 terminated by signal 15.
+c [Main] Child pid 175 - 32110 terminated by signal 15.
+c [Main] Child pid 170 - 32125 terminated by signal 15.
+c [Main] Child pid 194 - 32109 terminated by signal 15.
+c [Main] Child pid 163 - 32122 terminated by signal 15.
+c [w = 239] Start task in PID: 32135.
+c [w = 239] Cyclic Antibandwidth problem with w = 239 (cbt_620.txt):
+c [w = 239] Initializing CaDiCaL (version 2.1.3).
+c [w = 239] Configuring CaDiCaL as --sat (1).
+c [w = 239] Encoding starts with w = 239:
+c [w = 239] Symmetry breaking highest degree node is applied.
+c [w = 239] Encoding duration: 6671 ms.
+c [w = 239] Number of clauses: 5774379.
+c [w = 239] Number of variables: 1267280.
+c [w = 239] SAT Solving starts:
+c [w = 239] Solving duration: 343526 ms.
+c [w = 239] Answer:
+s [w = 239] SAT (w = 239).
+c [w = 239] Solution check = 239.
+c [w = 239] The solution is correct.
+c [w = 239] Result: 10.
+c [Main] Max width SAT is set to 239.
+c [Main] Kill lower pid 236.
+c [Main] Kill lower pid 234.
+c [Main] Kill lower pid 237.
+c [Main] Kill lower pid 235.
+c [w = 237] Start task in PID: 32131.
+c [w = 237] Cyclic Antibandwidth problem with w = 237 (cbt_620.txt):
+c [w = 237] Initializing CaDiCaL (version 2.1.3).
+c [w = 237] Configuring CaDiCaL as --sat (1).
+c [w = 237] Encoding starts with w = 237:
+c [w = 237] Symmetry breaking highest degree node is applied.
+c [w = 237] Encoding duration: 6560 ms.
+c [w = 237] Number of clauses: 5761979.
+c [w = 237] Number of variables: 1263560.
+c [w = 237] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 234] Start task in PID: 32133.
+c [w = 234] Cyclic Antibandwidth problem with w = 234 (cbt_620.txt):
+c [w = 234] Initializing CaDiCaL (version 2.1.3).
+c [w = 234] Configuring CaDiCaL as --sat (1).
+c [w = 234] Encoding starts with w = 234:
+c [w = 234] Symmetry breaking highest degree node is applied.
+c [w = 234] Encoding duration: 6587 ms.
+c [w = 234] Number of clauses: 5743379.
+c [w = 234] Number of variables: 1257980.
+c [w = 234] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 235] Start task in PID: 32132.
+c [w = 235] Cyclic Antibandwidth problem with w = 235 (cbt_620.txt):
+c [w = 235] Initializing CaDiCaL (version 2.1.3).
+c [w = 235] Configuring CaDiCaL as --sat (1).
+c [w = 235] Encoding starts with w = 235:
+c [w = 235] Symmetry breaking highest degree node is applied.
+c [w = 235] Encoding duration: 6530 ms.
+c [w = 235] Number of clauses: 5749579.
+c [w = 235] Number of variables: 1259840.
+c [w = 235] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 236] Start task in PID: 32134.
+c [w = 236] Cyclic Antibandwidth problem with w = 236 (cbt_620.txt):
+c [w = 236] Initializing CaDiCaL (version 2.1.3).
+c [w = 236] Configuring CaDiCaL as --sat (1).
+c [w = 236] Encoding starts with w = 236:
+c [w = 236] Symmetry breaking highest degree node is applied.
+c [w = 236] Encoding duration: 6603 ms.
+c [w = 236] Number of clauses: 5755779.
+c [w = 236] Number of variables: 1261700.
+c [w = 236] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 235 - 32132 terminated by signal 15.
+c [Main] Child pid 234 - 32133 terminated by signal 15.
+c [Main] Child pid 237 - 32131 terminated by signal 15.
+c [Main] Child pid 236 - 32134 terminated by signal 15.
+c [w = 252] Start task in PID: 32129.
+c [w = 252] Cyclic Antibandwidth problem with w = 252 (cbt_620.txt):
+c [w = 252] Initializing CaDiCaL (version 2.1.3).
+c [w = 252] Configuring CaDiCaL as --sat (1).
+c [w = 252] Encoding starts with w = 252:
+c [w = 252] Symmetry breaking highest degree node is applied.
+c [w = 252] Encoding duration: 6938 ms.
+c [w = 252] Number of clauses: 5854979.
+c [w = 252] Number of variables: 1291460.
+c [w = 252] SAT Solving starts:
+c [w = 252] Solving duration: 553820 ms.
+c [w = 252] Answer:
+s [w = 252] SAT (w = 252).
+c [w = 252] Solution check = 252.
+c [w = 252] The solution is correct.
+c [w = 252] Result: 10.
+c [w = 243] Start task in PID: 32149.
+c [w = 243] Cyclic Antibandwidth problem with w = 243 (cbt_620.txt):
+c [w = 243] Initializing CaDiCaL (version 2.1.3).
+c [w = 243] Configuring CaDiCaL as --sat (1).
+c [w = 243] Encoding starts with w = 243:
+c [w = 243] Symmetry breaking highest degree node is applied.
+c [w = 243] Encoding duration: 6833 ms.
+c [w = 243] Number of clauses: 5799179.
+c [w = 243] Number of variables: 1274720.
+c [w = 243] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 244] Start task in PID: 32148.
+c [w = 244] Cyclic Antibandwidth problem with w = 244 (cbt_620.txt):
+c [w = 244] Initializing CaDiCaL (version 2.1.3).
+c [w = 244] Configuring CaDiCaL as --sat (1).
+c [w = 244] Encoding starts with w = 244:
+c [w = 244] Symmetry breaking highest degree node is applied.
+c [w = 244] Encoding duration: 6691 ms.
+c [w = 244] Number of clauses: 5805379.
+c [w = 244] Number of variables: 1276580.
+c [w = 244] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 247] Start task in PID: 32147.
+c [w = 247] Cyclic Antibandwidth problem with w = 247 (cbt_620.txt):
+c [w = 247] Initializing CaDiCaL (version 2.1.3).
+c [w = 247] Configuring CaDiCaL as --sat (1).
+c [w = 247] Encoding starts with w = 247:
+c [w = 247] Symmetry breaking highest degree node is applied.
+c [w = 247] Encoding duration: 6780 ms.
+c [w = 247] Number of clauses: 5823979.
+c [w = 247] Number of variables: 1282160.
+c [w = 247] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 241] Start task in PID: 32146.
+c [w = 241] Cyclic Antibandwidth problem with w = 241 (cbt_620.txt):
+c [w = 241] Initializing CaDiCaL (version 2.1.3).
+c [w = 241] Configuring CaDiCaL as --sat (1).
+c [w = 241] Encoding starts with w = 241:
+c [w = 241] Symmetry breaking highest degree node is applied.
+c [w = 241] Encoding duration: 6268 ms.
+c [w = 241] Number of clauses: 5786779.
+c [w = 241] Number of variables: 1271000.
+c [w = 241] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Max width SAT is set to 252.
+c [Main] Kill lower pid 243.
+c [Main] Kill lower pid 244.
+c [Main] Kill lower pid 247.
+c [Main] Kill lower pid 241.
+c [Main] Kill lower pid 240.
+c [Main] Kill lower pid 242.
+c [w = 240] Start task in PID: 32145.
+c [w = 240] Cyclic Antibandwidth problem with w = 240 (cbt_620.txt):
+c [w = 240] Initializing CaDiCaL (version 2.1.3).
+c [w = 240] Configuring CaDiCaL as --sat (1).
+c [w = 240] Encoding starts with w = 240:
+c [w = 240] Symmetry breaking highest degree node is applied.
+c [w = 240] Encoding duration: 6565 ms.
+c [w = 240] Number of clauses: 5780579.
+c [w = 240] Number of variables: 1269140.
+c [w = 240] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 242] Start task in PID: 32130.
+c [w = 242] Cyclic Antibandwidth problem with w = 242 (cbt_620.txt):
+c [w = 242] Initializing CaDiCaL (version 2.1.3).
+c [w = 242] Configuring CaDiCaL as --sat (1).
+c [w = 242] Encoding starts with w = 242:
+c [w = 242] Symmetry breaking highest degree node is applied.
+c [w = 242] Encoding duration: 6783 ms.
+c [w = 242] Number of clauses: 5792979.
+c [w = 242] Number of variables: 1272860.
+c [w = 242] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 241 - 32146 terminated by signal 15.
+c [Main] Child pid 240 - 32145 terminated by signal 15.
+c [Main] Child pid 244 - 32148 terminated by signal 15.
+c [Main] Child pid 243 - 32149 terminated by signal 15.
+c [Main] Child pid 247 - 32147 terminated by signal 15.
+c [Main] Child pid 242 - 32130 terminated by signal 15.
+c [w = 254] Start task in PID: 32156.
+c [w = 254] Cyclic Antibandwidth problem with w = 254 (cbt_620.txt):
+c [w = 254] Initializing CaDiCaL (version 2.1.3).
+c [w = 254] Configuring CaDiCaL as --sat (1).
+c [w = 254] Encoding starts with w = 254:
+c [w = 254] Symmetry breaking highest degree node is applied.
+c [w = 254] Encoding duration: 6927 ms.
+c [w = 254] Number of clauses: 5867379.
+c [w = 254] Number of variables: 1295180.
+c [w = 254] SAT Solving starts:
+c [w = 254] Solving duration: 508856 ms.
+c [w = 254] Answer:
+s [w = 254] SAT (w = 254).
+c [w = 254] Solution check = 254.
+c [w = 254] The solution is correct.
+c [w = 254] Result: 10.
+c [Main] Max width SAT is set to 254.
+c [Main] Kill lower pid 253.
+c [w = 253] Start task in PID: 32157.
+c [w = 253] Cyclic Antibandwidth problem with w = 253 (cbt_620.txt):
+c [w = 253] Initializing CaDiCaL (version 2.1.3).
+c [w = 253] Configuring CaDiCaL as --sat (1).
+c [w = 253] Encoding starts with w = 253:
+c [w = 253] Symmetry breaking highest degree node is applied.
+c [w = 253] Encoding duration: 6884 ms.
+c [w = 253] Number of clauses: 5861179.
+c [w = 253] Number of variables: 1293320.
+c [w = 253] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 253 - 32157 terminated by signal 15.
+c [w = 260] Start task in PID: 32183.
+c [w = 260] Cyclic Antibandwidth problem with w = 260 (cbt_620.txt):
+c [w = 260] Initializing CaDiCaL (version 2.1.3).
+c [w = 260] Configuring CaDiCaL as --sat (1).
+c [w = 260] Encoding starts with w = 260:
+c [w = 260] Symmetry breaking highest degree node is applied.
+c [w = 260] Encoding duration: 6479 ms.
+c [w = 260] Number of clauses: 5904579.
+c [w = 260] Number of variables: 1306340.
+c [w = 260] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 262] Start task in PID: 32154.
+c [w = 262] Cyclic Antibandwidth problem with w = 262 (cbt_620.txt):
+c [w = 262] Initializing CaDiCaL (version 2.1.3).
+c [w = 262] Configuring CaDiCaL as --sat (1).
+c [w = 262] Encoding starts with w = 262:
+c [w = 262] Symmetry breaking highest degree node is applied.
+c [w = 262] Encoding duration: 6960 ms.
+c [w = 262] Number of clauses: 5916979.
+c [w = 262] Number of variables: 1310060.
+c [w = 262] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 256] Start task in PID: 32159.
+c [w = 256] Cyclic Antibandwidth problem with w = 256 (cbt_620.txt):
+c [w = 256] Initializing CaDiCaL (version 2.1.3).
+c [w = 256] Configuring CaDiCaL as --sat (1).
+c [w = 256] Encoding starts with w = 256:
+c [w = 256] Symmetry breaking highest degree node is applied.
+c [w = 256] Encoding duration: 6957 ms.
+c [w = 256] Number of clauses: 5879779.
+c [w = 256] Number of variables: 1298900.
+c [w = 256] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 257] Start task in PID: 32155.
+c [w = 257] Cyclic Antibandwidth problem with w = 257 (cbt_620.txt):
+c [w = 257] Initializing CaDiCaL (version 2.1.3).
+c [w = 257] Configuring CaDiCaL as --sat (1).
+c [w = 257] Encoding starts with w = 257:
+c [w = 257] Symmetry breaking highest degree node is applied.
+c [w = 257] Encoding duration: 6869 ms.
+c [w = 257] Number of clauses: 5885979.
+c [w = 257] Number of variables: 1300760.
+c [w = 257] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 255] Start task in PID: 32158.
+c [w = 255] Cyclic Antibandwidth problem with w = 255 (cbt_620.txt):
+c [w = 255] Initializing CaDiCaL (version 2.1.3).
+c [w = 255] Configuring CaDiCaL as --sat (1).
+c [w = 255] Encoding starts with w = 255:
+c [w = 255] Symmetry breaking highest degree node is applied.
+c [w = 255] Encoding duration: 6414 ms.
+c [w = 255] Number of clauses: 5873579.
+c [w = 255] Number of variables: 1297040.
+c [w = 255] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 259] Start task in PID: 32160.
+c [w = 259] Cyclic Antibandwidth problem with w = 259 (cbt_620.txt):
+c [w = 259] Initializing CaDiCaL (version 2.1.3).
+c [w = 259] Configuring CaDiCaL as --sat (1).
+c [w = 259] Encoding starts with w = 259:
+c [w = 259] Symmetry breaking highest degree node is applied.
+c [w = 259] Encoding duration: 6933 ms.
+c [w = 259] Number of clauses: 5898379.
+c [w = 259] Number of variables: 1304480.
+c [w = 259] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 272] Start task in PID: 32128.
+c [w = 272] Cyclic Antibandwidth problem with w = 272 (cbt_620.txt):
+c [w = 272] Initializing CaDiCaL (version 2.1.3).
+c [w = 272] Configuring CaDiCaL as --sat (1).
+c [w = 272] Encoding starts with w = 272:
+c [w = 272] Symmetry breaking highest degree node is applied.
+c [w = 272] Encoding duration: 7049 ms.
+c [w = 272] Number of clauses: 5978979.
+c [w = 272] Number of variables: 1328660.
+c [w = 272] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	254.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 1811333 ms.
+r [Main] Total memory consumed: 13678.6 MB.
+r [Main] 
+c [w = 258] Start task in PID: 32182.
+c [w = 258] Cyclic Antibandwidth problem with w = 258 (cbt_620.txt):
+c [w = 258] Initializing CaDiCaL (version 2.1.3).
+c [w = 258] Configuring CaDiCaL as --sat (1).
+c [w = 258] Encoding starts with w = 258:
+c [w = 258] Symmetry breaking highest degree node is applied.
+c [w = 258] Encoding duration: 6294 ms.
+c [w = 258] Number of clauses: 5892179.
+c [w = 258] Number of variables: 1302620.
+c [w = 258] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).

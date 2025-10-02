@@ -3,12 +3,12 @@
 TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
-WORKER_COUNT=4
+WORKER_COUNT=8
 INPUT_DIR="datasets/unknow_optimal/complete_binary_trees"
-LOG_DIR="logs/unknow_optimal/complete_binary_tree/binarysearchbfs_highestnode_4workers"
-ADD_CONFIGS="--binary-search-bfs"
+LOG_DIR="logs/unknow_optimal/complete_binary_tree/binarysearchfromUB_highestnode_8workers"
+ADD_CONFIGS="--binary-search-from-ub"
 
-mkdir -p "$LOG_DIR"
+mkdir -p "$LOG_DIR" 
 
 ./build/cabw_enc $INPUT_DIR/cbt_30.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_30.log
 ./build/cabw_enc $INPUT_DIR/cbt_31.txt  --ladder -limit-real-time $TIME_LIMIT -limit-memory $MEMORY_LIMIT -symmetry-break $SYMMETRY_BREAK -worker-count $WORKER_COUNT $ADD_CONFIGS 2>&1 | tee $LOG_DIR/cbt_31.log

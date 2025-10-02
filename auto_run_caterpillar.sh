@@ -3,10 +3,10 @@
 TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
-WORKER_COUNT=4
+WORKER_COUNT=8
 INPUT_DIR="datasets/unknow_optimal/caterpillar"
-LOG_DIR="logs/unknow_optimal/caterpillar/binarysearchfromUB-highestdegree_4workers"
-ADD_CONFIGS="--binary-search-from-ub"
+LOG_DIR="logs/unknow_optimal/caterpillar/binarysearchBFS-highestdegree_8workers"
+ADD_CONFIGS="--binary-search-bfs"
 
 mkdir -p "$LOG_DIR"
 

@@ -3,10 +3,10 @@
 TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
-WORKER_COUNT=4
+WORKER_COUNT=8
 INPUT_DIR="datasets/conjecture_optimal/double_star"
-LOG_DIR="logs/conjecture_optimal/double_star/binarysearchfromUB_highestdegree_4workers"
-ADD_CONFIGS="--binary-search-from-ub"
+LOG_DIR="logs/conjecture_optimal/double_star/binarysearchbfs_highestdegree_8workers"
+ADD_CONFIGS="--binary-search-bfs"
 
 mkdir -p "$LOG_DIR"
 
