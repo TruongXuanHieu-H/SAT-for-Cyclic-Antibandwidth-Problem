@@ -20,8 +20,8 @@ def insert_blank_rows(df):
 def parse_logs(log_base_dir, output_file):
     rows = []
 
-    max_sat_re = re.compile(r"Max width SAT:\s*(\S+).")
-    min_unsat_re = re.compile(r"Min width UNSAT:\s*(\S+).")
+    max_sat_re = re.compile(r"Max width SAT:\s*(-?\d+|-)")
+    min_unsat_re = re.compile(r"Min width UNSAT:\s*(-?\d+|-)")
 
     for config in os.listdir(log_base_dir):
         config_path = os.path.join(log_base_dir, config)
@@ -76,9 +76,9 @@ def auto_fit(output_file):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Extract SAT/UNSAT results from logs")
-    parser.add_argument("--log_dir", required=True, help="Path to log base directory")
+    parser.add_argument("--folder", required=True, help="Path to log base directory")
     parser.add_argument("--output", required=True, help="Path to output Excel file")
 
     args = parser.parse_args()
-    parse_logs(args.log_dir, args.output)
+    parse_logs(args.folder, args.output)
     auto_fit(args.output)
