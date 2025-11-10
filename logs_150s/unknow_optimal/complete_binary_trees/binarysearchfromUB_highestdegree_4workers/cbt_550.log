@@ -1,0 +1,64 @@
+c [Version] Cyclic Bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 150.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 4.
+c [Main] Encoding and solving for graph: cbt_550.txt.
+c [Main] Search strategy: Binary search from upper bound.
+c [Main] No predefined lower bound is found for cbt_550.txt.
+c [Main] LB-w = 2 (default value).
+c [Main] No predefined upper bound is found for cbt_550.txt.
+c [Main] UB-w = 275 (default value calculated as n/2).
+c [Main] Search order: 138 207 241 258 267 271 273 274 275 272 269 270 268 262 264 265 266 263 260 261 259 249 253 255 256 257 254 251 252 250 245 247 248 246 243 244 242 224 232 236 238 239 240 237 234 235 233 228 230 231 229 226 227 225 215 219 221 222 223 220 217 218 216 211 213 214 212 209 210 208 172 189 198 202 204 205 206 203 200 201 199 193 195 196 197 194 191 192 190 180 184 186 187 188 185 182 183 181 176 178 179 177 174 175 173 155 163 167 169 170 171 168 165 166 164 159 161 162 160 157 158 156 146 150 152 153 154 151 148 149 147 142 144 145 143 140 141 139 69 103 120 129 133 135 136 137 134 131 132 130 124 126 127 128 125 122 123 121 111 115 117 118 119 116 113 114 112 107 109 110 108 105 106 104 86 94 98 100 101 102 99 96 97 95 90 92 93 91 88 89 87 77 81 83 84 85 82 79 80 78 73 75 76 74 71 72 70 35 52 60 64 66 67 68 65 62 63 61 56 58 59 57 54 55 53 43 47 49 50 51 48 45 46 44 39 41 42 40 37 38 36 18 26 30 32 33 34 31 28 29 27 22 24 25 23 20 21 19 9 13 15 16 17 14 11 12 10 5 7 8 6 3 4 2.
+c [w = 258] Start task in PID: 174186.
+c [w = 258] Cyclic Antibandwidth problem with w = 258 (cbt_550.txt):
+c [w = 258] Initializing CaDiCaL (version 2.1.3).
+c [w = 258] Configuring CaDiCaL as --sat (1).
+c [w = 258] Encoding starts with w = 258:
+c [w = 258] Symmetry breaking highest degree node is applied.
+c [w = 258] Encoding duration: 2045 ms.
+c [w = 258] Number of clauses: 4798484.
+c [w = 258] Number of variables: 1075250.
+c [w = 258] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 241] Start task in PID: 174185.
+c [w = 241] Cyclic Antibandwidth problem with w = 241 (cbt_550.txt):
+c [w = 241] Initializing CaDiCaL (version 2.1.3).
+c [w = 241] Configuring CaDiCaL as --sat (1).
+c [w = 241] Encoding starts with w = 241:
+c [w = 241] Symmetry breaking highest degree node is applied.
+c [w = 241] Encoding duration: 2017 ms.
+c [w = 241] Number of clauses: 4704984.
+c [w = 241] Number of variables: 1047200.
+c [w = 241] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 207] Start task in PID: 174184.
+c [w = 207] Cyclic Antibandwidth problem with w = 207 (cbt_550.txt):
+c [w = 207] Initializing CaDiCaL (version 2.1.3).
+c [w = 207] Configuring CaDiCaL as --sat (1).
+c [w = 207] Encoding starts with w = 207:
+c [w = 207] Symmetry breaking highest degree node is applied.
+c [w = 207] Encoding duration: 1910 ms.
+c [w = 207] Number of clauses: 4517984.
+c [w = 207] Number of variables: 991100.
+c [w = 207] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 138] Start task in PID: 174183.
+c [w = 138] Cyclic Antibandwidth problem with w = 138 (cbt_550.txt):
+c [w = 138] Initializing CaDiCaL (version 2.1.3).
+c [w = 138] Configuring CaDiCaL as --sat (1).
+c [w = 138] Encoding starts with w = 138:
+c [w = 138] Symmetry breaking highest degree node is applied.
+c [w = 138] Encoding duration: 1841 ms.
+c [w = 138] Number of clauses: 4361787.
+c [w = 138] Number of variables: 951500.
+c [w = 138] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	-.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 150982 ms.
+r [Main] Total memory consumed: 5187.4 MB.
+r [Main] 
