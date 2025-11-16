@@ -6,66 +6,49 @@ c [Main] Encoding and solving for graph: double_star_50_30.txt.
 c [Main] Search strategy: Binary search from upper bound.
 c [Main] No predefined lower bound is found for double_star_50_30.txt.
 c [Main] LB-w = 2 (default value).
-c [Main] Upper bound is set to 15.
-c [Main] Search order: 8 12 14 15 13 10 11 9 4 6 7 5 2 3.
-c [w = 8] Start task in PID: 176335.
-c [w = 8] Cyclic Antibandwidth problem with w = 8 (double_star_50_30.txt):
-c [w = 8] Initializing CaDiCaL (version 2.1.3).
-c [w = 8] Configuring CaDiCaL as --sat (1).
-c [w = 8] Encoding starts with w = 8:
-c [w = 8] Symmetry breaking highest degree node is applied.
-c [w = 8] Encoding duration: 34 ms.
-c [w = 8] Number of clauses: 88070.
-c [w = 8] Number of variables: 19360.
-c [w = 8] SAT Solving starts:
-c [w = 8] Solving duration: 135 ms.
-c [w = 8] Answer:
-s [w = 8] SAT (w = 8).
-c [w = 8] Solution check = 8.
-c [w = 8] The solution is correct.
-c [w = 8] Result: 10.
-c [Main] Max width SAT is set to 8.
-c [w = 13] Start task in PID: 176339.
+c [Main] Upper bound is set to 16.
+c [Main] Search order: 9 13 15 16 14 11 12 10 5 7 8 6 3 4 2.
+c [w = 13] Start task in PID: 6949.
 c [w = 13] Cyclic Antibandwidth problem with w = 13 (double_star_50_30.txt):
 c [w = 13] Initializing CaDiCaL (version 2.1.3).
 c [w = 13] Configuring CaDiCaL as --sat (1).
 c [w = 13] Encoding starts with w = 13:
 c [w = 13] Symmetry breaking highest degree node is applied.
-c [w = 13] Encoding duration: 42 ms.
+c [w = 13] Encoding duration: 65 ms.
 c [w = 13] Number of clauses: 91821.
 c [w = 13] Number of variables: 20960.
 c [w = 13] SAT Solving starts:
-c [w = 13] Solving duration: 67 ms.
+c [w = 13] Solving duration: 128 ms.
 c [w = 13] Answer:
 s [w = 13] SAT (w = 13).
 c [w = 13] Solution check = 13.
 c [w = 13] The solution is correct.
 c [w = 13] Result: 10.
 c [Main] Max width SAT is set to 13.
-c [Main] Kill lower pid 12.
-c [w = 12] Start task in PID: 176336.
-c [w = 12] Cyclic Antibandwidth problem with w = 12 (double_star_50_30.txt):
-c [w = 12] Initializing CaDiCaL (version 2.1.3).
-c [w = 12] Configuring CaDiCaL as --sat (1).
-c [w = 12] Encoding starts with w = 12:
-c [w = 12] Symmetry breaking highest degree node is applied.
-c [w = 12] Encoding duration: 37 ms.
-c [w = 12] Number of clauses: 90061.
-c [w = 12] Number of variables: 20400.
-c [w = 12] SAT Solving starts:
+c [Main] Kill lower pid 9.
+c [w = 9] Start task in PID: 6948.
+c [w = 9] Cyclic Antibandwidth problem with w = 9 (double_star_50_30.txt):
+c [w = 9] Initializing CaDiCaL (version 2.1.3).
+c [w = 9] Configuring CaDiCaL as --sat (1).
+c [w = 9] Encoding starts with w = 9:
+c [w = 9] Symmetry breaking highest degree node is applied.
+c [w = 9] Encoding duration: 58 ms.
+c [w = 9] Number of clauses: 88547.
+c [w = 9] Number of variables: 19680.
+c [w = 9] SAT Solving starts:
 c [Signal] Signal interruption. Caught signal: SIGTERM (15).
-c [Main] Child pid 12 - 176336 terminated by signal 15.
-c [w = 15] Start task in PID: 176338.
+c [Main] Child pid 9 - 6948 terminated by signal 15.
+c [w = 15] Start task in PID: 6950.
 c [w = 15] Cyclic Antibandwidth problem with w = 15 (double_star_50_30.txt):
 c [w = 15] Initializing CaDiCaL (version 2.1.3).
 c [w = 15] Configuring CaDiCaL as --sat (1).
 c [w = 15] Encoding starts with w = 15:
 c [w = 15] Symmetry breaking highest degree node is applied.
-c [w = 15] Encoding duration: 37 ms.
+c [w = 15] Encoding duration: 64 ms.
 c [w = 15] Number of clauses: 92138.
 c [w = 15] Number of variables: 21120.
 c [w = 15] SAT Solving starts:
-c [w = 15] Solving duration: 396 ms.
+c [w = 15] Solving duration: 698 ms.
 c [w = 15] Answer:
 s [w = 15] SAT (w = 15).
 c [w = 15] Solution check = 15.
@@ -73,24 +56,35 @@ c [w = 15] The solution is correct.
 c [w = 15] Result: 10.
 c [Main] Max width SAT is set to 15.
 c [Main] Kill lower pid 14.
-c [w = 14] Start task in PID: 176337.
+c [w = 14] Start task in PID: 6952.
 c [w = 14] Cyclic Antibandwidth problem with w = 14 (double_star_50_30.txt):
 c [w = 14] Initializing CaDiCaL (version 2.1.3).
 c [w = 14] Configuring CaDiCaL as --sat (1).
 c [w = 14] Encoding starts with w = 14:
 c [w = 14] Symmetry breaking highest degree node is applied.
-c [w = 14] Encoding duration: 37 ms.
+c [w = 14] Encoding duration: 72 ms.
 c [w = 14] Number of clauses: 90618.
 c [w = 14] Number of variables: 20640.
 c [w = 14] SAT Solving starts:
 c [Signal] Signal interruption. Caught signal: SIGTERM (15).
-c [Main] Child pid 14 - 176337 terminated by signal 15.
+c [Main] Child pid 14 - 6952 terminated by signal 15.
+c [w = 16] Start task in PID: 6951.
+c [w = 16] Cyclic Antibandwidth problem with w = 16 (double_star_50_30.txt):
+c [w = 16] Initializing CaDiCaL (version 2.1.3).
+c [w = 16] Configuring CaDiCaL as --sat (1).
+c [w = 16] Encoding starts with w = 16:
+c [w = 16] Symmetry breaking highest degree node is applied.
+c [w = 16] Encoding duration: 60 ms.
+c [w = 16] Number of clauses: 90295.
+c [w = 16] Number of variables: 20560.
+c [w = 16] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
 c [Main] All children have completed.
 r [Main] 
 r [Main] Final results: 
 r [Main] Max width SAT:  	15.
 r [Main] Min width UNSAT:	-.
-r [Main] Total real time: 450 ms.
-r [Main] Total memory consumed: 101.1 MB.
+r [Main] Total real time: 150630 ms.
+r [Main] Total memory consumed: 183.3 MB.
 r [Main] 
-c [Signal] Signal interruption. Caught signal: SIGTERM (15).

@@ -6,47 +6,15 @@ c [Main] Encoding and solving for graph: double_star_15_7.txt.
 c [Main] Search strategy: Binary search using BFS.
 c [Main] No predefined lower bound is found for double_star_15_7.txt.
 c [Main] LB-w = 2 (default value).
-c [Main] Upper bound is set to 4.
-c [Main] Search order: 3 2 4.
-c [w = 2] Start task in PID: 175207.
-c [w = 2] Cyclic Antibandwidth problem with w = 2 (double_star_15_7.txt):
-c [w = 2] Initializing CaDiCaL (version 2.1.3).
-c [w = 2] Configuring CaDiCaL as --sat (1).
-c [w = 2] Encoding starts with w = 2:
-c [w = 2] Symmetry breaking highest degree node is applied.
-c [w = 2] Encoding duration: 2 ms.
-c [w = 2] Number of clauses: 5698.
-c [w = 2] Number of variables: 1078.
-c [w = 2] SAT Solving starts:
-c [w = 2] Solving duration: 0 ms.
-c [w = 2] Answer:
-s [w = 2] SAT (w = 2).
-c [w = 2] Solution check = 2.
-c [w = 2] The solution is correct.
-c [w = 2] Result: 10.
-c [w = 4] Start task in PID: 175208.
-c [w = 4] Cyclic Antibandwidth problem with w = 4 (double_star_15_7.txt):
-c [w = 4] Initializing CaDiCaL (version 2.1.3).
-c [w = 4] Configuring CaDiCaL as --sat (1).
-c [w = 4] Encoding starts with w = 4:
-c [w = 4] Symmetry breaking highest degree node is applied.
-c [w = 4] Encoding duration: 2 ms.
-c [w = 4] Number of clauses: 6189.
-c [w = 4] Number of variables: 1452.
-c [w = 4] SAT Solving starts:
-c [w = 4] Solving duration: 0 ms.
-c [w = 4] Answer:
-s [w = 4] SAT (w = 4).
-c [w = 4] Solution check = 4.
-c [w = 4] The solution is correct.
-c [w = 4] Result: 10.
-c [w = 3] Start task in PID: 175206.
+c [Main] Upper bound is set to 5.
+c [Main] Search order: 3 2 4 5.
+c [w = 3] Start task in PID: 2936.
 c [w = 3] Cyclic Antibandwidth problem with w = 3 (double_star_15_7.txt):
 c [w = 3] Initializing CaDiCaL (version 2.1.3).
 c [w = 3] Configuring CaDiCaL as --sat (1).
 c [w = 3] Encoding starts with w = 3:
 c [w = 3] Symmetry breaking highest degree node is applied.
-c [w = 3] Encoding duration: 2 ms.
+c [w = 3] Encoding duration: 3 ms.
 c [w = 3] Number of clauses: 5931.
 c [w = 3] Number of variables: 1320.
 c [w = 3] SAT Solving starts:
@@ -56,15 +24,63 @@ s [w = 3] SAT (w = 3).
 c [w = 3] Solution check = 3.
 c [w = 3] The solution is correct.
 c [w = 3] Result: 10.
-c [Main] Max width SAT is set to 2.
+c [w = 4] Start task in PID: 2938.
+c [w = 4] Cyclic Antibandwidth problem with w = 4 (double_star_15_7.txt):
+c [w = 4] Initializing CaDiCaL (version 2.1.3).
+c [w = 4] Configuring CaDiCaL as --sat (1).
+c [w = 4] Encoding starts with w = 4:
+c [w = 4] Symmetry breaking highest degree node is applied.
+c [w = 4] Encoding duration: 3 ms.
+c [w = 4] Number of clauses: 6189.
+c [w = 4] Number of variables: 1452.
+c [w = 4] SAT Solving starts:
+c [w = 4] Solving duration: 0 ms.
+c [w = 4] Answer:
+s [w = 4] SAT (w = 4).
+c [w = 4] Solution check = 4.
+c [w = 4] The solution is correct.
+c [w = 4] Result: 10.
+c [Main] Max width SAT is set to 3.
+c [Main] Kill lower pid 2.
+c [w = 2] Start task in PID: 2937.
+c [w = 2] Cyclic Antibandwidth problem with w = 2 (double_star_15_7.txt):
+c [w = 2] Initializing CaDiCaL (version 2.1.3).
+c [w = 2] Configuring CaDiCaL as --sat (1).
+c [w = 2] Encoding starts with w = 2:
+c [w = 2] Symmetry breaking highest degree node is applied.
+c [w = 2] Encoding duration: 3 ms.
+c [w = 2] Number of clauses: 5698.
+c [w = 2] Number of variables: 1078.
+c [w = 2] SAT Solving starts:
+c [w = 2] Solving duration: 1 ms.
+c [w = 2] Answer:
+s [w = 2] SAT (w = 2).
+c [w = 2] Solution check = 2.
+c [w = 2] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 2 - 2937 terminated by signal 15.
 c [Main] Max width SAT is set to 4.
-c [Main] Kill lower pid 3.
+c [w = 5] Start task in PID: 2939.
+c [w = 5] Cyclic Antibandwidth problem with w = 5 (double_star_15_7.txt):
+c [w = 5] Initializing CaDiCaL (version 2.1.3).
+c [w = 5] Configuring CaDiCaL as --sat (1).
+c [w = 5] Encoding starts with w = 5:
+c [w = 5] Symmetry breaking highest degree node is applied.
+c [w = 5] Encoding duration: 3 ms.
+c [w = 5] Number of clauses: 6406.
+c [w = 5] Number of variables: 1540.
+c [w = 5] SAT Solving starts:
+c [w = 5] Solving duration: 220 ms.
+c [w = 5] Answer:
+s [w = 5] UNSAT (w = 5).
+c [w = 5] Result: 20.
+c [Main] Min width UNSAT is set to 5
 c [Signal] Signal interruption. Caught signal: SIGTERM (15).
 c [Main] All children have completed.
 r [Main] 
 r [Main] Final results: 
 r [Main] Max width SAT:  	4.
-r [Main] Min width UNSAT:	-.
-r [Main] Total real time: 5 ms.
-r [Main] Total memory consumed: 2.6 MB.
+r [Main] Min width UNSAT:	5.
+r [Main] Total real time: 226 ms.
+r [Main] Total memory consumed: 9.2 MB.
 r [Main] 
