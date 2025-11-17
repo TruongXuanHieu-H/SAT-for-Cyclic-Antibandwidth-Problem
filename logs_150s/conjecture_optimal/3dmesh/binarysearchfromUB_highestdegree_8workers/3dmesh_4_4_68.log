@@ -6,56 +6,28 @@ c [Main] Encoding and solving for graph: 3dmesh_4_4_68.txt.
 c [Main] Search strategy: Binary search from upper bound.
 c [Main] No predefined lower bound is found for 3dmesh_4_4_68.txt.
 c [Main] LB-w = 2 (default value).
-c [Main] Upper bound is set to 536.
-c [Main] Search order: 269 403 470 503 520 528 532 534 535 536 533 530 531 529 524 526 527 525 522 523 521 511 515 517 518 519 516 513 514 512 507 509 510 508 505 506 504 486 494 498 500 501 502 499 496 497 495 490 492 493 491 488 489 487 478 482 484 485 483 480 481 479 474 476 477 475 472 473 471 436 453 461 465 467 468 469 466 463 464 462 457 459 460 458 455 456 454 444 448 450 451 452 449 446 447 445 440 442 443 441 438 439 437 419 427 431 433 434 435 432 429 430 428 423 425 426 424 421 422 420 411 415 417 418 416 413 414 412 407 409 410 408 405 406 404 336 369 386 394 398 400 401 402 399 396 397 395 390 392 393 391 388 389 387 377 381 383 384 385 382 379 380 378 373 375 376 374 371 372 370 352 360 364 366 367 368 365 362 363 361 356 358 359 357 354 355 353 344 348 350 351 349 346 347 345 340 342 343 341 338 339 337 302 319 327 331 333 334 335 332 329 330 328 323 325 326 324 321 322 320 310 314 316 317 318 315 312 313 311 306 308 309 307 304 305 303 285 293 297 299 300 301 298 295 296 294 289 291 292 290 287 288 286 277 281 283 284 282 279 280 278 273 275 276 274 271 272 270 135 202 235 252 260 264 266 267 268 265 262 263 261 256 258 259 257 254 255 253 243 247 249 250 251 248 245 246 244 239 241 242 240 237 238 236 218 226 230 232 233 234 231 228 229 227 222 224 225 223 220 221 219 210 214 216 217 215 212 213 211 206 208 209 207 204 205 203 168 185 193 197 199 200 201 198 195 196 194 189 191 192 190 187 188 186 176 180 182 183 184 181 178 179 177 172 174 175 173 170 171 169 151 159 163 165 166 167 164 161 162 160 155 157 158 156 153 154 152 143 147 149 150 148 145 146 144 139 141 142 140 137 138 136 68 101 118 126 130 132 133 134 131 128 129 127 122 124 125 123 120 121 119 109 113 115 116 117 114 111 112 110 105 107 108 106 103 104 102 84 92 96 98 99 100 97 94 95 93 88 90 91 89 86 87 85 76 80 82 83 81 78 79 77 72 74 75 73 70 71 69 34 51 59 63 65 66 67 64 61 62 60 55 57 58 56 53 54 52 42 46 48 49 50 47 44 45 43 38 40 41 39 36 37 35 17 25 29 31 32 33 30 27 28 26 21 23 24 22 19 20 18 9 13 15 16 14 11 12 10 5 7 8 6 3 4 2.
-c [w = 470] Start task in PID: 19398.
+c [Main] Upper bound is set to 537.
+c [Main] Search order: 269 403 470 504 521 529 533 535 536 537 534 531 532 530 525 527 528 526 523 524 522 512 516 518 519 520 517 514 515 513 508 510 511 509 506 507 505 487 495 499 501 502 503 500 497 498 496 491 493 494 492 489 490 488 478 482 484 485 486 483 480 481 479 474 476 477 475 472 473 471 436 453 461 465 467 468 469 466 463 464 462 457 459 460 458 455 456 454 444 448 450 451 452 449 446 447 445 440 442 443 441 438 439 437 419 427 431 433 434 435 432 429 430 428 423 425 426 424 421 422 420 411 415 417 418 416 413 414 412 407 409 410 408 405 406 404 336 369 386 394 398 400 401 402 399 396 397 395 390 392 393 391 388 389 387 377 381 383 384 385 382 379 380 378 373 375 376 374 371 372 370 352 360 364 366 367 368 365 362 363 361 356 358 359 357 354 355 353 344 348 350 351 349 346 347 345 340 342 343 341 338 339 337 302 319 327 331 333 334 335 332 329 330 328 323 325 326 324 321 322 320 310 314 316 317 318 315 312 313 311 306 308 309 307 304 305 303 285 293 297 299 300 301 298 295 296 294 289 291 292 290 287 288 286 277 281 283 284 282 279 280 278 273 275 276 274 271 272 270 135 202 235 252 260 264 266 267 268 265 262 263 261 256 258 259 257 254 255 253 243 247 249 250 251 248 245 246 244 239 241 242 240 237 238 236 218 226 230 232 233 234 231 228 229 227 222 224 225 223 220 221 219 210 214 216 217 215 212 213 211 206 208 209 207 204 205 203 168 185 193 197 199 200 201 198 195 196 194 189 191 192 190 187 188 186 176 180 182 183 184 181 178 179 177 172 174 175 173 170 171 169 151 159 163 165 166 167 164 161 162 160 155 157 158 156 153 154 152 143 147 149 150 148 145 146 144 139 141 142 140 137 138 136 68 101 118 126 130 132 133 134 131 128 129 127 122 124 125 123 120 121 119 109 113 115 116 117 114 111 112 110 105 107 108 106 103 104 102 84 92 96 98 99 100 97 94 95 93 88 90 91 89 86 87 85 76 80 82 83 81 78 79 77 72 74 75 73 70 71 69 34 51 59 63 65 66 67 64 61 62 60 55 57 58 56 53 54 52 42 46 48 49 50 47 44 45 43 38 40 41 39 36 37 35 17 25 29 31 32 33 30 27 28 26 21 23 24 22 19 20 18 9 13 15 16 14 11 12 10 5 7 8 6 3 4 2.
+c [w = 504] Start task in PID: 15091.
+c [w = 504] Cyclic Antibandwidth problem with w = 504 (3dmesh_4_4_68.txt):
+c [w = 504] Initializing CaDiCaL (version 2.1.3).
+c [w = 504] Configuring CaDiCaL as --sat (1).
+c [w = 504] Encoding starts with w = 504:
+c [w = 504] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 470] Start task in PID: 15090.
 c [w = 470] Cyclic Antibandwidth problem with w = 470 (3dmesh_4_4_68.txt):
 c [w = 470] Initializing CaDiCaL (version 2.1.3).
 c [w = 470] Configuring CaDiCaL as --sat (1).
 c [w = 470] Encoding starts with w = 470:
 c [w = 470] Symmetry breaking highest degree node is applied.
 c [Signal] Signal interruption. Caught signal: SIGTERM (15).
-c [w = 528] Start task in PID: 19401.
-c [w = 528] Cyclic Antibandwidth problem with w = 528 (3dmesh_4_4_68.txt):
-c [w = 528] Initializing CaDiCaL (version 2.1.3).
-c [w = 528] Configuring CaDiCaL as --sat (1).
-c [w = 528] Encoding starts with w = 528:
-c [w = 528] Symmetry breaking highest degree node is applied.
-c [Signal] Signal interruption. Caught signal: SIGTERM (15).
-c [w = 532] Start task in PID: 19402.
-c [w = 532] Cyclic Antibandwidth problem with w = 532 (3dmesh_4_4_68.txt):
-c [w = 532] Initializing CaDiCaL (version 2.1.3).
-c [w = 532] Configuring CaDiCaL as --sat (1).
-c [w = 532] Encoding starts with w = 532:
-c [w = 532] Symmetry breaking highest degree node is applied.
-c [Signal] Signal interruption. Caught signal: SIGTERM (15).
-c [w = 520] Start task in PID: 19400.
-c [w = 520] Cyclic Antibandwidth problem with w = 520 (3dmesh_4_4_68.txt):
-c [w = 520] Initializing CaDiCaL (version 2.1.3).
-c [w = 520] Configuring CaDiCaL as --sat (1).
-c [w = 520] Encoding starts with w = 520:
-c [w = 520] Symmetry breaking highest degree node is applied.
-c [Signal] Signal interruption. Caught signal: SIGTERM (15).
-c [w = 403] Start task in PID: 19397.
+c [w = 403] Start task in PID: 15089.
 c [w = 403] Cyclic Antibandwidth problem with w = 403 (3dmesh_4_4_68.txt):
 c [w = 403] Initializing CaDiCaL (version 2.1.3).
 c [w = 403] Configuring CaDiCaL as --sat (1).
 c [w = 403] Encoding starts with w = 403:
 c [w = 403] Symmetry breaking highest degree node is applied.
-c [Signal] Signal interruption. Caught signal: SIGTERM (15).
-c [w = 503] Start task in PID: 19399.
-c [w = 503] Cyclic Antibandwidth problem with w = 503 (3dmesh_4_4_68.txt):
-c [w = 503] Initializing CaDiCaL (version 2.1.3).
-c [w = 503] Configuring CaDiCaL as --sat (1).
-c [w = 503] Encoding starts with w = 503:
-c [w = 503] Symmetry breaking highest degree node is applied.
-c [Signal] Signal interruption. Caught signal: SIGTERM (15).
-c [w = 269] Start task in PID: 19396.
-c [w = 269] Cyclic Antibandwidth problem with w = 269 (3dmesh_4_4_68.txt):
-c [w = 269] Initializing CaDiCaL (version 2.1.3).
-c [w = 269] Configuring CaDiCaL as --sat (1).
-c [w = 269] Encoding starts with w = 269:
-c [w = 269] Symmetry breaking highest degree node is applied.
 c [Signal] Signal interruption. Caught signal: SIGTERM (15).
 c [Main] Lim pid ends with result: 255.
 c [Main] All children have completed.
@@ -63,13 +35,41 @@ r [Main]
 r [Main] Final results: 
 r [Main] Max width SAT:  	-.
 r [Main] Min width UNSAT:	-.
-r [Main] Total real time: 12074 ms.
-r [Main] Total memory consumed: 30033.5 MB.
+r [Main] Total real time: 22704 ms.
+r [Main] Total memory consumed: 30313.8 MB.
 r [Main] 
-c [w = 534] Start task in PID: 19403.
-c [w = 534] Cyclic Antibandwidth problem with w = 534 (3dmesh_4_4_68.txt):
-c [w = 534] Initializing CaDiCaL (version 2.1.3).
-c [w = 534] Configuring CaDiCaL as --sat (1).
-c [w = 534] Encoding starts with w = 534:
-c [w = 534] Symmetry breaking highest degree node is applied.
+c [w = 521] Start task in PID: 15092.
+c [w = 521] Cyclic Antibandwidth problem with w = 521 (3dmesh_4_4_68.txt):
+c [w = 521] Initializing CaDiCaL (version 2.1.3).
+c [w = 521] Configuring CaDiCaL as --sat (1).
+c [w = 521] Encoding starts with w = 521:
+c [w = 521] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 269] Start task in PID: 15088.
+c [w = 269] Cyclic Antibandwidth problem with w = 269 (3dmesh_4_4_68.txt):
+c [w = 269] Initializing CaDiCaL (version 2.1.3).
+c [w = 269] Configuring CaDiCaL as --sat (1).
+c [w = 269] Encoding starts with w = 269:
+c [w = 269] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 535] Start task in PID: 15095.
+c [w = 535] Cyclic Antibandwidth problem with w = 535 (3dmesh_4_4_68.txt):
+c [w = 535] Initializing CaDiCaL (version 2.1.3).
+c [w = 535] Configuring CaDiCaL as --sat (1).
+c [w = 535] Encoding starts with w = 535:
+c [w = 535] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 533] Start task in PID: 15094.
+c [w = 533] Cyclic Antibandwidth problem with w = 533 (3dmesh_4_4_68.txt):
+c [w = 533] Initializing CaDiCaL (version 2.1.3).
+c [w = 533] Configuring CaDiCaL as --sat (1).
+c [w = 533] Encoding starts with w = 533:
+c [w = 533] Symmetry breaking highest degree node is applied.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 529] Start task in PID: 15093.
+c [w = 529] Cyclic Antibandwidth problem with w = 529 (3dmesh_4_4_68.txt):
+c [w = 529] Initializing CaDiCaL (version 2.1.3).
+c [w = 529] Configuring CaDiCaL as --sat (1).
+c [w = 529] Encoding starts with w = 529:
+c [w = 529] Symmetry breaking highest degree node is applied.
 c [Signal] Signal interruption. Caught signal: SIGTERM (15).
