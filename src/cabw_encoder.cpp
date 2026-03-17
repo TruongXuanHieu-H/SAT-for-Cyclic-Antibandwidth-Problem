@@ -13,7 +13,7 @@ CyclicAntiBandwidthEncoder::CyclicAntiBandwidthEncoder() {
 
 CyclicAntiBandwidthEncoder::~CyclicAntiBandwidthEncoder()
 {
-    if (cabw_searcher)
+    if (cabw_searcher != nullptr)
     {
         delete cabw_searcher;
         cabw_searcher = nullptr;

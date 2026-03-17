@@ -12,7 +12,7 @@ public:
     void encode_and_solve();
 
 private:
-    CabwSearcher *cabw_searcher;
+    CabwSearcher *cabw_searcher = nullptr;
 };
 
 #endif // CABW_ENCODER_H
