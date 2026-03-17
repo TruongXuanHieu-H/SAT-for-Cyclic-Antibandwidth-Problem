@@ -2,6 +2,7 @@
 #include "../global_data.h"
 
 #include "sat_solver_cadical.h"
+#include "sat_solver_minisat.h"
 
 #include "ladder_encoder.h"
 
@@ -42,11 +43,28 @@ void InstanceData::set_up_encoder()
     }
 };
 
+void InstanceData::set_up_sat_solver()
+{
+    switch (GlobalData::sat_solver_type)
+    {
+    case SATSolverType::CaDiCaL:
+        solver = new SATSolverCadical();
+        break;
+    case SATSolverType::Minisat:
+        solver = new SATSolverMinisat();
+        break;
+
+    default:
+        break;
+    }
+};
+
 void InstanceData::setup_for_solving()
 {
     cc = new ClauseContainer();
     vh = new VarHandler(1, GlobalData::g->n);
-    solver = new SATSolverCadical();
+
+    set_up_sat_solver();
 
     set_up_encoder();
 }

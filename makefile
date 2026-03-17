@@ -17,7 +17,7 @@ STANDARD  := -std=c++23
 # Compiler flags
 # ================================
 IGNORE_ASSERTVARS := -Wno-unused-but-set-variable
-CXXFLAGS := -Wall -Wextra -Werror -O3 -DNDEBUG $(STANDARD)
+CXXFLAGS := -Wall -Wextra -Werror -O3 -DNDEBUG $(STANDARD) -Wno-literal-suffix
 
 # ================================
 # CaDiCaL
@@ -27,7 +27,14 @@ CADICAL_INC     := ./$(CADICAL_FOLDER)
 CADICAL_LIB_DIR := ./$(CADICAL_FOLDER)
 CADICAL_LIB     := -lcadical
 
-INCLUDES := -I$(CADICAL_INC)
+# ================================
+# Minisat
+# ================================
+MINISAT_FOLDER  ?= src_solver/minisat
+MINISAT_INC     := ./$(MINISAT_FOLDER)
+MINISAT_SRC     := $(shell find $(MINISAT_FOLDER) -name "*.cc" ! -name "Main.cc")
+
+INCLUDES := -I$(CADICAL_INC) -I$(MINISAT_INC)
 
 # ================================
 # Source files
@@ -42,6 +49,7 @@ SOURCES := \
 	encoders/instance_encoder.cpp \
 	encoders/ladder_encoder.cpp \
 	encoders/sat_solver_cadical.cpp \
+	encoders/sat_solver_minisat.cpp \
 	encoders/var_handler.cpp \
 	graph/graph.cpp \
 	searchers/cabw_searcher.cpp \
@@ -71,7 +79,7 @@ all: $(TARGET)
 # ================================
 $(TARGET): $(OBJECTS)
 	@mkdir -p $(BINDIR)
-	$(CXX) $(CXXFLAGS) $^ -L$(CADICAL_LIB_DIR) $(CADICAL_LIB) -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $^ -w $(MINISAT_SRC) -L$(CADICAL_LIB_DIR) $(CADICAL_LIB) -o $@
 
 # ================================
 # Compile rules

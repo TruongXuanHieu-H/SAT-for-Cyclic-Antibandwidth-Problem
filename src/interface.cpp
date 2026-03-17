@@ -221,6 +221,20 @@ int main(int argc, char **argv)
                 return 1;
             }
         }
+        else if (argv[i] == std::string("-sat-solver"))
+        {
+            std::string solver_type = argv[++i];
+            if (solver_type == "cadical")
+                GlobalData::sat_solver_type = SATSolverType::CaDiCaL;
+            else if (solver_type == "minisat")
+                GlobalData::sat_solver_type = SATSolverType::Minisat;
+            else
+            {
+                std::cerr << "e [Param] Unrecognized SAT solver type: " << solver_type << std::endl;
+                delete cabw_enc;
+                return 1;
+            }
+        }
         else
         {
             std::cerr << "e [Param] Unrecognized option: " << argv[i] << std::endl;
