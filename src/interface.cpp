@@ -64,6 +64,7 @@ int main(int argc, char **argv)
         {
             Helper::print_usage();
             delete cabw_enc;
+            cabw_enc = nullptr;
             return 0;
         }
         else if (argv[i] == std::string("--ladder"))
@@ -232,5 +233,6 @@ int main(int argc, char **argv)
     cabw_enc->encode_and_solve();
 
     delete cabw_enc;
+    cabw_enc = nullptr;
     return 0;
 }
