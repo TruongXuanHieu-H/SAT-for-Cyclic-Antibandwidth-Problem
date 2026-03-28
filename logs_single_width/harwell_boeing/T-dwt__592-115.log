@@ -1,0 +1,33 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 3600.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 1.
+c [Param] LB is predefined as 115.
+c [Param] UB is predefined as 115.
+c [Main] Encoding and solving for graph: T-dwt__592.mtx.rnd.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 52.
+c [Main] Upper bound is set to 150.
+c [Main] LB 52 is overwritten with 115.
+c [Main] UB 150 is overwritten with 115.
+c [Main] Search order: 115.
+c [w = 115] Start task in PID: 20241.
+c [w = 115] Cyclic Antibandwidth problem with w = 115 (T-dwt__592.mtx.rnd):
+c [w = 115] Initializing CaDiCaL (version 2.2.1).
+c [w = 115] Configuring CaDiCaL as --sat (1).
+c [w = 115] Encoding starts with w = 115:
+c [w = 115] Symmetry breaking highest degree node is applied.
+c [w = 115] Encoding duration: 6075 ms.
+c [w = 115] Number of clauses: 9108456.
+c [w = 115] Number of variables: 1154400.
+c [w = 115] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	-.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 3610179 ms.
+r [Main] Total memory consumed: 2987.2 MB.
+r [Main] 

@@ -1,0 +1,33 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 3600.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 1.
+c [Param] LB is predefined as 310.
+c [Param] UB is predefined as 310.
+c [Main] Encoding and solving for graph: V-nos6.mtx.rnd.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 163.
+c [Main] Upper bound is set to 337.
+c [Main] LB 163 is overwritten with 310.
+c [Main] UB 337 is overwritten with 310.
+c [Main] Search order: 310.
+c [w = 310] Start task in PID: 77030.
+c [w = 310] Cyclic Antibandwidth problem with w = 310 (V-nos6.mtx.rnd):
+c [w = 310] Initializing CaDiCaL (version 2.2.1).
+c [w = 310] Configuring CaDiCaL as --sat (1).
+c [w = 310] Encoding starts with w = 310:
+c [w = 310] Symmetry breaking highest degree node is applied.
+c [w = 310] Encoding duration: 5941 ms.
+c [w = 310] Number of clauses: 8835952.
+c [w = 310] Number of variables: 1600425.
+c [w = 310] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	-.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 3609899 ms.
+r [Main] Total memory consumed: 3464.2 MB.
+r [Main] 

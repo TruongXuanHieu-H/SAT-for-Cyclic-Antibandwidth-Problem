@@ -1,0 +1,39 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 3600.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 1.
+c [Param] LB is predefined as 232.
+c [Param] UB is predefined as 232.
+c [Main] Encoding and solving for graph: S-sherman4.mtx.rnd.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 128.
+c [Main] Upper bound is set to 272.
+c [Main] LB 128 is overwritten with 232.
+c [Main] UB 272 is overwritten with 232.
+c [Main] Search order: 232.
+c [w = 232] Start task in PID: 60002.
+c [w = 232] Cyclic Antibandwidth problem with w = 232 (S-sherman4.mtx.rnd):
+c [w = 232] Initializing CaDiCaL (version 2.2.1).
+c [w = 232] Configuring CaDiCaL as --sat (1).
+c [w = 232] Encoding starts with w = 232:
+c [w = 232] Symmetry breaking highest degree node is applied.
+c [w = 232] Encoding duration: 3096 ms.
+c [w = 232] Number of clauses: 6328902.
+c [w = 232] Number of variables: 1020474.
+c [w = 232] SAT Solving starts:
+c [w = 232] Solving duration: 839803 ms.
+c [w = 232] Answer:
+s [w = 232] SAT (w = 232).
+c [w = 232] Solution check = 232.
+c [w = 232] The solution is correct.
+c [w = 232] Result: 10.
+c [Main] Max width SAT is set to 232.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	232.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 843766 ms.
+r [Main] Total memory consumed: 2031.3 MB.
+r [Main] 
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).

@@ -1,0 +1,39 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 3600.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 1.
+c [Param] LB is predefined as 111.
+c [Param] UB is predefined as 111.
+c [Main] Encoding and solving for graph: X-can__715.mtx.rnd.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 56.
+c [Main] Upper bound is set to 142.
+c [Main] LB 56 is overwritten with 111.
+c [Main] UB 142 is overwritten with 111.
+c [Main] Search order: 111.
+c [w = 111] Start task in PID: 106633.
+c [w = 111] Cyclic Antibandwidth problem with w = 111 (X-can__715.mtx.rnd):
+c [w = 111] Initializing CaDiCaL (version 2.2.1).
+c [w = 111] Configuring CaDiCaL as --sat (1).
+c [w = 111] Encoding starts with w = 111:
+c [w = 111] Symmetry breaking highest degree node is applied.
+c [w = 111] Encoding duration: 8870 ms.
+c [w = 111] Number of clauses: 13852497.
+c [w = 111] Number of variables: 1637350.
+c [w = 111] SAT Solving starts:
+c [w = 111] Solving duration: 787295 ms.
+c [w = 111] Answer:
+s [w = 111] SAT (w = 111).
+c [w = 111] Solution check = 111.
+c [w = 111] The solution is correct.
+c [w = 111] Result: 10.
+c [Main] Max width SAT is set to 111.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	111.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 798383 ms.
+r [Main] Total memory consumed: 4123.4 MB.
+r [Main] 
