@@ -7,14 +7,38 @@
 
 const std::map<std::string, std::string> Helper::option_list = {
     {"--help", "Print usage message with all possible options"},
-    {"--ladder", "Use ladder encoding [default: true]"},
-    {"--check-solution", "Calculate the cyclic antibandwidth of the found SAT solution and compare it to the actual width [default: false]"},
-    {"--from-ub", "Start solving with width = UB, decreasing in each iteration [default: false]"},
-    {"--from-lb", "Start solving with width = LB, increasing in each iteration [default: true]"},
-    {"--bin-search", "Start solving with LB+UB/2 and update LB or UB according to SAT/UNSAT result and repeat"},
-    {"-split-size <n>", "Maximal allowed length of clauses, every longer clause is split up into two by introducing a new variable"},
-    {"-set-lb <new LB>", "Overwrite predefined LB with <new LB>, has to be at least 2"},
-    {"-set-ub <new UB>", "Overwrite predefined UB with <new UB>, has to be positive"},
+    {"--ladder", "Use ladder encoding"},
+    {"--check-solution", "Verify the found solution by recomputing cyclic antibandwidth"},
+
+    // Search strategies
+    {"--iterate-from-lb", "Linear search starting from lower bound"},
+    {"--step-from-lb", "Stepwise search starting from lower bound"},
+    {"--binary-search-from-lb", "Binary search starting from lower bound"},
+    {"--binary-search-from-ub", "Binary search starting from upper bound"},
+    {"--binary-search-bfs", "Binary search using BFS-style exploration"},
+
+    // Bounds
+    {"-set-lb <int>", "Set lower bound (must be >= 2)"},
+    {"-set-ub <int>", "Set upper bound (must be > 0)"},
+
+    // Resource limits
+    {"-limit-memory <int>", "Set memory limit"},
+    {"-limit-real-time <int>", "Set real time limit"},
+    {"-limit-elapsed-time <int>", "Set CPU elapsed time limit"},
+
+    // Logging
+    {"-sample-rate <int>", "Set sampling rate"},
+    {"-report-rate <int>", "Set reporting frequency"},
+
+    // Encoding / performance
+    {"-split-size <int>", "Split clauses longer than given size"},
+    {"-worker-count <int>", "Number of parallel workers"},
+
+    // Symmetry breaking
+    {"-symmetry-break none", "Disable symmetry breaking"},
+    {"-symmetry-break first", "Fix first vertex"},
+    {"-symmetry-break highest-degree", "Fix highest-degree vertex"},
+    {"-symmetry-break lowest-degree", "Fix lowest-degree vertex"},
 };
 
 void Helper::print_usage()
