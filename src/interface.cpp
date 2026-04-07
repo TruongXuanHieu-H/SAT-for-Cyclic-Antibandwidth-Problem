@@ -235,6 +235,11 @@ int main(int argc, char **argv)
                 return 1;
             }
         }
+        else if (argv[i] == std::string("-just-print-dimacs"))
+        {
+            GlobalData::just_print_dimacs = true;
+            GlobalData::dimacs_directory = argv[++i];
+       }
         else
         {
             std::cerr << "e [Param] Unrecognized option: " << argv[i] << std::endl;
@@ -244,7 +249,10 @@ int main(int argc, char **argv)
         }
     }
 
-    cabw_enc->encode_and_solve();
+    if (GlobalData::just_print_dimacs)
+        cabw_enc->encode_and_print_dimacs();
+    else
+        cabw_enc->encode_and_solve();
 
     delete cabw_enc;
     cabw_enc = nullptr;

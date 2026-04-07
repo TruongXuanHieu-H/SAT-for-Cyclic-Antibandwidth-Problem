@@ -20,10 +20,8 @@ CyclicAntiBandwidthEncoder::~CyclicAntiBandwidthEncoder()
     }
 };
 
-void CyclicAntiBandwidthEncoder::encode_and_solve()
+void CyclicAntiBandwidthEncoder::setup_searcher()
 {
-    std::cout << "c [Main] Encoding and solving for graph: " << GlobalData::g->graph_name << ".\n";
-
     switch (GlobalData::search_strategy)
     {
     case SearchStrategy::iterate_from_lb:
@@ -52,6 +50,22 @@ void CyclicAntiBandwidthEncoder::encode_and_solve()
         std::cerr << "e [Main] Unrecognized search strategy " << static_cast<int>(GlobalData::search_strategy) << ".\n";
         break;
     }
+};
+
+void CyclicAntiBandwidthEncoder::encode_and_solve()
+{
+    std::cout << "c [Main] Encoding and solving for graph: " << GlobalData::g->graph_name << ".\n";
+
+    setup_searcher();
 
     cabw_searcher->encode_and_solve();
+};
+
+void CyclicAntiBandwidthEncoder::encode_and_print_dimacs()
+{
+    std::cout << "c [Main] Encoding and printing DIMACS for graph: " << GlobalData::g->graph_name << ".\n";
+
+    setup_searcher();
+
+    cabw_searcher->encode_and_print_dimacs();
 };

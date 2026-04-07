@@ -17,6 +17,9 @@ SearchStrategy GlobalData::search_strategy = SearchStrategy::iterate_from_lb;
 SymmetryBreakingType GlobalData::symmetry_break_strategy = SymmetryBreakingType::NONE;
 SATSolverType GlobalData::sat_solver_type = SATSolverType::CaDiCaL;
 
+bool GlobalData::just_print_dimacs = false;
+std::string GlobalData::dimacs_directory = "./dimacs_output/";
+
 bool GlobalData::enable_solution_verification = true;
 int GlobalData::split_limit = 0;
 

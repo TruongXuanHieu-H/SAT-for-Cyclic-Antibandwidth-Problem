@@ -4,6 +4,7 @@
 #include "sat_solver_cadical.h"
 #include "ladder_encoder.h"
 #include <iostream>
+#include <fstream>
 #include <chrono>
 
 CABWInstance::CABWInstance(int width)
@@ -14,13 +15,13 @@ CABWInstance::CABWInstance(int width)
 CABWInstance::~CABWInstance() {}
 
 /*
-       Return the result of ABP:
-       -   0 if graph only contains 1 vertex.
-       -   10 if SAT (including w < 2 because it is always SAT).
-       -   20 if UNSAT.
-       -   -20 for undefined answers.
-       -   -10 for incorrect SAT answers.
-   */
+    Return the result of ABP:
+    -   0 if graph only contains 1 vertex.
+    -   10 if SAT (including w < 2 because it is always SAT).
+    -   20 if UNSAT.
+    -   -20 for undefined answers.
+    -   -10 for incorrect SAT answers.
+*/
 int CABWInstance::encode_and_solve_cabp()
 {
     std::cout << "c " + InstanceData::get_signature() + " Cyclic Antibandwidth problem with w = " << InstanceData::width << " (" << GlobalData::g->graph_name << "):\n";
@@ -108,3 +109,38 @@ int CABWInstance::verify_solution()
 
     return min_dist;
 }
+
+void CABWInstance::encode_and_print_dimacs()
+{
+    std::cout << "c " + InstanceData::get_signature() + " Cyclic Antibandwidth problem with w = " << InstanceData::width << " (" << GlobalData::g->graph_name << "):\n";
+    if (GlobalData::g->n < 1)
+    {
+        std::cout << "c " + InstanceData::get_signature() + " The input graph is too small, there is nothing to encode here.\n";
+        return;
+    }
+    if (InstanceData::width < 2)
+    {
+        std::cout << "c " + InstanceData::get_signature() + " There is always at least 1 distance in any labelling. There is nothing to encode here.\n";
+        return;
+    }
+
+    InstanceData::setup_for_encoding();
+    std::cout << "c " + InstanceData::get_signature() + " Encoding starts with w = " << InstanceData::width << ":\n";
+
+    InstanceData::enc->encode_cyclic_antibandwidth();
+    std::cout << "c " + InstanceData::get_signature() + " Number of clauses: " << InstanceData::cc->size() << ".\n";
+    std::cout << "c " + InstanceData::get_signature() + " Number of variables: " << InstanceData::vh->size() << ".\n";
+
+    std::string file_name = "cabp-" + GlobalData::g->graph_name + "-k" + std::to_string(InstanceData::width) + ".cnf";
+    std::ofstream out(GlobalData::dimacs_directory + "/" + file_name);
+    if (!out.is_open())
+    {
+        std::cerr << "c " + InstanceData::get_signature() + " Error: cannot open file " << GlobalData::dimacs_directory + file_name << " for writing.\n";
+        InstanceData::cleanup_encoding();
+        return;
+    }
+    InstanceData::export_dimacs(out);
+    out.close();
+
+    InstanceData::cleanup_encoding();
+};

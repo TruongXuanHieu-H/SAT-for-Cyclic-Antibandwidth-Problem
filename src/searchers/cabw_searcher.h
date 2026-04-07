@@ -12,6 +12,7 @@ public:
     virtual ~CabwSearcher();
 
     void encode_and_solve();
+    void encode_and_print_dimacs();
 
 protected:
     int max_width_SAT;

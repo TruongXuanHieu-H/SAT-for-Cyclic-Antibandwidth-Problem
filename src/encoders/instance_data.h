@@ -25,7 +25,11 @@ public:
     static void set_up_encoder();
     static void set_up_sat_solver();
     static void setup_for_solving();
+    static void setup_for_encoding();
+    static void cleanup_encoding();
     static void cleanup_solving();
+
+    static void export_dimacs(std::ostream &out);
 };
 
 #endif // INSTANCE_DATA_H

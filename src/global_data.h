@@ -24,6 +24,9 @@ public:
     static SymmetryBreakingType symmetry_break_strategy;
     static SATSolverType sat_solver_type;
 
+    static bool just_print_dimacs;
+    static std::string dimacs_directory;
+
     static bool enable_solution_verification;
     static int split_limit;
 
