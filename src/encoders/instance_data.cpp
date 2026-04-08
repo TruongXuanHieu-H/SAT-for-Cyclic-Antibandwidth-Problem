@@ -2,7 +2,6 @@
 #include "../global_data.h"
 
 #include "sat_solver_cadical.h"
-#include "sat_solver_minisat.h"
 
 #include "ladder_encoder.h"
 #include <iostream>
@@ -51,10 +50,7 @@ void InstanceData::set_up_sat_solver()
     case SATSolverType::CaDiCaL:
         solver = new SATSolverCadical();
         break;
-    case SATSolverType::Minisat:
-        solver = new SATSolverMinisat();
-        break;
-
+        
     default:
         break;
     }

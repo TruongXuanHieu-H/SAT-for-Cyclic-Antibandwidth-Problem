@@ -226,8 +226,6 @@ int main(int argc, char **argv)
             std::string solver_type = argv[++i];
             if (solver_type == "cadical")
                 GlobalData::sat_solver_type = SATSolverType::CaDiCaL;
-            else if (solver_type == "minisat")
-                GlobalData::sat_solver_type = SATSolverType::Minisat;
             else
             {
                 std::cerr << "e [Param] Unrecognized SAT solver type: " << solver_type << std::endl;

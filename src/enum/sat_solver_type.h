@@ -4,7 +4,6 @@
 enum class SATSolverType
 {
     CaDiCaL,
-    Minisat,
 };
 
 #endif // SAT_SOLVER_TYPE_H
