@@ -4,11 +4,17 @@ SAT-CAB is a SAT-based solver for the **Cyclic AntiBandwidth** problem.
 
 The tool encodes the decision version of the problem (for a given width) into a CNF formula, then uses **CaDiCaL** as the SAT solver to evaluate it.
 
-Other versions of CaDiCaL may be used by replacing `cadical.hpp` and `libcadical.a` in the `cadical/` directory. Compatibility is not guaranteed.
+Other versions of CaDiCaL may be used by replacing `cadical.hpp` and `libcadical.a` in the `solver/cadical/` directory. Compatibility is not guaranteed.
 
 ---
 
 ## Build
+
+```bash
+make
+```
+
+If you want a clean build, instead run:
 
 ```bash
 make clean && make
@@ -35,10 +41,10 @@ The executable `cabw_enc` will be generated in the `build/` directory.
     Print usage message
 
 --ladder
-    Use ladder encoding
+    Use ladder encoding (Our proposed encoding)
 
 --check-solution
-    Verify the computed solution
+    Verify the computed solution for Cyclic Antibandwidth Problem
 ```
 
 ### Search Strategies
@@ -117,6 +123,24 @@ The executable `cabw_enc` will be generated in the `build/` directory.
 
 -symmetry-break lowest-degree
     Fix lowest-degree vertex
+```
+
+---
+
+### SAT Solver
+
+```
+-sat-solver <sat solver>
+    Specify the SAT solver to use (currently only supports 'cadical')
+```
+
+---
+
+### Print dimacs
+
+```
+-just-print-dimacs <dimacs directory>
+    Encodes and prints dimacs to given directory without solving it.
 ```
 
 ---

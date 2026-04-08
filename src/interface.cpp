@@ -100,7 +100,7 @@ int main(int argc, char **argv)
             GlobalData::forced_lb = get_number_arg(argv[++i]);
             if (GlobalData::forced_lb < 2)
             {
-                std::cerr << "e [Param] Error, width has to be at least 2.\n";
+                std::cerr << "e [Param] Error, lower bound has to be at least 2.\n";
                 delete cabw_enc;
                 return 1;
             }
@@ -110,9 +110,9 @@ int main(int argc, char **argv)
         else if (argv[i] == std::string("-set-ub"))
         {
             GlobalData::forced_ub = get_number_arg(argv[++i]);
-            if (GlobalData::forced_ub <= 0)
+            if (GlobalData::forced_ub < 2)
             {
-                std::cerr << "e [Param] Error, width has to be positive.\n";
+                std::cerr << "e [Param] Error, upper bound has to be at least 2.\n";
                 delete cabw_enc;
                 return 1;
             }
