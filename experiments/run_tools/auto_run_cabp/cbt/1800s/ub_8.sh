@@ -4,9 +4,9 @@ TIME_LIMIT=1800
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=8
-ENC_DIR="../../../build"
-DATASET_DIR="../../../datasets/unknow_optimal/complete_binary_trees"
-LOG_DIR="../../../logs_1800s/unknow_optimal/complete_binary_trees/binarysearchfromUB_highestdegree_8workers"
+ENC_DIR="../../../../../build"
+DATASET_DIR="../../../../../datasets/unknow_optimal/complete_binary_trees"
+LOG_DIR="../../../../../experiments/results/logs_1800s/unknow_optimal/complete_binary_trees/binarysearchfromUB_highestdegree_8workers"
 ADD_CONFIGS="--binary-search-from-ub"
 
 mkdir -p "$LOG_DIR" 

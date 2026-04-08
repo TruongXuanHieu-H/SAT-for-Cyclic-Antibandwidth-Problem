@@ -4,9 +4,9 @@ TIME_LIMIT=150
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=8
-ENC_DIR="../../../build"
-DATASET_DIR="../../../datasets/conjecture_optimal/3dmesh"
-LOG_DIR="../../../logs_150s/conjecture_optimal/3dmesh/binarysearchfromUB_highestdegree_8workers"
+ENC_DIR="../../../../../build"
+DATASET_DIR="../../../../../datasets/conjecture_optimal/3dmesh"
+LOG_DIR="../../../../../experiments/results/logs_150s/conjecture_optimal/3dmesh/binarysearchfromUB_highestdegree_8workers"
 ADD_CONFIGS="--binary-search-from-ub"
 
 mkdir -p "$LOG_DIR"

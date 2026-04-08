@@ -3,9 +3,9 @@
 INSTANCE_NAME="V-nos6"
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=1
-ENC_DIR="../../build"
-DATASET_DIR="../../datasets/unknow_optimal/harwell_boeing"
-DIMAC_DIR="../../logs_dimacs_single_width/harwell_boeing"
+ENC_DIR="../../../../build"
+DATASET_DIR="../../../../datasets/unknow_optimal/harwell_boeing"
+DIMAC_DIR="../../../../experiments/results/logs_dimacs_single_width/harwell_boeing"
 LB_CONFIG=272
 UB_CONFIG=336
 

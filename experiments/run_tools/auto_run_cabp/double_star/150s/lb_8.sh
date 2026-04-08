@@ -4,9 +4,9 @@ TIME_LIMIT=150
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=8
-ENC_DIR="../../../build"
-DATASET_DIR="../../../datasets/conjecture_optimal/double_star"
-LOG_DIR="../../../logs_150s/conjecture_optimal/double_star/binarysearchfromLB_highestdegree_8workers"
+ENC_DIR="../../../../../build"
+DATASET_DIR="../../../../../datasets/conjecture_optimal/double_star"
+LOG_DIR="../../../../../experiments/results/logs_150s/conjecture_optimal/double_star/binarysearchfromLB_highestdegree_8workers"
 ADD_CONFIGS="--binary-search-from-lb"
 
 mkdir -p "$LOG_DIR"

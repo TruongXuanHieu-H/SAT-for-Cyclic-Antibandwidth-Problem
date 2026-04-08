@@ -4,9 +4,9 @@ TIME_LIMIT=150
 MEMORY_LIMIT=30000
 SYMMETRY_BREAK="highest-degree"
 WORKER_COUNT=8
-ENC_DIR="../../../build"
-DATASET_DIR="../../../datasets/unknow_optimal/random_generated_graph_2013"
-LOG_DIR="../../../logs_150s/unknow_optimal/random_generated_graph_2013/binarysearchbfs_highestdegree_8workers"
+ENC_DIR="../../../../../build"
+DATASET_DIR="../../../../../datasets/unknow_optimal/random_generated_graph_2013"
+LOG_DIR="../../../../../experiments/results/logs_150s/unknow_optimal/random_generated_graph_2013/binarysearchbfs_highestdegree_8workers"
 ADD_CONFIGS="--binary-search-bfs"
 
 mkdir -p "$LOG_DIR"
