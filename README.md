@@ -7,6 +7,22 @@ The tool encodes the decision version of the problem (for a given width) into a 
 Other versions of CaDiCaL may be used by replacing `cadical.hpp` and `libcadical.a` in the `solver/cadical/` directory. Compatibility is not guaranteed.
 
 ---
+## Benchmark for SAT Competition 2026
+
+The benchmark instances submitted to SAT Competition 2026 are located in the `sat_competition_2026_benchmark/harwell_boeing/selected_instances` directory.
+
+In addition, we provide a set of particularly challenging instances that were not submitted to the competition, available in the `sat_competition_2026_benchmark/harwell_boeing/non_selected_instances` directory.
+
+Detailed information about all instances, including experimental configurations and general statistics, can be found in `sat_competition_2026_benchmark/harwell_boeing/HB_benchmark_information.xlsx`. This file contains two sheets: **Selected instances**, which lists the submitted benchmarks, and **All instances**, which includes both submitted and non-submitted instances.
+
+---
+## Experiment Results
+
+The experiment results are located in the `experiments/results` directory. Note that `experiments/results/logs_150s` and `experiments/results/logs_1800s` include the experiment results on the CAB problem, while `experiments/results/logs_single_width` includes the experiment results on a single CAB value.
+
+We also include the tools to automatically run the experiments with all implemented configurations. They basically are several **.sh** files and located in `experiments/run_tools` directory.
+
+---
 
 ## Build
 
