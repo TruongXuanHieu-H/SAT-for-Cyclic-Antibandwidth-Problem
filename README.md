@@ -9,11 +9,11 @@ Other versions of CaDiCaL may be used by replacing `cadical.hpp` and `libcadical
 ---
 ## Benchmark for SAT Competition 2026
 
-The benchmark instances submitted to SAT Competition 2026 are located in the `sat_competition_2026_benchmark/harwell_boeing/selected_instances` directory.
+The benchmark instances submitted to SAT Competition 2026 are located in [sat_competition_2026_benchmark/harwell_boeing/selected_instances](sat_competition_2026_benchmark/harwell_boeing/selected_instances).
 
-In addition, we provide a set of particularly challenging instances that were not submitted to the competition, available in the `sat_competition_2026_benchmark/harwell_boeing/non_selected_instances` directory.
+In addition, we provide a set of particularly challenging instances that were not submitted to the competition, available in [sat_competition_2026_benchmark/harwell_boeing/non_selected_instances](sat_competition_2026_benchmark/harwell_boeing/non_selected_instances).
 
-Detailed information about all instances, including experimental configurations and general statistics, can be found in `sat_competition_2026_benchmark/harwell_boeing/HB_benchmark_information.xlsx`. This file contains two sheets: **Selected instances**, which lists the submitted benchmarks, and **All instances**, which includes both submitted and non-submitted instances.
+Detailed information about all instances, including experimental configurations and general statistics, can be found in [sat_competition_2026_benchmark/harwell_boeing/HB_benchmark_information.xlsx](sat_competition_2026_benchmark/harwell_boeing/HB_benchmark_information.xlsx). This file contains two sheets: **Selected instances**, which lists the submitted benchmarks, and **All instances**, which includes both submitted and non-submitted instances.
 
 ---
 ## Experiment Results
