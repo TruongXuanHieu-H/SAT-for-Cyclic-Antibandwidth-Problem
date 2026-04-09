@@ -1,0 +1,37 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 3600.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 1.
+c [Param] LB is predefined as 40.
+c [Param] UB is predefined as 40.
+c [Main] Encoding and solving for graph: M-bcsstk06.mtx.rnd.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 14.
+c [Main] Upper bound is set to 72.
+c [Main] LB 14 is overwritten with 40.
+c [Main] UB 72 is overwritten with 40.
+c [Main] Search order: 40.
+c [w = 40] Start task in PID: 24624.
+c [w = 40] Cyclic Antibandwidth problem with w = 40 (M-bcsstk06.mtx.rnd):
+c [w = 40] Initializing CaDiCaL (version 2.2.1).
+c [w = 40] Configuring CaDiCaL as --sat (1).
+c [w = 40] Encoding starts with w = 40:
+c [w = 40] Symmetry breaking highest degree node is applied.
+c [w = 40] Encoding duration: 3551 ms.
+c [w = 40] Number of clauses: 7965390.
+c [w = 40] Number of variables: 556500.
+c [w = 40] SAT Solving starts:
+c [w = 40] Solving duration: 2939985 ms.
+c [w = 40] Answer:
+s [w = 40] UNSAT (w = 40).
+c [w = 40] Result: 20.
+c [Main] Min width UNSAT is set to 40
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	-.
+r [Main] Min width UNSAT:	40.
+r [Main] Total real time: 2944374 ms.
+r [Main] Total memory consumed: 2356.2 MB.
+r [Main] 
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).

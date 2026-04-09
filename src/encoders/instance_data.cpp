@@ -4,6 +4,7 @@
 #include "sat_solver_cadical.h"
 
 #include "ladder_encoder.h"
+#include <iostream>
 
 InstanceData::~InstanceData()
 {
@@ -42,19 +43,58 @@ void InstanceData::set_up_encoder()
     }
 };
 
+void InstanceData::set_up_sat_solver()
+{
+    switch (GlobalData::sat_solver_type)
+    {
+    case SATSolverType::CaDiCaL:
+        solver = new SATSolverCadical();
+        break;
+        
+    default:
+        break;
+    }
+};
+
 void InstanceData::setup_for_solving()
+{
+    setup_for_encoding();
+
+    set_up_sat_solver();
+}
+
+void InstanceData::setup_for_encoding()
 {
     cc = new ClauseContainer();
     vh = new VarHandler(1, GlobalData::g->n);
-    solver = new SATSolverCadical();
 
     set_up_encoder();
 }
 
-void InstanceData::cleanup_solving()
+void InstanceData::cleanup_encoding()
 {
     delete enc;
     delete cc;
     delete vh;
+}
+
+void InstanceData::cleanup_solving()
+{
+    cleanup_encoding();
+    
     delete solver;
+}
+
+void InstanceData::export_dimacs(std::ostream &out)
+{   
+    out << "c CNF fomular for graph " << GlobalData::g->graph_name << " with Cyclic Antibandwidth value of " << width << "\n";
+    out << "p cnf " << vh->size() << " " << cc->size() << "\n";
+    for (const Clause &c : cc->clause_list)
+    {
+        for (int lit : c)
+        {
+            out << lit << " ";
+        }
+        out << "0\n";
+    }
 }

@@ -374,3 +374,13 @@ void CabwSearcher::encode_and_solve()
     std::cout << "r [Main] Total memory consumed: " << *max_consumed_memory << " MB.\n";
     std::cout << "r [Main] \n";
 }
+
+void CabwSearcher::encode_and_print_dimacs()
+{
+    for (int i = lower_bound; i <= upper_bound; i++)
+    {
+        CABWInstance* cabp_ins = new CABWInstance(i);
+        cabp_ins->encode_and_print_dimacs();
+        delete cabp_ins;
+    }
+};

@@ -1,205 +1,104 @@
-# === Directories ===
-SRCDIR  = src
-OBJDIR  = build/obj
+# ================================
+# Project directories
+# ================================
+SRCDIR  := src
+OBJDIR  := build/obj
+BINDIR  := build
 
-# === Compiler Flags ===
-FLAGS       = -Wall -Werror -Wextra -O3 -DNDEBUG
-STANDARD    = -std=c++23
-IGNORE_ASSERTVARS = -Wno-unused-but-set-variable
+TARGET  := $(BINDIR)/cabw_enc
 
-# === CaDiCaL ===
-CADICAL_INC     = ./solver/cadical/
-CADICAL_LIB_DIR = ./solver/cadical/
-CADICAL_LIB     = -lcadical
+# ================================
+# Compiler
+# ================================
+CXX       := g++
+STANDARD  := -std=c++23
 
-# === Object Files ===
-OBJECTS = \
-    global_data.o \
-    cabw_encoder.o \
-    cabw_searcher.o \
-    cabw_searcher_iterate_from_lb.o \
-    cabw_searcher_step_from_lb.o \
-	cabw_searcher_binary_from_lb.o \
-	cabw_searcher_binary_from_ub.o \
-	cabw_searcher_binary_bfs.o \
-    version.o \
-    usage.o \
-    signal_handler.o \
-    pid_manager.o \
-    graph.o \
-    var_handler.o \
-    sat_solver_cadical.o \
-    instance_encoder.o \
-    ladder_encoder.o \
-    instance_data.o \
-    clause_container.o \
-    cabw_instance.o
+# ================================
+# Compiler flags
+# ================================
+IGNORE_ASSERTVARS := -Wno-unused-but-set-variable
+CXXFLAGS := -Wall -Wextra -Werror -O3 -DNDEBUG $(STANDARD) -Wno-literal-suffix
 
-OBJS = $(patsubst %.o,$(OBJDIR)/%.o,$(OBJECTS))
+# ================================
+# CaDiCaL
+# ================================
+CADICAL_FOLDER  ?= solver/cadical
+CADICAL_INC     := ./$(CADICAL_FOLDER)
+CADICAL_LIB_DIR := ./$(CADICAL_FOLDER)
+CADICAL_LIB     := -lcadical
 
-# === Build Target ===
-all: $(OBJDIR)/interface.o
-	g++ $(FLAGS) $(OBJDIR)/interface.o $(OBJS) -L$(CADICAL_LIB_DIR) $(CADICAL_LIB) -o build/cabw_enc
+INCLUDES := -I$(CADICAL_INC) 
 
-# === Build Rules ===
+# ================================
+# Source files
+# ================================
+SOURCES := \
+	cabw_encoder.cpp \
+	global_data.cpp \
+	interface.cpp \
+	encoders/cabw_instance.cpp \
+	encoders/clause_container.cpp \
+	encoders/instance_data.cpp \
+	encoders/instance_encoder.cpp \
+	encoders/ladder_encoder.cpp \
+	encoders/sat_solver_cadical.cpp \
+	encoders/var_handler.cpp \
+	graph/graph.cpp \
+	searchers/cabw_searcher.cpp \
+	searchers/cabw_searcher_binary_bfs.cpp \
+	searchers/cabw_searcher_binary_from_lb.cpp \
+	searchers/cabw_searcher_binary_from_ub.cpp \
+	searchers/cabw_searcher_iterate_from_lb.cpp \
+	searchers/cabw_searcher_step_from_lb.cpp \
+	utils/pid_manager.cpp \
+	utils/signal_handler.cpp \
+	utils/usage.cpp \
+	utils/version.cpp
 
-$(OBJDIR)/interface.o : \
-	$(SRCDIR)/interface.cpp \
-	$(OBJS) \
-	$(SRCDIR)/global_data.h \
-	$(SRCDIR)/cabw_encoder.h \
-	$(SRCDIR)/utils/signal_handler.h \
-	$(SRCDIR)/utils/usage.h \
-	$(SRCDIR)/utils/version.h \
-	$(SRCDIR)/enum/encode_type.h \
-	$(SRCDIR)/enum/symmetry_breaking_type.h \
-	$(SRCDIR)/enum/search_strategy.h
-	g++ $(FLAGS) $(STANDARD) -I$(CADICAL_INC) -c $< -o $@
+# ================================
+# Object files
+# ================================
+OBJECTS := $(SOURCES:%.cpp=$(OBJDIR)/%.o)
 
-$(OBJDIR)/global_data.o : \
-	$(SRCDIR)/global_data.cpp \
-	$(SRCDIR)/global_data.h \
-	$(SRCDIR)/graph/graph.h \
-	$(SRCDIR)/enum/encode_type.h \
-	$(SRCDIR)/enum/symmetry_breaking_type.h \
-	$(SRCDIR)/enum/search_strategy.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
+# ================================
+# Default target
+# ================================
+.PHONY: all
+all: $(TARGET)
 
-$(OBJDIR)/cabw_encoder.o : \
-    $(SRCDIR)/cabw_encoder.cpp \
-    $(SRCDIR)/cabw_encoder.h \
-    $(SRCDIR)/global_data.h \
-    $(SRCDIR)/searchers/cabw_searcher.h \
-    $(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.h \
-	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.h \
-	$(SRCDIR)/searchers/cabw_searcher_binary_from_lb.h \
-	$(SRCDIR)/searchers/cabw_searcher_binary_from_ub.h \
-	$(SRCDIR)/searchers/cabw_searcher_binary_bfs.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
+# ================================
+# Link
+# ================================
+$(TARGET): $(OBJECTS)
+	@mkdir -p $(BINDIR)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $^ -w -L$(CADICAL_LIB_DIR) $(CADICAL_LIB) -o $@
 
-$(OBJDIR)/cabw_searcher.o : \
-	$(SRCDIR)/searchers/cabw_searcher.cpp \
-	$(SRCDIR)/searchers/cabw_searcher.h \
-	$(SRCDIR)/global_data.h \
-	$(SRCDIR)/encoders/cabw_instance.h \
-	$(SRCDIR)/utils/pid_manager.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
+# ================================
+# Compile rules
+# ================================
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
-$(OBJDIR)/cabw_searcher_iterate_from_lb.o : \
-	$(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.cpp \
-	$(SRCDIR)/searchers/cabw_searcher_iterate_from_lb.h \
-	$(SRCDIR)/searchers/cabw_searcher.h \
-	$(SRCDIR)/global_data.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
+# ================================
+# Special flags (optional)
+# ================================
+# $(OBJDIR)/encoders/xxx.o: CXXFLAGS += $(IGNORE_ASSERTVARS)
 
-$(OBJDIR)/cabw_searcher_step_from_lb.o : \
-	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.cpp \
-	$(SRCDIR)/searchers/cabw_searcher_step_from_lb.h \
-	$(SRCDIR)/searchers/cabw_searcher.h \
-	$(SRCDIR)/global_data.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/cabw_searcher_binary_from_lb.o : \
-	$(SRCDIR)/searchers/cabw_searcher_binary_from_lb.cpp \
-	$(SRCDIR)/searchers/cabw_searcher_binary_from_lb.h \
-	$(SRCDIR)/searchers/cabw_searcher.h \
-	$(SRCDIR)/global_data.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/cabw_searcher_binary_from_ub.o : \
-	$(SRCDIR)/searchers/cabw_searcher_binary_from_ub.cpp \
-	$(SRCDIR)/searchers/cabw_searcher_binary_from_ub.h \
-	$(SRCDIR)/searchers/cabw_searcher.h \
-	$(SRCDIR)/global_data.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/cabw_searcher_binary_bfs.o : \
-	$(SRCDIR)/searchers/cabw_searcher_binary_bfs.cpp \
-	$(SRCDIR)/searchers/cabw_searcher_binary_bfs.h \
-	$(SRCDIR)/searchers/cabw_searcher.h \
-	$(SRCDIR)/global_data.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/version.o : \
-	$(SRCDIR)/utils/version.cpp \
-	$(SRCDIR)/utils/version.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/usage.o : \
-	$(SRCDIR)/utils/usage.cpp \
-	$(SRCDIR)/utils/usage.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/signal_handler.o : \
-	$(SRCDIR)/utils/signal_handler.cpp \
-	$(SRCDIR)/utils/signal_handler.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/pid_manager.o : \
-	$(SRCDIR)/utils/pid_manager.cpp \
-	$(SRCDIR)/utils/pid_manager.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/graph.o : \
-	$(SRCDIR)/graph/graph.cpp \
-	$(SRCDIR)/graph/graph.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/var_handler.o : \
-	$(SRCDIR)/encoders/var_handler.cpp \
-	$(SRCDIR)/encoders/var_handler.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/sat_solver_cadical.o : \
-	$(SRCDIR)/encoders/sat_solver_cadical.cpp \
-	$(SRCDIR)/encoders/sat_solver_cadical.h \
-	$(SRCDIR)/encoders/instance_data.h \
-	$(SRCDIR)/global_data.h
-	g++ $(FLAGS) $(STANDARD) -I$(CADICAL_INC) -c $< -o $@
-
-$(OBJDIR)/instance_encoder.o : \
-	$(SRCDIR)/encoders/instance_encoder.cpp \
-	$(SRCDIR)/encoders/instance_encoder.h \
-	$(SRCDIR)/global_data.h \
-	$(SRCDIR)/encoders/instance_data.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/ladder_encoder.o : \
-	$(SRCDIR)/encoders/ladder_encoder.cpp \
-	$(SRCDIR)/encoders/ladder_encoder.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/instance_data.o : \
-	$(SRCDIR)/encoders/instance_data.cpp \
-	$(SRCDIR)/encoders/instance_data.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/clause_container.o : \
-	$(SRCDIR)/encoders/clause_container.cpp \
-	$(SRCDIR)/encoders/clause_container.h \
-	$(SRCDIR)/encoders/var_handler.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-$(OBJDIR)/cabw_instance.o : \
-	$(SRCDIR)/encoders/cabw_instance.cpp \
-	$(SRCDIR)/encoders/cabw_instance.h \
-	$(SRCDIR)/graph/graph.h \
-	$(SRCDIR)/enum/encode_type.h \
-	$(SRCDIR)/encoders/instance_encoder.h \
-	$(SRCDIR)/encoders/clause_container.h \
-	$(SRCDIR)/encoders/sat_solver.h
-	g++ $(FLAGS) $(STANDARD) -c $< -o $@
-
-# === Clean & Archive ===
-
+# ================================
+# Clean
+# ================================
+.PHONY: clean
 clean:
-	rm -f *.a $(OBJDIR)/*.o *~ *.out build/cabw_enc
+	rm -rf $(OBJDIR) $(TARGET) *.a *~ *.out
 
+# ================================
+# Archive
+# ================================
+.PHONY: tar
 tar:
 	tar cfv cabw_enc.tar \
-		src/interface.cpp \
+		$(SRCDIR) \
 		makefile \
-		$(SRCDIR)/*.cpp \
-		$(SRCDIR)/*.h \
-		cadical/*.a \
-		cadical/*.hpp
+		$(CADICAL_LIB_DIR)/*.a \
+		$(CADICAL_LIB_DIR)/*.hpp

@@ -1,0 +1,39 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 3600.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 1.
+c [Param] LB is predefined as 283.
+c [Param] UB is predefined as 283.
+c [Main] Encoding and solving for graph: V-nos6.mtx.rnd.
+c [Main] Search strategy: Iterating from lower bound.
+c [Main] Lower bound is set to 163.
+c [Main] Upper bound is set to 337.
+c [Main] LB 163 is overwritten with 283.
+c [Main] UB 337 is overwritten with 283.
+c [Main] Search order: 283.
+c [w = 283] Start task in PID: 54817.
+c [w = 283] Cyclic Antibandwidth problem with w = 283 (V-nos6.mtx.rnd):
+c [w = 283] Initializing CaDiCaL (version 2.2.1).
+c [w = 283] Configuring CaDiCaL as --sat (1).
+c [w = 283] Encoding starts with w = 283:
+c [w = 283] Symmetry breaking highest degree node is applied.
+c [w = 283] Encoding duration: 5934 ms.
+c [w = 283] Number of clauses: 8653702.
+c [w = 283] Number of variables: 1545750.
+c [w = 283] SAT Solving starts:
+c [w = 283] Solving duration: 2370918 ms.
+c [w = 283] Answer:
+s [w = 283] SAT (w = 283).
+c [w = 283] Solution check = 283.
+c [w = 283] The solution is correct.
+c [w = 283] Result: 10.
+c [Main] Max width SAT is set to 283.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	283.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 2378005 ms.
+r [Main] Total memory consumed: 3363.4 MB.
+r [Main] 

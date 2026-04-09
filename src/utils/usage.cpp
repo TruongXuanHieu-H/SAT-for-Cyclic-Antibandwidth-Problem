@@ -39,11 +39,17 @@ const std::map<std::string, std::string> Helper::option_list = {
     {"-symmetry-break first", "Fix first vertex"},
     {"-symmetry-break highest-degree", "Fix highest-degree vertex"},
     {"-symmetry-break lowest-degree", "Fix lowest-degree vertex"},
+
+    // SAT Solver
+    {"-sat-solver <solver>", "Specify the SAT solver to use (currently only supports 'cadical')"},
+
+    // Print dimacs
+    {"-just-print-dimacs <dimacs directory>", "Only encodes and prints the generated DIMACS CNF formula to the specified directory, without invoking the SAT solver"},
 };
 
 void Helper::print_usage()
 {
-    std::cout << "c [Usage] Usage: abw_enc path_to_graph_file/graph_file.mtx.rnd [ <option> ... ].\n";
+    std::cout << "c [Usage] Usage: cabw_enc path_to_graph_file [ <option> ... ].\n";
     std::cout << "c [Usage] where '<option>' is one of the following options:\n";
     std::cout << std::endl;
     for (const auto &option : option_list)

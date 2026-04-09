@@ -64,6 +64,7 @@ int main(int argc, char **argv)
         {
             Helper::print_usage();
             delete cabw_enc;
+            cabw_enc = nullptr;
             return 0;
         }
         else if (argv[i] == std::string("--ladder"))
@@ -99,7 +100,7 @@ int main(int argc, char **argv)
             GlobalData::forced_lb = get_number_arg(argv[++i]);
             if (GlobalData::forced_lb < 2)
             {
-                std::cerr << "e [Param] Error, width has to be at least 2.\n";
+                std::cerr << "e [Param] Error, lower bound has to be at least 2.\n";
                 delete cabw_enc;
                 return 1;
             }
@@ -109,9 +110,9 @@ int main(int argc, char **argv)
         else if (argv[i] == std::string("-set-ub"))
         {
             GlobalData::forced_ub = get_number_arg(argv[++i]);
-            if (GlobalData::forced_ub <= 0)
+            if (GlobalData::forced_ub < 2)
             {
-                std::cerr << "e [Param] Error, width has to be positive.\n";
+                std::cerr << "e [Param] Error, upper bound has to be at least 2.\n";
                 delete cabw_enc;
                 return 1;
             }
@@ -220,6 +221,23 @@ int main(int argc, char **argv)
                 return 1;
             }
         }
+        else if (argv[i] == std::string("-sat-solver"))
+        {
+            std::string solver_type = argv[++i];
+            if (solver_type == "cadical")
+                GlobalData::sat_solver_type = SATSolverType::CaDiCaL;
+            else
+            {
+                std::cerr << "e [Param] Unrecognized SAT solver type: " << solver_type << std::endl;
+                delete cabw_enc;
+                return 1;
+            }
+        }
+        else if (argv[i] == std::string("-just-print-dimacs"))
+        {
+            GlobalData::just_print_dimacs = true;
+            GlobalData::dimacs_directory = argv[++i];
+       }
         else
         {
             std::cerr << "e [Param] Unrecognized option: " << argv[i] << std::endl;
@@ -229,8 +247,12 @@ int main(int argc, char **argv)
         }
     }
 
-    cabw_enc->encode_and_solve();
+    if (GlobalData::just_print_dimacs)
+        cabw_enc->encode_and_print_dimacs();
+    else
+        cabw_enc->encode_and_solve();
 
     delete cabw_enc;
+    cabw_enc = nullptr;
     return 0;
 }

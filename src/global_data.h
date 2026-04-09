@@ -5,6 +5,7 @@
 #include "enum/encode_type.h"
 #include "enum/search_strategy.h"
 #include "enum/symmetry_breaking_type.h"
+#include "enum/sat_solver_type.h"
 #include <unordered_map>
 #include <limits>
 
@@ -21,6 +22,10 @@ public:
     static EncodeType encode_type;
     static SearchStrategy search_strategy;
     static SymmetryBreakingType symmetry_break_strategy;
+    static SATSolverType sat_solver_type;
+
+    static bool just_print_dimacs;
+    static std::string dimacs_directory;
 
     static bool enable_solution_verification;
     static int split_limit;

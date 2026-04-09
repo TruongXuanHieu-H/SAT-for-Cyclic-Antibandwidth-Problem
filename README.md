@@ -4,11 +4,33 @@ SAT-CAB is a SAT-based solver for the **Cyclic AntiBandwidth** problem.
 
 The tool encodes the decision version of the problem (for a given width) into a CNF formula, then uses **CaDiCaL** as the SAT solver to evaluate it.
 
-Other versions of CaDiCaL may be used by replacing `cadical.hpp` and `libcadical.a` in the `cadical/` directory. Compatibility is not guaranteed.
+Other versions of CaDiCaL may be used by replacing `cadical.hpp` and `libcadical.a` in the `solver/cadical/` directory. Compatibility is not guaranteed.
+
+---
+## Benchmark for SAT Competition 2026
+
+The benchmark instances submitted to SAT Competition 2026 are located in [selected_instances](sat_competition_2026_benchmark/harwell_boeing/selected_instances).
+
+In addition, we provide a set of particularly challenging instances that were not submitted to the competition, available in [non_selected_instances](sat_competition_2026_benchmark/harwell_boeing/non_selected_instances).
+
+Detailed information about all instances, including experimental configurations and general statistics, can be found in [HB_benchmark_information.xlsx](sat_competition_2026_benchmark/harwell_boeing/HB_benchmark_information.xlsx). This file contains two sheets: **Selected instances**, which lists the submitted benchmarks, and **All instances**, which includes both submitted and non-submitted instances.
+
+---
+## Experiment Results
+
+The experiment results are located in [results](experiments/results). Note that `experiments/results/logs_150s` and `experiments/results/logs_1800s` include the experiment results on the CAB problem, while `experiments/results/logs_single_width` includes the experiment results on a single CAB value.
+
+We also include the tools to automatically run the experiments with all implemented configurations. They basically are several **.sh** files and located in [run_tool](experiments/run_tools) directory.
 
 ---
 
 ## Build
+
+```bash
+make
+```
+
+If you want a clean build, instead run:
 
 ```bash
 make clean && make
@@ -35,10 +57,10 @@ The executable `cabw_enc` will be generated in the `build/` directory.
     Print usage message
 
 --ladder
-    Use ladder encoding
+    Use ladder encoding (Our proposed encoding)
 
 --check-solution
-    Verify the computed solution
+    Verify the computed solution for Cyclic Antibandwidth Problem
 ```
 
 ### Search Strategies
@@ -117,6 +139,24 @@ The executable `cabw_enc` will be generated in the `build/` directory.
 
 -symmetry-break lowest-degree
     Fix lowest-degree vertex
+```
+
+---
+
+### SAT Solver
+
+```
+-sat-solver <sat solver>
+    Specify the SAT solver to use (currently only supports 'cadical')
+```
+
+---
+
+### Print dimacs
+
+```
+-just-print-dimacs <dimacs directory>
+    Encodes and prints dimacs to given directory without solving it.
 ```
 
 ---
