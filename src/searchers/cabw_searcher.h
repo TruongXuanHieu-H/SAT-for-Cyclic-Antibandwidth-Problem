@@ -33,8 +33,14 @@ protected:
 
     int is_limit_satisfied();
 
-    void lookup_bounds(int &lb, int &ub);
-    void setup_bounds(int &w_from, int &w_to);
+    void setup_bounds();
+    void lookup_bounds();
+    void lookup_lower_bound();
+    void lookup_upper_bound();
+    void override_bounds();
+    void override_lower_bound();
+    void override_upper_bound();
+    void modify_bound();
 
     void create_limit_pid();
     void create_cabp_pid(int width);

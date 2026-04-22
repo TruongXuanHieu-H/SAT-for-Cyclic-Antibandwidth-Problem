@@ -15,7 +15,7 @@ CabwSearcher::CabwSearcher()
 {
     max_consumed_memory = (float *)mmap(nullptr, sizeof(float), PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
 
-    setup_bounds(lower_bound, upper_bound);
+    setup_bounds();
     max_width_SAT = lower_bound - 1;
     min_width_UNSAT = upper_bound + 1;
 }
@@ -67,59 +67,81 @@ int CabwSearcher::is_limit_satisfied()
     return 0;
 }
 
-void CabwSearcher::setup_bounds(int &w_from, int &w_to)
+void CabwSearcher::setup_bounds()
 {
-    lookup_bounds(w_from, w_to);
+    lookup_bounds();
+    override_bounds();
+    modify_bound();
 
+    assert((lower_bound >= 2) && (lower_bound <= upper_bound) && (upper_bound <= GlobalData::g->n / 2));
+}
+
+void CabwSearcher::override_bounds()
+{
+    override_lower_bound();
+    override_upper_bound();
+}
+
+void CabwSearcher::override_lower_bound()
+{
     if (GlobalData::overwrite_lb)
     {
-        std::cout << "c [Main] LB " << w_from << " is overwritten with " << GlobalData::forced_lb << ".\n";
-        w_from = GlobalData::forced_lb;
+        std::cout << "c [Main] LB " << lower_bound << " is overwritten with " << GlobalData::forced_lb << ".\n";
+        lower_bound = GlobalData::forced_lb;
     }
+}
+
+void CabwSearcher::override_upper_bound()
+{
     if (GlobalData::overwrite_ub)
     {
-        std::cout << "c [Main] UB " << w_to << " is overwritten with " << GlobalData::forced_ub << ".\n";
-        w_to = GlobalData::forced_ub;
+        std::cout << "c [Main] UB " << upper_bound << " is overwritten with " << GlobalData::forced_ub << ".\n";
+        upper_bound = GlobalData::forced_ub;
     }
-    if (w_from > w_to)
+}
+
+void CabwSearcher::lookup_bounds()
+{
+    lookup_lower_bound();
+    lookup_upper_bound();
+}
+
+void CabwSearcher::lookup_upper_bound()
+{
+    auto pos = GlobalData::cabw_UBs.find(GlobalData::g->graph_name);
+    if (pos != GlobalData::cabw_UBs.end())
     {
-        int tmp = w_from;
-        w_from = w_to;
-        w_to = tmp;
-        std::cout << "c [Main] Flipped LB and UB to avoid LB > UB: (LB = " << w_from << ", UB = " << w_to << ").\n";
+        upper_bound = pos->second;
+        std::cout << "c [Main] Upper bound is set to " << upper_bound << ".\n";
     }
+    else
+    {
+        upper_bound = GlobalData::g->n / 2;
+        std::cout << "c [Main] No predefined upper bound is found for " << GlobalData::g->graph_name << ".\n";
+        std::cout << "c [Main] UB-w = " << upper_bound << " (default value calculated as n/2).\n";
+    }
+}
 
-    assert((w_from <= w_to) && (w_from >= 1));
-};
-
-void CabwSearcher::lookup_bounds(int &lb, int &ub)
+void CabwSearcher::lookup_lower_bound()
 {
     auto pos = GlobalData::cabw_LBs.find(GlobalData::g->graph_name);
     if (pos != GlobalData::cabw_LBs.end())
     {
-        lb = pos->second;
-        std::cout << "c [Main] Lower bound is set to " << lb << ".\n";
+        lower_bound = pos->second;
+        std::cout << "c [Main] Lower bound is set to " << lower_bound << ".\n";
     }
     else
     {
-        lb = 2;
+        lower_bound = 2;
         std::cout << "c [Main] No predefined lower bound is found for " << GlobalData::g->graph_name << ".\n";
         std::cout << "c [Main] LB-w = 2 (default value).\n";
     }
+}
 
-    pos = GlobalData::cabw_UBs.find(GlobalData::g->graph_name);
-    if (pos != GlobalData::cabw_UBs.end())
-    {
-        ub = pos->second;
-        std::cout << "c [Main] Upper bound is set to " << ub << ".\n";
-    }
-    else
-    {
-        ub = GlobalData::g->n / 2;
-        std::cout << "c [Main] No predefined upper bound is found for " << GlobalData::g->graph_name << ".\n";
-        std::cout << "c [Main] UB-w = " << ub << " (default value calculated as n/2).\n";
-    }
-};
+void CabwSearcher::modify_bound()
+{
+    
+}
 
 void CabwSearcher::create_limit_pid()
 {

@@ -104,6 +104,12 @@ int main(int argc, char **argv)
                 delete cabw_enc;
                 return 1;
             }
+            if (GlobalData::forced_lb > GlobalData::g->n / 2)
+            {
+                std::cerr << "e [Param] Error, lower bound cannot be greater than n/2.\n";
+                delete cabw_enc;
+                return 1;
+            }
             GlobalData::overwrite_lb = true;
             std::cout << "c [Param] LB is predefined as " << GlobalData::forced_lb << ".\n";
         }
@@ -113,6 +119,18 @@ int main(int argc, char **argv)
             if (GlobalData::forced_ub < 2)
             {
                 std::cerr << "e [Param] Error, upper bound has to be at least 2.\n";
+                delete cabw_enc;
+                return 1;
+            }
+            if (GlobalData::forced_ub > GlobalData::g->n / 2)
+            {
+                std::cerr << "e [Param] Error, upper bound cannot be greater than n/2.\n";
+                delete cabw_enc;
+                return 1;
+            }
+            if (GlobalData::forced_ub < GlobalData::forced_lb)
+            {
+                std::cerr << "e [Param] Error, upper bound cannot be less than lower bound.\n";
                 delete cabw_enc;
                 return 1;
             }

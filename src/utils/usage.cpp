@@ -18,8 +18,8 @@ const std::map<std::string, std::string> Helper::option_list = {
     {"--binary-search-bfs", "Binary search using BFS-style exploration"},
 
     // Bounds
-    {"-set-lb <int>", "Set lower bound (must be >= 2)"},
-    {"-set-ub <int>", "Set upper bound (must be > 0)"},
+    {"-set-lb <int>", "Set lower bound (2 <= lower bound <= upper bound <= number of vertices/2)"},
+    {"-set-ub <int>", "Set upper bound (2 <= lower bound <= upper bound <= number of vertices/2)"},
 
     // Resource limits
     {"-limit-memory <int>", "Set memory limit"},
