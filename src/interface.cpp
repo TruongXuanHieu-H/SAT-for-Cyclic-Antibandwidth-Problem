@@ -1,11 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <string>
 #include <iostream>
-#include <iomanip>
-#include <signal.h>
+#include <unordered_map>
+#include <functional>
 #include <stdexcept>
-#include <map>
 
 #include "global_data.h"
 #include "cabw_encoder.h"
@@ -15,28 +12,25 @@
 #include "enum/encode_type.h"
 #include "enum/search_strategy.h"
 
-int get_number_arg(std::string const &arg)
+using Command = std::function<void(int&, int, char**)>;
+
+int get_int(const std::string& arg)
 {
-    try
-    {
-        std::size_t pos;
-        int x = std::stoi(arg, &pos);
-        if (pos < arg.size())
-        {
-            std::cerr << "e [Param] Trailing characters after number: " << arg << '\n';
-        }
-        return x;
+    try {
+        return std::stoi(arg);
+    } catch (const std::exception& e) {
+        throw std::runtime_error("Invalid number: " + arg);
     }
-    catch (std::invalid_argument const &ex)
-    {
-        std::cerr << "e [Param] Invalid number: " << arg << '\n';
-        return 0;
-    }
-    catch (std::out_of_range const &ex)
-    {
-        std::cerr << "e [Param] Number out of range: " << arg << '\n';
-        return 0;
-    }
+}
+
+int get_positive(int& i, int argc, char** argv, const std::string& name)
+{
+    if (i + 1 >= argc)
+        throw std::runtime_error("Missing value for " + name);
+    int val = get_int(argv[++i]);
+    if (val <= 0)
+        throw std::runtime_error(name + " must be positive");
+    return val;
 }
 
 int main(int argc, char **argv)
@@ -52,225 +46,196 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    CyclicAntiBandwidthEncoder *cabw_enc = new CyclicAntiBandwidthEncoder();
+    CyclicAntiBandwidthEncoder cabw_enc;
 
-    for (int i = 1; i < argc; i++)
+    std::unordered_map<std::string, Command> cmd;
+
+    cmd["--ladder"] = [](int&, int, char**) 
     {
-        if (argv[i][0] != '-')
-        {
-            GlobalData::read_graph(argv[i]);
-        }
-        else if (argv[i] == std::string("--help"))
-        {
-            Helper::print_usage();
-            delete cabw_enc;
-            cabw_enc = nullptr;
-            return 0;
-        }
-        else if (argv[i] == std::string("--ladder"))
-        {
-            GlobalData::encode_type = EncodeType::Ladder;
-        }
-        else if (argv[i] == std::string("--check-solution"))
-        {
-            GlobalData::enable_solution_verification = true;
-        }
-        else if (argv[i] == std::string("--iterate-from-lb"))
-        {
-            GlobalData::search_strategy = SearchStrategy::iterate_from_lb;
-        }
-        else if (argv[i] == std::string("--step-from-lb"))
-        {
-            GlobalData::search_strategy = SearchStrategy::step_from_lb;
-        }
-        else if (argv[i] == std::string("--binary-search-from-lb"))
-        {
-            GlobalData::search_strategy = SearchStrategy::binary_search_from_lb;
-        }
-        else if (argv[i] == std::string("--binary-search-from-ub"))
-        {
-            GlobalData::search_strategy = SearchStrategy::binary_search_from_ub;
-        }
-        else if (argv[i] == std::string("--binary-search-bfs"))
-        {
-            GlobalData::search_strategy = SearchStrategy::binary_search_bfs;
-        }
-        else if (argv[i] == std::string("-set-lb"))
-        {
-            GlobalData::forced_lb = get_number_arg(argv[++i]);
-            if (GlobalData::forced_lb < 2)
-            {
-                std::cerr << "e [Param] Error, lower bound has to be at least 2.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            if (GlobalData::forced_lb > GlobalData::g->n / 2)
-            {
-                std::cerr << "e [Param] Error, lower bound cannot be greater than n/2.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            GlobalData::overwrite_lb = true;
-            std::cout << "c [Param] LB is predefined as " << GlobalData::forced_lb << ".\n";
-        }
-        else if (argv[i] == std::string("-set-ub"))
-        {
-            GlobalData::forced_ub = get_number_arg(argv[++i]);
-            if (GlobalData::forced_ub < 2)
-            {
-                std::cerr << "e [Param] Error, upper bound has to be at least 2.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            if (GlobalData::forced_ub > GlobalData::g->n / 2)
-            {
-                std::cerr << "e [Param] Error, upper bound cannot be greater than n/2.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            if (GlobalData::forced_ub < GlobalData::forced_lb)
-            {
-                std::cerr << "e [Param] Error, upper bound cannot be less than lower bound.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            GlobalData::overwrite_ub = true;
-            std::cout << "c [Param] UB is predefined as " << GlobalData::forced_ub << ".\n";
-        }
-        else if (argv[i] == std::string("-limit-memory"))
-        {
-            int lim_mem = get_number_arg(argv[++i]);
-            if (lim_mem <= 0)
-            {
-                std::cerr << "e [Param] Error, memory limit has to be positive.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            std::cout << "c [Param] Memory limit is set to " << lim_mem << ".\n";
-            GlobalData::memory_limit = lim_mem;
-        }
-        else if (argv[i] == std::string("-limit-real-time"))
-        {
-            int limit_real_time = get_number_arg(argv[++i]);
-            if (limit_real_time <= 0)
-            {
-                std::cerr << "e [Param] Error, real time limit has to be positive.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            std::cout << "c [Param] Real time limit is set to " << limit_real_time << ".\n";
-            GlobalData::real_time_limit = limit_real_time;
-        }
-        else if (argv[i] == std::string("-limit-elapsed-time"))
-        {
-            int limit_elapsed_time = get_number_arg(argv[++i]);
-            if (limit_elapsed_time <= 0)
-            {
-                std::cerr << "e [Param] Error, elapsed time limit has to be positive.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            std::cout << "c [Param] Elapsed time limit is set to " << limit_elapsed_time << ".\n";
-            GlobalData::elapsed_time_limit = limit_elapsed_time;
-        }
-        else if (argv[i] == std::string("-sample-rate"))
-        {
-            int sample_rate = get_number_arg(argv[++i]);
-            if (sample_rate <= 0)
-            {
-                std::cerr << "e [Param] Error, sample rate has to be positive.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            std::cout << "c [Param] Sample rate is set to " << sample_rate << ".\n";
-            GlobalData::sample_rate = sample_rate;
-        }
-        else if (argv[i] == std::string("-report-rate"))
-        {
-            int report_rate = get_number_arg(argv[++i]);
-            if (report_rate <= 0)
-            {
-                std::cerr << "e [Param] Error, sample rate has to be positive.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            std::cout << "c [Param] Sample rate is set to " << report_rate << ".\n";
-            GlobalData::report_rate = report_rate;
-        }
-        else if (argv[i] == std::string("-split-size"))
-        {
-            int split_size = get_number_arg(argv[++i]);
-            if (split_size <= 0)
-            {
-                std::cerr << "e [Param] Error, split size has to be positive.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            std::cout << "c [Param] Splitting clauses at length " << split_size << ".\n";
-            GlobalData::split_limit = split_size;
-        }
-        else if (argv[i] == std::string("-worker-count"))
-        {
-            int worker_count = get_number_arg(argv[++i]);
-            if (worker_count <= 0)
-            {
-                std::cerr << "e [Param] Error, worker count has to be positive.\n";
-                delete cabw_enc;
-                return 1;
-            }
-            std::cout << "c [Param] Worker count is set to " << worker_count << ".\n";
-            GlobalData::worker_count = worker_count;
-        }
-        else if (argv[i] == std::string("-symmetry-break"))
-        {
-            std::string sb_type = argv[++i];
-            if (sb_type == "none")
-                GlobalData::symmetry_break_strategy = SymmetryBreakingType::NONE;
-            else if (sb_type == "first")
-                GlobalData::symmetry_break_strategy = SymmetryBreakingType::FIRST;
-            else if (sb_type == "highest-degree")
-                GlobalData::symmetry_break_strategy = SymmetryBreakingType::HIGHEST_DEGREE;
-            else if (sb_type == "lowest-degree")
-                GlobalData::symmetry_break_strategy = SymmetryBreakingType::LOWEST_DEGREE;
-            else
-            {
-                std::cerr << "e [Param] Unrecognized symmetry breaking type: " << sb_type << std::endl;
-                delete cabw_enc;
-                return 1;
-            }
-        }
-        else if (argv[i] == std::string("-sat-solver"))
-        {
-            std::string solver_type = argv[++i];
-            if (solver_type == "cadical")
-                GlobalData::sat_solver_type = SATSolverType::CaDiCaL;
-            else
-            {
-                std::cerr << "e [Param] Unrecognized SAT solver type: " << solver_type << std::endl;
-                delete cabw_enc;
-                return 1;
-            }
-        }
-        else if (argv[i] == std::string("-just-print-dimacs"))
-        {
-            GlobalData::just_print_dimacs = true;
-            GlobalData::dimacs_directory = argv[++i];
-       }
-        else
-        {
-            std::cerr << "e [Param] Unrecognized option: " << argv[i] << std::endl;
+        GlobalData::encode_type = EncodeType::Ladder;
+    };
 
-            delete cabw_enc;
-            return 1;
+    cmd["--check-solution"] = [](int&, int, char**) 
+    {
+        GlobalData::enable_solution_verification = true;
+    };
+
+    cmd["--iterate-from-lb"] = [](int&, int, char**) 
+    {
+        GlobalData::search_strategy = SearchStrategy::iterate_from_lb;
+    };
+
+    cmd["--step-from-lb"] = [](int&, int, char**) 
+    {
+        GlobalData::search_strategy = SearchStrategy::step_from_lb;
+    };
+
+    cmd["--binary-search-from-lb"] = [](int&, int, char**) 
+    {
+        GlobalData::search_strategy = SearchStrategy::binary_search_from_lb;
+    };
+
+    cmd["--binary-search-from-ub"] = [](int&, int, char**) 
+    {
+        GlobalData::search_strategy = SearchStrategy::binary_search_from_ub;
+    };
+
+    cmd["--binary-search-bfs"] = [](int&, int, char**) 
+    {
+        GlobalData::search_strategy = SearchStrategy::binary_search_bfs;
+    };
+
+    cmd["-set-lb"] = [](int& i, int argc, char** argv) 
+    {
+        int val = get_positive(i, argc, argv, "lower bound");
+
+        if (val < 2)
+            throw std::runtime_error("Lower bound has to be at least 2");
+        if (val > GlobalData::g->n / 2)
+            throw std::runtime_error("Lower bound cannot be greater than n/2");
+
+        GlobalData::forced_lb = val;
+        GlobalData::overwrite_lb = true;
+
+        std::cout << "c [Param] LB is predefined as " << val << ".\n";
+    };
+
+    cmd["-set-ub"] = [](int& i, int argc, char** argv) 
+    {
+        int val = get_positive(i, argc, argv, "upper bound");
+
+        if (val < 2)
+            throw std::runtime_error("Upper bound has to be at least 2");
+        if (val > GlobalData::g->n / 2)
+            throw std::runtime_error("Upper bound cannot be greater than n/2");
+        
+        GlobalData::forced_ub = val;
+        GlobalData::overwrite_ub = true;
+
+        std::cout << "c [Param] UB is predefined as " << val << ".\n";
+    };
+
+    cmd["-limit-memory"] = [](int& i, int argc, char** argv) 
+    {
+        int v = get_positive(i, argc, argv, "memory limit");
+        GlobalData::memory_limit = v;
+        std::cout << "c [Param] Memory limit is set to " << v << ".\n";
+    };
+
+    cmd["-limit-real-time"] = [](int& i, int argc, char** argv) 
+    {
+        int v = get_positive(i, argc, argv, "real time limit");
+        GlobalData::real_time_limit = v;
+        std::cout << "c [Param] Real time limit is set to " << v << ".\n";
+    };
+
+    cmd["-limit-elapsed-time"] = [](int& i, int argc, char** argv) 
+    {
+        int v = get_positive(i, argc, argv, "elapsed time limit");
+        GlobalData::elapsed_time_limit = v;
+        std::cout << "c [Param] Elapsed time limit is set to " << v << ".\n";
+    };
+
+    cmd["-sample-rate"] = [](int& i, int argc, char** argv) 
+    {
+        int v = get_positive(i, argc, argv, "sample rate");
+        GlobalData::sample_rate = v;
+        std::cout << "c [Param] Sample rate is set to " << v << ".\n";
+    };
+
+    cmd["-report-rate"] = [](int& i, int argc, char** argv) 
+    {
+        int v = get_positive(i, argc, argv, "report rate");
+        GlobalData::report_rate = v;
+        std::cout << "c [Param] Report rate is set to " << v << ".\n";
+    };
+
+    cmd["-split-size"] = [](int& i, int argc, char** argv) 
+    {
+        int v = get_positive(i, argc, argv, "split size");
+        GlobalData::split_limit = v;
+        std::cout << "c [Param] Splitting clauses at length " << v << ".\n";
+    };
+
+    cmd["-worker-count"] = [](int& i, int argc, char** argv) 
+    {
+        int v = get_positive(i, argc, argv, "worker count");
+        GlobalData::worker_count = v;
+        std::cout << "c [Param] Worker count is set to " << v << ".\n";
+    };
+
+    cmd["-symmetry-break"] = [](int& i, int argc, char** argv) 
+    {
+        if (i + 1 >= argc)
+            throw std::runtime_error("Missing symmetry type");
+
+        std::string s = argv[++i];
+
+        if (s == "none")
+            GlobalData::symmetry_break_strategy = SymmetryBreakingType::NONE;
+        else if (s == "first")
+            GlobalData::symmetry_break_strategy = SymmetryBreakingType::FIRST;
+        else if (s == "highest-degree")
+            GlobalData::symmetry_break_strategy = SymmetryBreakingType::HIGHEST_DEGREE;
+        else if (s == "lowest-degree")
+            GlobalData::symmetry_break_strategy = SymmetryBreakingType::LOWEST_DEGREE;
+        else
+            throw std::runtime_error("Unrecognized symmetry breaking type: " + s);
+    };
+
+    cmd["-sat-solver"] = [](int& i, int argc, char** argv) 
+    {
+        if (i + 1 >= argc)
+            throw std::runtime_error("Missing solver type");
+
+        std::string s = argv[++i];
+
+        if (s == "cadical")
+            GlobalData::sat_solver_type = SATSolverType::CaDiCaL;
+        else
+            throw std::runtime_error("Unrecognized SAT solver type: " + s);
+    };
+
+    cmd["-just-print-dimacs"] = [](int& i, int argc, char** argv) 
+    {
+        if (i + 1 >= argc)
+            throw std::runtime_error("Missing directory");
+
+        GlobalData::just_print_dimacs = true;
+        GlobalData::dimacs_directory = argv[++i];
+    };
+
+    try {
+        for (int i = 1; i < argc; i++) 
+        {
+            std::string arg = argv[i];
+
+            if (arg[0] != '-') {
+                GlobalData::read_graph(arg);
+                continue;
+            }
+
+            auto it = cmd.find(arg);
+            if (it != cmd.end()) {
+                it->second(i, argc, argv);
+            } else if (arg == "--help") {
+                Helper::print_usage();
+                return 0;
+            } else {
+                throw std::runtime_error("Unrecognized option: " + arg);
+            }
         }
+    }
+    catch (const std::exception& e) 
+    {
+        std::cerr << "e [Param] " << e.what() << "\n";
+        return 1;
     }
 
     if (GlobalData::just_print_dimacs)
-        cabw_enc->encode_and_print_dimacs();
+        cabw_enc.encode_and_print_dimacs();
     else
-        cabw_enc->encode_and_solve();
+        cabw_enc.encode_and_solve();
 
-    delete cabw_enc;
-    cabw_enc = nullptr;
     return 0;
 }
