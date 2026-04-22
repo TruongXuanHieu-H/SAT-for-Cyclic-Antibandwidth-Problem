@@ -47,7 +47,8 @@ protected:
     int do_cabp_pid_task(int width);
 
     std::deque<int> search_order; // Stores the order of widths to search
-    int get_next_width_to_search();
     virtual std::deque<int> create_search_order() = 0;
+    int get_next_width_to_search();
+    
 };
 #endif // CABW_SEARCHER_H
