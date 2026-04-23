@@ -1,0 +1,66 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 150.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 4.
+c [Param] LB skip threshold is set to 0.25.
+c [Main] Encoding and solving for graph: caterpillar_30_25.txt.
+c [Main] Search strategy: Binary search from lower bound.
+c [Main] No predefined lower bound is found for caterpillar_30_25.txt.
+c [Main] LB-w = 2 (default value).
+c [Main] No predefined upper bound is found for caterpillar_30_25.txt.
+c [Main] UB-w = 375 (default value calculated as n/2).
+c [Main] LB is modified to 95 after applying LB skip threshold 0.25.
+c [Main] Search order: 235 164 129 111 102 98 96 95 97 100 99 101 106 104 103 105 108 107 109 110 120 115 113 112 114 117 116 118 119 124 122 121 123 126 125 127 128 146 137 133 131 130 132 135 134 136 141 139 138 140 143 142 144 145 155 150 148 147 149 152 151 153 154 159 157 156 158 161 160 162 163 199 181 172 168 166 165 167 170 169 171 176 174 173 175 178 177 179 180 190 185 183 182 184 187 186 188 189 194 192 191 193 196 195 197 198 217 208 203 201 200 202 205 204 206 207 212 210 209 211 214 213 215 216 226 221 219 218 220 223 222 224 225 230 228 227 229 232 231 233 234 305 270 252 243 239 237 236 238 241 240 242 247 245 244 246 249 248 250 251 261 256 254 253 255 258 257 259 260 265 263 262 264 267 266 268 269 287 278 274 272 271 273 276 275 277 282 280 279 281 284 283 285 286 296 291 289 288 290 293 292 294 295 300 298 297 299 302 301 303 304 340 322 313 309 307 306 308 311 310 312 317 315 314 316 319 318 320 321 331 326 324 323 325 328 327 329 330 335 333 332 334 337 336 338 339 358 349 344 342 341 343 346 345 347 348 353 351 350 352 355 354 356 357 367 362 360 359 361 364 363 365 366 371 369 368 370 373 372 374 375.
+c [w = 111] Start task in PID: 56228.
+c [w = 111] Cyclic Antibandwidth problem with w = 111 (caterpillar_30_25.txt):
+c [w = 111] Initializing CaDiCaL (version 2.1.3).
+c [w = 111] Configuring CaDiCaL as --sat (1).
+c [w = 111] Encoding starts with w = 111:
+c [w = 111] Symmetry breaking highest degree node is applied.
+c [w = 111] Encoding duration: 6038 ms.
+c [w = 111] Number of clauses: 8088396.
+c [w = 111] Number of variables: 1771500.
+c [w = 111] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 129] Start task in PID: 56227.
+c [w = 129] Cyclic Antibandwidth problem with w = 129 (caterpillar_30_25.txt):
+c [w = 129] Initializing CaDiCaL (version 2.1.3).
+c [w = 129] Configuring CaDiCaL as --sat (1).
+c [w = 129] Encoding starts with w = 129:
+c [w = 129] Symmetry breaking highest degree node is applied.
+c [w = 129] Encoding duration: 6121 ms.
+c [w = 129] Number of clauses: 8098893.
+c [w = 129] Number of variables: 1771500.
+c [w = 129] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 164] Start task in PID: 56226.
+c [w = 164] Cyclic Antibandwidth problem with w = 164 (caterpillar_30_25.txt):
+c [w = 164] Initializing CaDiCaL (version 2.1.3).
+c [w = 164] Configuring CaDiCaL as --sat (1).
+c [w = 164] Encoding starts with w = 164:
+c [w = 164] Symmetry breaking highest degree node is applied.
+c [w = 164] Encoding duration: 6009 ms.
+c [w = 164] Number of clauses: 8233140.
+c [w = 164] Number of variables: 1808250.
+c [w = 164] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 235] Start task in PID: 56225.
+c [w = 235] Cyclic Antibandwidth problem with w = 235 (caterpillar_30_25.txt):
+c [w = 235] Initializing CaDiCaL (version 2.1.3).
+c [w = 235] Configuring CaDiCaL as --sat (1).
+c [w = 235] Encoding starts with w = 235:
+c [w = 235] Symmetry breaking highest degree node is applied.
+c [w = 235] Encoding duration: 6809 ms.
+c [w = 235] Number of clauses: 8561637.
+c [w = 235] Number of variables: 1900500.
+c [w = 235] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	-.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 150977 ms.
+r [Main] Total memory consumed: 9397.4 MB.
+r [Main] 

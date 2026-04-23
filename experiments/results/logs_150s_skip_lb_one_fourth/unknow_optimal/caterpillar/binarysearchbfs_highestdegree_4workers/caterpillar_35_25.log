@@ -1,0 +1,66 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 150.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 4.
+c [Param] LB skip threshold is set to 0.25.
+c [Main] Encoding and solving for graph: caterpillar_35_25.txt.
+c [Main] Search strategy: Binary search using BFS.
+c [Main] No predefined lower bound is found for caterpillar_35_25.txt.
+c [Main] LB-w = 2 (default value).
+c [Main] No predefined upper bound is found for caterpillar_35_25.txt.
+c [Main] UB-w = 437 (default value calculated as n/2).
+c [Main] LB is modified to 110 after applying LB skip threshold 0.25.
+c [Main] Search order: 273 191 355 150 232 314 396 129 170 211 252 293 334 375 417 119 139 160 180 201 221 242 262 283 303 324 344 365 385 406 427 114 124 134 144 155 165 175 185 196 206 216 226 237 247 257 267 278 288 298 308 319 329 339 349 360 370 380 390 401 411 422 432 111 116 121 126 131 136 141 147 152 157 162 167 172 177 182 188 193 198 203 208 213 218 223 229 234 239 244 249 254 259 264 270 275 280 285 290 295 300 305 311 316 321 326 331 336 341 346 352 357 362 367 372 377 382 387 393 398 403 408 414 419 424 429 435 110 112 115 117 120 122 125 127 130 132 135 137 140 142 145 148 151 153 156 158 161 163 166 168 171 173 176 178 181 183 186 189 192 194 197 199 202 204 207 209 212 214 217 219 222 224 227 230 233 235 238 240 243 245 248 250 253 255 258 260 263 265 268 271 274 276 279 281 284 286 289 291 294 296 299 301 304 306 309 312 315 317 320 322 325 327 330 332 335 337 340 342 345 347 350 353 356 358 361 363 366 368 371 373 376 378 381 383 386 388 391 394 397 399 402 404 407 409 412 415 418 420 423 425 428 430 433 436 113 118 123 128 133 138 143 146 149 154 159 164 169 174 179 184 187 190 195 200 205 210 215 220 225 228 231 236 241 246 251 256 261 266 269 272 277 282 287 292 297 302 307 310 313 318 323 328 333 338 343 348 351 354 359 364 369 374 379 384 389 392 395 400 405 410 413 416 421 426 431 434 437.
+c [w = 150] Start task in PID: 48648.
+c [w = 150] Cyclic Antibandwidth problem with w = 150 (caterpillar_35_25.txt):
+c [w = 150] Initializing CaDiCaL (version 2.1.3).
+c [w = 150] Configuring CaDiCaL as --sat (1).
+c [w = 150] Encoding starts with w = 150:
+c [w = 150] Symmetry breaking highest degree node is applied.
+c [w = 150] Encoding duration: 7839 ms.
+c [w = 150] Number of clauses: 11014080.
+c [w = 150] Number of variables: 2404500.
+c [w = 150] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 355] Start task in PID: 48647.
+c [w = 355] Cyclic Antibandwidth problem with w = 355 (caterpillar_35_25.txt):
+c [w = 355] Initializing CaDiCaL (version 2.1.3).
+c [w = 355] Configuring CaDiCaL as --sat (1).
+c [w = 355] Encoding starts with w = 355:
+c [w = 355] Symmetry breaking highest degree node is applied.
+c [w = 355] Encoding duration: 8289 ms.
+c [w = 355] Number of clauses: 11644946.
+c [w = 355] Number of variables: 2556750.
+c [w = 355] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 273] Start task in PID: 48645.
+c [w = 273] Cyclic Antibandwidth problem with w = 273 (caterpillar_35_25.txt):
+c [w = 273] Initializing CaDiCaL (version 2.1.3).
+c [w = 273] Configuring CaDiCaL as --sat (1).
+c [w = 273] Encoding starts with w = 273:
+c [w = 273] Symmetry breaking highest degree node is applied.
+c [w = 273] Encoding duration: 8254 ms.
+c [w = 273] Number of clauses: 11637074.
+c [w = 273] Number of variables: 2577750.
+c [w = 273] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 191] Start task in PID: 48646.
+c [w = 191] Cyclic Antibandwidth problem with w = 191 (caterpillar_35_25.txt):
+c [w = 191] Initializing CaDiCaL (version 2.1.3).
+c [w = 191] Configuring CaDiCaL as --sat (1).
+c [w = 191] Encoding starts with w = 191:
+c [w = 191] Symmetry breaking highest degree node is applied.
+c [w = 191] Encoding duration: 7901 ms.
+c [w = 191] Number of clauses: 11199577.
+c [w = 191] Number of variables: 2455250.
+c [w = 191] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Lim pid ends with result: 254.
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	-.
+r [Main] Min width UNSAT:	-.
+r [Main] Total real time: 150946 ms.
+r [Main] Total memory consumed: 12507.9 MB.
+r [Main] 

@@ -1,0 +1,154 @@
+c [Version] Cyclic Anti-bandwidth Encoder version 1.0.0.
+c [Param] Real time limit is set to 150.
+c [Param] Memory limit is set to 30000.
+c [Param] Worker count is set to 8.
+c [Param] LB skip threshold is set to 0.25.
+c [Main] Encoding and solving for graph: caterpillar_10_4.txt.
+c [Main] Search strategy: Binary search from upper bound.
+c [Main] No predefined lower bound is found for caterpillar_10_4.txt.
+c [Main] LB-w = 2 (default value).
+c [Main] No predefined upper bound is found for caterpillar_10_4.txt.
+c [Main] UB-w = 20 (default value calculated as n/2).
+c [Main] LB is modified to 6 after applying LB skip threshold 0.25.
+c [Main] Search order: 13 17 19 20 18 15 16 14 9 11 12 10 7 8 6.
+c [w = 20] Start task in PID: 65831.
+c [w = 20] Cyclic Antibandwidth problem with w = 20 (caterpillar_10_4.txt):
+c [w = 20] Initializing CaDiCaL (version 2.1.3).
+c [w = 20] Configuring CaDiCaL as --sat (1).
+c [w = 20] Encoding starts with w = 20:
+c [w = 20] Symmetry breaking highest degree node is applied.
+c [w = 20] Encoding duration: 28 ms.
+c [w = 20] Number of clauses: 23266.
+c [w = 20] Number of variables: 5440.
+c [w = 20] SAT Solving starts:
+c [w = 20] Solving duration: 0 ms.
+c [w = 20] Answer:
+s [w = 20] UNSAT (w = 20).
+c [w = 20] Result: 20.
+c [Main] Min width UNSAT is set to 20
+c [w = 13] Start task in PID: 65828.
+c [w = 13] Cyclic Antibandwidth problem with w = 13 (caterpillar_10_4.txt):
+c [w = 13] Initializing CaDiCaL (version 2.1.3).
+c [w = 13] Configuring CaDiCaL as --sat (1).
+c [w = 13] Encoding starts with w = 13:
+c [w = 13] Symmetry breaking highest degree node is applied.
+c [w = 13] Encoding duration: 27 ms.
+c [w = 13] Number of clauses: 22472.
+c [w = 13] Number of variables: 5280.
+c [w = 13] SAT Solving starts:
+c [w = 13] Solving duration: 5 ms.
+c [w = 13] Answer:
+s [w = 13] SAT (w = 13).
+c [w = 13] Solution check = 13.
+c [w = 13] The solution is correct.
+c [w = 13] Result: 10.
+c [Main] Max width SAT is set to 13.
+c [Main] Kill lower pid 9.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 9 - 65836 terminated by signal 15.
+c [w = 16] Start task in PID: 65834.
+c [w = 16] Cyclic Antibandwidth problem with w = 16 (caterpillar_10_4.txt):
+c [w = 16] Initializing CaDiCaL (version 2.1.3).
+c [w = 16] Configuring CaDiCaL as --sat (1).
+c [w = 16] Encoding starts with w = 16:
+c [w = 16] Symmetry breaking highest degree node is applied.
+c [w = 16] Encoding duration: 29 ms.
+c [w = 16] Number of clauses: 23709.
+c [w = 16] Number of variables: 5640.
+c [w = 16] SAT Solving starts:
+c [w = 16] Solving duration: 6 ms.
+c [w = 16] Answer:
+s [w = 16] SAT (w = 16).
+c [w = 16] Solution check = 16.
+c [w = 16] The solution is correct.
+c [w = 16] Result: 10.
+c [Main] Max width SAT is set to 16.
+c [Main] Kill lower pid 14.
+c [Main] Kill lower pid 15.
+c [w = 14] Start task in PID: 65835.
+c [w = 14] Cyclic Antibandwidth problem with w = 14 (caterpillar_10_4.txt):
+c [w = 14] Initializing CaDiCaL (version 2.1.3).
+c [w = 14] Configuring CaDiCaL as --sat (1).
+c [w = 14] Encoding starts with w = 14:
+c [w = 14] Symmetry breaking highest degree node is applied.
+c [w = 14] Encoding duration: 28 ms.
+c [w = 14] Number of clauses: 22909.
+c [w = 14] Number of variables: 5400.
+c [w = 14] SAT Solving starts:
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [w = 15] Start task in PID: 65833.
+c [w = 15] Cyclic Antibandwidth problem with w = 15 (caterpillar_10_4.txt):
+c [w = 15] Initializing CaDiCaL (version 2.1.3).
+c [w = 15] Configuring CaDiCaL as --sat (1).
+c [w = 15] Encoding starts with w = 15:
+c [w = 15] Symmetry breaking highest degree node is applied.
+c [w = 15] Encoding duration: 29 ms.
+c [w = 15] Number of clauses: 23309.
+c [w = 15] Number of variables: 5520.
+c [w = 15] SAT Solving starts:
+c [w = 15] Solving duration: 9 ms.
+c [w = 15] Answer:
+s [w = 15] SAT (w = 15).
+c [w = 15] Solution check = 15.
+c [w = 15] The solution is correct.
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] Child pid 15 - 65833 terminated by signal 15.
+c [Main] Child pid 14 - 65835 terminated by signal 15.
+c [w = 17] Start task in PID: 65829.
+c [w = 17] Cyclic Antibandwidth problem with w = 17 (caterpillar_10_4.txt):
+c [w = 17] Initializing CaDiCaL (version 2.1.3).
+c [w = 17] Configuring CaDiCaL as --sat (1).
+c [w = 17] Encoding starts with w = 17:
+c [w = 17] Symmetry breaking highest degree node is applied.
+c [w = 17] Encoding duration: 29 ms.
+c [w = 17] Number of clauses: 24109.
+c [w = 17] Number of variables: 5760.
+c [w = 17] SAT Solving starts:
+c [w = 17] Solving duration: 7 ms.
+c [w = 17] Answer:
+s [w = 17] SAT (w = 17).
+c [w = 17] Solution check = 17.
+c [w = 17] The solution is correct.
+c [w = 17] Result: 10.
+c [Main] Max width SAT is set to 17.
+c [w = 18] Start task in PID: 65832.
+c [w = 18] Cyclic Antibandwidth problem with w = 18 (caterpillar_10_4.txt):
+c [w = 18] Initializing CaDiCaL (version 2.1.3).
+c [w = 18] Configuring CaDiCaL as --sat (1).
+c [w = 18] Encoding starts with w = 18:
+c [w = 18] Symmetry breaking highest degree node is applied.
+c [w = 18] Encoding duration: 29 ms.
+c [w = 18] Number of clauses: 24509.
+c [w = 18] Number of variables: 5880.
+c [w = 18] SAT Solving starts:
+c [w = 18] Solving duration: 13 ms.
+c [w = 18] Answer:
+s [w = 18] SAT (w = 18).
+c [w = 18] Solution check = 18.
+c [w = 18] The solution is correct.
+c [w = 18] Result: 10.
+c [Main] Max width SAT is set to 18.
+c [w = 19] Start task in PID: 65830.
+c [w = 19] Cyclic Antibandwidth problem with w = 19 (caterpillar_10_4.txt):
+c [w = 19] Initializing CaDiCaL (version 2.1.3).
+c [w = 19] Configuring CaDiCaL as --sat (1).
+c [w = 19] Encoding starts with w = 19:
+c [w = 19] Symmetry breaking highest degree node is applied.
+c [w = 19] Encoding duration: 31 ms.
+c [w = 19] Number of clauses: 24909.
+c [w = 19] Number of variables: 6000.
+c [w = 19] SAT Solving starts:
+c [w = 19] Solving duration: 66 ms.
+c [w = 19] Answer:
+s [w = 19] UNSAT (w = 19).
+c [w = 19] Result: 20.
+c [Main] Min width UNSAT is set to 19
+c [Signal] Signal interruption. Caught signal: SIGTERM (15).
+c [Main] All children have completed.
+r [Main] 
+r [Main] Final results: 
+r [Main] Max width SAT:  	18.
+r [Main] Min width UNSAT:	19.
+r [Main] Total real time: 103 ms.
+r [Main] Total memory consumed: 12.8 MB.
+r [Main] 
