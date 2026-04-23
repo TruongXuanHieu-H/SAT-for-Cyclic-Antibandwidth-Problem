@@ -46,6 +46,9 @@ public:
 
     static std::unordered_map<std::string, int> cabw_LBs;
     static std::unordered_map<std::string, int> cabw_UBs;
+
+    // Test area
+    static double lb_skip_threshold;
 };
 
 #endif // GLOBAL_DATA_H

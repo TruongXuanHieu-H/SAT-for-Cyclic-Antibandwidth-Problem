@@ -295,7 +295,8 @@ void CabwSearcher::override_upper_bound()
 
 void CabwSearcher::modify_bound()
 {
-    
+    lower_bound = lower_bound + (upper_bound - lower_bound) * GlobalData::lb_skip_threshold;
+    std::cout << "c [Main] LB is modified to " << lower_bound << " after applying LB skip threshold " << GlobalData::lb_skip_threshold << ".\n";
 }
 
 void CabwSearcher::create_limit_pid()

@@ -14,20 +14,20 @@
 
 using Command = std::function<void(int&, int, char**)>;
 
-int get_int(const std::string& arg)
+double get_double(const std::string& arg)
 {
     try {
-        return std::stoi(arg);
+        return std::stod(arg);
     } catch (const std::exception& e) {
         throw std::runtime_error("Invalid number: " + arg);
     }
 }
 
-int get_positive(int& i, int argc, char** argv, const std::string& name)
+double get_positive_double(int& i, int argc, char** argv, const std::string& name)
 {
     if (i + 1 >= argc)
         throw std::runtime_error("Missing value for " + name);
-    int val = get_int(argv[++i]);
+    double val = get_double(argv[++i]);
     if (val <= 0)
         throw std::runtime_error(name + " must be positive");
     return val;
@@ -87,7 +87,7 @@ int main(int argc, char **argv)
 
     cmd["-set-lb"] = [](int& i, int argc, char** argv) 
     {
-        int val = get_positive(i, argc, argv, "lower bound");
+        int val = get_positive_double(i, argc, argv, "lower bound");
 
         if (val < 2)
             throw std::runtime_error("Lower bound has to be at least 2");
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
 
     cmd["-set-ub"] = [](int& i, int argc, char** argv) 
     {
-        int val = get_positive(i, argc, argv, "upper bound");
+        int val = get_positive_double(i, argc, argv, "upper bound");
 
         if (val < 2)
             throw std::runtime_error("Upper bound has to be at least 2");
@@ -117,49 +117,49 @@ int main(int argc, char **argv)
 
     cmd["-limit-memory"] = [](int& i, int argc, char** argv) 
     {
-        int v = get_positive(i, argc, argv, "memory limit");
+        int v = get_positive_double(i, argc, argv, "memory limit");
         GlobalData::memory_limit = v;
         std::cout << "c [Param] Memory limit is set to " << v << ".\n";
     };
 
     cmd["-limit-real-time"] = [](int& i, int argc, char** argv) 
     {
-        int v = get_positive(i, argc, argv, "real time limit");
+        int v = get_positive_double(i, argc, argv, "real time limit");
         GlobalData::real_time_limit = v;
         std::cout << "c [Param] Real time limit is set to " << v << ".\n";
     };
 
     cmd["-limit-elapsed-time"] = [](int& i, int argc, char** argv) 
     {
-        int v = get_positive(i, argc, argv, "elapsed time limit");
+        int v = get_positive_double(i, argc, argv, "elapsed time limit");
         GlobalData::elapsed_time_limit = v;
         std::cout << "c [Param] Elapsed time limit is set to " << v << ".\n";
     };
 
     cmd["-sample-rate"] = [](int& i, int argc, char** argv) 
     {
-        int v = get_positive(i, argc, argv, "sample rate");
+        int v = get_positive_double(i, argc, argv, "sample rate");
         GlobalData::sample_rate = v;
         std::cout << "c [Param] Sample rate is set to " << v << ".\n";
     };
 
     cmd["-report-rate"] = [](int& i, int argc, char** argv) 
     {
-        int v = get_positive(i, argc, argv, "report rate");
+        int v = get_positive_double(i, argc, argv, "report rate");
         GlobalData::report_rate = v;
         std::cout << "c [Param] Report rate is set to " << v << ".\n";
     };
 
     cmd["-split-size"] = [](int& i, int argc, char** argv) 
     {
-        int v = get_positive(i, argc, argv, "split size");
+        int v = get_positive_double(i, argc, argv, "split size");
         GlobalData::split_limit = v;
         std::cout << "c [Param] Splitting clauses at length " << v << ".\n";
     };
 
     cmd["-worker-count"] = [](int& i, int argc, char** argv) 
     {
-        int v = get_positive(i, argc, argv, "worker count");
+        int v = get_positive_double(i, argc, argv, "worker count");
         GlobalData::worker_count = v;
         std::cout << "c [Param] Worker count is set to " << v << ".\n";
     };
@@ -203,6 +203,15 @@ int main(int argc, char **argv)
 
         GlobalData::just_print_dimacs = true;
         GlobalData::dimacs_directory = argv[++i];
+    };
+
+    cmd["-lb-skip-threshold"] = [](int& i, int argc, char** argv) 
+    {
+        double v = get_positive_double(i, argc, argv, "LB skip threshold");
+        if (v < 0 || v > 1)
+            throw std::runtime_error("LB skip threshold must be between 0 and 1");
+        GlobalData::lb_skip_threshold = v;
+        std::cout << "c [Param] LB skip threshold is set to " << v << ".\n";
     };
 
     try {

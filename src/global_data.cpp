@@ -152,3 +152,5 @@ std::unordered_map<std::string, int> GlobalData::cabw_UBs = {
     {"3dmesh_6_6_100.txt", 1782},
 
 };
+
+double GlobalData::lb_skip_threshold = 0;
