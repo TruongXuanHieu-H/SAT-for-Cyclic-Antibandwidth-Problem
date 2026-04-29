@@ -18,7 +18,7 @@ Detailed information about all instances, including experimental configurations 
 ---
 ## Experiment Results
 
-The experiment results are located in [results](experiments/results). Note that `experiments/results/logs_150s` and `experiments/results/logs_1800s` include the experiment results on the CAB problem, while `experiments/results/logs_single_width` includes the experiment results on a single CAB value.
+The experiment results are located in [results](experiments/results). Note that `experiments/results/logs_150s`, `experiments/results/logs_1800s`, and `experiments/results/meta_heuristic` include the experiment results on the CAB problem, while `experiments/results/logs_single_width` includes the experiment results on a single CAB value.
 
 We also include the tools to automatically run the experiments with all implemented configurations. They basically are several **.sh** files and located in [run_tool](experiments/run_tools) directory.
 
