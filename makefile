@@ -50,6 +50,7 @@ SOURCES := \
 	searchers/cabw_searcher_binary_from_ub.cpp \
 	searchers/cabw_searcher_iterate_from_lb.cpp \
 	searchers/cabw_searcher_step_from_lb.cpp \
+	utils/args_parser.cpp \
 	utils/pid_manager.cpp \
 	utils/signal_handler.cpp \
 	utils/usage.cpp \
