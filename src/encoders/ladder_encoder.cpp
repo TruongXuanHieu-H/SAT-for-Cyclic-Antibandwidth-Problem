@@ -39,10 +39,9 @@ void LadderEncoder::do_encode_antibandwidth()
 
     encode_vertices();
 
-    // We embed labels into encode_stair to achieve better encoding
-    // encode_labels();
-
     encode_obj_k();
+
+    encode_labels();
 };
 
 int LadderEncoder::get_obj_k_aux_var(int first, int last)
@@ -79,10 +78,31 @@ void LadderEncoder::encode_labels()
 {
     for (int i = 0; i < GlobalData::g->n; i++)
     {
-        std::vector<int> node_labels_eo(GlobalData::g->n);
-        std::iota(node_labels_eo.begin(), node_labels_eo.end(), (i * GlobalData::g->n) + 1);
+        std::vector<std::pair<int, int>> windows = {};
+        int number_windows = ceil((float)GlobalData::g->n / InstanceData::width);
 
-        encode_exactly_one_product(node_labels_eo);
+        for (int i = 0; i < number_windows; i++)
+        {
+            int stair_anchor = i * GlobalData::g->n;
+            int window_anchor = i * InstanceData::width;
+            if (window_anchor + InstanceData::width > GlobalData::g->n)
+                windows.push_back({stair_anchor + window_anchor + 1, stair_anchor + GlobalData::g->n});
+            else
+                windows.push_back({stair_anchor + window_anchor + 1, stair_anchor + window_anchor + InstanceData::width});
+        }
+
+        std::vector<int> alo_clause = {};
+        for (int i = 0; i < number_windows; i++)
+        {
+            int first_window_aux_var = get_obj_k_aux_var(windows[i].first, windows[i].second);
+            alo_clause.push_back(first_window_aux_var);
+            for (int j = i + 1; j < number_windows; j++)
+            {
+                int second_window_aux_var = get_obj_k_aux_var(windows[j].first, windows[j].second);
+                InstanceData::cc->add_clause({-first_window_aux_var, -second_window_aux_var});
+            }
+        }
+        InstanceData::cc->add_clause(alo_clause);
     }
 }
 
@@ -187,33 +207,6 @@ void LadderEncoder::encode_stair(int stair)
             std::cout << "Glue window " << gw << " with window " << gw + 1 << ".\n";
         glue_window(gw, stair);
     }
-
-    // Embedded labels using constructed windows
-    std::vector<std::pair<int, int>> windows = {};
-    int number_windows = ceil((float)GlobalData::g->n / InstanceData::width);
-
-    for (int i = 0; i < number_windows; i++)
-    {
-        int stair_anchor = stair * GlobalData::g->n;
-        int window_anchor = i * InstanceData::width;
-        if (window_anchor + InstanceData::width > GlobalData::g->n)
-            windows.push_back({stair_anchor + window_anchor + 1, stair_anchor + GlobalData::g->n});
-        else
-            windows.push_back({stair_anchor + window_anchor + 1, stair_anchor + window_anchor + InstanceData::width});
-    }
-
-    std::vector<int> alo_clause = {};
-    for (int i = 0; i < number_windows; i++)
-    {
-        int first_window_aux_var = get_obj_k_aux_var(windows[i].first, windows[i].second);
-        alo_clause.push_back(first_window_aux_var);
-        for (int j = i + 1; j < number_windows; j++)
-        {
-            int second_window_aux_var = get_obj_k_aux_var(windows[j].first, windows[j].second);
-            InstanceData::cc->add_clause({-first_window_aux_var, -second_window_aux_var});
-        }
-    }
-    InstanceData::cc->add_clause(alo_clause);
 }
 
 /*
