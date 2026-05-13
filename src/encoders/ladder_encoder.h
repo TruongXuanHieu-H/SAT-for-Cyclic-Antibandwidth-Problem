@@ -14,7 +14,7 @@ public:
     void encode_cyclic_antibandwidth() override;
 
 private:
-    bool is_debug_mode = false;
+    bool is_debug_mode = true;
 
     // Use to save aux vars of LABELS and VERTICES constraints
     std::map<int, int> aux_vars = {};
