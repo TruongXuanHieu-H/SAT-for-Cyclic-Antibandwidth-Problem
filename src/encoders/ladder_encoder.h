@@ -4,6 +4,23 @@
 #include "instance_encoder.h"
 #include <map>
 #include <vector>
+#include <unordered_map>
+#include <cstddef>
+
+struct VectorHash
+{
+    size_t operator()(const std::vector<int> &v) const
+    {
+        size_t hash = 0;
+
+        for (int x : v)
+        {
+            hash ^= std::hash<int>()(x) + 0x9e3779b9 + (hash << 6) + (hash >> 2);
+        }
+
+        return hash;
+    }
+};
 
 class LadderEncoder : public InstanceEncoder
 {
@@ -18,11 +35,11 @@ private:
     std::map<int, int> aux_vars = {};
 
     // Use to save aux vars of OBJ-K constraints
-    std::map<std::pair<int, int>, int> obj_k_aux_vars;
+    std::unordered_map<std::vector<int>, int, VectorHash> obj_k_aux_vars;
 
     void do_encode_antibandwidth();
 
-    int get_obj_k_aux_var(int first, int last);
+    int get_obj_k_aux_var(std::vector<int> key);
 
     void encode_vertices();
     void encode_labels();

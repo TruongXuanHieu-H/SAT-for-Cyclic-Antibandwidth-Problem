@@ -45,19 +45,21 @@ void LadderEncoder::do_encode_antibandwidth()
     encode_labels();
 };
 
-int LadderEncoder::get_obj_k_aux_var(int first, int last)
+int LadderEncoder::get_obj_k_aux_var(std::vector<int> key)
 {
 
-    auto pair = obj_k_aux_vars.find({first, last});
+    auto pair = obj_k_aux_vars.find(key);
 
     if (pair != obj_k_aux_vars.end())
         return pair->second;
 
-    if (first == last)
-        return first;
+    if (key.front() == key.back() && key.size() == 1)
+    {
+        return key.front();
+    }
 
     int new_obj_k_aux_var = InstanceData::vh->get_new_var();
-    obj_k_aux_vars.insert({{first, last}, new_obj_k_aux_var});
+    obj_k_aux_vars.insert({key, new_obj_k_aux_var});
     return new_obj_k_aux_var;
 }
 
@@ -99,11 +101,11 @@ void LadderEncoder::encode_labels()
         std::vector<int> alo_clause = {};
         for (int window = 0; window < number_windows; window++)
         {
-            int first_window_aux_var = get_obj_k_aux_var(vertice_vars[window].front(), vertice_vars[window].back());
+            int first_window_aux_var = get_obj_k_aux_var(vertice_vars[window]);
             alo_clause.push_back(first_window_aux_var);
             for (int next_window = window + 1; next_window < number_windows; next_window++)
             {
-                int second_window_aux_var = get_obj_k_aux_var(vertice_vars[next_window].front(), vertice_vars[next_window].back());
+                int second_window_aux_var = get_obj_k_aux_var(vertice_vars[next_window]);
                 InstanceData::cc->add_clause({-first_window_aux_var, -second_window_aux_var});
             }
         }
@@ -238,55 +240,51 @@ void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_fi
 
     if (!is_first_window)
     {
-        int firstVar = window_vars[0];
-
         for (int i = 1; i < window_vars_size; i++)
         {
             InstanceData::cc->add_clause({-(window_vars[i]),
-                                          get_obj_k_aux_var(firstVar, window_vars[i])});
+                                          get_obj_k_aux_var(std::vector<int>(window_vars.begin(), window_vars.begin() + i + 1))});
         }
 
         for (int i = 0; i < window_vars_size - 1; i++)
         {
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(firstVar, window_vars[i]),
-                                          get_obj_k_aux_var(firstVar, window_vars[i + 1])});
+            InstanceData::cc->add_clause({-get_obj_k_aux_var(std::vector<int>(window_vars.begin(), window_vars.begin() + i + 1)),
+                                          get_obj_k_aux_var(std::vector<int>(window_vars.begin(), window_vars.begin() + i + 2))});
         }
 
         for (int i = window_vars_size - 1; i > 0; i--)
         {
             InstanceData::cc->add_clause({window_vars[i],
-                                          get_obj_k_aux_var(firstVar, window_vars[i - 1]),
-                                          -get_obj_k_aux_var(firstVar, window_vars[i])});
+                                          get_obj_k_aux_var(std::vector<int>(window_vars.begin(), window_vars.begin() + i)),
+                                          -get_obj_k_aux_var(std::vector<int>(window_vars.begin(), window_vars.begin() + i + 1))});
         }
 
         for (int i = window_vars_size - 1; i > 0; i--)
         {
             InstanceData::cc->add_clause({-(window_vars[i]),
-                                          -get_obj_k_aux_var(firstVar, window_vars[i - 1])});
+                                          -get_obj_k_aux_var(std::vector<int>(window_vars.begin(), window_vars.begin() + i))});
         }
     }
 
     if (!is_last_window)
     {
-        int lastVar = window_vars[window_vars_size - 1];
-
         for (int i = window_vars_size - 2; i >= 0; i--)
         {
             InstanceData::cc->add_clause({-(window_vars[i]),
-                                          get_obj_k_aux_var(window_vars[i], lastVar)});
+                                          get_obj_k_aux_var(std::vector<int>(window_vars.begin() + i, window_vars.end()))});
         }
 
         for (int i = window_vars_size - 1; i >= 1; i--)
         {
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(window_vars[i], lastVar),
-                                          get_obj_k_aux_var(window_vars[i - 1], lastVar)});
+            InstanceData::cc->add_clause({-get_obj_k_aux_var(std::vector<int>(window_vars.begin() + i, window_vars.end())),
+                                          get_obj_k_aux_var(std::vector<int>(window_vars.begin() + i - 1, window_vars.end()))});
         }
 
         for (int i = 0; i < window_vars_size - 1; i++)
         {
             InstanceData::cc->add_clause({window_vars[i],
-                                          get_obj_k_aux_var(window_vars[i + 1], lastVar),
-                                          -get_obj_k_aux_var(window_vars[i], lastVar)});
+                                          get_obj_k_aux_var(std::vector<int>(window_vars.begin() + i + 1, window_vars.end())),
+                                          -get_obj_k_aux_var(std::vector<int>(window_vars.begin() + i, window_vars.end()))});
         }
 
         if (is_first_window)
@@ -294,7 +292,7 @@ void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_fi
             for (int i = 0; i < window_vars_size - 1; i++)
             {
                 InstanceData::cc->add_clause({-(window_vars[i]),
-                                              -get_obj_k_aux_var(window_vars[i + 1], lastVar)});
+                                              -get_obj_k_aux_var(std::vector<int>(window_vars.begin() + i + 1, window_vars.end()))});
             }
         }
     }
@@ -310,8 +308,8 @@ void LadderEncoder::connect_windows(const std::vector<int> first_window_vars, co
 
     for (int i = 0; i < number_connections; i++)
     {
-        InstanceData::cc->add_clause({-get_obj_k_aux_var(first_window_vars[i + 1], first_window_vars.back()),
-                                      -get_obj_k_aux_var(second_window_vars.front(), second_window_vars[i])});
+        InstanceData::cc->add_clause({-get_obj_k_aux_var(std::vector<int>(first_window_vars.begin() + i + 1, first_window_vars.end())),
+                                      -get_obj_k_aux_var(std::vector<int>(second_window_vars.begin(), second_window_vars.begin() + i + 1))});
     }
 }
 
@@ -325,16 +323,17 @@ void LadderEncoder::connect_ladder(const std::vector<int> first_ladder_vars, con
         int mod = i % width;
         if (mod == 0)
         {
-            int first_aux_var = get_obj_k_aux_var(first_ladder_vars[i], first_ladder_vars[i + width - 1]);
-            int second_aux_var = get_obj_k_aux_var(second_ladder_vars[i], second_ladder_vars[i + width - 1]);
+            int first_aux_var = get_obj_k_aux_var(std::vector<int>(first_ladder_vars.begin() + i, first_ladder_vars.begin() + i + width));
+            int second_aux_var = get_obj_k_aux_var(std::vector<int>(second_ladder_vars.begin() + i, second_ladder_vars.begin() + i + width));
+
             InstanceData::cc->add_clause({-first_aux_var, -second_aux_var});
         }
         else
         {
-            int first_aux_var_1 = get_obj_k_aux_var(first_ladder_vars[i], first_ladder_vars[i + width - mod - 1]);
-            int first_aux_var_2 = get_obj_k_aux_var(first_ladder_vars[i + width - mod], first_ladder_vars[i + width - 1]);
-            int second_aux_var_1 = get_obj_k_aux_var(second_ladder_vars[i], second_ladder_vars[i + width - mod - 1]);
-            int second_aux_var_2 = get_obj_k_aux_var(second_ladder_vars[i + width - mod], second_ladder_vars[i + width - 1]);
+            int first_aux_var_1 = get_obj_k_aux_var(std::vector<int>(first_ladder_vars.begin() + i, first_ladder_vars.begin() + i + width - mod));
+            int first_aux_var_2 = get_obj_k_aux_var(std::vector<int>(first_ladder_vars.begin() + i + width - mod, first_ladder_vars.begin() + i + width));
+            int second_aux_var_1 = get_obj_k_aux_var(std::vector<int>(second_ladder_vars.begin() + i, second_ladder_vars.begin() + i + width - mod));
+            int second_aux_var_2 = get_obj_k_aux_var(std::vector<int>(second_ladder_vars.begin() + i + width - mod, second_ladder_vars.begin() + i + width));
 
             InstanceData::cc->add_clause({-first_aux_var_1, -second_aux_var_1});
             InstanceData::cc->add_clause({-first_aux_var_1, -second_aux_var_2});
