@@ -286,7 +286,7 @@ void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_fi
                                           -get_obj_k_aux_var(window_vars[i], lastVar)});
         }
 
-        if (!is_first_window)
+        if (is_first_window)
         {
             for (int i = 0; i < window_vars_size - 1; i++)
             {
