@@ -208,16 +208,6 @@ void LadderEncoder::encode_obj_k()
 
 void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
 {
-    if (is_debug_mode)
-    {
-        std::cout << "Encode ladder ";
-        for (int var : ladder_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << "with width " << width << ".\n";
-    }
-
     std::vector<std::vector<int>> windows;
     int number_ladder_vars = (int)ladder_vars.size();
 
@@ -241,41 +231,31 @@ void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
 }
 void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_first_window, bool is_last_window)
 {
-    if (is_debug_mode)
-    {
-        std::cout << "Encode window ";
-        for (int var : window_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << ", is first window: " << is_first_window << ", is last window: " << is_last_window << ".\n";
-    }
-
-    (void)window_vars;
-    (void)is_first_window;
-    (void)is_last_window;
-
     int window_vars_size = (int)window_vars.size();
 
     if (!is_first_window)
     {
         int firstVar = window_vars[0];
+
         for (int i = 1; i < window_vars_size; i++)
         {
             InstanceData::cc->add_clause({-(window_vars[i]),
                                           get_obj_k_aux_var(firstVar, window_vars[i])});
         }
+
         for (int i = 0; i < window_vars_size - 1; i++)
         {
             InstanceData::cc->add_clause({-get_obj_k_aux_var(firstVar, window_vars[i]),
                                           get_obj_k_aux_var(firstVar, window_vars[i + 1])});
         }
+
         for (int i = window_vars_size - 1; i > 0; i--)
         {
             InstanceData::cc->add_clause({window_vars[i],
                                           get_obj_k_aux_var(firstVar, window_vars[i - 1]),
                                           -get_obj_k_aux_var(firstVar, window_vars[i])});
         }
+
         for (int i = window_vars_size - 1; i > 0; i--)
         {
             InstanceData::cc->add_clause({-(window_vars[i]),
@@ -286,49 +266,39 @@ void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_fi
     if (!is_last_window)
     {
         int lastVar = window_vars[window_vars_size - 1];
+
         for (int i = window_vars_size - 2; i >= 0; i--)
         {
             InstanceData::cc->add_clause({-(window_vars[i]),
                                           get_obj_k_aux_var(window_vars[i], lastVar)});
         }
+
         for (int i = window_vars_size - 1; i >= 1; i--)
         {
             InstanceData::cc->add_clause({-get_obj_k_aux_var(window_vars[i], lastVar),
                                           get_obj_k_aux_var(window_vars[i - 1], lastVar)});
         }
+
         for (int i = 0; i < window_vars_size - 1; i++)
         {
             InstanceData::cc->add_clause({window_vars[i],
                                           get_obj_k_aux_var(window_vars[i + 1], lastVar),
                                           -get_obj_k_aux_var(window_vars[i], lastVar)});
         }
-        for (int i = 0; i < window_vars_size - 1; i++)
+
+        if (!is_first_window)
         {
-            InstanceData::cc->add_clause({-(window_vars[i]),
-                                          -get_obj_k_aux_var(window_vars[i + 1], lastVar)});
+            for (int i = 0; i < window_vars_size - 1; i++)
+            {
+                InstanceData::cc->add_clause({-(window_vars[i]),
+                                              -get_obj_k_aux_var(window_vars[i + 1], lastVar)});
+            }
         }
     }
 }
+
 void LadderEncoder::connect_windows(const std::vector<int> first_window_vars, const std::vector<int> second_window_vars)
 {
-    if (is_debug_mode)
-    {
-        std::cout << "Connect windows ";
-        for (int var : first_window_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << "and ";
-        for (int var : second_window_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << ".\n";
-    }
-
-    (void)first_window_vars;
-    (void)second_window_vars;
-
     int number_first_window_vars = (int)first_window_vars.size();
     int number_second_window_vars = (int)second_window_vars.size();
     assert(number_first_window_vars < number_second_window_vars);
@@ -341,27 +311,9 @@ void LadderEncoder::connect_windows(const std::vector<int> first_window_vars, co
                                       -get_obj_k_aux_var(second_window_vars.front(), second_window_vars[i])});
     }
 }
+
 void LadderEncoder::connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width)
 {
-    if (is_debug_mode)
-    {
-        std::cout << "Connect ladder ";
-        for (int var : first_ladder_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << "and ";
-        for (int var : second_ladder_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << "with width " << width << ".\n";
-    }
-
-    (void)first_ladder_vars;
-    (void)second_ladder_vars;
-    (void)width;
-
     assert(first_ladder_vars.size() == second_ladder_vars.size());
 
     int number_connections = first_ladder_vars.size() - width + 1;
