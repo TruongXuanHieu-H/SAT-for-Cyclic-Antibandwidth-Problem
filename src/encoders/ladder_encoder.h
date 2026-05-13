@@ -14,7 +14,7 @@ public:
     void encode_cyclic_antibandwidth() override;
 
 private:
-    bool is_debug_mode = true;
+    bool is_debug_mode = false;
 
     // Use to save aux vars of LABELS and VERTICES constraints
     std::map<int, int> aux_vars = {};
@@ -37,12 +37,5 @@ private:
     void encode_window(const std::vector<int> window_vars, bool is_first_window, bool is_last_window);
     void connect_windows(const std::vector<int> first_window_vars, const std::vector<int> second_window_vars);
     void connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width);
-
-    void encode_stair(int stair);
-    void encode_window(int window, int stair);
-    void glue_window(int window, int stair);
-    void glue_stair(int stair1, int stair2);
-
-    int get_circle_variable(int var);
 };
 #endif

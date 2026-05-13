@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <numeric>
 #include <cmath>
+#include <assert.h>
 
 LadderEncoder::LadderEncoder() {}
 LadderEncoder::~LadderEncoder() {}
@@ -205,322 +206,18 @@ void LadderEncoder::encode_obj_k()
     }
 }
 
-void LadderEncoder::encode_stair(int stair)
-{
-    if (is_debug_mode)
-        std::cout << "Encode stair " << stair << " with width " << InstanceData::width << ".\n";
-
-    for (int gw = 0; gw < ceil((float)(GlobalData::g->n + InstanceData::width - 1) / InstanceData::width); gw++)
-    {
-        if (is_debug_mode)
-            std::cout << "Encode window " << gw << ".\n";
-        encode_window(gw, stair);
-    }
-
-    for (int gw = 0; gw < ceil((float)(GlobalData::g->n + InstanceData::width - 1) / InstanceData::width) - 1; gw++)
-    {
-        if (is_debug_mode)
-            std::cout << "Glue window " << gw << " with window " << gw + 1 << ".\n";
-        glue_window(gw, stair);
-    }
-}
-
-/*
- * Encode each window separately.
- * The first window only has lower part.
- * The last window only has upper part.
- * Other windows have both upper part and lower part.
- */
-void LadderEncoder::encode_window(int window, int stair)
-{
-    /*
-        Offset of the stair.
-        Actual variable = stair offset + index of that variable in the stair.
-
-        *************************************************
-        1   2   3   4
-            2   3   4   5
-                3   4   5   6
-                    4   5   6   7
-                        5   6   7   8
-                            6   7   8   9
-                                7   8   9   10
-                                    8   9   10  1
-                                        9   10  1   2
-                                            10  1   2   3
-        *************************************************
-
-        The index of the variable should be modified by g->n to get the correct index in the stair.
-        For example, the 12th variable in the stair with 10 nodes has index 12 % 10 = 2.
-    */
-    int offset = stair * GlobalData::g->n;
-
-    if (window == 0)
-    {
-        // Encode the first window, which only have lower part
-        int lastVar = window * InstanceData::width + InstanceData::width;
-
-        for (int i = InstanceData::width - 1; i >= 1; i--)
-        {
-            int var = window * InstanceData::width + i;
-            InstanceData::cc->add_clause({-(offset + get_circle_variable(var)),
-                                          get_obj_k_aux_var(offset + get_circle_variable(var), offset + get_circle_variable(lastVar))});
-        }
-
-        for (int i = InstanceData::width; i >= 2; i--)
-        {
-            int var = window * InstanceData::width + i;
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(offset + get_circle_variable(var), offset + get_circle_variable(lastVar)),
-                                          get_obj_k_aux_var(offset + get_circle_variable(var - 1), offset + get_circle_variable(lastVar))});
-        }
-
-        for (int i = 1; i < InstanceData::width; i++)
-        {
-            int var = window * InstanceData::width + i;
-            int main = get_obj_k_aux_var(offset + get_circle_variable(var), offset + get_circle_variable(lastVar));
-            int sub = get_obj_k_aux_var(offset + get_circle_variable(var + 1), offset + get_circle_variable(lastVar));
-            InstanceData::cc->add_clause({offset + get_circle_variable(var), sub, -main});
-        }
-
-        for (int i = 1; i < InstanceData::width; i++)
-        {
-            int var = window * InstanceData::width + i;
-            InstanceData::cc->add_clause({-(int)(offset + get_circle_variable(var)),
-                                          -get_obj_k_aux_var(offset + get_circle_variable(var + 1), offset + get_circle_variable(lastVar))});
-        }
-    }
-    else if (window == ceil((float)(GlobalData::g->n + InstanceData::width - 1) / InstanceData::width) - 1)
-    {
-        // Encode the last window, which only have upper part and may have width lower than w
-        int firstVar = window * InstanceData::width + 1;
-
-        if ((window + 1) * InstanceData::width > GlobalData::g->n + InstanceData::width - 1)
-        {
-            int real_w = (GlobalData::g->n + InstanceData::width - 1) % InstanceData::width;
-            // Upper part
-            for (int i = 2; i <= real_w; i++)
-            {
-                int reverse_var = window * InstanceData::width + i;
-                InstanceData::cc->add_clause({-(offset + get_circle_variable(reverse_var)),
-                                              get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var))});
-            }
-
-            for (int i = real_w - 1; i > 0; i--)
-            {
-                int reverse_var = window * InstanceData::width + real_w - i;
-                InstanceData::cc->add_clause({-get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var)),
-                                              get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var + 1))});
-            }
-
-            for (int i = 0; i < (int)real_w - 1; i++)
-            {
-                int var = window * InstanceData::width + real_w - i;
-                int main = get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(var));
-                int sub = get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(var - 1));
-                InstanceData::cc->add_clause({offset + get_circle_variable(var), sub, -main});
-            }
-
-            for (int i = real_w; i > 1; i--)
-            {
-                int reverse_var = window * InstanceData::width + i;
-                InstanceData::cc->add_clause({-(int)(offset + get_circle_variable(reverse_var)),
-                                              -get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var - 1))});
-            }
-        }
-        else
-        {
-            // Upper part
-            for (int i = 2; i <= InstanceData::width; i++)
-            {
-                int reverse_var = window * InstanceData::width + i;
-                InstanceData::cc->add_clause({-(offset + get_circle_variable(reverse_var)),
-                                              get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var))});
-            }
-
-            for (int i = InstanceData::width - 1; i >= 1; i--)
-            {
-                int reverse_var = window * InstanceData::width + InstanceData::width - i;
-                InstanceData::cc->add_clause({-get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var)),
-                                              get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var + 1))});
-            }
-
-            for (int i = 0; i < InstanceData::width - 1; i++)
-            {
-                int var = window * InstanceData::width + InstanceData::width - i;
-                int main = get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(var));
-                int sub = get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(var - 1));
-                InstanceData::cc->add_clause({offset + get_circle_variable(var), sub, -main});
-            }
-
-            for (int i = InstanceData::width; i > 1; i--)
-            {
-                int reverse_var = window * InstanceData::width + i;
-                InstanceData::cc->add_clause({-(offset + get_circle_variable(reverse_var)),
-                                              -get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var - 1))});
-            }
-        }
-    }
-    else
-    {
-        // Encode the middle windows, which have both upper and lower path, and always have width w
-
-        // Upper part
-        int firstVar = window * InstanceData::width + 1;
-        for (int i = 2; i <= InstanceData::width; i++)
-        {
-            int reverse_var = window * InstanceData::width + i;
-            InstanceData::cc->add_clause({-(offset + get_circle_variable(reverse_var)),
-                                          get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var))});
-        }
-
-        for (int i = InstanceData::width - 1; i >= 1; i--)
-        {
-            int reverse_var = window * InstanceData::width + InstanceData::width - i;
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var)),
-                                          get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var + 1))});
-        }
-
-        for (int i = 0; i < InstanceData::width - 1; i++)
-        {
-            int var = window * InstanceData::width + InstanceData::width - i;
-            int main = get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(var));
-            int sub = get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(var - 1));
-            InstanceData::cc->add_clause({offset + get_circle_variable(var), sub, -main});
-        }
-
-        for (int i = InstanceData::width; i > 1; i--)
-        {
-            int reverse_var = window * InstanceData::width + i;
-            InstanceData::cc->add_clause({-(offset + get_circle_variable(reverse_var)),
-                                          -get_obj_k_aux_var(offset + get_circle_variable(firstVar), offset + get_circle_variable(reverse_var - 1))});
-        }
-
-        // Lower part
-        int lastVar = window * InstanceData::width + InstanceData::width;
-        for (int i = InstanceData::width - 1; i >= 1; i--)
-        {
-            int var = window * InstanceData::width + i;
-            InstanceData::cc->add_clause({-(offset + get_circle_variable(var)),
-                                          get_obj_k_aux_var(offset + get_circle_variable(var), offset + get_circle_variable(lastVar))});
-        }
-
-        for (int i = InstanceData::width; i >= 2; i--)
-        {
-            int var = window * InstanceData::width + i;
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(offset + get_circle_variable(var), offset + get_circle_variable(lastVar)),
-                                          get_obj_k_aux_var(offset + get_circle_variable(var - 1), offset + get_circle_variable(lastVar))});
-        }
-
-        for (int i = 1; i < InstanceData::width; i++)
-        {
-            int var = window * InstanceData::width + i;
-            int main = get_obj_k_aux_var(offset + get_circle_variable(var), offset + get_circle_variable(lastVar));
-            int sub = get_obj_k_aux_var(offset + get_circle_variable(var + 1), offset + get_circle_variable(lastVar));
-            InstanceData::cc->add_clause({offset + get_circle_variable(var), sub, -main});
-        }
-
-        // Can be disable
-        // for (int i = 1; i < (int)w; i++)
-        // {
-        //     int var = window * (int)w + i;
-        //     InstanceData::cc->add_clause({-(offset + get_circle_variable(var)),
-        //                     -get_obj_k_aux_var(offset + get_circle_variable(var + 1), offset + get_circle_variable(lastVar))});
-        //     num_obj_k_constraints++;
-        // }
-    }
-}
-
-/*
- * Glue adjacent windows with each other.
- * Using lower part of the previous window and upper part of the next window
- * as anchor points to glue.
- */
-void LadderEncoder::glue_window(int window, int stair)
-{
-    /*  The stair look like this:
-     *          Window 1            Window 2            Window 3            Window 4
-     *      1   2   3   4   |                   |                   |                   |
-     *          2   3   4   |   5               |                   |                   |
-     *              3   4   |   5   6           |                   |                   |
-     *                  4   |   5   6   7       |                   |                   |
-     *                      |   5   6   7   8   |                   |                   |
-     *                      |       6   7   8   |   9               |                   |
-     *                      |           7   8   |   9   10          |                   |
-     *                      |               8   |   9   10  1       |                   |
-     *                      |                   |   9   10  1   2   |                   |
-     *                      |                   |       10  1   2   |   3  `            |
-     *
-     */
-    int offset = stair * GlobalData::g->n;
-    if ((window + 2) * InstanceData::width > GlobalData::g->n + InstanceData::width - 1)
-    {
-        int real_w = (GlobalData::g->n + InstanceData::width - 1) % InstanceData::width;
-        for (int i = 1; i <= real_w; i++)
-        {
-            int first_reverse_var = (window + 1) * InstanceData::width + 1;
-            int last_var = window * InstanceData::width + InstanceData::width;
-
-            int reverse_var = (window + 1) * InstanceData::width + i;
-            int var = window * InstanceData::width + i + 1;
-
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(offset + get_circle_variable(var), offset + get_circle_variable(last_var)),
-                                          -get_obj_k_aux_var(offset + get_circle_variable(first_reverse_var), offset + get_circle_variable(reverse_var))});
-        }
-    }
-    else
-    {
-        for (int i = 1; i < InstanceData::width; i++)
-        {
-            int first_reverse_var = (window + 1) * InstanceData::width + 1;
-            int last_var = window * InstanceData::width + InstanceData::width;
-
-            int reverse_var = (window + 1) * InstanceData::width + i;
-            int var = window * InstanceData::width + i + 1;
-
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(offset + get_circle_variable(var), offset + get_circle_variable(last_var)),
-                                          -get_obj_k_aux_var(offset + get_circle_variable(first_reverse_var), offset + get_circle_variable(reverse_var))});
-        }
-    }
-}
-
-void LadderEncoder::glue_stair(int stair1, int stair2)
-{
-    if (is_debug_mode)
-        std::cout << "Glue stair " << stair1 << " with stair " << stair2 << ".\n";
-    int number_step = GlobalData::g->n;
-    for (int i = 0; i < number_step; i++)
-    {
-        int mod = i % InstanceData::width;
-        int subset = i / InstanceData::width;
-        int stair1_offset = stair1 * GlobalData::g->n;
-        int stair2_offset = stair2 * GlobalData::g->n;
-        if (mod == 0)
-        {
-            int firstVar = get_obj_k_aux_var(stair1_offset + get_circle_variable(subset * InstanceData::width + 1), stair1_offset + get_circle_variable(subset * InstanceData::width + InstanceData::width));
-            int secondVar = get_obj_k_aux_var(stair2_offset + get_circle_variable(subset * InstanceData::width + 1), stair2_offset + get_circle_variable(subset * InstanceData::width + InstanceData::width));
-            InstanceData::cc->add_clause({-firstVar, -secondVar});
-        }
-        else
-        {
-            int firstVar = get_obj_k_aux_var(stair1_offset + get_circle_variable(subset * InstanceData::width + 1 + mod), stair1_offset + get_circle_variable(subset * InstanceData::width + InstanceData::width));
-            int secondVar = get_obj_k_aux_var(stair1_offset + get_circle_variable(subset * InstanceData::width + InstanceData::width + 1), stair1_offset + get_circle_variable(subset * InstanceData::width + InstanceData::width + mod));
-            int thirdVar = get_obj_k_aux_var(stair2_offset + get_circle_variable(subset * InstanceData::width + 1 + mod), stair2_offset + get_circle_variable(subset * InstanceData::width + InstanceData::width));
-            int forthVar = get_obj_k_aux_var(stair2_offset + get_circle_variable(subset * InstanceData::width + InstanceData::width + 1), stair2_offset + get_circle_variable(subset * InstanceData::width + InstanceData::width + mod));
-            InstanceData::cc->add_clause({-firstVar, -thirdVar});
-            InstanceData::cc->add_clause({-firstVar, -forthVar});
-            InstanceData::cc->add_clause({-secondVar, -thirdVar});
-            InstanceData::cc->add_clause({-secondVar, -forthVar});
-        }
-    }
-}
-
-int LadderEncoder::get_circle_variable(int var)
-{
-    return (var - 1) % GlobalData::g->n + 1;
-}
-
 void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
 {
+    if (is_debug_mode)
+    {
+        std::cout << "Encode ladder ";
+        for (int var : ladder_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << "with width " << width << ".\n";
+    }
+
     std::vector<std::vector<int>> windows;
     int number_ladder_vars = (int)ladder_vars.size();
 
@@ -544,18 +241,150 @@ void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
 }
 void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_first_window, bool is_last_window)
 {
+    if (is_debug_mode)
+    {
+        std::cout << "Encode window ";
+        for (int var : window_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << ", is first window: " << is_first_window << ", is last window: " << is_last_window << ".\n";
+    }
+
     (void)window_vars;
     (void)is_first_window;
     (void)is_last_window;
+
+    int window_vars_size = (int)window_vars.size();
+
+    if (!is_first_window)
+    {
+        int firstVar = window_vars[0];
+        for (int i = 1; i < window_vars_size; i++)
+        {
+            InstanceData::cc->add_clause({-(window_vars[i]),
+                                          get_obj_k_aux_var(firstVar, window_vars[i])});
+        }
+        for (int i = 0; i < window_vars_size - 1; i++)
+        {
+            InstanceData::cc->add_clause({-get_obj_k_aux_var(firstVar, window_vars[i]),
+                                          get_obj_k_aux_var(firstVar, window_vars[i + 1])});
+        }
+        for (int i = window_vars_size - 1; i > 0; i--)
+        {
+            InstanceData::cc->add_clause({window_vars[i],
+                                          get_obj_k_aux_var(firstVar, window_vars[i - 1]),
+                                          -get_obj_k_aux_var(firstVar, window_vars[i])});
+        }
+        for (int i = window_vars_size - 1; i > 0; i--)
+        {
+            InstanceData::cc->add_clause({-(window_vars[i]),
+                                          -get_obj_k_aux_var(firstVar, window_vars[i - 1])});
+        }
+    }
+
+    if (!is_last_window)
+    {
+        int lastVar = window_vars[window_vars_size - 1];
+        for (int i = window_vars_size - 2; i >= 0; i--)
+        {
+            InstanceData::cc->add_clause({-(window_vars[i]),
+                                          get_obj_k_aux_var(window_vars[i], lastVar)});
+        }
+        for (int i = window_vars_size - 1; i >= 1; i--)
+        {
+            InstanceData::cc->add_clause({-get_obj_k_aux_var(window_vars[i], lastVar),
+                                          get_obj_k_aux_var(window_vars[i - 1], lastVar)});
+        }
+        for (int i = 0; i < window_vars_size - 1; i++)
+        {
+            InstanceData::cc->add_clause({window_vars[i],
+                                          get_obj_k_aux_var(window_vars[i + 1], lastVar),
+                                          -get_obj_k_aux_var(window_vars[i], lastVar)});
+        }
+        for (int i = 0; i < window_vars_size - 1; i++)
+        {
+            InstanceData::cc->add_clause({-(window_vars[i]),
+                                          -get_obj_k_aux_var(window_vars[i + 1], lastVar)});
+        }
+    }
 }
 void LadderEncoder::connect_windows(const std::vector<int> first_window_vars, const std::vector<int> second_window_vars)
 {
+    if (is_debug_mode)
+    {
+        std::cout << "Connect windows ";
+        for (int var : first_window_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << "and ";
+        for (int var : second_window_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << ".\n";
+    }
+
     (void)first_window_vars;
     (void)second_window_vars;
+
+    int number_first_window_vars = (int)first_window_vars.size();
+    int number_second_window_vars = (int)second_window_vars.size();
+    assert(number_first_window_vars < number_second_window_vars);
+
+    int number_connections = number_first_window_vars == number_second_window_vars ? number_second_window_vars - 1 : number_second_window_vars;
+
+    for (int i = 0; i < number_connections; i++)
+    {
+        InstanceData::cc->add_clause({-get_obj_k_aux_var(first_window_vars[i + 1], first_window_vars.back()),
+                                      -get_obj_k_aux_var(second_window_vars.front(), second_window_vars[i])});
+    }
 }
 void LadderEncoder::connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width)
 {
+    if (is_debug_mode)
+    {
+        std::cout << "Connect ladder ";
+        for (int var : first_ladder_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << "and ";
+        for (int var : second_ladder_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << "with width " << width << ".\n";
+    }
+
     (void)first_ladder_vars;
     (void)second_ladder_vars;
     (void)width;
+
+    assert(first_ladder_vars.size() == second_ladder_vars.size());
+
+    int number_connections = first_ladder_vars.size() - width + 1;
+    for (int i = 0; i < number_connections; i++)
+    {
+        int mod = i % width;
+        if (mod == 0)
+        {
+            int first_aux_var = get_obj_k_aux_var(first_ladder_vars[i], first_ladder_vars[i + width - 1]);
+            int second_aux_var = get_obj_k_aux_var(second_ladder_vars[i], second_ladder_vars[i + width - 1]);
+            InstanceData::cc->add_clause({-first_aux_var, -second_aux_var});
+        }
+        else
+        {
+            int first_aux_var_1 = get_obj_k_aux_var(first_ladder_vars[i], first_ladder_vars[i + width - mod - 1]);
+            int first_aux_var_2 = get_obj_k_aux_var(first_ladder_vars[i + width - mod], first_ladder_vars[i + width - 1]);
+            int second_aux_var_1 = get_obj_k_aux_var(second_ladder_vars[i], second_ladder_vars[i + width - mod - 1]);
+            int second_aux_var_2 = get_obj_k_aux_var(second_ladder_vars[i + width - mod], second_ladder_vars[i + width - 1]);
+
+            InstanceData::cc->add_clause({-first_aux_var_1, -second_aux_var_1});
+            InstanceData::cc->add_clause({-first_aux_var_1, -second_aux_var_2});
+            InstanceData::cc->add_clause({-first_aux_var_2, -second_aux_var_1});
+            InstanceData::cc->add_clause({-first_aux_var_2, -second_aux_var_2});
+        }
+    }
 }
