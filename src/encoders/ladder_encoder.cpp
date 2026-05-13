@@ -519,7 +519,7 @@ int LadderEncoder::get_circle_variable(int var)
     return (var - 1) % GlobalData::g->n + 1;
 }
 
-void encode_ladder(const std::vector<int> ladder_vars, int width)
+void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
 {
     std::vector<std::vector<int>> windows;
     int number_ladder_vars = (int)ladder_vars.size();
@@ -542,18 +542,18 @@ void encode_ladder(const std::vector<int> ladder_vars, int width)
         connect_windows(windows[i], windows[i + 1]);
     }
 }
-void encode_window(const std::vector<int> window_vars, bool is_first_window, bool is_last_window)
+void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_first_window, bool is_last_window)
 {
     (void)window_vars;
     (void)is_first_window;
     (void)is_last_window;
 }
-void connect_windows(const std::vector<int> first_window_vars, const std::vector<int> second_window_vars)
+void LadderEncoder::connect_windows(const std::vector<int> first_window_vars, const std::vector<int> second_window_vars)
 {
     (void)first_window_vars;
     (void)second_window_vars;
 }
-void connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width)
+void LadderEncoder::connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width)
 {
     (void)first_ladder_vars;
     (void)second_ladder_vars;
