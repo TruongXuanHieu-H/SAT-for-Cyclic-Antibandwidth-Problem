@@ -234,6 +234,7 @@ void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
         connect_windows(windows[i], windows[i + 1]);
     }
 }
+
 void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_first_window, bool is_last_window)
 {
     int window_vars_size = (int)window_vars.size();
