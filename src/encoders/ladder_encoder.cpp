@@ -179,14 +179,29 @@ void LadderEncoder::encode_amo_seq(const std::vector<int> &vars)
 
 void LadderEncoder::encode_obj_k()
 {
+    std::vector<std::vector<int>> ladders;
+    for (int vertex = 0; vertex < GlobalData::g->n; vertex++)
+    {
+        std::vector<int> ladder_vars;
+        for (int label = 0; label < GlobalData::g->n; label++)
+        {
+            ladder_vars.push_back(vertex * GlobalData::g->n + label + 1);
+        }
+        for (int label = 0; label < InstanceData::width - 1; label++)
+        {
+            ladder_vars.push_back(vertex * GlobalData::g->n + label + 1);
+        }
+        ladders.push_back(ladder_vars);
+    }
+
     for (int i = 0; i < GlobalData::g->n; i++)
     {
-        encode_stair(i);
+        encode_ladder(ladders[i], InstanceData::width);
     }
 
     for (auto edge : GlobalData::g->edges)
     {
-        glue_stair(edge.first - 1, edge.second - 1);
+        connect_ladder(ladders[edge.first - 1], ladders[edge.second - 1], InstanceData::width); // Have to reduce by 1 since edges are start from 1
     }
 }
 
@@ -502,4 +517,45 @@ void LadderEncoder::glue_stair(int stair1, int stair2)
 int LadderEncoder::get_circle_variable(int var)
 {
     return (var - 1) % GlobalData::g->n + 1;
+}
+
+void encode_ladder(const std::vector<int> ladder_vars, int width)
+{
+    std::vector<std::vector<int>> windows;
+    int number_ladder_vars = (int)ladder_vars.size();
+
+    for (int i = 0; i < number_ladder_vars; i += width)
+    {
+        int end = std::min(i + width, number_ladder_vars);
+        windows.emplace_back(ladder_vars.begin() + i, ladder_vars.begin() + end);
+    }
+
+    int number_windows = (int)windows.size();
+
+    for (int i = 0; i < number_windows; i++)
+    {
+        encode_window(windows[i], i == 0, i == number_windows - 1);
+    }
+
+    for (int i = 0; i < number_windows - 1; i++)
+    {
+        connect_windows(windows[i], windows[i + 1]);
+    }
+}
+void encode_window(const std::vector<int> window_vars, bool is_first_window, bool is_last_window)
+{
+    (void)window_vars;
+    (void)is_first_window;
+    (void)is_last_window;
+}
+void connect_windows(const std::vector<int> first_window_vars, const std::vector<int> second_window_vars)
+{
+    (void)first_window_vars;
+    (void)second_window_vars;
+}
+void connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width)
+{
+    (void)first_ladder_vars;
+    (void)second_ladder_vars;
+    (void)width;
 }
