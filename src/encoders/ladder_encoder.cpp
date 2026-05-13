@@ -62,13 +62,14 @@ int LadderEncoder::get_obj_k_aux_var(int first, int last)
 
 void LadderEncoder::encode_vertices()
 {
-    for (int i = 0; i < GlobalData::g->n; i++)
+    for (int label = 0; label < GlobalData::g->n; label++)
     {
         std::vector<int> node_vertices_eo(GlobalData::g->n);
-        int j = 0;
 
-        std::generate(node_vertices_eo.begin(), node_vertices_eo.end(), [this, &j, i]()
-                      { return (j++ * GlobalData::g->n) + i + 1; });
+        for (int vertex = 0; vertex < GlobalData::g->n; vertex++)
+        {
+            node_vertices_eo[vertex] = vertex * GlobalData::g->n + label + 1;
+        }
 
         encode_exactly_one_product(node_vertices_eo);
     }
@@ -76,14 +77,14 @@ void LadderEncoder::encode_vertices()
 
 void LadderEncoder::encode_labels()
 {
-    for (int i = 0; i < GlobalData::g->n; i++)
+    for (int vertex = 0; vertex < GlobalData::g->n; vertex++)
     {
         std::vector<std::pair<int, int>> windows = {};
         int number_windows = ceil((float)GlobalData::g->n / InstanceData::width);
 
         for (int i = 0; i < number_windows; i++)
         {
-            int stair_anchor = i * GlobalData::g->n;
+            int stair_anchor = vertex * GlobalData::g->n;
             int window_anchor = i * InstanceData::width;
             if (window_anchor + InstanceData::width > GlobalData::g->n)
                 windows.push_back({stair_anchor + window_anchor + 1, stair_anchor + GlobalData::g->n});
