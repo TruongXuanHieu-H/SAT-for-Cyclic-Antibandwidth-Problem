@@ -80,27 +80,30 @@ void LadderEncoder::encode_labels()
 {
     for (int vertex = 0; vertex < GlobalData::g->n; vertex++)
     {
-        std::vector<std::pair<int, int>> windows = {};
         int number_windows = ceil((float)GlobalData::g->n / InstanceData::width);
+        std::vector<std::vector<int>> vertice_vars(number_windows);
 
-        for (int i = 0; i < number_windows; i++)
+        for (int window = 0; window < number_windows; window++)
         {
-            int stair_anchor = vertex * GlobalData::g->n;
-            int window_anchor = i * InstanceData::width;
-            if (window_anchor + InstanceData::width > GlobalData::g->n)
-                windows.push_back({stair_anchor + window_anchor + 1, stair_anchor + GlobalData::g->n});
-            else
-                windows.push_back({stair_anchor + window_anchor + 1, stair_anchor + window_anchor + InstanceData::width});
+            int start = vertex * GlobalData::g->n + window * InstanceData::width + 1;
+            int end = std::min(
+                vertex * GlobalData::g->n + (window + 1) * InstanceData::width,
+                vertex * GlobalData::g->n + GlobalData::g->n);
+
+            for (int var = start; var <= end; var++)
+            {
+                vertice_vars[window].push_back(var);
+            }
         }
 
         std::vector<int> alo_clause = {};
-        for (int i = 0; i < number_windows; i++)
+        for (int window = 0; window < number_windows; window++)
         {
-            int first_window_aux_var = get_obj_k_aux_var(windows[i].first, windows[i].second);
+            int first_window_aux_var = get_obj_k_aux_var(vertice_vars[window].front(), vertice_vars[window].back());
             alo_clause.push_back(first_window_aux_var);
-            for (int j = i + 1; j < number_windows; j++)
+            for (int next_window = window + 1; next_window < number_windows; next_window++)
             {
-                int second_window_aux_var = get_obj_k_aux_var(windows[j].first, windows[j].second);
+                int second_window_aux_var = get_obj_k_aux_var(vertice_vars[next_window].front(), vertice_vars[next_window].back());
                 InstanceData::cc->add_clause({-first_window_aux_var, -second_window_aux_var});
             }
         }
