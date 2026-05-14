@@ -31,9 +31,6 @@ public:
     void encode_cyclic_antibandwidth() override;
 
 private:
-    // Use to save aux vars of LABELS and VERTICES constraints
-    std::map<int, int> aux_vars = {};
-
     // Use to save aux vars of OBJ-K constraints
     std::unordered_map<std::vector<int>, int, VectorHash> obj_k_aux_vars;
 

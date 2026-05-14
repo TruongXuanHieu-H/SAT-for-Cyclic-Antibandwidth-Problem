@@ -22,7 +22,6 @@ void LadderEncoder::encode_cyclic_antibandwidth()
 
 void LadderEncoder::do_encode_antibandwidth()
 {
-    aux_vars.clear();
     obj_k_aux_vars.clear();
 
     if (GlobalData::symmetry_break_strategy == SymmetryBreakingType::FIRST)
@@ -135,13 +134,11 @@ void LadderEncoder::encode_exactly_one_product(const std::vector<int> &vars)
     {
         int new_var = InstanceData::vh->get_new_var();
         u_vars.push_back(new_var);
-        aux_vars.insert({new_var, new_var});
     }
     for (int j = 1; j <= q; ++j)
     {
         int new_var = InstanceData::vh->get_new_var();
         v_vars.push_back(new_var);
-        aux_vars.insert({new_var, new_var});
     }
 
     int i, j;
@@ -173,7 +170,6 @@ void LadderEncoder::encode_amo_seq(const std::vector<int> &vars)
     {
         int curr = vars[idx];
         int next = InstanceData::vh->get_new_var();
-        aux_vars.insert({next, next});
         InstanceData::cc->add_clause({-1 * prev, -1 * curr});
         InstanceData::cc->add_clause({-1 * prev, next});
         InstanceData::cc->add_clause({-1 * curr, next});
