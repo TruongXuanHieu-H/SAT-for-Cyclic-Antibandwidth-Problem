@@ -181,7 +181,7 @@ void LadderEncoder::encode_amo_seq(const std::vector<int> &vars)
 
 void LadderEncoder::encode_obj_k()
 {
-    std::vector<std::vector<int>> ladders;
+    std::vector<std::vector<int>> ladders_vars;
     for (int vertex = 0; vertex < GlobalData::g->n; vertex++)
     {
         std::vector<int> ladder_vars;
@@ -193,41 +193,41 @@ void LadderEncoder::encode_obj_k()
         {
             ladder_vars.push_back(vertex * GlobalData::g->n + label + 1);
         }
-        ladders.push_back(ladder_vars);
+        ladders_vars.push_back(ladder_vars);
     }
 
     for (int i = 0; i < GlobalData::g->n; i++)
     {
-        encode_ladder(ladders[i], InstanceData::width);
+        encode_ladder(ladders_vars[i], InstanceData::width);
     }
 
     for (auto edge : GlobalData::g->edges)
     {
-        connect_ladder(ladders[edge.first - 1], ladders[edge.second - 1], InstanceData::width); // Have to reduce by 1 since edges are start from 1
+        connect_ladder(ladders_vars[edge.first - 1], ladders_vars[edge.second - 1], InstanceData::width); // Have to reduce by 1 since edges are start from 1
     }
 }
 
 void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
 {
-    std::vector<std::vector<int>> windows;
+    std::vector<std::vector<int>> windows_vars;
     int number_ladder_vars = (int)ladder_vars.size();
 
     for (int i = 0; i < number_ladder_vars; i += width)
     {
         int end = std::min(i + width, number_ladder_vars);
-        windows.emplace_back(ladder_vars.begin() + i, ladder_vars.begin() + end);
+        windows_vars.emplace_back(ladder_vars.begin() + i, ladder_vars.begin() + end);
     }
 
-    int number_windows = (int)windows.size();
+    int number_windows = (int)windows_vars.size();
 
     for (int i = 0; i < number_windows; i++)
     {
-        encode_window(windows[i], i == 0, i == number_windows - 1);
+        encode_window(windows_vars[i], i == 0, i == number_windows - 1);
     }
 
     for (int i = 0; i < number_windows - 1; i++)
     {
-        connect_windows(windows[i], windows[i + 1]);
+        connect_windows(windows_vars[i], windows_vars[i + 1]);
     }
 }
 
