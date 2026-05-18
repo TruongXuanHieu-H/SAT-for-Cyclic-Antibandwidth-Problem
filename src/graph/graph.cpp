@@ -51,7 +51,7 @@ Graph::Graph(std::string file_name) : edges(std::vector<std::pair<int, int>>())
         }
     }
     input_file_stream.close();
-    assert(edges.size() == number_of_edges);
+    assert((int)edges.size() == number_of_edges);
 };
 
 void Graph::filename(std::string &path)
