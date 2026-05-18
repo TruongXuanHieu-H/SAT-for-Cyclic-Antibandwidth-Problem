@@ -53,7 +53,7 @@ void ClauseContainer::do_add_clause(const Clause &c)
     // {
     //     std::cout << cl << " ";
     // }
-    // std::cout << std::endl;
+    // std::cout << "0" << std::endl;
 
     if (InstanceData::solver)
         InstanceData::solver->add_clause(c);
