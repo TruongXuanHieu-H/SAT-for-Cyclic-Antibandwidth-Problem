@@ -44,17 +44,23 @@ void LadderEncoder::do_encode_antibandwidth()
     encode_labels();
 };
 
-int LadderEncoder::get_obj_k_aux_var(std::vector<int> key)
+int LadderEncoder::get_obj_k_aux_var(std::vector<int> key, bool is_key_exist)
 {
-
-    auto pair = obj_k_aux_vars.find(key);
-
-    if (pair != obj_k_aux_vars.end())
-        return pair->second;
-
     if (key.front() == key.back() && key.size() == 1)
     {
         return key.front();
+    }
+
+    auto pair = obj_k_aux_vars.find(key);
+
+    if (is_key_exist)
+    {
+        assert(pair != obj_k_aux_vars.end());
+    }
+
+    if (pair != obj_k_aux_vars.end())
+    {
+        return pair->second;
     }
 
     int new_obj_k_aux_var = InstanceData::vh->get_new_var();
@@ -209,6 +215,16 @@ void LadderEncoder::encode_obj_k()
 
 void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
 {
+    if (is_debugged)
+    {
+        std::cout << "c Encoding ladder ";
+        for (int var : ladder_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << "with width " << width << std::endl;
+    }
+
     std::vector<std::vector<int>> windows_vars;
     int number_ladder_vars = (int)ladder_vars.size();
 
@@ -233,6 +249,16 @@ void LadderEncoder::encode_ladder(const std::vector<int> ladder_vars, int width)
 
 void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_first_window, bool is_last_window)
 {
+    if (is_debugged)
+    {
+        std::cout << "c Encoding window ";
+        for (int var : window_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << std::endl;
+    }
+
     int window_vars_size = (int)window_vars.size();
 
     if (!is_first_window)
@@ -297,9 +323,26 @@ void LadderEncoder::encode_window(const std::vector<int> window_vars, bool is_fi
 
 void LadderEncoder::connect_windows(const std::vector<int> first_window_vars, const std::vector<int> second_window_vars)
 {
+    if (is_debugged)
+    {
+        std::cout << "c Connecting windows: " << std::endl;
+        std::cout << "c First window vars: ";
+        for (int var : first_window_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "c Second window vars: ";
+        for (int var : second_window_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << std::endl;
+    }
+
     int number_first_window_vars = (int)first_window_vars.size();
     int number_second_window_vars = (int)second_window_vars.size();
-    assert(number_first_window_vars < number_second_window_vars);
+    assert(number_first_window_vars >= number_second_window_vars);
 
     int number_connections = number_first_window_vars == number_second_window_vars ? number_second_window_vars - 1 : number_second_window_vars;
 
@@ -312,6 +355,23 @@ void LadderEncoder::connect_windows(const std::vector<int> first_window_vars, co
 
 void LadderEncoder::connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width)
 {
+    if (is_debugged)
+    {
+        std::cout << "c Connecting ladders: " << std::endl;
+        std::cout << "c First ladder vars: ";
+        for (int var : first_ladder_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << std::endl;
+        std::cout << "c Second ladder vars: ";
+        for (int var : second_ladder_vars)
+        {
+            std::cout << var << " ";
+        }
+        std::cout << std::endl;
+    }
+
     assert(first_ladder_vars.size() == second_ladder_vars.size());
 
     int number_connections = first_ladder_vars.size() - width + 1;

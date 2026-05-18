@@ -1,0 +1,23 @@
+#ifndef LADDER_SPLIT_ENCODER_H
+#define LADDER_SPLIT_ENCODER_H
+
+#include "ladder_encoder.h"
+
+#include <vector>
+
+class LadderSplitEncoder : public LadderEncoder
+{
+public:
+    LadderSplitEncoder();
+    ~LadderSplitEncoder() override;
+
+private:
+    void encode_labels() override;
+    void encode_obj_k() override;
+    void connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width) override;
+
+    std::vector<std::pair<std::vector<int>, int>> split_into_sub_ladders(const std::vector<int> ladder_vars, int width, int number_splits);
+    void connect_sub_ladders(const std::vector<std::pair<std::vector<int>, int>> sub_ladders);
+};
+
+#endif // LADDER_SPLIT_ENCODER_H

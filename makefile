@@ -17,7 +17,7 @@ STANDARD  := -std=c++23
 # Compiler flags
 # ================================
 IGNORE_ASSERTVARS := -Wno-unused-but-set-variable
-CXXFLAGS := -Wall -Wextra -Werror -O3 -DNDEBUG $(STANDARD) -Wno-literal-suffix
+CXXFLAGS := -Wall -Wextra -Werror -O3 $(STANDARD) -Wno-literal-suffix
 
 # ================================
 # CaDiCaL
@@ -41,6 +41,7 @@ SOURCES := \
 	encoders/instance_data.cpp \
 	encoders/instance_encoder.cpp \
 	encoders/ladder_encoder.cpp \
+	encoders/ladder_split_encoder.cpp \
 	encoders/sat_solver_cadical.cpp \
 	encoders/var_handler.cpp \
 	graph/graph.cpp \
