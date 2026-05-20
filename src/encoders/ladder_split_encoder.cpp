@@ -78,18 +78,8 @@ void LadderSplitEncoder::encode_obj_k()
     }
 };
 
-std::vector<std::pair<std::vector<int>, int>> LadderSplitEncoder::split_into_sub_ladders(const std::vector<int> ladder_vars, int width, int number_splits)
+std::vector<std::pair<std::vector<int>, int>> LadderSplitEncoder::split_into_sub_ladders(const std::vector<int> &ladder_vars, int width, int number_splits)
 {
-    if (is_debugged)
-    {
-        std::cout << "c Splitting ladder ";
-        for (int var : ladder_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << "with width " << width << std::endl;
-    }
-
     std::vector<std::pair<std::vector<int>, int>> sub_ladders;
 
     int avg_sub_ladder_width = width / number_splits;
@@ -105,20 +95,6 @@ std::vector<std::pair<std::vector<int>, int>> LadderSplitEncoder::split_into_sub
     {
         std::vector<int> sub_ladder_vars(ladder_vars.begin() + number_splits * avg_sub_ladder_width, ladder_vars.end());
         sub_ladders.push_back({sub_ladder_vars, exceed_sub_ladder_width});
-    }
-
-    if (is_debugged)
-    {
-        std::cout << "c Created sub-ladders:" << std::endl;
-        for (int i = 0; i < (int)sub_ladders.size(); i++)
-        {
-            std::cout << "c Sub-ladder " << i + 1 << ": ";
-            for (int var : sub_ladders[i].first)
-            {
-                std::cout << var << " ";
-            }
-            std::cout << "with width " << sub_ladders[i].second << std::endl;
-        }
     }
     return sub_ladders;
 }
