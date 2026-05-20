@@ -18,6 +18,7 @@ private:
 
     std::vector<std::vector<int>> get_ladders_vars(int number_ladder, int width);
     std::vector<std::pair<std::vector<int>, int>> split_into_sub_ladders(const std::vector<int> &ladder_vars, int width, int number_splits);
+    std::pair<std::vector<int>, int> get_compact_sub_ladder(std::vector<std::pair<std::vector<int>, int>> &sub_ladders);
     void connect_sub_ladders(const std::vector<std::pair<std::vector<int>, int>> sub_ladders);
 };
 

@@ -42,6 +42,26 @@ std::vector<std::vector<int>> LadderSplitEncoder::get_ladders_vars(int number_la
     return ladders_vars;
 }
 
+std::pair<std::vector<int>, int> LadderSplitEncoder::get_compact_sub_ladder(std::vector<std::pair<std::vector<int>, int>> &sub_ladders)
+{
+    std::vector<int> compact_sub_ladder_vars = sub_ladders[0].first;
+    int compact_sub_ladder_width = sub_ladders[0].second;
+
+    for (int j = 1; j < (int)sub_ladders.size(); j++)
+    {
+        if (sub_ladders[j].second == compact_sub_ladder_width)
+        {
+            compact_sub_ladder_vars.insert(compact_sub_ladder_vars.end(), sub_ladders[j].first.end() - sub_ladders[j].second, sub_ladders[j].first.end());
+        }
+        else
+        {
+            assert(sub_ladders[j].second < sub_ladders[0].second && j == (int)sub_ladders.size() - 1); // Must be the last sub-ladder with smaller width
+        }
+    }
+
+    return {compact_sub_ladder_vars, compact_sub_ladder_width};
+}
+
 void LadderSplitEncoder::encode_obj_k()
 {
     std::vector<std::vector<int>> ladders_vars = get_ladders_vars(GlobalData::g->n, InstanceData::width);
@@ -54,21 +74,9 @@ void LadderSplitEncoder::encode_obj_k()
     {
         std::vector<std::pair<std::vector<int>, int>> sub_ladders = split_into_sub_ladders(ladders_vars[i], InstanceData::width, number_sub_ladders);
 
-        assert(avg_sub_ladder_width == sub_ladders[0].second);
-        std::vector<int> compact_sub_ladder_vars = sub_ladders[0].first;
+        std::pair<std::vector<int>, int> compact_sub_ladder = get_compact_sub_ladder(sub_ladders);
 
-        for (int j = 1; j < number_sub_ladders; j++)
-        {
-            assert(avg_sub_ladder_width == sub_ladders[j].second);
-            compact_sub_ladder_vars.insert(compact_sub_ladder_vars.end(), sub_ladders[j].first.end() - sub_ladders[j].second, sub_ladders[j].first.end());
-        }
-
-        if (exceed_sub_ladder_width == avg_sub_ladder_width)
-        {
-            compact_sub_ladder_vars.insert(compact_sub_ladder_vars.end(), sub_ladders.back().first.end() - sub_ladders.back().second, sub_ladders.back().first.end());
-        }
-
-        encode_ladder(compact_sub_ladder_vars, avg_sub_ladder_width);
+        encode_ladder(compact_sub_ladder.first, compact_sub_ladder.second);
 
         if (exceed_sub_ladder_width > 0 && exceed_sub_ladder_width < avg_sub_ladder_width)
         {
