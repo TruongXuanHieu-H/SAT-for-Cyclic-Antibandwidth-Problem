@@ -208,23 +208,6 @@ void LadderSplitEncoder::connect_sub_ladders(const std::vector<std::pair<std::ve
 
 void LadderSplitEncoder::connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width)
 {
-    if (is_debugged)
-    {
-        std::cout << "c Connecting ladders: " << std::endl;
-        std::cout << "c First ladder vars: ";
-        for (int var : first_ladder_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << std::endl;
-        std::cout << "c Second ladder vars: ";
-        for (int var : second_ladder_vars)
-        {
-            std::cout << var << " ";
-        }
-        std::cout << std::endl;
-    }
-
     assert(first_ladder_vars.size() == second_ladder_vars.size());
 
     int number_connections = first_ladder_vars.size() - width + 1;
