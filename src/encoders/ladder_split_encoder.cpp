@@ -79,7 +79,7 @@ void LadderSplitEncoder::encode_obj_k()
         if (InstanceData::width % number_sub_ladders > 0)
             encode_ladder(sub_ladders.back().first, InstanceData::width % number_sub_ladders);
 
-        connect_sub_ladders(sub_ladders);
+        connect_sub_ladders(sub_ladders, ladders_vars[i], InstanceData::width);
     }
 
     for (auto edge : GlobalData::g->edges)
@@ -109,98 +109,47 @@ std::vector<std::pair<std::vector<int>, int>> LadderSplitEncoder::split_into_sub
     return sub_ladders;
 }
 
-void LadderSplitEncoder::connect_sub_ladders(const std::vector<std::pair<std::vector<int>, int>> sub_ladders)
+void LadderSplitEncoder::connect_sub_ladders(const std::vector<std::pair<std::vector<int>, int>> &sub_ladders, std::vector<int> &ladder, int width)
 {
-    if (is_debugged)
-    {
-        std::cout << "c Connecting sub-ladders: " << std::endl;
-        for (auto sub_ladder : sub_ladders)
-        {
-            std::cout << "c Sub-ladder vars: ";
-            for (int var : sub_ladder.first)
-            {
-                std::cout << var << " ";
-            }
-            std::cout << "with width " << sub_ladder.second << std::endl;
-        }
-    }
-
-    int number_sub_ladders = (int)sub_ladders.size();
-    assert(number_sub_ladders > 1);
-    for (int i = 0; i < number_sub_ladders - 1; i++)
-    {
-        assert((int)sub_ladders[i].first.size() - sub_ladders[i].second == (int)sub_ladders[i + 1].first.size() - sub_ladders[i + 1].second);
-    }
-
     int avg_sub_ladder_width = sub_ladders[0].second;
 
-    int number_connections = sub_ladders[0].first.size() - sub_ladders[0].second + 1;
+    int number_connections = (int)ladder.size() - width + 1;
+    int number_sub_ladders = (int)sub_ladders.size();
+    for (int i = 0; i < number_sub_ladders; i++)
+    {
+        assert((int)sub_ladders[i].first.size() - sub_ladders[i].second + 1 == number_connections);
+    }
+
     for (int i = 0; i < number_connections; i++)
     {
-        std::vector<int> sum_vars;
-        for (int j = 0; j < number_sub_ladders; j++)
-        {
-            sum_vars.insert(sum_vars.end(), sub_ladders[j].first.begin() + i, sub_ladders[j].first.begin() + i + sub_ladders[j].second);
-        }
+        std::vector<int> connected_expression(ladder.begin() + i, ladder.begin() + i + width);
 
-        if (is_debugged)
-        {
-            std::cout << "c Sum vars: ";
-            for (int var : sum_vars)
-            {
-                std::cout << var << " ";
-            }
-            std::cout << std::endl;
-        }
-
-        std::vector<std::vector<int>> expressions;
-        std::vector<std::vector<int>> sum_var_groups;
+        std::vector<std::vector<int>> sub_expressions;
 
         int first_expression_size = avg_sub_ladder_width - i % avg_sub_ladder_width;
-        int number_full_expressions = ((int)sum_vars.size() - first_expression_size) / avg_sub_ladder_width;
-        int last_expression_size = ((int)sum_vars.size() - first_expression_size) % avg_sub_ladder_width;
+        std::vector<int> first_expression(connected_expression.begin(), connected_expression.begin() + first_expression_size);
+        sub_expressions.push_back(first_expression);
 
-        std::vector<int> first_expression(sum_vars.begin(), sum_vars.begin() + first_expression_size);
-        expressions.push_back(first_expression);
-        sum_var_groups.push_back(first_expression);
+        int number_full_expressions = (width - first_expression_size) / avg_sub_ladder_width;
         for (int j = 0; j < number_full_expressions; j++)
         {
-            std::vector<int> expression(sum_vars.begin() + first_expression_size + j * avg_sub_ladder_width, sum_vars.begin() + first_expression_size + (j + 1) * avg_sub_ladder_width);
-            expressions.push_back(expression);
-            std::vector<int> sum_var_group = sum_var_groups.back();
-            sum_var_group.insert(sum_var_group.end(), expression.begin(), expression.end());
-            sum_var_groups.push_back(sum_var_group);
+            std::vector<int> expression(connected_expression.begin() + first_expression_size + j * avg_sub_ladder_width, connected_expression.begin() + first_expression_size + (j + 1) * avg_sub_ladder_width);
+            sub_expressions.push_back(expression);
         }
+
+        int last_expression_size = (width - first_expression_size) % avg_sub_ladder_width;
         if (last_expression_size > 0)
         {
-            std::vector<int> expression(sum_vars.end() - last_expression_size, sum_vars.end());
-            expressions.push_back(expression);
-            std::vector<int> sum_var_group = sum_var_groups.back();
-            sum_var_group.insert(sum_var_group.end(), expression.begin(), expression.end());
-            sum_var_groups.push_back(sum_var_group);
+            std::vector<int> expression(connected_expression.end() - last_expression_size, connected_expression.end());
+            sub_expressions.push_back(expression);
         }
-
-        if (is_debugged)
-        {
-            for (auto sum_var_group : sum_var_groups)
-            {
-                std::cout << "c Sum var group: ";
-                for (int var : sum_var_group)
-                {
-                    std::cout << var << " ";
-                }
-                std::cout << std::endl;
-            }
-        }
-
-        assert((int)expressions.size() == (int)sum_var_groups.size());
 
         std::vector<int> clause;
-        clause.push_back(-get_obj_k_aux_var(sum_vars));
-        for (int j = 0; j < (int)expressions.size(); j++)
+        clause.push_back(-get_obj_k_aux_var(connected_expression));
+        for (int j = 0; j < (int)sub_expressions.size(); j++)
         {
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(expressions[j], true), get_obj_k_aux_var(sum_vars)});
-            clause.push_back(get_obj_k_aux_var(expressions[j]));
+            InstanceData::cc->add_clause({-get_obj_k_aux_var(sub_expressions[j], true), get_obj_k_aux_var(connected_expression)});
+            clause.push_back(get_obj_k_aux_var(sub_expressions[j]));
         }
         InstanceData::cc->add_clause(clause);
     }
