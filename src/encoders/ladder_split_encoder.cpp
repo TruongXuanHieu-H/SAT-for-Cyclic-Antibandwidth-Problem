@@ -67,8 +67,6 @@ void LadderSplitEncoder::encode_obj_k()
     std::vector<std::vector<int>> ladders_vars = get_ladders_vars(GlobalData::g->n, InstanceData::width);
 
     int number_sub_ladders = 2;
-    int avg_sub_ladder_width = InstanceData::width / number_sub_ladders;
-    int exceed_sub_ladder_width = InstanceData::width % number_sub_ladders;
 
     for (int i = 0; i < GlobalData::g->n; i++)
     {
@@ -78,10 +76,8 @@ void LadderSplitEncoder::encode_obj_k()
 
         encode_ladder(compact_sub_ladder.first, compact_sub_ladder.second);
 
-        if (exceed_sub_ladder_width > 0 && exceed_sub_ladder_width < avg_sub_ladder_width)
-        {
-            encode_ladder(sub_ladders.back().first, exceed_sub_ladder_width);
-        }
+        if (InstanceData::width % number_sub_ladders > 0)
+            encode_ladder(sub_ladders.back().first, InstanceData::width % number_sub_ladders);
 
         connect_sub_ladders(sub_ladders);
     }
