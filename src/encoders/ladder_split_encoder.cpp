@@ -23,22 +23,28 @@ void LadderSplitEncoder::encode_labels()
     }
 };
 
-void LadderSplitEncoder::encode_obj_k()
+std::vector<std::vector<int>> LadderSplitEncoder::get_ladders_vars(int number_ladder, int width)
 {
     std::vector<std::vector<int>> ladders_vars;
-    for (int vertex = 0; vertex < GlobalData::g->n; vertex++)
+    for (int vertex = 0; vertex < number_ladder; vertex++)
     {
         std::vector<int> ladder_vars;
-        for (int label = 0; label < GlobalData::g->n; label++)
+        for (int label = 0; label < number_ladder; label++)
         {
-            ladder_vars.push_back(vertex * GlobalData::g->n + label + 1);
+            ladder_vars.push_back(vertex * number_ladder + label + 1);
         }
-        for (int label = 0; label < InstanceData::width - 1; label++)
+        for (int label = 0; label < width - 1; label++)
         {
-            ladder_vars.push_back(vertex * GlobalData::g->n + label + 1);
+            ladder_vars.push_back(vertex * number_ladder + label + 1);
         }
         ladders_vars.push_back(ladder_vars);
     }
+    return ladders_vars;
+}
+
+void LadderSplitEncoder::encode_obj_k()
+{
+    std::vector<std::vector<int>> ladders_vars = get_ladders_vars(GlobalData::g->n, InstanceData::width);
 
     int number_sub_ladders = 2;
     int avg_sub_ladder_width = InstanceData::width / number_sub_ladders;
