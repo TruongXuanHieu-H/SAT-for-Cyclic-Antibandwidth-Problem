@@ -45,7 +45,7 @@ int SATSolverCadical::solve()
 
 std::vector<int> SATSolverCadical::extract_result()
 {
-    std::vector<int> result;
+    std::vector<int> result(GlobalData::g->n, 0);
     for (int node = 0; node < GlobalData::g->n; ++node)
     {
         for (int label = 1; label <= GlobalData::g->n; ++label)
@@ -53,14 +53,15 @@ std::vector<int> SATSolverCadical::extract_result()
             int res = solver->val(node * GlobalData::g->n + label);
             if (res > 0)
             {
-                result.push_back(label);
+                if (result[node] != 0)
+                {
+                    std::cerr << "e " << InstanceData::get_signature() << " Error, the solution is not a labelling: more than one label assigned for node " << node + 1 << ".\n";
+                    raise(SIGABRT);
+                }
+                result[node] = label;
             }
         }
     }
-    if ((int)result.size() > GlobalData::g->n)
-    {
-        std::cerr << "e" << InstanceData::get_signature() << " Error, the solution is not a labelling: more than one label assigned for one of the nodes.\n";
-        raise(SIGABRT);
-    }
+
     return result;
 }
