@@ -12,6 +12,8 @@ public:
     ~LadderSplitEncoder() override;
 
 private:
+    int number_sub_ladders = 2;
+
     void encode_labels() override;
     void encode_obj_k() override;
     void connect_ladder(const std::vector<int> first_ladder_vars, const std::vector<int> second_ladder_vars, int width) override;

@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <assert.h>
+#include <cmath>
 
 LadderSplitEncoder::LadderSplitEncoder() {}
 LadderSplitEncoder::~LadderSplitEncoder() {}
@@ -12,14 +13,36 @@ void LadderSplitEncoder::encode_labels()
 {
     for (int vertex = 0; vertex < GlobalData::g->n; vertex++)
     {
-        std::vector<int> node_labels_eo(GlobalData::g->n);
+        int width_sub_windows = InstanceData::width / number_sub_ladders;
+        int number_sub_windows = ceil((float)GlobalData::g->n / width_sub_windows);
+        std::vector<std::vector<int>> vertice_vars(number_sub_windows);
+        std::vector<int> node_labels_eo(number_sub_windows);
 
-        for (int label = 0; label < GlobalData::g->n; label++)
+        for (int window = 0; window < number_sub_windows; window++)
         {
-            node_labels_eo[label] = vertex * GlobalData::g->n + label + 1;
+            int start = vertex * GlobalData::g->n + window * width_sub_windows + 1;
+            int end = std::min(
+                vertex * GlobalData::g->n + (window + 1) * width_sub_windows,
+                vertex * GlobalData::g->n + GlobalData::g->n);
+
+            for (int var = start; var <= end; var++)
+            {
+                vertice_vars[window].push_back(var);
+            }
         }
 
-        encode_exactly_one_product(node_labels_eo);
+        std::vector<int> alo_clause = {};
+        for (int window = 0; window < number_sub_windows; window++)
+        {
+            int first_window_aux_var = get_obj_k_aux_var(vertice_vars[window], true);
+            alo_clause.push_back(first_window_aux_var);
+            for (int next_window = window + 1; next_window < number_sub_windows; next_window++)
+            {
+                int second_window_aux_var = get_obj_k_aux_var(vertice_vars[next_window], true);
+                InstanceData::cc->add_clause({-first_window_aux_var, -second_window_aux_var});
+            }
+        }
+        InstanceData::cc->add_clause(alo_clause);
     }
 };
 
@@ -65,8 +88,6 @@ std::pair<std::vector<int>, int> LadderSplitEncoder::get_compact_sub_ladder(std:
 void LadderSplitEncoder::encode_obj_k()
 {
     std::vector<std::vector<int>> ladders_vars = get_ladders_vars(GlobalData::g->n, InstanceData::width);
-
-    int number_sub_ladders = 2;
 
     for (int i = 0; i < GlobalData::g->n; i++)
     {
@@ -145,12 +166,19 @@ void LadderSplitEncoder::connect_sub_ladders(const std::vector<std::pair<std::ve
         }
 
         std::vector<int> clause;
-        clause.push_back(-get_obj_k_aux_var(connected_expression));
         for (int j = 0; j < (int)sub_expressions.size(); j++)
         {
-            InstanceData::cc->add_clause({-get_obj_k_aux_var(sub_expressions[j], true), get_obj_k_aux_var(connected_expression)});
+            InstanceData::cc->add_clause({-get_obj_k_aux_var(sub_expressions[j]), get_obj_k_aux_var(connected_expression)});
             clause.push_back(get_obj_k_aux_var(sub_expressions[j]));
         }
+        for (int j = 0; j < (int)sub_expressions.size() - 1; j++)
+        {
+            for (int k = j + 1; k < (int)sub_expressions.size(); k++)
+            {
+                InstanceData::cc->add_clause({-get_obj_k_aux_var(sub_expressions[j]), -get_obj_k_aux_var(sub_expressions[k])});
+            }
+        }
+        clause.push_back(-get_obj_k_aux_var(connected_expression));
         InstanceData::cc->add_clause(clause);
     }
 }
