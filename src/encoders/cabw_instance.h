@@ -22,6 +22,5 @@ private:
     int SAT_res = 0;
 
     int verify_solution();
-    bool extract_node_labels(std::vector<int> &node_labels);
 };
 #endif // CABW_INSTANCE_H

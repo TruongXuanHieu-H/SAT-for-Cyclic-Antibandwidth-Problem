@@ -2,7 +2,6 @@
 #include "../global_data.h"
 #include "instance_data.h"
 #include "sat_solver_cadical.h"
-#include "ladder_encoder.h"
 #include <iostream>
 #include <fstream>
 #include <chrono>
@@ -72,27 +71,26 @@ int CABWInstance::encode_and_solve_cabp()
 
     if (GlobalData::enable_solution_verification && SAT_res == 10)
     {
-        int solution_abp = verify_solution();
-        if (solution_abp < InstanceData::width)
+        int solution_cabp = verify_solution();
+        if (solution_cabp < InstanceData::width)
         {
-            std::cerr << "c " + InstanceData::get_signature() + " Error, the solution is not correct, antibandwidth should be at least " << InstanceData::width << ", but it is " << solution_abp << ".\n";
+            std::cerr << "c " + InstanceData::get_signature() + " Error, the solution is not correct, cylic antibandwidth should be at least " << InstanceData::width << ", but it is " << solution_cabp << ".\n";
 
             InstanceData::cleanup_solving();
             return -10;
         }
-        else if (solution_abp == InstanceData::width)
+        else if (solution_cabp == InstanceData::width)
         {
             std::cout << "c " + InstanceData::get_signature() + " The solution is correct.\n";
         }
         else
         {
-            std::cout << "c " + InstanceData::get_signature() + " Found an optimal solution " << solution_abp << ".\n ";
+            std::cout << "c " + InstanceData::get_signature() + " Found an optimal solution " << solution_cabp << ".\n ";
         }
     }
 
     InstanceData::cleanup_solving();
 
-    // std::cout << "c " + get_signature() + " Closed.\n";
     return SAT_res;
 };
 
